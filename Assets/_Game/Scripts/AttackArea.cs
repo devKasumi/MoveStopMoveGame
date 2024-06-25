@@ -20,7 +20,19 @@ public class AttackArea : MonoBehaviour
     {
         if (other.CompareTag(Constants.TAG_BOT))
         {
-            Debug.LogError("touch attack area!!!");
+            Character character = Cache.GenCharacter(other);
+            Bot bot = (Bot)character;
+            bot.EnableTarget();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(Constants.TAG_BOT))
+        {
+            Character character = Cache.GenCharacter(other);
+            Bot bot = (Bot)character;
+            bot.DisableTarget();
         }
     }
 }

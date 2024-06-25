@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cache : MonoBehaviour
+public class Cache
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private static Dictionary<Collider, Character> characters = new Dictionary<Collider, Character>();
 
-    // Update is called once per frame
-    void Update()
+    public static Character GenCharacter(Collider collider)
     {
-        
+        if (!characters.ContainsKey(collider))
+        {
+            characters.Add(collider, collider.GetComponent<Character>());
+        }
+
+        return characters[collider];
     }
 }
