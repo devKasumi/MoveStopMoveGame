@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolState : MonoBehaviour
+public class PatrolState : IState
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnEnter(Bot bot)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnExecute(Bot bot)
     {
-        
+
+    }
+
+    public void OnExit(Bot bot)
+    {
+
     }
 }

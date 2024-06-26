@@ -2,19 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackArea : MonoBehaviour
+public class PlayerAttackArea : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private Character player;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +13,8 @@ public class AttackArea : MonoBehaviour
             Character character = Cache.GenCharacter(other);
             Bot bot = (Bot)character;
             bot.EnableTarget();
+            bot.ChangeState(new IdleState());
+            player.AddTarget(bot);
         }
     }
 
@@ -33,6 +25,8 @@ public class AttackArea : MonoBehaviour
             Character character = Cache.GenCharacter(other);
             Bot bot = (Bot)character;
             bot.DisableTarget();
+            bot.ChangeState(new PatrolState());
+            player.RemoveTarget(bot);
         }
     }
 }

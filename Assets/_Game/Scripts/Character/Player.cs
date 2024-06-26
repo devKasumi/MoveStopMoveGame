@@ -6,8 +6,6 @@ public class Player : Character
 {
     [SerializeField] private FloatingJoystick joystick;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private Transform tf;
-    //[SerializeField] private Canvas canvas;
 
     private Vector3 moveDirection;
     private float inputX;
@@ -33,7 +31,7 @@ public class Player : Character
         moveDirection = new Vector3(inputX * MoveSpeed(), 0f, inputZ * MoveSpeed());    
 
         rb.velocity = moveDirection;
-        tf.rotation = Quaternion.LookRotation(rb.velocity);
+        TF.rotation = Quaternion.LookRotation(rb.velocity);
     }
 
 

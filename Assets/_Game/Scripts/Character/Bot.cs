@@ -7,6 +7,8 @@ public class Bot : Character
 {
     [SerializeField] private Image targetImage;
 
+    private IState currentState;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,21 @@ public class Bot : Character
     void Update()
     {
         
+    }
+
+    public void ChangeState(IState newState)
+    {
+        if (currentState != null)
+        {
+            currentState.OnExit(this);
+        }
+
+        currentState = newState;
+
+        if (currentState != null)
+        {
+            currentState.OnEnter(this);
+        }
     }
 
     //public Image TargetImage() => targetImage;
