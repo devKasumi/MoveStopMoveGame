@@ -23,4 +23,11 @@ public class CommonEnum
         Orange = 5,
         Purple = 6,
     }
+
+    public enum WeaponType
+    {
+        Axe,
+        Sword,
+        Knife,
+    }
 }
