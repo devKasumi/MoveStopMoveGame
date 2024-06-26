@@ -15,11 +15,11 @@ public static class WeaponPool
             return;
         }
 
-        if (!poolInstance.ContainsKey(weaponPrefab.WeaponType()) || poolInstance[weaponPrefab.WeaponType()] == null)
+        if (!poolInstance.ContainsKey(weaponPrefab.WeaponType) || poolInstance[weaponPrefab.WeaponType] == null)
         {
             Pool p = new Pool();    
             p.PreLoad(weaponPrefab, amount, parent);
-            poolInstance[weaponPrefab.WeaponType()] = p;
+            poolInstance[weaponPrefab.WeaponType] = p;
         }
     }
 
@@ -36,12 +36,12 @@ public static class WeaponPool
 
     public static void Despawn(Weapon weapon)
     {
-        if (!poolInstance.ContainsKey(weapon.WeaponType()))
+        if (!poolInstance.ContainsKey(weapon.WeaponType))
         {
-            Debug.LogError(weapon.WeaponType() + " IS NOT PRELOAD!");
+            Debug.LogError(weapon.WeaponType + " IS NOT PRELOAD!");
         }
 
-        poolInstance[weapon.WeaponType()].Despawn(weapon);
+        poolInstance[weapon.WeaponType].Despawn(weapon);
     }
 
     public static void Collect(CommonEnum.WeaponType weaponType)

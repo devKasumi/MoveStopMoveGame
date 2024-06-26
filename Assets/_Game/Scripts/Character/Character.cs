@@ -8,6 +8,8 @@ public class Character : MonoBehaviour
     [SerializeField] private Transform bulletPoint;
     [SerializeField] private Transform tf;
 
+    private Weapon weapon;
+
     public Transform TF
     {
         get => tf;
@@ -26,6 +28,12 @@ public class Character : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Weapon Weapon
+    {
+        get => weapon;
+        set => weapon = value;
     }
 
     public float MoveSpeed() => moveSpeed;

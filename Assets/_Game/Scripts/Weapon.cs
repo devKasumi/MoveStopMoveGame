@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
-    private float attackRange;
-    private float attackSpeed;
+    [SerializeField] private CommonEnum.WeaponType weaponType;
+    [SerializeField] private float attackRange;
+    [SerializeField] private float attackSpeed;
+
     private Image weaponSkin;
-    private CommonEnum.WeaponType weaponType;
 
     private Transform tf;
 
@@ -24,7 +25,26 @@ public class Weapon : MonoBehaviour
         
     }
 
-    public CommonEnum.WeaponType WeaponType() => weaponType;
+    public void OnInit()
+    {
+
+    }
+
+    public void OnDespawn()
+    {
+        WeaponPool.Despawn(this);
+    }
+
+    public CommonEnum.WeaponType WeaponType => weaponType;
+
+    public float AttackRange => attackRange;
+
+    public float AttackSpeed => attackSpeed;
+
+    public void ChangeWeaponSkin()
+    {
+
+    }
 
     public Transform TF
     {

@@ -1,11 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PoolControl : MonoBehaviour
 {
-    public void PreLoadPool()
-    {
+    private List<Weapon> weapons = new List<Weapon>();
 
+    private void Awake()
+    {
+        weapons = Resources.LoadAll<Weapon>("Pool/").ToList<Weapon>();
+    }
+
+    public void PreLoadPool(Character character)
+    {
+        Weapon weapon;
+        if (weapons.Contains(character.Weapon))
+        {
+            weapon = weapons[weapons.IndexOf(character.Weapon)];
+        }
+        else
+        {
+             weapon = null;
+        }
+        GameObject pool = new GameObject(character.name + "_" + weapon.name);
+        WeaponPool.PreLoad(weapon, 0, pool.transform);
     }
 }
