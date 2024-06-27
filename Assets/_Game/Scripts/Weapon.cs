@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private CommonEnum.WeaponType weaponType;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackSpeed;
+    [SerializeField] private Rigidbody rb;
+
 
     private Image weaponSkin;
 
@@ -22,7 +24,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //tf.Translate(tf.forward * attackSpeed * Time.deltaTime);
     }
 
     public void OnInit()
@@ -57,5 +59,20 @@ public class Weapon : MonoBehaviour
 
             return tf;
         }
+    }
+
+    public Rigidbody Rb
+    {
+        get => rb;
+        set => rb = value;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(Constants.TAG_BOT) || other.CompareTag(Constants.TAG_PLAYER))
+        {
+            
+        }
+        
     }
 }

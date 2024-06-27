@@ -47,6 +47,7 @@ public class Character : MonoBehaviour
 
     public void RemoveTarget(Character character)
     {
+        Debug.LogError("remove target!!!");
         listTargets.Remove(character.TF.position);
     }
 }

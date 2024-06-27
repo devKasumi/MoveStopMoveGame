@@ -63,5 +63,8 @@ public class Player : Character
         Debug.LogError("attacking!!!  " + attackCount);
         yield return new WaitForSeconds(0.1f);
         Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, spawnPoint.transform.position, Weapon.TF.rotation);
+        Vector3 direction = ListTarget()[0] - spawnPoint.transform.position;
+        weapon.transform.forward = direction;
+        weapon.Rb.AddForce(direction.normalized * weapon.AttackSpeed, ForceMode.Impulse);
     }
 }
