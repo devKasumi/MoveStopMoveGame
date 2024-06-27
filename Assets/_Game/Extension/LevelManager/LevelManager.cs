@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
-
+    [SerializeField] private Character[] characters;
     private Level currentLevel;
     private int currentLevelIndex;  
 

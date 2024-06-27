@@ -53,7 +53,6 @@ public class Weapon : MonoBehaviour
             if (!tf)
             {
                 tf = transform;
-
             }
 
             return tf;
