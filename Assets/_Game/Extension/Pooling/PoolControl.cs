@@ -21,9 +21,11 @@ public class PoolControl : MonoBehaviour
         }
         else
         {
-             weapon = null;
+            weapon = null;
         }
         GameObject pool = new GameObject(character.name + "_" + weapon.name);
         WeaponPool.PreLoad(weapon, 0, pool.transform);
     }
+
+    public List<Weapon> ListWeapon() => weapons;
 }

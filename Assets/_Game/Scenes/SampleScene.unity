@@ -322,7 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 246997745}
   m_Layer: 0
-  m_Name: BulletPoint
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1021,6 +1021,7 @@ MonoBehaviour:
   - {fileID: 1171624801}
   - {fileID: 1978334334}
   - {fileID: 2116379878}
+  poolControl: {fileID: 721787170}
 --- !u!1 &933658748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1318,7 @@ MonoBehaviour:
   tf: {fileID: 1171624799}
   joystick: {fileID: 1278882012}
   rb: {fileID: 1171624800}
+  spawnPoint: {fileID: 246997745}
 --- !u!1 &1226635616
 GameObject:
   m_ObjectHideFlags: 0

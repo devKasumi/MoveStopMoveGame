@@ -9,13 +9,13 @@ public class Character : MonoBehaviour
     [SerializeField] private Transform tf;
 
     private Weapon weapon;
+    private List<Vector3> listTargets = new List<Vector3>();
 
     public Transform TF
     {
         get => tf;
         set => tf = value;
     }
-    private List<Vector3> listTargets = new List<Vector3>();
 
 
     // Start is called before the first frame update
@@ -35,6 +35,8 @@ public class Character : MonoBehaviour
         get => weapon;
         set => weapon = value;
     }
+
+    public List<Vector3> ListTarget() => listTargets;
 
     public float MoveSpeed() => moveSpeed;
 
