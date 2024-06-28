@@ -41,14 +41,25 @@ public class Character : MonoBehaviour
 
     public float MoveSpeed() => moveSpeed;
 
+    public Transform SpawnPoint() => spawnPoint;
+
     public void AddTarget(Character character)
     {
         listTargets.Add(character.TF.position);
     }
 
-    public void RemoveTarget(Character character)
+    //public void RemoveTarget(Character character)
+    //{
+    //    Debug.LogError("remove target!!!");
+    //    listTargets.Remove(character.TF.position);
+    //}
+
+    public void RemoveTarget()
     {
-        Debug.LogError("remove target!!!");
-        listTargets.Remove(character.TF.position);
+        Debug.LogError("remove 1ts target!");
+        if (listTargets.Count > 0)
+        {
+            listTargets.Remove(listTargets[0]);
+        }
     }
 }

@@ -13,7 +13,6 @@ public class Player : Character
     private float inputX;
     private float inputZ;
 
-    private int attackCount = 0;
     float frameRate = 1f;
     float time = 0;
 
@@ -30,13 +29,12 @@ public class Player : Character
 
         time += Time.deltaTime;
 
-        if (joystick.IsResetJoystick() && ListTarget().Count > 0 && attackCount == 0)
+        if (joystick.IsResetJoystick() && ListTarget().Count > 0)
         {
             if (time >= frameRate)
             {
                 time = 0;
                 StartCoroutine(Attack());
-                attackCount++;
             }
         }
     }
@@ -54,18 +52,16 @@ public class Player : Character
         {
             TF.rotation = Quaternion.LookRotation(rb.velocity);
         }
-
-        attackCount = 0;
     }
 
     public IEnumerator Attack()
     {
-        Debug.LogError("attacking!!!  " + attackCount);
-        yield return new WaitForSeconds(0.1f);
-        Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, spawnPoint.transform.position, Weapon.TF.rotation);
+        //Debug.LogError("attacking!!!  " + attackCount);
+        yield return new WaitForSeconds(0.5f);
+        Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, SpawnPoint().transform.position, Weapon.TF.rotation);
         if (ListTarget().Count > 0)
         {
-            Vector3 direction = ListTarget()[0] - spawnPoint.transform.position;
+            Vector3 direction = ListTarget()[0] - SpawnPoint().transform.position;
             weapon.transform.forward = direction;
         }
         //weapon.Rb.AddForce(direction.normalized * weapon.AttackSpeed, ForceMode.Impulse);

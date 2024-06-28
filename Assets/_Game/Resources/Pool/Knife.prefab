@@ -150,3 +150,30 @@ MonoBehaviour:
   attackRange: 0
   attackSpeed: 15
   rb: {fileID: 4829882794052916684}
+  OnHitCharacter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: RemoveTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2489955522158264584}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: DespawnWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

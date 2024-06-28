@@ -26,7 +26,7 @@ public class PlayerAttackArea : MonoBehaviour
             Bot bot = (Bot)character;
             bot.DisableTarget();
             bot.ChangeState(new PatrolState());
-            player.RemoveTarget(bot);
+            player.RemoveTarget();
         }
     }
 }

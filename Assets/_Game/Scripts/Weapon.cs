@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
@@ -9,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float attackSpeed;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] public UnityEvent OnHitCharacter;
 
 
     private Image weaponSkin;
@@ -68,18 +70,25 @@ public class Weapon : MonoBehaviour
         set => rb = value;
     }
 
+    public void RemoveCharacterTarget(Character character)
+    {
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constants.TAG_BOT))
         {
             //StartCoroutine(DespawnWeapon());
-            WeaponPool.Despawn(this);
+            //WeaponPool.Despawn(this);
+            OnHitCharacter.Invoke();
         }
     }
 
-    public IEnumerator DespawnWeapon()
+    public void DespawnWeapon()
     {
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(0.5f);
         WeaponPool.Despawn(this);
+        //Destroy(this.gameObject);
     }
 }
