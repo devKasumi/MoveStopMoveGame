@@ -7,7 +7,7 @@ public class Player : Character
 {
     [SerializeField] private FloatingJoystick joystick;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private Transform spawnPoint;
+    
 
     private Vector3 moveDirection;
     private float inputX;
@@ -63,8 +63,11 @@ public class Player : Character
         Debug.LogError("attacking!!!  " + attackCount);
         yield return new WaitForSeconds(0.1f);
         Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, spawnPoint.transform.position, Weapon.TF.rotation);
-        Vector3 direction = ListTarget()[0] - spawnPoint.transform.position;
-        weapon.transform.forward = direction;
-        weapon.Rb.AddForce(direction.normalized * weapon.AttackSpeed, ForceMode.Impulse);
+        if (ListTarget().Count > 0)
+        {
+            Vector3 direction = ListTarget()[0] - spawnPoint.transform.position;
+            weapon.transform.forward = direction;
+        }
+        //weapon.Rb.AddForce(direction.normalized * weapon.AttackSpeed, ForceMode.Impulse);
     }
 }

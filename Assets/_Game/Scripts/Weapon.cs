@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        OnInit();
     }
 
     // Update is called once per frame
@@ -29,7 +29,8 @@ public class Weapon : MonoBehaviour
 
     public void OnInit()
     {
-
+        rb.velocity = transform.forward * 5f;
+        //Invoke(nameof(OnDespawn), 1f);
     }
 
     public void OnDespawn()
@@ -69,10 +70,16 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Constants.TAG_BOT) || other.CompareTag(Constants.TAG_PLAYER))
+        if (other.CompareTag(Constants.TAG_BOT))
         {
-            
+            //StartCoroutine(DespawnWeapon());
+            WeaponPool.Despawn(this);
         }
-        
+    }
+
+    public IEnumerator DespawnWeapon()
+    {
+        yield return new WaitForSeconds(3f);
+        WeaponPool.Despawn(this);
     }
 }

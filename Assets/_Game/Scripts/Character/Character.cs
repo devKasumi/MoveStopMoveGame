@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private Transform bulletPoint;
     [SerializeField] private Transform tf;
+    [SerializeField] private Transform spawnPoint;
 
     private Weapon weapon;
     private List<Vector3> listTargets = new List<Vector3>();
