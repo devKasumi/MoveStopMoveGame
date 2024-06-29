@@ -17,9 +17,12 @@ public class Weapon : MonoBehaviour
 
     private Transform tf;
 
+    private Vector3 originPos;
+
     // Start is called before the first frame update
     void Start()
     {
+        originPos = tf.position;
         OnInit();
     }
 
@@ -27,17 +30,22 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         //tf.Translate(tf.forward * attackSpeed * Time.deltaTime);
+        //Debug.LogError(Vector3.Distance(originPos, transform.position));
+        if (Vector3.Distance(originPos, tf.position) > attackRange)
+        {
+            OnDespawn();
+        }
     }
 
     public void OnInit()
     {
         rb.velocity = transform.forward * 5f;
-        //Invoke(nameof(OnDespawn), 1f);
+        Invoke(nameof(OnDespawn), attackRange);
     }
 
     public void OnDespawn()
     {
-        WeaponPool.Despawn(this);
+        Destroy(this.gameObject);
     }
 
     public CommonEnum.WeaponType WeaponType => weaponType;
@@ -79,16 +87,13 @@ public class Weapon : MonoBehaviour
     {
         if (other.CompareTag(Constants.TAG_BOT))
         {
-            //StartCoroutine(DespawnWeapon());
-            //WeaponPool.Despawn(this);
             OnHitCharacter.Invoke();
         }
     }
 
-    public void DespawnWeapon()
-    {
-        //yield return new WaitForSeconds(0.5f);
-        WeaponPool.Despawn(this);
-        //Destroy(this.gameObject);
-    }
+    //public void DespawnWeapon()
+    //{
+    //    Debug.LogError("despawn weapon!");
+    //    Invoke(nameof(OnDespawn), 1f);
+    //}
 }

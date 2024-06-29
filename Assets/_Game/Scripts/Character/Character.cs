@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
 
     private Weapon weapon;
-    private List<Vector3> listTargets = new List<Vector3>();
+    private List<Character> listTargets = new List<Character>();
 
     public Transform TF
     {
@@ -37,7 +37,7 @@ public class Character : MonoBehaviour
         set => weapon = value;
     }
 
-    public List<Vector3> ListTarget() => listTargets;
+    public List<Character> ListTarget() => listTargets;
 
     public float MoveSpeed() => moveSpeed;
 
@@ -45,7 +45,7 @@ public class Character : MonoBehaviour
 
     public void AddTarget(Character character)
     {
-        listTargets.Add(character.TF.position);
+        listTargets.Add(character);
     }
 
     //public void RemoveTarget(Character character)
@@ -56,7 +56,7 @@ public class Character : MonoBehaviour
 
     public void RemoveTarget()
     {
-        Debug.LogError("remove 1ts target!");
+        //Debug.LogError("remove 1ts target!");
         if (listTargets.Count > 0)
         {
             listTargets.Remove(listTargets[0]);

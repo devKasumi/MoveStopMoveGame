@@ -57,13 +57,12 @@ public class Player : Character
     public IEnumerator Attack()
     {
         //Debug.LogError("attacking!!!  " + attackCount);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, SpawnPoint().transform.position, Weapon.TF.rotation);
         if (ListTarget().Count > 0)
         {
-            Vector3 direction = ListTarget()[0] - SpawnPoint().transform.position;
+            Vector3 direction = ListTarget()[0].TF.position - SpawnPoint().transform.position;
             weapon.transform.forward = direction;
         }
-        //weapon.Rb.AddForce(direction.normalized * weapon.AttackSpeed, ForceMode.Impulse);
     }
 }
