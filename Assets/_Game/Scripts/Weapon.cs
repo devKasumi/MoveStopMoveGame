@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour
 
     public void OnDespawn()
     {
-        Destroy(this.gameObject);
+        WeaponPool.Despawn(this);
     }
 
     public CommonEnum.WeaponType WeaponType => weaponType;

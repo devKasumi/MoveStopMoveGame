@@ -62,12 +62,13 @@ public class Player : Character
     {
         //Debug.LogError("attacking!!!  " + attackCount);
         //yield return new WaitForSeconds(0.1f);
-        Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, SpawnPoint().transform.position, Weapon.TF.rotation);
+        Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, SpawnPoint().position, Weapon.TF.rotation);
         weapon.AddCurrentCharacterListener(this);
         if (ListTarget().Count > 0)
         {
-            Vector3 direction = ListTarget()[0].TF.position - SpawnPoint().transform.position;
-            weapon.transform.forward = direction;
+            Vector3 direction = ListTarget()[0].TF.position - SpawnPoint().position;
+            weapon.TF.forward = direction;
+            weapon.OnInit();
         }
     }
 }
