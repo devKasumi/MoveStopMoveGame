@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CanvasFail : UICanvas
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
+    //[SerializeField] private TextMeshProUGUI scoreText;
 
     public void SetBestScore(int score)
     {
-        scoreText.text = score.ToString();
+        //scoreText.text = score.ToString();
     }
 
     public void RetryButton()

@@ -13,8 +13,8 @@ public class Player : Character
     private float inputX;
     private float inputZ;
 
-    float frameRate = 1f;
-    float time = 0;
+    private float frameRate = 1f;
+    private float time = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,20 +23,24 @@ public class Player : Character
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
 
         time += Time.deltaTime;
 
-        if (joystick.IsResetJoystick() && ListTarget().Count > 0)
+        if (time >= frameRate)
         {
-            if (time >= frameRate)
+            time = 0;
+            if (ListTarget().Count > 0 && joystick.IsResetJoystick())
             {
-                time = 0;
-                StartCoroutine(Attack());
+                //StartCoroutine(Attack());
+                Debug.LogError("attack!!!!  " + ListTarget().Count);
+                Attack();
             }
         }
+
+        //Debug.LogError("count:  " + ListTarget().Count);
     }
 
     public void Move()
@@ -54,11 +58,12 @@ public class Player : Character
         }
     }
 
-    public IEnumerator Attack()
+    public void Attack()
     {
         //Debug.LogError("attacking!!!  " + attackCount);
-        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForSeconds(0.1f);
         Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, SpawnPoint().transform.position, Weapon.TF.rotation);
+        weapon.AddCurrentCharacterListener(this);
         if (ListTarget().Count > 0)
         {
             Vector3 direction = ListTarget()[0].TF.position - SpawnPoint().transform.position;

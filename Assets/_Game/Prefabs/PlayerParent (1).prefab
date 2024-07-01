@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  bulletPoint: {fileID: 12171776476528658}
   tf: {fileID: 7755691787364221696}
   spawnPoint: {fileID: 12171776476528658}
+  capsuleCollider: {fileID: 9976960790061567}
   joystick: {fileID: 0}
   rb: {fileID: 6202778727509238242}
 --- !u!1 &5222745652647493766
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2890715265747023730}
   - component: {fileID: 7969219777451472719}
   - component: {fileID: 8307003461146743646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 9042266307664405494}
   - component: {fileID: 6888962714119307009}
   - component: {fileID: 5490668632372625956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float attackSpeed;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] public UnityEvent OnHitCharacter;
+    [SerializeField] private UnityEvent OnHitCharacter = new UnityEvent();
 
 
     private Image weaponSkin;
@@ -22,15 +22,12 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        originPos = tf.position;
         OnInit();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //tf.Translate(tf.forward * attackSpeed * Time.deltaTime);
-        //Debug.LogError(Vector3.Distance(originPos, transform.position));
         if (Vector3.Distance(originPos, tf.position) > attackRange)
         {
             OnDespawn();
@@ -39,6 +36,7 @@ public class Weapon : MonoBehaviour
 
     public void OnInit()
     {
+        originPos = tf.position;
         rb.velocity = transform.forward * 5f;
         Invoke(nameof(OnDespawn), attackRange);
     }
@@ -88,12 +86,13 @@ public class Weapon : MonoBehaviour
         if (other.CompareTag(Constants.TAG_BOT))
         {
             OnHitCharacter.Invoke();
+            Character character = Cache.GenCharacter(other);
+            character.OnDeath();
         }
     }
 
-    //public void DespawnWeapon()
-    //{
-    //    Debug.LogError("despawn weapon!");
-    //    Invoke(nameof(OnDespawn), 1f);
-    //}
+    public void AddCurrentCharacterListener(Character character)
+    {
+        OnHitCharacter.AddListener(character.RemoveTarget);
+    }
 }

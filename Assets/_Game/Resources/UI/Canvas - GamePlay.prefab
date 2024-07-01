@@ -391,7 +391,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4637207125546758066}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CanvasGamePlay, Assembly-CSharp
         m_MethodName: SettingsButton
         m_Mode: 1
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 7070884167020878960}
   - component: {fileID: 6990810500999290227}
   - component: {fileID: 8717588937865285248}
-  - component: {fileID: 4637207125546758066}
+  - component: {fileID: 2541177218964489646}
   m_Layer: 5
   m_Name: Canvas - GamePlay
   m_TagString: Untagged
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4637207125546758066
+--- !u!114 &2541177218964489646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -590,11 +590,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4767847320248705123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e533dd87ca53104898aeb12e141ccd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 90be846a1fa66a64084ce2b4b46df60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyOnClose: 0
-  coinText: {fileID: 1254631001333091021}
+  coinText: {fileID: 0}
 --- !u!1 &5139934312654520527
 GameObject:
   m_ObjectHideFlags: 0

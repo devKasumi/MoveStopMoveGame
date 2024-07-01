@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 478632697403147942}
   - component: {fileID: 6583954710965402889}
   - component: {fileID: 2834016727661824128}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,9 +153,9 @@ MonoBehaviour:
   OnHitCharacter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-        m_TargetAssemblyTypeName: Character, Assembly-CSharp
-        m_MethodName: RemoveTarget
+      - m_Target: {fileID: 2834016727661824128}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: OnDespawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -165,9 +165,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2834016727661824128}
-        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
-        m_MethodName: OnDespawn
+      - m_Target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: RemoveTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5,9 +5,10 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    [SerializeField] private Transform bulletPoint;
+    //[SerializeField] private Transform bulletPoint;
     [SerializeField] private Transform tf;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private CapsuleCollider capsuleCollider;
 
     private Weapon weapon;
     private List<Character> listTargets = new List<Character>();
@@ -45,7 +46,9 @@ public class Character : MonoBehaviour
 
     public void AddTarget(Character character)
     {
+        Debug.LogError("add target!!!");
         listTargets.Add(character);
+        //listTargets.Push(character);
     }
 
     //public void RemoveTarget(Character character)
@@ -56,10 +59,37 @@ public class Character : MonoBehaviour
 
     public void RemoveTarget()
     {
-        //Debug.LogError("remove 1ts target!");
+        //Debug.LogError("count:  " + listTargets.Count);
         if (listTargets.Count > 0)
         {
+            Debug.LogError("remove target!!!");
             listTargets.Remove(listTargets[0]);
         }
+    }
+
+    public void OnDeath()
+    {
+        // change anim
+
+        // remove collider
+        capsuleCollider.enabled = false;
+
+        // destroy char after
+        if (listTargets.Count > 0)
+        {
+            StartCoroutine(CharacterDie());
+        }
+    }
+
+    public void InitList()
+    {
+        listTargets = new List<Character>();
+    }
+
+    public IEnumerator CharacterDie()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.LogError("destroy bot!!!!");
+        Destroy(gameObject);
     }
 }

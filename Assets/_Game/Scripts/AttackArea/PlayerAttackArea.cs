@@ -13,7 +13,7 @@ public class PlayerAttackArea : MonoBehaviour
             Character character = Cache.GenCharacter(other);
             Bot bot = (Bot)character;
             bot.EnableTarget();
-            bot.ChangeState(new IdleState());
+            //bot.ChangeState(new IdleState());
             player.AddTarget(bot);
         }
     }
@@ -25,7 +25,7 @@ public class PlayerAttackArea : MonoBehaviour
             Character character = Cache.GenCharacter(other);
             Bot bot = (Bot)character;
             bot.DisableTarget();
-            bot.ChangeState(new PatrolState());
+            //bot.ChangeState(new PatrolState());
             player.RemoveTarget();
         }
     }

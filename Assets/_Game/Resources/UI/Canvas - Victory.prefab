@@ -719,7 +719,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8462119227602160485}
+      - m_Target: {fileID: 3767812532476969872}
         m_TargetAssemblyTypeName: CanvasVictory, Assembly-CSharp
         m_MethodName: NextButton
         m_Mode: 1
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8462119227602160485}
+      - m_Target: {fileID: 3767812532476969872}
         m_TargetAssemblyTypeName: CanvasVictory, Assembly-CSharp
         m_MethodName: RetryButton
         m_Mode: 1
@@ -1146,7 +1146,7 @@ GameObject:
   - component: {fileID: 2863189844780302442}
   - component: {fileID: 7407023091380728251}
   - component: {fileID: 3105733566459870368}
-  - component: {fileID: 8462119227602160485}
+  - component: {fileID: 3767812532476969872}
   m_Layer: 5
   m_Name: Canvas - Victory
   m_TagString: Untagged
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8462119227602160485
+--- !u!114 &3767812532476969872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1246,8 +1246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7370582755520308479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a28035b6ff66a747aa2b4e6f62ee359, type: 3}
+  m_Script: {fileID: 11500000, guid: 9015ec316c94ba54d98415c81e273120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyOnClose: 0
-  scoreText: {fileID: 5327720785027641954}
