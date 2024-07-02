@@ -41,6 +41,12 @@ public class Player : Character
         }
 
         //Debug.LogError("count:  " + ListTarget().Count);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //string data = Weapon.ToString();
+            JsonFileHandler.SaveToJson<Character>(this, Constants.JSON_FILE_NAME);
+        }
     }
 
     public void Move()
