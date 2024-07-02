@@ -42,12 +42,12 @@ public class Player : Character
         if (Input.GetKeyDown(KeyCode.C))
         {
             // bao loi vi thang player inherit monobehavior
-            Debug.LogError(JsonFileHandler.ReadFromJson<Player>(Constants.JSON_FILE_NAME));
+            Debug.LogError((int)JsonFileHandler.ReadFromJson<DataFromJson>(Constants.JSON_FILE_NAME).weapon.WeaponType);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //string data = Weapon.ToString();
+            // TODO: xep lai logic vao UI chon weapon va skin!!!
             JsonFileHandler.SaveToJson<Character>(this, Constants.JSON_FILE_NAME);
         }
     }
@@ -78,4 +78,11 @@ public class Player : Character
             weapon.OnInit();
         }
     }
+}
+
+[System.Serializable]
+public class DataFromJson
+{
+    public Weapon weapon;
+    // them 1 meshrender cho skin nua 
 }

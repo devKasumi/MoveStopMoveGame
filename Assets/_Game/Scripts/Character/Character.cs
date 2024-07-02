@@ -6,12 +6,14 @@ public class Character : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     //[SerializeField] private Transform bulletPoint;
+    [SerializeField] private Animator animator;
     [SerializeField] private Transform tf;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private CapsuleCollider capsuleCollider;
 
-    private Weapon weapon;
+    [SerializeField] private Weapon weapon;
     private List<Character> listTargets = new List<Character>();
+    private string currentAnimationName = Constants.ANIMATION_IDLE;
 
     public Transform TF
     {
@@ -84,6 +86,16 @@ public class Character : MonoBehaviour
     public void InitList()
     {
         listTargets = new List<Character>();
+    }
+
+    public void ChangeAnimation(string animationName)
+    {
+        if (currentAnimationName != animationName)
+        {
+            animator.ResetTrigger(currentAnimationName);
+            currentAnimationName = animationName;
+            animator.SetTrigger(currentAnimationName);
+        }
     }
 
     public IEnumerator CharacterDie()

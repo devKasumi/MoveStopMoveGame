@@ -8,14 +8,14 @@ public static class JsonFileHandler
     public static void SaveToJson<T>(T dataToSave, string fileName)
     {
         string dataToJson = JsonUtility.ToJson(dataToSave);
-        string filePath = Application.dataPath + "/" + Constants.JSON_PATH + fileName;
+        string filePath = Application.dataPath + "/" + Constants.JSON_PATH + "/" + fileName;
         Debug.LogError(filePath);
         WriteFile(filePath, dataToJson);
     }
 
     public static T ReadFromJson<T>(string fileName)
     {
-        string filePath = Application.dataPath + "/" + Constants.JSON_PATH + fileName;
+        string filePath = Application.dataPath + "/" + Constants.JSON_PATH + "/" + fileName;
         string data = ReadFile(filePath);
 
         Debug.LogError(data);
@@ -54,3 +54,4 @@ public static class JsonFileHandler
         return "";
     }
 }
+

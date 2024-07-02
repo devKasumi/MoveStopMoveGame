@@ -1,18 +1,1 @@
-{
-  "moveSpeed": 5.0,
-  "tf": {
-    "instanceID": -1254
-  },
-  "spawnPoint": {
-    "instanceID": -1292
-  },
-  "capsuleCollider": {
-    "instanceID": -1256
-  },
-  "joystick": {
-    "instanceID": 23238
-  },
-  "rb": {
-    "instanceID": -1258
-  }
-}
+{"moveSpeed":5.0,"tf":{"instanceID":-3348},"spawnPoint":{"instanceID":-3386},"capsuleCollider":{"instanceID":-3350},"weapon":{"instanceID":24618},"joystick":{"instanceID":24394},"rb":{"instanceID":-3352}}

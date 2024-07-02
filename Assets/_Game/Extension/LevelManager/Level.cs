@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] private Platform levelPlatform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +17,6 @@ public class Level : MonoBehaviour
     {
         
     }
+
+    public Platform Platform => levelPlatform;
 }

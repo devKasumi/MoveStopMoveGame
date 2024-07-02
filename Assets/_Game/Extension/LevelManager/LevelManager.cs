@@ -30,4 +30,6 @@ public class LevelManager : Singleton<LevelManager>
             poolControl.PreLoadPool(characters[i]);
         }
     }
+
+    public Level CurrentLevel() => currentLevel;
 }
