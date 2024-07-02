@@ -51,7 +51,7 @@ public class Platform : MonoBehaviour
         {
             Instantiate(cube, RandomMovePos(), Quaternion.identity);
         }
-        Instantiate(cube, RandomMovePos(), Quaternion.identity);
+        //Instantiate(cube, RandomMovePos(), Quaternion.identity);
     }
 
     public Vector3 RandomMovePos()

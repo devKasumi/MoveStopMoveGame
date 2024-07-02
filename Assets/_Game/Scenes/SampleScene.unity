@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 7d9710f6ec2380949bb2b65ea4901f83, type: 2}
 --- !u!1 &5445439
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &338436814
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1477,6 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  animator: {fileID: 0}
   tf: {fileID: 1171624799}
   spawnPoint: {fileID: 246997745}
   capsuleCollider: {fileID: 0}
@@ -1501,7 +1502,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &1226635617
 MeshCollider:
@@ -2377,6 +2378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
+  animator: {fileID: 0}
   tf: {fileID: 1978334333}
   spawnPoint: {fileID: 216295112}
   capsuleCollider: {fileID: 1978334332}
@@ -2653,6 +2655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
+  animator: {fileID: 0}
   tf: {fileID: 2116379877}
   spawnPoint: {fileID: 1999852580}
   capsuleCollider: {fileID: 2116379876}
@@ -2735,6 +2738,10 @@ PrefabInstance:
     - target: {fileID: 4887193714161769681, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_Name
       value: PlayerParent (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887193714161769681, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7755691787364221696, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_LocalPosition.x
