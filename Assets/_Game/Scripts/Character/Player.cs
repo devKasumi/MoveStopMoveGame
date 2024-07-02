@@ -39,6 +39,11 @@ public class Player : Character
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.LogError(JsonFileHandler.ReadFromJson<Player>(Constants.JSON_FILE_NAME).Weapon.name);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //string data = Weapon.ToString();
