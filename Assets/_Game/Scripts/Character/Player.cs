@@ -34,13 +34,10 @@ public class Player : Character
             time = 0;
             if (ListTarget().Count > 0 && joystick.IsResetJoystick())
             {
-                //StartCoroutine(Attack());
                 Debug.LogError("attack!!!!  " + ListTarget().Count);
                 Attack();
             }
         }
-
-        //Debug.LogError("count:  " + ListTarget().Count);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -66,8 +63,6 @@ public class Player : Character
 
     public void Attack()
     {
-        //Debug.LogError("attacking!!!  " + attackCount);
-        //yield return new WaitForSeconds(0.1f);
         Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, SpawnPoint().position, Weapon.TF.rotation);
         weapon.AddCurrentCharacterListener(this);
         if (ListTarget().Count > 0)
