@@ -41,7 +41,8 @@ public class Player : Character
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Debug.LogError(JsonFileHandler.ReadFromJson<Player>(Constants.JSON_FILE_NAME).Weapon.name);
+            // bao loi vi thang player inherit monobehavior
+            Debug.LogError(JsonFileHandler.ReadFromJson<Player>(Constants.JSON_FILE_NAME));
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
