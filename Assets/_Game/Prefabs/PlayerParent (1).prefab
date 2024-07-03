@@ -131,9 +131,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  animator: {fileID: 8224199431432572571}
   tf: {fileID: 7755691787364221696}
   spawnPoint: {fileID: 12171776476528658}
   capsuleCollider: {fileID: 9976960790061567}
+  weapon: {fileID: 0}
   joystick: {fileID: 0}
   rb: {fileID: 6202778727509238242}
 --- !u!1 &5222745652647493766
@@ -360,6 +362,7 @@ GameObject:
   - component: {fileID: 5471586029247090645}
   - component: {fileID: 1854632595477227723}
   - component: {fileID: 5638848652250838275}
+  - component: {fileID: 8224199431432572571}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -432,3 +435,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8224199431432572571
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566578481943529849}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

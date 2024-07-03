@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] private Weapon weapon;
     private List<Character> listTargets = new List<Character>();
-    private string currentAnimationName = Constants.ANIMATION_IDLE;
+    private string currentAnimationName = Constants.ANIMATION_RUN;
 
     public Transform TF
     {
@@ -22,6 +22,11 @@ public class Character : MonoBehaviour
         set => tf = value;
     }
 
+    public Weapon Weapon
+    {
+        get => weapon;
+        set => weapon = value;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,10 +40,14 @@ public class Character : MonoBehaviour
         
     }
 
-    public Weapon Weapon
+    public virtual void OnInit()
     {
-        get => weapon;
-        set => weapon = value;
+
+    }
+
+    public virtual void OnDespawn()
+    {
+
     }
 
     public List<Character> ListTarget() => listTargets;

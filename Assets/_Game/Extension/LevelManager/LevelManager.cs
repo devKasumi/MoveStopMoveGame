@@ -6,6 +6,7 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private Character[] characters;
     [SerializeField] private PoolControl poolControl;
+    [SerializeField] private Platform levelPlatform;
     private Level currentLevel;
     private int currentLevelIndex;  
 
@@ -32,4 +33,6 @@ public class LevelManager : Singleton<LevelManager>
     }
 
     public Level CurrentLevel() => currentLevel;
+
+    public Vector3 RandomPos() => levelPlatform.RandomMovePos();
 }
