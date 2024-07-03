@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Character : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class Character : MonoBehaviour
 
     public float MoveSpeed() => moveSpeed;
 
-    public Transform SpawnPoint() => spawnPoint;
+    //public Transform SpawnPoint() => spawnPoint;
 
     public void AddTarget(Character character)
     {
@@ -83,9 +84,21 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void InitList()
+    //public void InitList()
+    //{
+    //    listTargets = new List<Character>();
+    //}
+
+    public void Attack()
     {
-        listTargets = new List<Character>();
+        Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, spawnPoint.position, Weapon.TF.rotation);
+        weapon.AddCurrentCharacterListener(this);
+        if (listTargets.Count > 0)
+        {
+            Vector3 direction = listTargets[0].TF.position - spawnPoint.position;
+            weapon.TF.forward = direction;
+            weapon.OnInit();
+        }
     }
 
     public void ChangeAnimation(string animationName)

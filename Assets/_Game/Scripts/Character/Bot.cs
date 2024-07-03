@@ -12,6 +12,9 @@ public class Bot : Character
     private IState currentState;
     private Vector3 currentTargetPosition;
 
+    private float frameRate = 1f;
+    private float time = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +22,12 @@ public class Bot : Character
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (currentState != null)
+        {
+            currentState.OnExecute(this);
+        }  
     }
 
     public void ChangeState(IState newState)
@@ -49,10 +55,7 @@ public class Bot : Character
         targetImage.gameObject.SetActive(false);
     }
 
-    public bool IsReachTarget()
-    {
-        return Vector3.Distance(transform.position, currentTargetPosition) < 0.8f;
-    }
+    public bool IsReachTarget() => Vector3.Distance(transform.position, currentTargetPosition) < 0.8f;
 
     public void SetDestination(Vector3 pos)
     {
@@ -61,4 +64,18 @@ public class Bot : Character
     }
 
     public Vector3 RandomMovePos() => LevelManager.Instance.CurrentLevel().Platform.RandomMovePos();
+
+    public void AttackEnemy()
+    {
+        time += Time.deltaTime;
+
+        if (time >= frameRate)
+        {
+            time = 0;
+            if (ListTarget().Count > 0)
+            {
+                Attack();
+            }
+        }
+    }
 }

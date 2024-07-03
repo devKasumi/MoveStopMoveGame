@@ -27,17 +27,7 @@ public class Player : Character
     {
         Move();
 
-        time += Time.deltaTime;
-
-        if (time >= frameRate)
-        {
-            time = 0;
-            if (ListTarget().Count > 0 && joystick.IsResetJoystick())
-            {
-                Debug.LogError("attack!!!!  " + ListTarget().Count);
-                Attack();
-            }
-        }
+        AttackEnemy();
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -67,15 +57,18 @@ public class Player : Character
         }
     }
 
-    public void Attack()
+    public void AttackEnemy()
     {
-        Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, SpawnPoint().position, Weapon.TF.rotation);
-        weapon.AddCurrentCharacterListener(this);
-        if (ListTarget().Count > 0)
+        time += Time.deltaTime;
+
+        if (time >= frameRate)
         {
-            Vector3 direction = ListTarget()[0].TF.position - SpawnPoint().position;
-            weapon.TF.forward = direction;
-            weapon.OnInit();
+            time = 0;
+            if (ListTarget().Count > 0 && joystick.IsResetJoystick())
+            {
+                Debug.LogError("attack!!!!  " + ListTarget().Count);
+                Attack();
+            }
         }
     }
 }

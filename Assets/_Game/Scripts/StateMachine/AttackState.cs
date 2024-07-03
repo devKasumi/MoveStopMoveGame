@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackState : MonoBehaviour
+public class AttackState : IState
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnEnter(Bot bot)
     {
-        
+        bot.ChangeAnimation(Constants.ANIMATION_ATTACK);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnExecute(Bot bot)
     {
-        
+        bot.SetDestination(bot.TF.position);
+        bot.AttackEnemy();
+    }
+
+    public void OnExit(Bot bot)
+    {
+
     }
 }

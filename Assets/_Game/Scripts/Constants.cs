@@ -6,6 +6,7 @@ public class Constants : MonoBehaviour
 {
     public const string ANIMATION_IDLE = "idle";
     public const string ANIMATION_RUN = "run";
+    public const string ANIMATION_ATTACK = "attack";
     public const string ANIMATION_VICTORY = "victory";
 
     public const string TAG_PLAYER = "Player";
