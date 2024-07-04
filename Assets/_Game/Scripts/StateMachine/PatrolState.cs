@@ -6,7 +6,7 @@ public class PatrolState : IState
 {
     public void OnEnter(Bot bot)
     {
-        bot.ChangeAnimation(Constants.ANIMATION_RUN);
+        //bot.ChangeAnimation(Constants.ANIMATION_RUN);
         //bot.SetDestination(bot.RandomMovePos());
         bot.SetDestination(LevelManager.Instance.RandomPos());
     }

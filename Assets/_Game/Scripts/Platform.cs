@@ -25,7 +25,6 @@ public class Platform : MonoBehaviour
     //private Vector3 randomMovePos;
 
     [SerializeField] private float[] multiplier;
-    [SerializeField] private GameObject cube;
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +46,7 @@ public class Platform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Instantiate(cube, RandomMovePos(), Quaternion.identity);
-        }
-        //Instantiate(cube, RandomMovePos(), Quaternion.identity);
+        
     }
 
     public Vector3 RandomMovePos()
@@ -61,7 +56,7 @@ public class Platform : MonoBehaviour
         Vector3 randomMovePos = new Vector3(maxX * Random.Range(-1, 2) * multiplier[Random.Range(0, 3)], 
                                             0f, 
                                             maxZ * Random.Range(-1, 2) * multiplier[Random.Range(0, 3)]);
-        Debug.LogError(randomMovePos);
+        //Debug.LogError(randomMovePos);
         return randomMovePos;
     }
 }

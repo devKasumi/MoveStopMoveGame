@@ -27,7 +27,13 @@ public class Bot : Character
         if (currentState != null)
         {
             currentState.OnExecute(this);
-        }  
+        }
+
+        //if (ListTarget().Count > 0)
+        //{
+        //    ChangeState(new AttackState());
+        //}
+        //else ChangeState(new PatrolState());
     }
 
     public override void OnInit()
@@ -62,7 +68,7 @@ public class Bot : Character
         targetImage.gameObject.SetActive(false);
     }
 
-    public bool IsReachTarget() => Vector3.Distance(transform.position, currentTargetPosition) < 0.8f;
+    public bool IsReachTarget() => Vector3.Distance(transform.position, currentTargetPosition) < 1.3f;
 
     public void SetDestination(Vector3 pos)
     {

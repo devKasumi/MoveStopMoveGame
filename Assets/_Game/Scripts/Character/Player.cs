@@ -66,7 +66,6 @@ public class Player : Character
             time = 0;
             if (ListTarget().Count > 0 && joystick.IsResetJoystick())
             {
-                Debug.LogError("attack!!!!  " + ListTarget().Count);
                 Attack();
             }
         }

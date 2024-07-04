@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] private Weapon weapon;
     private List<Character> listTargets = new List<Character>();
-    private string currentAnimationName = Constants.ANIMATION_RUN;
+    private string currentAnimationName;
 
     public Transform TF
     {
@@ -54,8 +54,6 @@ public class Character : MonoBehaviour
 
     public float MoveSpeed() => moveSpeed;
 
-    //public Transform SpawnPoint() => spawnPoint;
-
     public void AddTarget(Character character)
     {
         Debug.LogError("add target!!!");
@@ -63,18 +61,12 @@ public class Character : MonoBehaviour
         //listTargets.Push(character);
     }
 
-    //public void RemoveTarget(Character character)
-    //{
-    //    Debug.LogError("remove target!!!");
-    //    listTargets.Remove(character.TF.position);
-    //}
-
     public void RemoveTarget()
     {
         //Debug.LogError("count:  " + listTargets.Count);
         if (listTargets.Count > 0)
         {
-            Debug.LogError("remove target!!!");
+            //Debug.LogError("remove target!!!");
             listTargets.Remove(listTargets[0]);
         }
     }
@@ -87,16 +79,8 @@ public class Character : MonoBehaviour
         capsuleCollider.enabled = false;
 
         // destroy char after
-        if (listTargets.Count > 0)
-        {
-            StartCoroutine(CharacterDie());
-        }
+        StartCoroutine(CharacterDie());
     }
-
-    //public void InitList()
-    //{
-    //    listTargets = new List<Character>();
-    //}
 
     public void Attack()
     {
@@ -123,7 +107,6 @@ public class Character : MonoBehaviour
     public IEnumerator CharacterDie()
     {
         yield return new WaitForSeconds(1f);
-        Debug.LogError("destroy bot!!!!");
         Destroy(gameObject);
     }
 }

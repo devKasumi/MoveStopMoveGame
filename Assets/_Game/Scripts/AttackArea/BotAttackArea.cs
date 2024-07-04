@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class BotAttackArea : MonoBehaviour
 {
-    [SerializeField] private Character bot;
+    [SerializeField] private Bot bot;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constants.TAG_BOT) || other.CompareTag(Constants.TAG_PLAYER))
         {
             bot.AddTarget(Cache.GenCharacter(other));
+            bot.ChangeState(new AttackState());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        
+        if (other.CompareTag(Constants.TAG_BOT) || other.CompareTag(Constants.TAG_PLAYER))
+        {
+            bot.RemoveTarget();
+            if (bot.ListTarget().Count == 0)
+            {
+                bot.ChangeState(new PatrolState());
+            }
+        }
     }
 }

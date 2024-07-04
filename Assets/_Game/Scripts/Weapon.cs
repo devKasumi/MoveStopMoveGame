@@ -22,13 +22,13 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OnInit();
+        //OnInit();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Vector3.Distance(originPos, tf.position) > attackRange)
+        if (Vector3.Distance(originPos, TF.position) > attackRange)
         {
             OnDespawn();
         }
@@ -36,9 +36,8 @@ public class Weapon : MonoBehaviour
 
     public void OnInit()
     {
-        originPos = tf.position;
-        rb.velocity = transform.forward * 5f;
-        Invoke(nameof(OnDespawn), attackRange);
+        originPos = TF.position;
+        rb.velocity = TF.forward * 5f;
     }
 
     public void OnDespawn()
@@ -76,14 +75,9 @@ public class Weapon : MonoBehaviour
         set => rb = value;
     }
 
-    public void RemoveCharacterTarget(Character character)
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Constants.TAG_BOT))
+        if (other.CompareTag(Constants.TAG_BOT) || other.CompareTag(Constants.TAG_PLAYER))
         {
             OnHitCharacter.Invoke();
             Character character = Cache.GenCharacter(other);
