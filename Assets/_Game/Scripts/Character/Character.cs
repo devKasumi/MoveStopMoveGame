@@ -50,6 +50,8 @@ public class Character : MonoBehaviour
 
     }
 
+    public Transform SpawnPoint() => spawnPoint;
+
     public List<Character> ListTarget() => listTargets;
 
     public float MoveSpeed() => moveSpeed;
@@ -84,7 +86,7 @@ public class Character : MonoBehaviour
 
     public void Attack()
     {
-        Weapon weapon = WeaponPool.Spawn<Weapon>(Weapon.WeaponType, spawnPoint.position, Weapon.TF.rotation);
+        Weapon weapon = WeaponPool.Spawn<Weapon>(this.weapon.WeaponType, spawnPoint.position, Quaternion.identity);
         weapon.AddCurrentCharacterListener(this);
         if (listTargets.Count > 0)
         {

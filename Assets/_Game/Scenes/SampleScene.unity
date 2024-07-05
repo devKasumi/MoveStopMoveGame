@@ -223,7 +223,7 @@ Transform:
   m_GameObject: {fileID: 216295111}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0.42, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &244642314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8d73524fce70a4597089e89042f3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1171624799}
+  target: {fileID: 1869185039}
   tf: {fileID: 963194228}
   offset: {x: 0, y: 11, z: -11}
   moveSpeed: 20
@@ -1529,7 +1529,6 @@ MonoBehaviour:
   - 0.25
   - 0.5
   - 0.75
-  cube: {fileID: 0}
 --- !u!1001 &1278882010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2037,6 +2036,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1ce43fdf626a74ba593864d41c6cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1869185039 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7755691787364221696, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+  m_PrefabInstance: {fileID: 5530632765529414449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1883554513
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,7 +2263,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -2373,7 +2377,7 @@ Transform:
   m_GameObject: {fileID: 1999852579}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.20000005, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0.42, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2559,7 +2563,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -2940,11 +2944,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 12171776476528658, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 12171776476528658, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: joystick

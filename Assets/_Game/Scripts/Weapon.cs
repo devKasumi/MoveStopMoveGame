@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Vector3.Distance(originPos, TF.position) > attackRange)
         {

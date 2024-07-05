@@ -13,7 +13,7 @@ public class Player : Character
     private float inputX;
     private float inputZ;
 
-    private float frameRate = 1f;
+    private float frameRate = 1;
     private float time = 0;
 
     // Start is called before the first frame update
@@ -23,11 +23,12 @@ public class Player : Character
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Move();
 
         AttackEnemy();
+
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -54,6 +55,7 @@ public class Player : Character
         if (inputX != 0f && inputZ != 0f)
         {
             TF.rotation = Quaternion.LookRotation(rb.velocity);
+            //SpawnPoint().rotation = Quaternion.LookRotation(rb.velocity);
         }
     }
 
@@ -66,6 +68,7 @@ public class Player : Character
             time = 0;
             if (ListTarget().Count > 0 && joystick.IsResetJoystick())
             {
+                Debug.LogError("player attack!!");
                 Attack();
             }
         }
