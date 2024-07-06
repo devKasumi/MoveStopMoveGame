@@ -26,7 +26,7 @@ public class PoolControl : MonoBehaviour
         }
         GameObject pool = new GameObject(character.name + "_" + weapon.name);
         //WeaponPool.PreLoad(weapon, 4, pool.transform);
-        BasePool<Weapon>.PreLoad(weapon, 4, pool.transform);
+        BasePool<Weapon>.PreLoad(weapon, (int)weapon.WeaponType, 4, pool.transform);
     }
 
     public List<Weapon> ListWeapon() => weapons;

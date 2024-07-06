@@ -16,9 +16,9 @@ using static CommonEnum;
 
 public static class BasePool<T> where T : MonoBehaviour
 {
-    private static Dictionary<T, Pool<T>> poolInstance = new Dictionary<T, Pool<T>>();
+    private static Dictionary<int, Pool<T>> poolInstance = new Dictionary<int, Pool<T>>();
 
-    public static void PreLoad(T objectPrefab, int amount, Transform parent)
+    public static void PreLoad(T objectPrefab, int key, int amount, Transform parent)
     {
         if (!objectPrefab)
         {
@@ -43,12 +43,12 @@ public static class BasePool<T> where T : MonoBehaviour
         //        break;
         //}
 
-        if (!poolInstance.ContainsKey(objectPrefab) || poolInstance[objectPrefab] == null)
+        if (!poolInstance.ContainsKey(key) || poolInstance[key] == null)
         {
             Debug.LogError("preload weapon prefab!!!!");
             Pool<T> p = new Pool<T>();
             p.PreLoad(objectPrefab, amount, parent);
-            poolInstance[objectPrefab] = p;
+            poolInstance[key] = p;
         }
 
         Debug.LogError("pokemon:  " + poolInstance.Count);
@@ -59,37 +59,37 @@ public static class BasePool<T> where T : MonoBehaviour
         //poolInstance[objectPrefab.tag] = p;
     }
 
-    public static T Spawn(T objectPrefab, Vector3 pos, Quaternion rot)
+    public static T Spawn(T objectPrefab, int key, Vector3 pos, Quaternion rot)
     {
-        if (!poolInstance.ContainsKey(objectPrefab))
+        if (!poolInstance.ContainsKey(key))
         {
             Debug.LogError(objectPrefab + " IS NOT PRELOAD!");
             return null;
         }
 
         Debug.LogError("pokemon:  " + poolInstance.Count);
-
-        return poolInstance[objectPrefab].Spawn(pos, rot);
+        
+        return poolInstance[key].Spawn(pos, rot);
     }
 
-    public static void Despawn(T objectPrefab)
+    public static void Despawn(T objectPrefab, int key)
     {
-        if (!poolInstance.ContainsKey(objectPrefab))
+        if (!poolInstance.ContainsKey(key))
         {
             Debug.LogError(objectPrefab + " IS NOT PRELOAD!");
         }
-
-        poolInstance[objectPrefab].Despawn(objectPrefab);
+        
+        poolInstance[key].Despawn(objectPrefab);
     }
 
-    public static void Collect(T objectPrefab)
+    public static void Collect(T objectPrefab, int key)
     {
-        if (!poolInstance.ContainsKey(objectPrefab))
+        if (!poolInstance.ContainsKey(key))
         {
             Debug.LogError(objectPrefab + " IS NOT PRELOAD!");
         }
-
-        poolInstance[objectPrefab].Collect();
+        
+        poolInstance[key].Collect();
     }
 
     public static void CollectAll()
@@ -100,14 +100,14 @@ public static class BasePool<T> where T : MonoBehaviour
         }
     }
 
-    public static void Release(T objectPrefab)
+    public static void Release(T objectPrefab, int key)
     {
-        if (!poolInstance.ContainsKey(objectPrefab))
+        if (!poolInstance.ContainsKey(key))
         {
             Debug.LogError(objectPrefab + " IS NOT PRELOAD!");
         }
 
-        poolInstance[objectPrefab].Release();
+        poolInstance[key].Release();
     }
 
     public static void ReleaseAll()
