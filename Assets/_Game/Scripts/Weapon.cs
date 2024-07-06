@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private CommonEnum.WeaponType weaponType;
+    //[SerializeField] private MeshRenderer meshRenderer;
+    //[SerializeField] private CommonEnum.ColorType colorType;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackSpeed;
     [SerializeField] private Rigidbody rb;
@@ -19,10 +21,16 @@ public class Weapon : MonoBehaviour
 
     private Vector3 originPos;
 
+    private void Awake()
+    {
+        //PoolType = PoolType.WeaponPool;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         //OnInit();
+        
     }
 
     // Update is called once per frame
@@ -42,7 +50,8 @@ public class Weapon : MonoBehaviour
 
     public void OnDespawn()
     {
-        WeaponPool.Despawn(this);
+        //WeaponPool.Despawn(this);
+        BasePool<Weapon>.Despawn(this);
     }
 
     public CommonEnum.WeaponType WeaponType => weaponType;
@@ -55,6 +64,16 @@ public class Weapon : MonoBehaviour
     {
 
     }
+
+    //public void ChangeColor(CommonEnum.ColorType color)
+    //{
+    //    colorType = color;
+    //}
+
+    //public void ChangeMaterial(Material material)
+    //{
+    //    meshRenderer.material = material;   
+    //}
 
     public Transform TF
     {
@@ -81,7 +100,7 @@ public class Weapon : MonoBehaviour
         {
             OnHitCharacter.Invoke();
             Character character = Cache.GenCharacter(other);
-            character.OnDeath();
+            //character.OnDeath();
         }
     }
 

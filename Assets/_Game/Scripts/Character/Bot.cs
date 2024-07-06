@@ -28,12 +28,6 @@ public class Bot : Character
         {
             currentState.OnExecute(this);
         }
-
-        //if (ListTarget().Count > 0)
-        //{
-        //    ChangeState(new AttackState());
-        //}
-        //else ChangeState(new PatrolState());
     }
 
     public override void OnInit()

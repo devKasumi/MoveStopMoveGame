@@ -57,6 +57,15 @@ public class Player : Character
             TF.rotation = Quaternion.LookRotation(rb.velocity);
             //SpawnPoint().rotation = Quaternion.LookRotation(rb.velocity);
         }
+
+        if (!joystick.IsResetJoystick())
+        {
+            ChangeAnimation(Constants.ANIMATION_RUN);
+        }
+        else
+        {
+            ChangeAnimation(Constants.ANIMATION_IDLE);
+        }
     }
 
     public void AttackEnemy()

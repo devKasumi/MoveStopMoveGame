@@ -31,13 +31,13 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //PoolType = PoolType.CharacterPool;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        spawnPoint.transform.rotation = transform.rotation; 
     }
 
     public virtual void OnInit()
@@ -86,7 +86,8 @@ public class Character : MonoBehaviour
 
     public void Attack()
     {
-        Weapon weapon = WeaponPool.Spawn<Weapon>(this.weapon.WeaponType, spawnPoint.position, Quaternion.identity);
+        //Weapon weapon = WeaponPool.Spawn<Weapon>(this.weapon.WeaponType, spawnPoint.position, Quaternion.identity);
+        Weapon weapon = BasePool<Weapon>.Spawn(this.weapon, spawnPoint.position, Quaternion.identity);
         weapon.AddCurrentCharacterListener(this);
         if (listTargets.Count > 0)
         {

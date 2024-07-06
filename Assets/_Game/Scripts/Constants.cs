@@ -11,6 +11,7 @@ public class Constants : MonoBehaviour
 
     public const string TAG_PLAYER = "Player";
     public const string TAG_BOT = "Bot";
+    public const string TAG_WEAPON = "Weapon";
 
     public const string JSON_FILE_NAME = "jsonData.json";
     public const string JSON_PATH = "_Game/Json";

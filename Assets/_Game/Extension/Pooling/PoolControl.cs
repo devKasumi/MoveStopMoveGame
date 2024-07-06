@@ -6,6 +6,7 @@ using UnityEngine;
 public class PoolControl : MonoBehaviour
 {
     private List<Weapon> weapons = new List<Weapon>();
+    //[SerializeField] private Weapon weapon;
 
     private void Awake()
     {
@@ -24,7 +25,8 @@ public class PoolControl : MonoBehaviour
             weapon = null;
         }
         GameObject pool = new GameObject(character.name + "_" + weapon.name);
-        WeaponPool.PreLoad(weapon, 0, pool.transform);
+        //WeaponPool.PreLoad(weapon, 4, pool.transform);
+        BasePool<Weapon>.PreLoad(weapon, 4, pool.transform);
     }
 
     public List<Weapon> ListWeapon() => weapons;
