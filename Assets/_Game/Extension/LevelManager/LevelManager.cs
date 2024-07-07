@@ -6,13 +6,15 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private Character[] characters;
     [SerializeField] private PoolControl poolControl;
-    [SerializeField] private Platform levelPlatform;
+    //[SerializeField] private Platform levelPlatform;
+    [SerializeField] private Level[] levels;
     private Level currentLevel;
     private int currentLevelIndex;  
 
     // Start is called before the first frame update
     void Start()
     {
+        currentLevel = levels[0];
         OnInit();
     }
 
@@ -34,5 +36,5 @@ public class LevelManager : Singleton<LevelManager>
 
     public Level CurrentLevel() => currentLevel;
 
-    public Vector3 RandomPos() => levelPlatform.RandomMovePos();
+    //public Vector3 RandomPos() => levelPlatform.RandomMovePos();
 }

@@ -6,7 +6,7 @@ public class AttackState : IState
 {
     public void OnEnter(Bot bot)
     {
-        //bot.ChangeAnimation(Constants.ANIMATION_ATTACK);
+        bot.ChangeAnimation(Constants.ANIMATION_ATTACK);
     }
 
     public void OnExecute(Bot bot)

@@ -1,18 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static CommonEnum;
-
-//public enum PoolType
-//{
-//    CharacterPool = 0,
-//    WeaponPool = 1,
-//}
-
-//public class ObjectPool : MonoBehaviour
-//{
-//    public PoolType PoolType;
-//}
 
 public static class BasePool<T> where T : MonoBehaviour
 {
@@ -26,23 +14,6 @@ public static class BasePool<T> where T : MonoBehaviour
             return;
         }
 
-        //switch (objectPrefab.tag)
-        //{
-        //    case Constants.TAG_BOT:
-        //        if (!poolInstance.ContainsKey(objectPrefab) || poolInstance[objectPrefab] == null)
-        //        {
-        //            Pool<T> p = new Pool<T>();
-        //            p.PreLoad(objectPrefab, amount, parent);
-        //            poolInstance[objectPrefab] = p;
-        //        }
-        //        break;
-        //    case Constants.TAG_WEAPON:
-
-        //        break;
-        //    default:
-        //        break;
-        //}
-
         if (!poolInstance.ContainsKey(key) || poolInstance[key] == null)
         {
             Debug.LogError("preload weapon prefab!!!!");
@@ -50,13 +21,6 @@ public static class BasePool<T> where T : MonoBehaviour
             p.PreLoad(objectPrefab, amount, parent);
             poolInstance[key] = p;
         }
-
-        Debug.LogError("pokemon:  " + poolInstance.Count);
-
-        //Debug.LogError("preload weapon prefab!!!!");
-        //Pool<T> p = new Pool<T>();
-        //p.PreLoad(objectPrefab, amount, parent);
-        //poolInstance[objectPrefab.tag] = p;
     }
 
     public static T Spawn(T objectPrefab, int key, Vector3 pos, Quaternion rot)
