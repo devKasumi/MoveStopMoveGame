@@ -1102,10 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177e404653de9ed499eefc0a87b123a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters:
-  - {fileID: 1869185036}
-  - {fileID: 1978334334}
-  - {fileID: 2116379878}
+  player: {fileID: 1869185036}
   poolControl: {fileID: 721787170}
   levels:
   - {fileID: 951646088}
@@ -1223,7 +1220,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1226635620}
-  - {fileID: 1869185039}
   - {fileID: 1978334333}
   - {fileID: 2116379877}
   - {fileID: 453805005}
@@ -1242,6 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelPlatform: {fileID: 1226635621}
+  TotalBot: 10
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1978334331
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2596,7 +2593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &2116379875
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2777,13 +2774,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 951646087}
     m_Modifications:
-    - target: {fileID: 2601543248141104281, guid: c902d262bc1a11542ac6332a0a528b92, type: 3}
-      propertyPath: bot
-      value: 
-      objectReference: {fileID: 1978334334}
     - target: {fileID: 5916340219650495173, guid: c902d262bc1a11542ac6332a0a528b92, type: 3}
       propertyPath: m_Name
       value: BotParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916340219650495173, guid: c902d262bc1a11542ac6332a0a528b92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6218599035410071362, guid: c902d262bc1a11542ac6332a0a528b92, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2836,7 +2833,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 951646087}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: joystick
@@ -3028,4 +3025,5 @@ SceneRoots:
   - {fileID: 7341393688365350811}
   - {fileID: 3399112132315630733}
   - {fileID: 721787169}
+  - {fileID: 5530632765529414449}
   - {fileID: 951646087}

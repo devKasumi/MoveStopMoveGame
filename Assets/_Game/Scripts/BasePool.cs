@@ -16,7 +16,6 @@ public static class BasePool<T> where T : MonoBehaviour
 
         if (!poolInstance.ContainsKey(key) || poolInstance[key] == null)
         {
-            Debug.LogError("preload weapon prefab!!!!");
             Pool<T> p = new Pool<T>();
             p.PreLoad(objectPrefab, amount, parent);
             poolInstance[key] = p;
@@ -31,8 +30,6 @@ public static class BasePool<T> where T : MonoBehaviour
             return null;
         }
 
-        Debug.LogError("pokemon:  " + poolInstance.Count);
-        
         return poolInstance[key].Spawn(pos, rot);
     }
 

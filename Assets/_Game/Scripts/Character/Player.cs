@@ -55,7 +55,7 @@ public class Player : Character
         if (inputX != 0f && inputZ != 0f)
         {
             TF.rotation = Quaternion.LookRotation(rb.velocity);
-            //SpawnPoint().rotation = Quaternion.LookRotation(rb.velocity);
+            SpawnPoint().rotation = Quaternion.LookRotation(rb.velocity);
         }
 
         if (!joystick.IsResetJoystick())

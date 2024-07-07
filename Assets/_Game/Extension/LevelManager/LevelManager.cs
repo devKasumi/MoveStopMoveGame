@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    [SerializeField] private Character[] characters;
+    [SerializeField] private Character player;
     [SerializeField] private PoolControl poolControl;
-    //[SerializeField] private Platform levelPlatform;
     [SerializeField] private Level[] levels;
+
+
+    //private List<Character> characters = new List<Character>();
     private Level currentLevel;
     private int currentLevelIndex;  
 
     // Start is called before the first frame update
     void Start()
     {
+        //characters.Add(player);
         currentLevel = levels[0];
         OnInit();
     }
@@ -26,12 +29,9 @@ public class LevelManager : Singleton<LevelManager>
 
     public void OnInit()
     {
-        List<Weapon> listWeapons = poolControl.ListWeapon();
-        for (int i = 0; i < characters.Length; i++)
-        {
-            characters[i].Weapon = listWeapons[Random.Range(0, listWeapons.Count)];
-            poolControl.PreLoadPool(characters[i]);
-        }
+        poolControl.PreLoadBotPool();
+        
+        poolControl.PreLoadWeaponPool(player);
     }
 
     public Level CurrentLevel() => currentLevel;

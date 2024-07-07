@@ -81,6 +81,7 @@ public class Bot : Character
             time = 0;
             if (ListTarget().Count > 0)
             {
+                ChangeAnimation(Constants.ANIMATION_ATTACK);
                 Attack();
             }
         }

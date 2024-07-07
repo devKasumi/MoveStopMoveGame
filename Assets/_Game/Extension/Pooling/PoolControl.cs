@@ -6,26 +6,30 @@ using UnityEngine;
 public class PoolControl : MonoBehaviour
 {
     private List<Weapon> weapons = new List<Weapon>();
+    private List<Character> bot = new List<Character>();
     //[SerializeField] private Weapon weapon;
 
     private void Awake()
     {
-        weapons = Resources.LoadAll<Weapon>("Pool/").ToList<Weapon>();
+        bot = Resources.LoadAll<Character>("Pool/Bot/").ToList<Character>();
+        weapons = Resources.LoadAll<Weapon>("Pool/Weapon/").ToList<Weapon>();
     }
 
-    public void PreLoadPool(Character character)
+    public void PreLoadBotPool()
+    {
+        bot[0].Weapon = weapons[Random.Range(0, weapons.Count)];
+        GameObject pool = new GameObject(bot[0].name + "_Pool");
+        pool.transform.position = Vector3.up;
+        BasePool<Character>.PreLoad(bot[0], (int)bot[0].Weapon.WeaponType, 4, pool.transform);
+        //BasePool<Character>.PreLoad(character, )
+        PreLoadWeaponPool(bot[0]);
+    }
+
+    public void PreLoadWeaponPool(Character character)
     {
         Weapon weapon;
-        if (weapons.Contains(character.Weapon))
-        {
-            weapon = weapons[weapons.IndexOf(character.Weapon)];
-        }
-        else
-        {
-            weapon = null;
-        }
+        weapon = weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)] : null;
         GameObject pool = new GameObject(character.name + "_" + weapon.name);
-        //WeaponPool.PreLoad(weapon, 4, pool.transform);
         BasePool<Weapon>.PreLoad(weapon, (int)weapon.WeaponType, 4, pool.transform);
     }
 

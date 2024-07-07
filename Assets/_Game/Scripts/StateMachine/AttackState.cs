@@ -6,12 +6,13 @@ public class AttackState : IState
 {
     public void OnEnter(Bot bot)
     {
-        bot.ChangeAnimation(Constants.ANIMATION_ATTACK);
+        bot.ChangeAnimation(Constants.ANIMATION_IDLE);
     }
 
     public void OnExecute(Bot bot)
     {
         bot.SetDestination(bot.TF.position);
+        bot.ChangeAnimation(Constants.ANIMATION_IDLE);
         bot.AttackEnemy();
     }
 
