@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   attackRange: 5
-  attackSpeed: 15
+  attackSpeed: 5
   rb: {fileID: 6583954710965402889}
   OnHitCharacter:
     m_PersistentCalls:

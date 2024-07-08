@@ -45,7 +45,7 @@ public class Weapon : MonoBehaviour
     public void OnInit()
     {
         originPos = TF.position;
-        rb.velocity = TF.forward * 5f;
+        rb.velocity = TF.forward * attackSpeed;
     }
 
     public void OnDespawn()
