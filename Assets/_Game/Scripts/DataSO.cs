@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataSO : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[CreateAssetMenu(menuName = "Data/Skin Data", fileName = "Skin Data")]
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class DataSO : ScriptableObject
+{
+    
 }
