@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private CapsuleCollider capsuleCollider;
 
-    private Weapon weapon;
+    [SerializeField] private Weapon weapon;
     private List<Character> listTargets = new List<Character>();
     private string currentAnimationName;
 
