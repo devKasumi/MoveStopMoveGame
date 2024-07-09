@@ -26,8 +26,13 @@ public class CommonEnum
 
     public enum WeaponType
     {
-        Axe = 0,
-        Sword = 1,
-        Knife = 2,
+        Hammer_0 = 0,
+        Axe_0 = 1,
+        Axe_1 = 2,
+        Candy_0 = 3,
+        Candy_1 = 4,
+        Candy_2 = 5,
+        Candy_4 = 6,
+        Knife_0 = 7,
     }
 }

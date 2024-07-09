@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbfc9a195d5ba846b5d9843f52bad60, type: 3}
+  m_Name: Candy2_Data
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: fd409b7cea28e4f45a4a3c68e22ef39f, type: 2}
+  - {fileID: 2100000, guid: 87a155de03a4803499b2771ca9f283ab, type: 2}
+  weaponType: 5
+  attackSpeed: 5
+  attackRange: 5
