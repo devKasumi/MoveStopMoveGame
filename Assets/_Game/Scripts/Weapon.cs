@@ -6,16 +6,18 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private CommonEnum.WeaponType weaponType;
     //[SerializeField] private MeshRenderer meshRenderer;
     //[SerializeField] private CommonEnum.ColorType colorType;
-    [SerializeField] private float attackRange;
-    [SerializeField] private float attackSpeed;
+    [SerializeField] private DataSO skinData;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private MeshRenderer weaponSkin;
     [SerializeField] private UnityEvent OnHitCharacter = new UnityEvent();
 
-
-    private Image weaponSkin;
+    private CommonEnum.WeaponType weaponType;
+    private float attackRange;
+    private float attackSpeed;
+    //private Image weaponSkin;
+    private int skinIndex = 0;
 
     private Transform tf;
 

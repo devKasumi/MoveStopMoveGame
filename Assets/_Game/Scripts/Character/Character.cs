@@ -6,13 +6,12 @@ using UnityEngine.Playables;
 public class Character : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    //[SerializeField] private Transform bulletPoint;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform tf;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private CapsuleCollider capsuleCollider;
 
-    [SerializeField] private Weapon weapon;
+    private Weapon weapon;
     private List<Character> listTargets = new List<Character>();
     private string currentAnimationName;
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Bot : Character
 {
+    [SerializeField] private CommonEnum.BotType botType;
     [SerializeField] private Image targetImage;
     [SerializeField] private NavMeshAgent navMeshAgent;
 

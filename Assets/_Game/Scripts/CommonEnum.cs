@@ -24,6 +24,12 @@ public class CommonEnum
         Purple = 6,
     }
 
+    public enum BotType
+    {
+        ShortAttackArea = 0,
+        LongAttackArea = 1,
+    }
+
     public enum WeaponType
     {
         Hammer_0 = 0,

@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 4419539092426803298}
   - component: {fileID: 6650446904320842943}
   m_Layer: 0
-  m_Name: BotParent
+  m_Name: Bot_0
   m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +372,8 @@ MonoBehaviour:
   tf: {fileID: 6218599035410071362}
   spawnPoint: {fileID: 2847952908638664445}
   capsuleCollider: {fileID: 171535000926149563}
-  weapon: {fileID: 2834016727661824128, guid: 5a53fcbd16fcd0242862c28675f95e8a, type: 3}
+  weapon: {fileID: 3414085074715646355, guid: d1b42acb283ee4546b08c6b445f4e819, type: 3}
+  botType: 1
   targetImage: {fileID: 5278889131340208587}
   navMeshAgent: {fileID: 4419539092426803298}
 --- !u!1 &6501919164336131854
