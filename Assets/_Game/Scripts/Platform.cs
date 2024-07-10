@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    //[SerializeField] private float xAxisPivot;
-    //[SerializeField] private float zAxisPivot;
     [SerializeField] private int minX;
     [SerializeField] private int minZ;
     [SerializeField] private int maxX;
@@ -43,20 +41,19 @@ public class Platform : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public Vector3 RandomMovePos()
     {
-        //int axisValue = Random.Range(-1, 1);
-        //float randomMultiplier = multiplier[Random.Range(0, 3)];
         Vector3 randomMovePos = new Vector3(maxX * Random.Range(-1, 2) * multiplier[Random.Range(0, 3)], 
                                             0f, 
                                             maxZ * Random.Range(-1, 2) * multiplier[Random.Range(0, 3)]);
-        //Debug.LogError(randomMovePos);
         return randomMovePos;
+    }
+
+    public void OnSpawnBot()
+    {
+        for (int i = 0; i <= 10; i++)
+        {
+
+        }
     }
 }

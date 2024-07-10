@@ -23,8 +23,7 @@ public class PoolControl : MonoBehaviour
 
     public void OnInit()
     {
-        //PreLoadBotPool(Random.Range(0, bots.Count));
-        for (int i = 0;i<bots.Count;i++)
+        for (int i = 0; i < bots.Count; i++)
         {
             PreLoadBotPool(i);
         }
@@ -32,23 +31,16 @@ public class PoolControl : MonoBehaviour
 
     public void PreLoadBotPool(int index)
     {
-        Weapon weapon = weapons[Random.Range(0, weapons.Count)];
-        weapon.WeaponSkin.material = weapon.WeaponSkinData.WeaponMaterial(weapon.skinIndex);
-        bots[index].Weapon = weapon;
         GameObject pool = new GameObject(bots[index].name + "_Pool");
         pool.transform.position = Vector3.up;
-        BasePool<Character>.PreLoad(bots[index], (int)bots[index].Weapon.WeaponType, 4, pool.transform);
-        PreLoadWeaponPool(bots[index]);
+        BasePool<Character>.PreLoad(bots[index], index, 10, pool.transform);
     }
 
     public void PreLoadWeaponPool(Character character)
     {
         Weapon weapon;
-        weapon = weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)] : null;
-        if (!weapon)
-        {
-            weapon = weapons[(int)CommonEnum.WeaponType.Hammer_0];
-        }
+        weapon = weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)] 
+                                                    : weapons[(int)CommonEnum.WeaponType.Hammer_0];
         GameObject pool = new GameObject(character.name + "_" + weapon.name);
         BasePool<Weapon>.PreLoad(weapon, (int)weapon.WeaponType, 4, pool.transform);
     }
