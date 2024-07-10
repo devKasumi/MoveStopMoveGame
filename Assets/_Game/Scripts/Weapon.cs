@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     //[SerializeField] private MeshRenderer meshRenderer;
     //[SerializeField] private CommonEnum.ColorType colorType;
-    [SerializeField] private DataSO skinData;
+    [SerializeField] private WeaponDataSO skinData;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private MeshRenderer weaponSkin;
     [SerializeField] private UnityEvent OnHitCharacter = new UnityEvent();

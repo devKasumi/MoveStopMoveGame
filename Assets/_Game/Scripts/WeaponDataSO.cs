@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Skin Data", fileName = "Skin Data")]
+[CreateAssetMenu(menuName = "Data/Weapon Data", fileName = "Weapon Data")]
 
-public class DataSO : ScriptableObject
+public class WeaponDataSO : ScriptableObject
 {
     [SerializeField] private List<Material> materials = new List<Material>();
     //[SerializeField] public List<Material> Hammer_0_Mats = new List<Material>();

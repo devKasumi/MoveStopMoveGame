@@ -6,23 +6,22 @@ using UnityEngine;
 public class PoolControl : MonoBehaviour
 {
     private List<Weapon> weapons = new List<Weapon>();
-    private List<Character> bot = new List<Character>();
+    private List<Character> bots = new List<Character>();
     //[SerializeField] private Weapon weapon;
 
     private void Awake()
     {
-        bot = Resources.LoadAll<Character>("Pool/Bot/").ToList<Character>();
+        bots = Resources.LoadAll<Character>("Pool/Bot/").ToList<Character>();
         weapons = Resources.LoadAll<Weapon>("Pool/Weapon/").ToList<Weapon>();
     }
 
     public void PreLoadBotPool()
     {
-        bot[0].Weapon = weapons[Random.Range(0, weapons.Count)];
-        GameObject pool = new GameObject(bot[0].name + "_Pool");
+        bots[0].Weapon = weapons[Random.Range(0, weapons.Count)];
+        GameObject pool = new GameObject(bots[0].name + "_Pool");
         pool.transform.position = Vector3.up;
-        BasePool<Character>.PreLoad(bot[0], (int)bot[0].Weapon.WeaponType, 4, pool.transform);
-        //BasePool<Character>.PreLoad(character, )
-        PreLoadWeaponPool(bot[0]);
+        BasePool<Character>.PreLoad(bots[0], (int)bots[0].Weapon.WeaponType, 4, pool.transform);
+        PreLoadWeaponPool(bots[0]);
     }
 
     public void PreLoadWeaponPool(Character character)

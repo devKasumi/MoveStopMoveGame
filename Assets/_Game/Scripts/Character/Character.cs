@@ -10,8 +10,10 @@ public class Character : MonoBehaviour
     [SerializeField] private Transform tf;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private CapsuleCollider capsuleCollider;
-
     [SerializeField] private Weapon weapon;
+    [SerializeField] private SkinnedMeshRenderer skinColor;
+    [SerializeField] private SkinnedMeshRenderer pantColor;
+
     private List<Character> listTargets = new List<Character>();
     private string currentAnimationName;
 

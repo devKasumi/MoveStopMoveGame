@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public class StaticDataManager : MonoBehaviour
 {
-    [SerializeField] private Platform levelPlatform;
-    [SerializeField] private int TotalBot;
+    [SerializeField] private List<WeaponDataSO> weaponDataSOs = new List<WeaponDataSO>();
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +18,5 @@ public class Level : MonoBehaviour
         
     }
 
-    public Platform Platform => levelPlatform;
-
-    //public Bot Bot => bot;
-
-    public int LevelTotalBot => this.TotalBot;
+    public List<WeaponDataSO> ListWeaponDataSO => weaponDataSOs;
 }

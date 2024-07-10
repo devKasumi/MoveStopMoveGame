@@ -373,6 +373,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 2847952908638664445}
   capsuleCollider: {fileID: 171535000926149563}
   weapon: {fileID: 3414085074715646355, guid: d1b42acb283ee4546b08c6b445f4e819, type: 3}
+  skinColor: {fileID: 4256129124231538162}
+  pantColor: {fileID: 4967984329352634513}
   botType: 1
   targetImage: {fileID: 5278889131340208587}
   navMeshAgent: {fileID: 4419539092426803298}
@@ -617,6 +619,16 @@ PrefabInstance:
 --- !u!95 &1704225235958035832 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 4347707422895633176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &4256129124231538162 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8699012472884554006, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
+  m_PrefabInstance: {fileID: 4347707422895633176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &4967984329352634513 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -529177695146175607, guid: 38f9296dc39c27647a0119314baf12a2, type: 3}
   m_PrefabInstance: {fileID: 4347707422895633176}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8731525383798413314 stripped

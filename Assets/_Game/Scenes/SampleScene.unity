@@ -1609,7 +1609,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30498832, y: -0, z: -0, w: 0.9523561}
-  m_LocalPosition: {x: 0, y: 10.92, z: -18.6}
+  m_LocalPosition: {x: 0, y: 10.92, z: -21.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2345,6 +2345,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45aa9b66c9c81a4cac7e66fe618e58f, type: 3}
+--- !u!137 &1443040597 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 609598229858111651, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+  m_PrefabInstance: {fileID: 5530632765529414449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1509643320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2406,6 +2411,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030df9291fb862442bf24b50107742c0, type: 3}
+--- !u!137 &1846511134 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8616696508837844416, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+  m_PrefabInstance: {fileID: 5530632765529414449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1855567364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,6 +2687,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894857859}
   m_CullTransparentMesh: 1
+--- !u!1 &1932605059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932605060}
+  - component: {fileID: 1932605061}
+  m_Layer: 0
+  m_Name: StaticDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1932605060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932605059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1932605061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932605059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6dfc7b24f782946a48f0aaa8739ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDataSOs:
+  - {fileID: 11400000, guid: 87a91a3f362b8344f956ff65650d22b0, type: 2}
+  - {fileID: 11400000, guid: ba283b96d6522e24bbaea1fcc347c4d6, type: 2}
+  - {fileID: 11400000, guid: a68c374f50947314ca2ff5449ad11eb3, type: 2}
+  - {fileID: 11400000, guid: 5b763d7ba7db4de42899723b973b4114, type: 2}
+  - {fileID: 11400000, guid: 02d35eb0b9e2ad84aaf1aa3f1759b997, type: 2}
+  - {fileID: 11400000, guid: e1ba29d273063164aa7e7c5dcc35cff6, type: 2}
+  - {fileID: 11400000, guid: 22348bb291639ce4096a6bdc715801d4, type: 2}
+  - {fileID: 11400000, guid: c893498c44ec4b54685a9cfceb7d4a01, type: 2}
 --- !u!1 &1978334329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,6 +2846,9 @@ MonoBehaviour:
   tf: {fileID: 1978334333}
   spawnPoint: {fileID: 216295112}
   capsuleCollider: {fileID: 1978334332}
+  weapon: {fileID: 0}
+  skinColor: {fileID: 0}
+  pantColor: {fileID: 0}
   botType: 0
   targetImage: {fileID: 662374932}
   navMeshAgent: {fileID: 1978334335}
@@ -3026,6 +3092,9 @@ MonoBehaviour:
   tf: {fileID: 2116379877}
   spawnPoint: {fileID: 1999852580}
   capsuleCollider: {fileID: 2116379876}
+  weapon: {fileID: 0}
+  skinColor: {fileID: 0}
+  pantColor: {fileID: 0}
   botType: 0
   targetImage: {fileID: 1894857861}
   navMeshAgent: {fileID: 2116379879}
@@ -3368,6 +3437,14 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1278882012}
+    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+      propertyPath: pantColor
+      value: 
+      objectReference: {fileID: 1443040597}
+    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+      propertyPath: skinColor
+      value: 
+      objectReference: {fileID: 1846511134}
     - target: {fileID: 4887193714161769681, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3609,6 +3686,7 @@ SceneRoots:
   - {fileID: 611731957}
   - {fileID: 244642315}
   - {fileID: 757655384}
+  - {fileID: 1932605060}
   - {fileID: 1299652614}
   - {fileID: 721787169}
   - {fileID: 5530632765529414449}
