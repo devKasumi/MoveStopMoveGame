@@ -29,7 +29,13 @@ public class LevelManager : Singleton<LevelManager>
 
     public void OnInit()
     {
-        poolControl.PreLoadBotPool();
+        //for (int i = 0; i < currentLevel.TotalShortRangeBot; i++)
+        //{
+        //    poolControl.PreLoadBotPool();
+        //}
+
+        poolControl.OnInit();
+        
         
         poolControl.PreLoadWeaponPool(player);
     }

@@ -5,12 +5,14 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     [SerializeField] private Platform levelPlatform;
-    [SerializeField] private int TotalBot;
+    //[SerializeField] private int totalShortRangeBot;
+    //[SerializeField] private int totalLongRangeBot;
+    //private int TotalBot;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //TotalBot = totalShortRangeBot + totalLongRangeBot;
     }
 
     // Update is called once per frame
@@ -23,5 +25,9 @@ public class Level : MonoBehaviour
 
     //public Bot Bot => bot;
 
-    public int LevelTotalBot => this.TotalBot;
+    //public int CurrentLevelTotalBot => this.TotalBot;
+
+    //public int TotalShortRangeBot => this.TotalShortRangeBot;
+
+    //public int TotalLongRangeBot => this.TotalLongRangeBot;
 }

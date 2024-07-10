@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
     private float attackRange;
     private float attackSpeed;
     //private Image weaponSkin;
-    private int skinIndex = 0;
+    public int skinIndex = 0;
 
     private Transform tf;
 
@@ -61,6 +61,10 @@ public class Weapon : MonoBehaviour
     public float AttackRange => attackRange;
 
     public float AttackSpeed => attackSpeed;
+
+    public WeaponDataSO WeaponSkinData => skinData; 
+
+    public MeshRenderer WeaponSkin => weaponSkin;
 
     public void ChangeWeaponSkin()
     {

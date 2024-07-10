@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 0.4336931, y: 0.8410497, z: 0.12189}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8310107320955281547}
+  - {fileID: 2620044189111891494}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6016060739368623822
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinData: {fileID: 11400000, guid: ba283b96d6522e24bbaea1fcc347c4d6, type: 2}
   rb: {fileID: 7150861507660152504}
-  weaponSkin: {fileID: 8310107320953381483}
+  weaponSkin: {fileID: 2620044189113660614}
   OnHitCharacter:
     m_PersistentCalls:
       m_Calls:
@@ -113,7 +113,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1001 &8310107320955681291
+--- !u!1001 &2620044189111495846
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -170,13 +170,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c040a6e7d23e904b87e93fb9c66a037, type: 3}
---- !u!23 &8310107320953381483 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2300000, guid: 1c040a6e7d23e904b87e93fb9c66a037, type: 3}
-  m_PrefabInstance: {fileID: 8310107320955681291}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8310107320955281547 stripped
+--- !u!4 &2620044189111891494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1c040a6e7d23e904b87e93fb9c66a037, type: 3}
-  m_PrefabInstance: {fileID: 8310107320955681291}
+  m_PrefabInstance: {fileID: 2620044189111495846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2620044189113660614 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 1c040a6e7d23e904b87e93fb9c66a037, type: 3}
+  m_PrefabInstance: {fileID: 2620044189111495846}
   m_PrefabAsset: {fileID: 0}
