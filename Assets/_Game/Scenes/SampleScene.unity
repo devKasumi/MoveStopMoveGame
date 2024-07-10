@@ -2740,6 +2740,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e1ba29d273063164aa7e7c5dcc35cff6, type: 2}
   - {fileID: 11400000, guid: 22348bb291639ce4096a6bdc715801d4, type: 2}
   - {fileID: 11400000, guid: c893498c44ec4b54685a9cfceb7d4a01, type: 2}
+  pantDataSO: {fileID: 11400000, guid: df7faed673b662840ba0fcdc9c970daf, type: 2}
 --- !u!1 &1978334329
 GameObject:
   m_ObjectHideFlags: 0

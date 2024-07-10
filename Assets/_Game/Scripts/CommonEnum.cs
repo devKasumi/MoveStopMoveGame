@@ -41,4 +41,17 @@ public class CommonEnum
         Candy_4 = 6,
         Knife_0 = 7,
     }
+
+    public enum PantType
+    {
+        Batman = 0,
+        Chambi = 1,
+        Comy = 2,
+        Dabao = 3,
+        Onion = 4,
+        Pokemon = 5,
+        Rainbow = 6,
+        Skull = 7,
+        Vantim = 8,
+    }
 }

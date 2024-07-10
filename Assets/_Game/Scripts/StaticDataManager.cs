@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticDataManager : MonoBehaviour
+public class StaticDataManager : Singleton<StaticDataManager>
 {
     [SerializeField] private List<WeaponDataSO> weaponDataSOs = new List<WeaponDataSO>();
+    [SerializeField] private PantDataSO pantDataSO;
 
     // Start is called before the first frame update
     void Start()
@@ -19,4 +20,6 @@ public class StaticDataManager : MonoBehaviour
     }
 
     public List<WeaponDataSO> ListWeaponDataSO => weaponDataSOs;
+
+    public PantDataSO PantDataSO => pantDataSO;
 }
