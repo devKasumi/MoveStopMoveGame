@@ -8,7 +8,6 @@ public class PoolControl : MonoBehaviour
 {
     private List<Weapon> weapons = new List<Weapon>();
     private List<Character> bots = new List<Character>();
-    //[SerializeField] private Weapon weapon;
 
     private void Awake()
     {
@@ -18,7 +17,7 @@ public class PoolControl : MonoBehaviour
 
     private void Start()
     {
-        //OnInit();
+        
     }
 
     public void OnInit()
@@ -34,6 +33,7 @@ public class PoolControl : MonoBehaviour
         GameObject pool = new GameObject(bots[index].name + "_Pool");
         pool.transform.position = Vector3.up;
         BasePool<Character>.PreLoad(bots[index], index, 10, pool.transform);
+        //SpawnBot(bots[index], index);
     }
 
     public void PreLoadWeaponPool(Character character)
@@ -41,9 +41,23 @@ public class PoolControl : MonoBehaviour
         Weapon weapon;
         weapon = weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)] 
                                                     : weapons[(int)CommonEnum.WeaponType.Hammer_0];
+        weapon.WeaponSkin.material = weapon.WeaponData.WeaponMaterial(0);
         GameObject pool = new GameObject(character.name + "_" + weapon.name);
         BasePool<Weapon>.PreLoad(weapon, (int)weapon.WeaponType, 4, pool.transform);
     }
 
-    public List<Weapon> ListWeapon() => weapons;
+    public void SpawnBot(Character bot, int index)
+    {
+        List<List<Vector3>> listPos = LevelManager.Instance.CurrentLevel().Platform.ListPos;
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < listPos.Count; j++)
+            {
+                bot.Weapon = weapons[Random.Range(0, weapons.Count)];
+                BasePool<Character>.Spawn(bot, index, listPos[j][i], Quaternion.identity);
+                PreLoadWeaponPool(bot);
+            } 
+        }
+    }
 }
