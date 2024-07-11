@@ -16,9 +16,9 @@ public class WeaponDataSO : ScriptableObject
     //[SerializeField] private List<Material> Candy_4_Mats = new List<Material>();
     //[SerializeField] private List<Material> Knife_0_Mats = new List<Material>();
 
-    [SerializeField] private CommonEnum.WeaponType weaponType;
-    [SerializeField] private float attackSpeed;
-    [SerializeField] private float attackRange;
+    [SerializeField] public CommonEnum.WeaponType weaponType;
+    [SerializeField] public float attackSpeed;
+    [SerializeField] public float attackRange;
 
     public Material WeaponMaterial(int skinIndex) => materials[skinIndex];
 }

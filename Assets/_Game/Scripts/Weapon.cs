@@ -56,6 +56,13 @@ public class Weapon : MonoBehaviour
         BasePool<Weapon>.Despawn(this, (int)weaponType);
     }
 
+    public void GetData()
+    {
+        //weaponType = weaponData.weaponType;
+        attackRange = weaponData.attackRange;
+        attackSpeed = weaponData.attackSpeed;
+    }
+
     public CommonEnum.WeaponType WeaponType => weaponType;
 
     public float AttackRange => attackRange;
