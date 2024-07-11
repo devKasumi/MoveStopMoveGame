@@ -29,9 +29,14 @@ public class Platform : MonoBehaviour
 
     private List<List<Vector3>> listPos = new List<List<Vector3>>();
 
-    void Start()
+    private void Awake()
     {
         OnInit();
+    }
+
+    void Start()
+    {
+        
     }
 
     public void OnInit()

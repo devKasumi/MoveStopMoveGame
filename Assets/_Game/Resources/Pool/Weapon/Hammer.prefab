@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14336f3bd71b08041a66b34cde369bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinData: {fileID: 11400000, guid: 87a91a3f362b8344f956ff65650d22b0, type: 2}
+  weaponData: {fileID: 11400000, guid: 87a91a3f362b8344f956ff65650d22b0, type: 2}
   rb: {fileID: 4379760671077979139}
   weaponSkin: {fileID: 3763083468149676445}
   OnHitCharacter:
@@ -113,6 +113,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  skinIndex: 0
 --- !u!1001 &3763083468147769853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,6 +166,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 90389cac50942cb4ca38583e6531094a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07c7488e984889540a9ab8577006224d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

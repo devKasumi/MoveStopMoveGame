@@ -46,16 +46,16 @@ public class PoolControl : MonoBehaviour
         BasePool<Weapon>.PreLoad(weapon, (int)weapon.WeaponType, 4, pool.transform);
     }
 
-    public void SpawnBot(Character bot, int index)
+    public void SpawnBot()
     {
         List<List<Vector3>> listPos = LevelManager.Instance.CurrentLevel().Platform.ListPos;
-
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < listPos.Count; j++)
             {
+                int index = Random.Range(0, bots.Count);
+                Character bot = BasePool<Character>.Spawn(bots[index], index, listPos[j][i], Quaternion.identity);
                 bot.Weapon = weapons[Random.Range(0, weapons.Count)];
-                BasePool<Character>.Spawn(bot, index, listPos[j][i], Quaternion.identity);
                 PreLoadWeaponPool(bot);
             } 
         }

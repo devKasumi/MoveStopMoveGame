@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14336f3bd71b08041a66b34cde369bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinData: {fileID: 11400000, guid: e1ba29d273063164aa7e7c5dcc35cff6, type: 2}
+  weaponData: {fileID: 11400000, guid: e1ba29d273063164aa7e7c5dcc35cff6, type: 2}
   rb: {fileID: 431332217983227375}
   weaponSkin: {fileID: 2775322986800803871}
   OnHitCharacter:
@@ -113,6 +113,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  skinIndex: 0
 --- !u!1001 &2775322986798901375
 PrefabInstance:
   m_ObjectHideFlags: 0

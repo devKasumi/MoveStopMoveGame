@@ -30,7 +30,7 @@ public class LevelManager : Singleton<LevelManager>
     public void OnInit()
     {
         poolControl.OnInit();
-        //poolControl.SpawnBot();
+        poolControl.SpawnBot();
         poolControl.PreLoadWeaponPool(player);
     }
 
