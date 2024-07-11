@@ -15,6 +15,6 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 07c7488e984889540a9ab8577006224d, type: 2}
   - {fileID: 2100000, guid: 7544a9a8d9af489438d0f5591c6a5457, type: 2}
-  weaponType: 0
+  weaponType: 6
   attackSpeed: 5
   attackRange: 5

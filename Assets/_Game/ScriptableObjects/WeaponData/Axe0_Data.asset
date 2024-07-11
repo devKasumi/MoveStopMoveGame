@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
   - {fileID: 2100000, guid: 10222575e5c293c4aa8328e7e9e95e9a, type: 2}
-  weaponType: 1
+  weaponType: 0
   attackSpeed: 5
   attackRange: 5
