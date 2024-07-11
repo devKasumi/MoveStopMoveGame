@@ -79,27 +79,6 @@ public class Platform : MonoBehaviour
         return randomMovePos;
     }
 
-    //public List<Vector3> FirstQuadrantPos => firstQuadrantPos;
-    //public List<Vector3> SecondQuadrantPos => secondQuadrantPos;
-    //public List<Vector3> ThirdQuadrantPos => thirdQuadrantPos;
-    //public List<Vector3> FourthQuadrantPos => fourthQuadrantPos;
-
     public List<List<Vector3>> ListPos => listPos;  
 
-    //public Vector3 RandomSpawnPos(int quadrant)
-    //{
-    //    switch (quadrant)
-    //    {
-    //        case 1:
-    //            break;
-    //        case 2:
-    //            break;
-    //        case 3:
-    //            break;
-    //        case 4:
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
 }
