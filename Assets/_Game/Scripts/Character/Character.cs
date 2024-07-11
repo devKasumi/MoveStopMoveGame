@@ -87,7 +87,7 @@ public class Character : MonoBehaviour
 
     public void Attack()
     {
-        Weapon weapon = BasePool<Weapon>.Spawn(this.weapon, (int)this.weapon.WeaponType, spawnPoint.position, Quaternion.identity);
+        Weapon weapon = BasePool<Weapon>.Spawn(this.weapon, (int)this.weapon.WeaponType, spawnPoint.position, this.weapon.TF.rotation);
         weapon.AddCurrentCharacterListener(this);
         if (listTargets.Count > 0)
         {

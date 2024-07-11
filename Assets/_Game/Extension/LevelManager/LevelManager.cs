@@ -11,7 +11,12 @@ public class LevelManager : Singleton<LevelManager>
 
     //private List<Character> characters = new List<Character>();
     private Level currentLevel;
-    private int currentLevelIndex;  
+    private int currentLevelIndex;
+
+    //private void Awake()
+    //{
+        
+    //}
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +34,9 @@ public class LevelManager : Singleton<LevelManager>
 
     public void OnInit()
     {
+        poolControl.PreLoadWeaponPool(player);
         poolControl.OnInit();
         poolControl.SpawnBot();
-        poolControl.PreLoadWeaponPool(player);
     }
 
     public Level CurrentLevel() => currentLevel;

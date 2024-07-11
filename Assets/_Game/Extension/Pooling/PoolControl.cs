@@ -8,6 +8,7 @@ public class PoolControl : MonoBehaviour
 {
     private List<Weapon> weapons = new List<Weapon>();
     private List<Character> bots = new List<Character>();
+    [SerializeField] private Player player;
 
     private void Awake()
     {
@@ -17,7 +18,9 @@ public class PoolControl : MonoBehaviour
 
     private void Start()
     {
-        
+        //OnInit();
+        //SpawnBot();
+        //PreLoadWeaponPool(player);
     }
 
     public void OnInit()
