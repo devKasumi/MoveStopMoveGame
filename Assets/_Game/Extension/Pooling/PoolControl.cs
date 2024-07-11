@@ -33,7 +33,6 @@ public class PoolControl : MonoBehaviour
         GameObject pool = new GameObject(bots[index].name + "_Pool");
         pool.transform.position = Vector3.up;
         BasePool<Character>.PreLoad(bots[index], index, 10, pool.transform);
-        //SpawnBot(bots[index], index);
     }
 
     public void PreLoadWeaponPool(Character character)
@@ -43,6 +42,7 @@ public class PoolControl : MonoBehaviour
                                                     : weapons[(int)CommonEnum.WeaponType.Hammer_0];
         weapon.WeaponSkin.material = weapon.WeaponData.WeaponMaterial(0);
         GameObject pool = new GameObject(character.name + "_" + weapon.name);
+        pool.transform.parent = character.TF;
         BasePool<Weapon>.PreLoad(weapon, (int)weapon.WeaponType, 4, pool.transform);
     }
 
