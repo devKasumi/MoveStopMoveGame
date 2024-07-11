@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         //OnInit();
-        
+        //GetData();
     }
 
     // Update is called once per frame
@@ -58,7 +58,7 @@ public class Weapon : MonoBehaviour
 
     public void GetData()
     {
-        //weaponType = weaponData.weaponType;
+        weaponType = weaponData.weaponType;
         attackRange = weaponData.attackRange;
         attackSpeed = weaponData.attackSpeed;
     }
@@ -113,7 +113,7 @@ public class Weapon : MonoBehaviour
         {
             OnHitCharacter.Invoke();
             Character character = Cache.GenCharacter(other);
-            //character.OnDeath();
+            character.OnDeath();
         }
     }
 

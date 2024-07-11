@@ -38,15 +38,19 @@ public class PoolControl : MonoBehaviour
         BasePool<Character>.PreLoad(bots[index], index, 10, pool.transform);
     }
 
-    public void PreLoadWeaponPool(Character character)
+    public void PreLoadWeaponPool(Character character, int weaponIndex)
     {
-        Weapon weapon;
-        weapon = weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)] 
-                                                    : weapons[(int)CommonEnum.WeaponType.Hammer_0];
-        weapon.WeaponSkin.material = weapon.WeaponData.WeaponMaterial(0);
-        GameObject pool = new GameObject(character.name + "_" + weapon.name);
+        //Weapon weapon;
+        //weapon = weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)] 
+        //                                            : weapons[(int)CommonEnum.WeaponType.Hammer_0];
+        //Debug.LogError(weapons[weapons.IndexOf(character.Weapon)] + "   with:   " /*+ (int)weapon.WeaponType*/);
+        Weapon weaponPrefab = Instantiate(weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)]
+                                                                             : weapons[(int)CommonEnum.WeaponType.Hammer_0]);
+        weaponPrefab.WeaponSkin.material = weaponPrefab.WeaponData.WeaponMaterial(0);
+        weaponPrefab.GetData();
+        GameObject pool = new GameObject(character.name + "_" + weaponPrefab.name);
         pool.transform.parent = character.TF;
-        BasePool<Weapon>.PreLoad(weapon, (int)weapon.WeaponType, 4, pool.transform);
+        BasePool<Weapon>.PreLoad(weaponPrefab, /*(int)weaponPrefab.WeaponType*/weaponIndex, 4, pool.transform);
     }
 
     public void SpawnBot()
@@ -57,9 +61,14 @@ public class PoolControl : MonoBehaviour
             for (int j = 0; j < listPos.Count; j++)
             {
                 int index = Random.Range(0, bots.Count);
-                Character bot = BasePool<Character>.Spawn(bots[index], index, listPos[j][i], Quaternion.identity);
+                int weaponIndex = Random.Range(0, weapons.Count);
+                //bots[index].Weapon = weapons[Random.Range(0, weapons.Count)];
+                Character bot = BasePool<Character>.Spawn(index, listPos[j][i], Quaternion.identity);
                 bot.Weapon = weapons[Random.Range(0, weapons.Count)];
-                PreLoadWeaponPool(bot);
+                bot.Weapon.GetData();
+                //int weaponIndex = (int)bot.Weapon.WeaponType;
+                Debug.LogError(bot.Weapon.WeaponType);
+                PreLoadWeaponPool(bot, weaponIndex);
             } 
         }
     }

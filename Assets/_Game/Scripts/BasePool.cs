@@ -22,15 +22,15 @@ public static class BasePool<T> where T : MonoBehaviour
         }
     }
 
-    public static T Spawn(T objectPrefab, int key, Vector3 pos, Quaternion rot)
+    public static T Spawn(int key, Vector3 pos, Quaternion rot)
     {
         if (!poolInstance.ContainsKey(key))
         {
-            Debug.LogError(objectPrefab + " IS NOT PRELOAD!");
+            Debug.LogError(" IS NOT PRELOAD!");
             return null;
         }
 
-        return poolInstance[key].Spawn(pos, rot);
+        return poolInstance[key].Spawn(pos, rot) as T;
     }
 
     public static void Despawn(T objectPrefab, int key)
