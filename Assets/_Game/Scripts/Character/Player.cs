@@ -19,7 +19,7 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
-        
+        SkinColor.material = SkinDataSO.SkinMaterial(CommonEnum.ColorType.Red);
     }
 
     // Update is called once per frame

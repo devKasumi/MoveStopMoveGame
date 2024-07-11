@@ -36,6 +36,8 @@ public class Bot : Character
         base.OnInit();
 
         ChangeState(new PatrolState());
+
+        SkinColor.material = SkinDataSO.Materials[Random.Range(1, SkinDataSO.Materials.Count)];
     }
 
     public void ChangeState(IState newState)

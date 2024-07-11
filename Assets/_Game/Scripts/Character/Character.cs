@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Weapon weapon;
     [SerializeField] private SkinnedMeshRenderer skinColor;
     [SerializeField] private SkinnedMeshRenderer pantColor;
+    [SerializeField] private SkinDataSO skinDataSO;
 
     private List<Character> listTargets = new List<Character>();
     private string currentAnimationName;
@@ -50,6 +51,10 @@ public class Character : MonoBehaviour
     {
 
     }
+
+    public SkinDataSO SkinDataSO => skinDataSO;
+
+    public SkinnedMeshRenderer SkinColor => skinColor;
 
     public Transform SpawnPoint() => spawnPoint;
 

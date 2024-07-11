@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Pant Data", fileName = "pant Data")]
+[CreateAssetMenu(menuName = "Data/Pant Data", fileName = "Pant Data")]
 
 public class PantDataSO : ScriptableObject
 {
