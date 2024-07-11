@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
 
     public void AddTarget(Character character)
     {
-        Debug.LogError("add target!!!");
+        //Debug.LogError("add target!!!");
         listTargets.Add(character);
         //listTargets.Push(character);
     }
@@ -109,6 +109,17 @@ public class Character : MonoBehaviour
             animator.ResetTrigger(currentAnimationName);
             currentAnimationName = animationName;
             animator.SetTrigger(currentAnimationName);
+        }
+    }
+
+    public void FaceEnemy()
+    {
+        if (listTargets.Count > 0)
+        {
+            Vector3 direction = listTargets[0].TF.position - tf.position;
+            tf.forward = direction;
+            //spawnPoint.forward = direction;
+            spawnPoint.transform.rotation = tf.rotation;
         }
     }
 

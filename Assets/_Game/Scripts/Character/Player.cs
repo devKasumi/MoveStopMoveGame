@@ -29,6 +29,7 @@ public class Player : Character
 
         AttackEnemy();
 
+        FaceEnemy();
 
         if (Input.GetKeyDown(KeyCode.C))
         {

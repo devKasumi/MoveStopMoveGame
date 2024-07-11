@@ -52,7 +52,6 @@ public class Weapon : MonoBehaviour
 
     public void OnDespawn()
     {
-        //WeaponPool.Despawn(this);
         BasePool<Weapon>.Despawn(this, (int)weaponType);
     }
 
@@ -77,16 +76,6 @@ public class Weapon : MonoBehaviour
     {
 
     }
-
-    //public void ChangeColor(CommonEnum.ColorType color)
-    //{
-    //    colorType = color;
-    //}
-
-    //public void ChangeMaterial(Material material)
-    //{
-    //    meshRenderer.material = material;   
-    //}
 
     public Transform TF
     {

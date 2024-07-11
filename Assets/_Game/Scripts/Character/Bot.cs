@@ -29,6 +29,8 @@ public class Bot : Character
         {
             currentState.OnExecute(this);
         }
+
+        FaceEnemy();
     }
 
     public override void OnInit()
@@ -37,7 +39,7 @@ public class Bot : Character
 
         ChangeState(new PatrolState());
 
-        SkinColor.material = SkinDataSO.Materials[Random.Range(1, SkinDataSO.Materials.Count)];
+        SkinColor.material = SkinDataSO.Materials[Random.Range(2, SkinDataSO.Materials.Count)];
     }
 
     public void ChangeState(IState newState)

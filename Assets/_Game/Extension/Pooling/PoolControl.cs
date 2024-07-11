@@ -51,6 +51,7 @@ public class PoolControl : MonoBehaviour
         GameObject pool = new GameObject(character.name + "_" + weaponPrefab.name);
         pool.transform.parent = character.TF;
         BasePool<Weapon>.PreLoad(weaponPrefab, /*(int)weaponPrefab.WeaponType*/weaponIndex, 4, pool.transform);
+        //weaponPrefab.gameObject.SetActive(false);
     }
 
     public void SpawnBot()
@@ -67,7 +68,7 @@ public class PoolControl : MonoBehaviour
                 bot.Weapon = weapons[Random.Range(0, weapons.Count)];
                 bot.Weapon.GetData();
                 //int weaponIndex = (int)bot.Weapon.WeaponType;
-                Debug.LogError(bot.Weapon.WeaponType);
+                //Debug.LogError(bot.Weapon.WeaponType);
                 PreLoadWeaponPool(bot, weaponIndex);
             } 
         }
