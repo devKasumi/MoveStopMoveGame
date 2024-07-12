@@ -30,7 +30,7 @@ public class Bot : Character
             currentState.OnExecute(this);
         }
 
-        FaceEnemy();
+        
     }
 
     public override void OnInit()
@@ -86,6 +86,7 @@ public class Bot : Character
             time = 0;
             if (ListTarget().Count > 0)
             {
+                FaceEnemy();
                 ChangeAnimation(Constants.ANIMATION_ATTACK);
                 Attack();
             }

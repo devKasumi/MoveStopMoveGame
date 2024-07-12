@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14336f3bd71b08041a66b34cde369bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PoolType: 6
   weaponData: {fileID: 11400000, guid: 87a91a3f362b8344f956ff65650d22b0, type: 2}
   rb: {fileID: 4379760671077979139}
   weaponSkin: {fileID: 5042113175524351264}
@@ -113,6 +114,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  attackRange: 0
+  attackSpeed: 0
   skinIndex: 0
 --- !u!1001 &5042113175522182464
 PrefabInstance:

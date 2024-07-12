@@ -135,6 +135,10 @@ MonoBehaviour:
   tf: {fileID: 7755691787364221696}
   spawnPoint: {fileID: 12171776476528658}
   capsuleCollider: {fileID: 9976960790061567}
+  weapon: {fileID: 0}
+  skinColor: {fileID: 0}
+  pantColor: {fileID: 0}
+  skinDataSO: {fileID: 0}
   joystick: {fileID: 0}
   rb: {fileID: 6202778727509238242}
 --- !u!1 &5222745652647493766

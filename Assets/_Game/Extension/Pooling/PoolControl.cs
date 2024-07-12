@@ -6,14 +6,14 @@ using UnityEngine.UIElements;
 
 public class PoolControl : MonoBehaviour
 {
-    private List<Weapon> weapons = new List<Weapon>();
-    private List<Character> bots = new List<Character>();
+    private List<GameUnit> weapons = new List<GameUnit>();
+    private List<GameUnit> bots = new List<GameUnit>();
     [SerializeField] private Player player;
 
     private void Awake()
     {
-        bots = Resources.LoadAll<Character>("Pool/Bot/").ToList<Character>();
-        weapons = Resources.LoadAll<Weapon>("Pool/Weapon/").ToList<Weapon>();
+        bots = Resources.LoadAll<GameUnit>("Pool/Bot/").ToList<GameUnit>();
+        weapons = Resources.LoadAll<GameUnit>("Pool/Weapon/").ToList<GameUnit>();
     }
 
     private void Start()
@@ -29,6 +29,10 @@ public class PoolControl : MonoBehaviour
         {
             PreLoadBotPool(i);
         }
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            PreLoadWeaponPool(i);
+        }
     }
 
     public void PreLoadBotPool(int index)
@@ -38,20 +42,18 @@ public class PoolControl : MonoBehaviour
         BasePool<Character>.PreLoad(bots[index], index, 10, pool.transform);
     }
 
-    public void PreLoadWeaponPool(Character character, int weaponIndex)
+    public void PreLoadWeaponPool(int index)
     {
         //Weapon weapon;
         //weapon = weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)] 
         //                                            : weapons[(int)CommonEnum.WeaponType.Hammer_0];
         //Debug.LogError(weapons[weapons.IndexOf(character.Weapon)] + "   with:   " /*+ (int)weapon.WeaponType*/);
-        Weapon weaponPrefab = Instantiate(weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)]
-                                                                             : weapons[(int)CommonEnum.WeaponType.Hammer_0]);
-        weaponPrefab.WeaponSkin.material = weaponPrefab.WeaponData.WeaponMaterial(0);
-        weaponPrefab.GetData();
-        GameObject pool = new GameObject(character.name + "_" + weaponPrefab.name);
-        pool.transform.parent = character.TF;
-        BasePool<Weapon>.PreLoad(weaponPrefab, /*(int)weaponPrefab.WeaponType*/weaponIndex, 4, pool.transform);
-        //weaponPrefab.gameObject.SetActive(false);
+        //Weapon weaponPrefab = Instantiate(weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)]
+                                                                             //: weapons[(int)CommonEnum.WeaponType.Hammer_0]);
+
+        //int weaponIndex = Random.Range(0, weapons.Count);
+        GameObject pool = new GameObject(weapons[index].name + "_Pool");
+        BasePool<Weapon>.PreLoad(weapons[index], index, 4, pool.transform);
     }
 
     public void SpawnBot()
@@ -62,15 +64,23 @@ public class PoolControl : MonoBehaviour
             for (int j = 0; j < listPos.Count; j++)
             {
                 int index = Random.Range(0, bots.Count);
-                int weaponIndex = Random.Range(0, weapons.Count);
-                //bots[index].Weapon = weapons[Random.Range(0, weapons.Count)];
                 Character bot = BasePool<Character>.Spawn(index, listPos[j][i], Quaternion.identity);
                 bot.Weapon = weapons[Random.Range(0, weapons.Count)];
-                bot.Weapon.GetData();
-                //int weaponIndex = (int)bot.Weapon.WeaponType;
-                //Debug.LogError(bot.Weapon.WeaponType);
-                PreLoadWeaponPool(bot, weaponIndex);
             } 
         }
     }
+}
+
+public enum PoolType
+{
+    Axe_0 = 0,
+    Axe_1 = 1,
+    Candy_0 = 2,
+    Candy_1 = 3,
+    Candy_2 = 4,
+    Candy_4 = 5,
+    Hammer_0 = 6,
+    Knife_0 = 7,
+    Bot_0 = 8,
+    Bot_1 = 9,
 }

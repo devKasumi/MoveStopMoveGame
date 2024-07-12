@@ -34,7 +34,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void OnInit()
     {
-        poolControl.PreLoadWeaponPool(player, (int)CommonEnum.WeaponType.Hammer_0);
+        //poolControl.PreLoadWeaponPool();
         poolControl.OnInit();
         poolControl.SpawnBot();
     }

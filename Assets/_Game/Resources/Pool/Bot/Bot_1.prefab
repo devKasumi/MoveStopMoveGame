@@ -298,7 +298,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7224cfa7f8f58064eacb8172bbfd619f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PoolType: 9
   moveSpeed: 0
   animator: {fileID: 1704225235958035832}
   tf: {fileID: 6218599035410071362}
@@ -377,7 +378,7 @@ MonoBehaviour:
   pantColor: {fileID: 4967984329352634513}
   skinDataSO: {fileID: 11400000, guid: 6f09684b772c8da43966615011339436, type: 2}
   botType: 0
-  targetImage: {fileID: 5278889131340208587}
+  targetImage: {fileID: 5389291457484074077}
   navMeshAgent: {fileID: 4419539092426803298}
 --- !u!1 &6501919164336131854
 GameObject:

@@ -29,7 +29,7 @@ public class Player : Character
 
         AttackEnemy();
 
-        FaceEnemy();
+        
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -78,6 +78,7 @@ public class Player : Character
             time = 0;
             if (ListTarget().Count > 0 && joystick.IsResetJoystick())
             {
+                FaceEnemy();
                 Debug.LogError("player attack!!");
                 Attack();
             }

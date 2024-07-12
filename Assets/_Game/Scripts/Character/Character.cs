@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class Character : MonoBehaviour
+public class Character : GameUnit
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private Animator animator;
@@ -92,13 +92,14 @@ public class Character : MonoBehaviour
 
     public void Attack()
     {
-        Weapon weapon = BasePool<Weapon>.Spawn((int)this.weapon.WeaponType, spawnPoint.position, this.weapon.TF.rotation);
+        Weapon weapon = BasePool<Weapon>.Spawn((int)this.weapon.WeaponType, spawnPoint.position, Quaternion.identity);
         weapon.AddCurrentCharacterListener(this);
         if (listTargets.Count > 0)
         {
             Vector3 direction = listTargets[0].TF.position - spawnPoint.position;
             weapon.TF.forward = direction;
             weapon.OnInit();
+            weapon.GetData();
         }
     }
 
@@ -118,7 +119,6 @@ public class Character : MonoBehaviour
         {
             Vector3 direction = listTargets[0].TF.position - tf.position;
             tf.forward = direction;
-            //spawnPoint.forward = direction;
             spawnPoint.transform.rotation = tf.rotation;
         }
     }
@@ -126,6 +126,13 @@ public class Character : MonoBehaviour
     public IEnumerator CharacterDie()
     {
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        if (this is Bot)
+        {
+            BasePool<Character>.Despawn(this, (int)weapon.WeaponType);
+        }
+        else if (this is Player)
+        {
+            // TODO add logic player die
+        }
     }
 }
