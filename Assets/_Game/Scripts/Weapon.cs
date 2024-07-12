@@ -55,7 +55,7 @@ public class Weapon : GameUnit
 
     public void OnDespawn()
     {
-        BasePool<Weapon>.Despawn(this, (int)weaponType);
+        BasePool.Despawn(this);
     }
 
     public void GetData()
@@ -80,19 +80,6 @@ public class Weapon : GameUnit
     public void ChangeWeaponSkin()
     {
 
-    }
-
-    public Transform TF
-    {
-        get
-        {
-            if (!tf)
-            {
-                tf = transform;
-            }
-
-            return tf;
-        }
     }
 
     public Rigidbody Rb

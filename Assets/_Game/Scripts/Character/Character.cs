@@ -7,22 +7,16 @@ public class Character : GameUnit
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private Animator animator;
-    [SerializeField] private Transform tf;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private CapsuleCollider capsuleCollider;
     [SerializeField] private Weapon weapon;
     [SerializeField] private SkinnedMeshRenderer skinColor;
     [SerializeField] private SkinnedMeshRenderer pantColor;
     [SerializeField] private SkinDataSO skinDataSO;
+    [SerializeField] private PantDataSO pantDataSO;
 
     private List<Character> listTargets = new List<Character>();
     private string currentAnimationName;
-
-    public Transform TF
-    {
-        get => tf;
-        set => tf = value;
-    }
 
     public Weapon Weapon
     {
@@ -92,7 +86,9 @@ public class Character : GameUnit
 
     public void Attack()
     {
-        Weapon weapon = BasePool<Weapon>.Spawn((int)this.weapon.WeaponType, spawnPoint.position, Quaternion.identity);
+        //Weapon weapon = BasePool.Spawn<Weapon>(this.weapon.PoolType, spawnPoint.position, Quaternion.identity);
+        GameUnit gameUnit = BasePool.Spawn<GameUnit>(this.weapon.PoolType, spawnPoint.position, Quaternion.identity);
+        Weapon weapon = (Weapon)gameUnit;
         weapon.AddCurrentCharacterListener(this);
         if (listTargets.Count > 0)
         {
@@ -117,9 +113,9 @@ public class Character : GameUnit
     {
         if (listTargets.Count > 0)
         {
-            Vector3 direction = listTargets[0].TF.position - tf.position;
-            tf.forward = direction;
-            spawnPoint.transform.rotation = tf.rotation;
+            Vector3 direction = listTargets[0].TF.position - TF.position;
+            TF.forward = direction;
+            spawnPoint.transform.rotation = TF.rotation;
         }
     }
 
@@ -128,7 +124,7 @@ public class Character : GameUnit
         yield return new WaitForSeconds(1f);
         if (this is Bot)
         {
-            BasePool<Character>.Despawn(this, (int)weapon.WeaponType);
+            BasePool.Despawn(this);
         }
         else if (this is Player)
         {

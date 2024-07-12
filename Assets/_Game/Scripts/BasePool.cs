@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class BasePool<T> where T : MonoBehaviour
+public static class BasePool
 {
-    private static Dictionary<int, Pool<T>> poolInstance = new Dictionary<int, Pool<T>>();
+    private static Dictionary<PoolType, Pool> poolInstance = new Dictionary<PoolType, Pool>();
 
-    public static void PreLoad(T objectPrefab, int key, int amount, Transform parent)
+    public static void PreLoad(GameUnit objectPrefab, int amount, Transform parent)
     {
         if (!objectPrefab)
         {
@@ -14,43 +14,43 @@ public static class BasePool<T> where T : MonoBehaviour
             return;
         }
 
-        if (!poolInstance.ContainsKey(key) || poolInstance[key] == null)
+        if (!poolInstance.ContainsKey(objectPrefab.PoolType) || poolInstance[objectPrefab.PoolType] == null)
         {
-            Pool<T> p = new Pool<T>();
+            Pool p = new Pool();
             p.PreLoad(objectPrefab, amount, parent);
-            poolInstance[key] = p;
+            poolInstance[objectPrefab.PoolType] = p;
         }
     }
 
-    public static T Spawn(int key, Vector3 pos, Quaternion rot)
+    public static GameUnit Spawn<T>(PoolType poolType, Vector3 pos, Quaternion rot) where T : GameUnit
     {
-        if (!poolInstance.ContainsKey(key))
+        if (!poolInstance.ContainsKey(poolType))
         {
             Debug.LogError(" IS NOT PRELOAD!");
             return null;
         }
 
-        return poolInstance[key].Spawn(pos, rot) as T;
+        return poolInstance[poolType].Spawn(pos, rot) as T;
     }
 
-    public static void Despawn(T objectPrefab, int key)
+    public static void Despawn(GameUnit objectPrefab)
     {
-        if (!poolInstance.ContainsKey(key))
+        if (!poolInstance.ContainsKey(objectPrefab.PoolType))
         {
             Debug.LogError(objectPrefab + " IS NOT PRELOAD!");
         }
         
-        poolInstance[key].Despawn(objectPrefab);
+        poolInstance[objectPrefab.PoolType].Despawn(objectPrefab);
     }
 
-    public static void Collect(T objectPrefab, int key)
+    public static void Collect(PoolType poolType)
     {
-        if (!poolInstance.ContainsKey(key))
+        if (!poolInstance.ContainsKey(poolType))
         {
-            Debug.LogError(objectPrefab + " IS NOT PRELOAD!");
+            Debug.LogError(poolType + " IS NOT PRELOAD!");
         }
         
-        poolInstance[key].Collect();
+        poolInstance[poolType].Collect();
     }
 
     public static void CollectAll()
@@ -61,14 +61,14 @@ public static class BasePool<T> where T : MonoBehaviour
         }
     }
 
-    public static void Release(T objectPrefab, int key)
+    public static void Release(PoolType poolType)
     {
-        if (!poolInstance.ContainsKey(key))
+        if (!poolInstance.ContainsKey(poolType))
         {
-            Debug.LogError(objectPrefab + " IS NOT PRELOAD!");
+            Debug.LogError(poolType + " IS NOT PRELOAD!");
         }
 
-        poolInstance[key].Release();
+        poolInstance[poolType].Release();
     }
 
     public static void ReleaseAll()
@@ -80,16 +80,16 @@ public static class BasePool<T> where T : MonoBehaviour
     }
 }
 
-public class Pool<T> where T : MonoBehaviour
+public class Pool
 {
     Transform parent;
-    T prefab;
+    GameUnit prefab;
 
-    Stack<T> inactiveObjects = new Stack<T>();
+    Stack<GameUnit> inactiveObjects = new Stack<GameUnit>();
 
-    List<T> activeObjects = new List<T>();
+    List<GameUnit> activeObjects = new List<GameUnit>();
 
-    public void PreLoad(T prefab, int amount, Transform parent)
+    public void PreLoad(GameUnit prefab, int amount, Transform parent)
     {
         this.parent = parent;
         this.prefab = prefab;
@@ -100,9 +100,9 @@ public class Pool<T> where T : MonoBehaviour
         }
     }
 
-    public T Spawn(Vector3 pos, Quaternion rot)
+    public GameUnit Spawn(Vector3 pos, Quaternion rot)
     {
-        T obj;
+        GameUnit obj;
 
         if (inactiveObjects.Count <= 0)
         {
@@ -121,7 +121,7 @@ public class Pool<T> where T : MonoBehaviour
         return obj; 
     }
 
-    public void Despawn(T objectPrefab)
+    public void Despawn(GameUnit objectPrefab)
     {
         if (objectPrefab != null && objectPrefab.gameObject.activeSelf)
         {

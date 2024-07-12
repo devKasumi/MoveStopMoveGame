@@ -1017,6 +1017,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+      propertyPath: PoolType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1278882012}
@@ -1028,6 +1032,10 @@ PrefabInstance:
       propertyPath: skinColor
       value: 
       objectReference: {fileID: 1441366550}
+    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+      propertyPath: pantDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: df7faed673b662840ba0fcdc9c970daf, type: 2}
     - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: skinDataSO
       value: 

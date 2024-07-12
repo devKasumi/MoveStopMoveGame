@@ -370,13 +370,13 @@ MonoBehaviour:
   PoolType: 8
   moveSpeed: 0
   animator: {fileID: 1704225235958035832}
-  tf: {fileID: 6218599035410071362}
   spawnPoint: {fileID: 2847952908638664445}
   capsuleCollider: {fileID: 171535000926149563}
   weapon: {fileID: 3414085074715646355, guid: d1b42acb283ee4546b08c6b445f4e819, type: 3}
   skinColor: {fileID: 4256129124231538162}
   pantColor: {fileID: 4967984329352634513}
   skinDataSO: {fileID: 11400000, guid: 6f09684b772c8da43966615011339436, type: 2}
+  pantDataSO: {fileID: 11400000, guid: df7faed673b662840ba0fcdc9c970daf, type: 2}
   botType: 1
   targetImage: {fileID: 5389291457484074077}
   navMeshAgent: {fileID: 4419539092426803298}

@@ -39,21 +39,13 @@ public class PoolControl : MonoBehaviour
     {
         GameObject pool = new GameObject(bots[index].name + "_Pool");
         pool.transform.position = Vector3.up;
-        BasePool<Character>.PreLoad(bots[index], index, 10, pool.transform);
+        BasePool.PreLoad(bots[index], 10, pool.transform);
     }
 
     public void PreLoadWeaponPool(int index)
     {
-        //Weapon weapon;
-        //weapon = weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)] 
-        //                                            : weapons[(int)CommonEnum.WeaponType.Hammer_0];
-        //Debug.LogError(weapons[weapons.IndexOf(character.Weapon)] + "   with:   " /*+ (int)weapon.WeaponType*/);
-        //Weapon weaponPrefab = Instantiate(weapons.Contains(character.Weapon) ? weapons[weapons.IndexOf(character.Weapon)]
-                                                                             //: weapons[(int)CommonEnum.WeaponType.Hammer_0]);
-
-        //int weaponIndex = Random.Range(0, weapons.Count);
         GameObject pool = new GameObject(weapons[index].name + "_Pool");
-        BasePool<Weapon>.PreLoad(weapons[index], index, 4, pool.transform);
+        BasePool.PreLoad(weapons[index], 4, pool.transform);
     }
 
     public void SpawnBot()
@@ -64,8 +56,9 @@ public class PoolControl : MonoBehaviour
             for (int j = 0; j < listPos.Count; j++)
             {
                 int index = Random.Range(0, bots.Count);
-                Character bot = BasePool<Character>.Spawn(index, listPos[j][i], Quaternion.identity);
-                bot.Weapon = weapons[Random.Range(0, weapons.Count)];
+                GameUnit gameUnit = BasePool.Spawn<GameUnit>(bots[index].PoolType, listPos[j][i], Quaternion.identity);
+                Bot bot = (Bot)gameUnit;
+                bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
             } 
         }
     }
