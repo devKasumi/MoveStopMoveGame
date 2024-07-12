@@ -621,15 +621,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8d73524fce70a4597089e89042f3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2042735903}
   tf: {fileID: 963194228}
   offset: {x: 0, y: 11, z: -11}
   moveSpeed: 20
---- !u!137 &1196631698 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 609598229858111651, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-  m_PrefabInstance: {fileID: 2119030562}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1226635616
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,11 +933,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &1441366550 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8616696508837844416, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-  m_PrefabInstance: {fileID: 2119030562}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1932605059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +998,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1ce43fdf626a74ba593864d41c6cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2042735903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7755691787364221696, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+  m_PrefabInstance: {fileID: 2119030562}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2119030562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1017,45 +1012,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: PoolType
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1278882012}
-    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: pantColor
-      value: 
-      objectReference: {fileID: 1196631698}
-    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: skinColor
-      value: 
-      objectReference: {fileID: 1441366550}
-    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: pantDataSO
-      value: 
-      objectReference: {fileID: 11400000, guid: df7faed673b662840ba0fcdc9c970daf, type: 2}
-    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: skinDataSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 6f09684b772c8da43966615011339436, type: 2}
-    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: pantMaterial
-      value: 
-      objectReference: {fileID: 1196631698}
-    - target: {fileID: 3866609806915627056, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866609806915627056, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866609806915627056, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4887193714161769681, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_Name
       value: Player
