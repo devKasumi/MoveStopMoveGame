@@ -18,9 +18,6 @@ public class Weapon : GameUnit
     [SerializeField] private float attackSpeed;
     //private Image weaponSkin;
     public int skinIndex = 0;
-
-    private Transform tf;
-
     private Vector3 originPos;
     //public Quaternion originRot;
 

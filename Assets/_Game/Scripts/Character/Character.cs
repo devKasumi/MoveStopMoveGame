@@ -11,7 +11,7 @@ public class Character : GameUnit
     [SerializeField] private CapsuleCollider capsuleCollider;
     [SerializeField] private Weapon weapon;
     [SerializeField] private SkinnedMeshRenderer skinColor;
-    [SerializeField] private SkinnedMeshRenderer pantColor;
+    [SerializeField] private SkinnedMeshRenderer pantMaterial;
     [SerializeField] private SkinDataSO skinDataSO;
     [SerializeField] private PantDataSO pantDataSO;
 
@@ -27,7 +27,7 @@ public class Character : GameUnit
     // Start is called before the first frame update
     void Start()
     {
-        //PoolType = PoolType.CharacterPool;
+        
     }
 
     // Update is called once per frame
@@ -48,7 +48,11 @@ public class Character : GameUnit
 
     public SkinDataSO SkinDataSO => skinDataSO;
 
+    public PantDataSO PantDataSO => pantDataSO;
+
     public SkinnedMeshRenderer SkinColor => skinColor;
+
+    public SkinnedMeshRenderer PantMaterial => pantMaterial;
 
     public Transform SpawnPoint() => spawnPoint;
 
@@ -86,7 +90,6 @@ public class Character : GameUnit
 
     public void Attack()
     {
-        //Weapon weapon = BasePool.Spawn<Weapon>(this.weapon.PoolType, spawnPoint.position, Quaternion.identity);
         GameUnit gameUnit = BasePool.Spawn<GameUnit>(this.weapon.PoolType, spawnPoint.position, Quaternion.identity);
         Weapon weapon = (Weapon)gameUnit;
         weapon.AddCurrentCharacterListener(this);

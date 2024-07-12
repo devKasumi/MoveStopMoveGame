@@ -40,6 +40,7 @@ public class Bot : Character
         ChangeState(new PatrolState());
 
         SkinColor.material = SkinDataSO.Materials[Random.Range(2, SkinDataSO.Materials.Count)];
+        PantMaterial.material = PantDataSO.Materials[Random.Range(0, PantDataSO.Materials.Count)];
     }
 
     public void ChangeState(IState newState)

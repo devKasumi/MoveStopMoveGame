@@ -1040,6 +1040,10 @@ PrefabInstance:
       propertyPath: skinDataSO
       value: 
       objectReference: {fileID: 11400000, guid: 6f09684b772c8da43966615011339436, type: 2}
+    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+      propertyPath: pantMaterial
+      value: 
+      objectReference: {fileID: 1196631698}
     - target: {fileID: 3866609806915627056, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
