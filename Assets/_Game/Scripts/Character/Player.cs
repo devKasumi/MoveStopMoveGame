@@ -29,8 +29,6 @@ public class Player : Character
 
         AttackEnemy();
 
-        
-
         if (Input.GetKeyDown(KeyCode.C))
         {
             // bao loi vi thang player inherit monobehavior

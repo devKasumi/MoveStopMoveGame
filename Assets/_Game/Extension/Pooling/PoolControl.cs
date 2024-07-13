@@ -18,9 +18,7 @@ public class PoolControl : MonoBehaviour
 
     private void Start()
     {
-        //OnInit();
-        //SpawnBot();
-        //PreLoadWeaponPool(player);
+        
     }
 
     public void OnInit()
