@@ -14,6 +14,7 @@ public class Character : GameUnit
     [SerializeField] private SkinnedMeshRenderer pantMaterial;
     [SerializeField] private SkinDataSO skinDataSO;
     [SerializeField] private PantDataSO pantDataSO;
+    [SerializeField] private Canvas attackArea;
 
     private List<Character> listTargets = new List<Character>();
     private string currentAnimationName;
@@ -37,12 +38,12 @@ public class Character : GameUnit
     // Update is called once per frame
     void Update()
     {
-        spawnPoint.transform.rotation = transform.rotation; 
+        //spawnPoint.transform.rotation = transform.rotation; 
     }
 
     public virtual void OnInit()
     {
-
+        attackArea.gameObject.SetActive(true);
     }
 
     public virtual void OnDespawn()
@@ -80,17 +81,13 @@ public class Character : GameUnit
 
     public void AddTarget(Character character)
     {
-        //Debug.LogError("add target!!!");
         listTargets.Add(character);
-        //listTargets.Push(character);
     }
 
     public void RemoveTarget()
     {
-        //Debug.LogError("count:  " + listTargets.Count);
         if (listTargets.Count > 0)
         {
-            //Debug.LogError("remove target!!!");
             listTargets.Remove(listTargets[0]);
         }
     }
@@ -101,6 +98,7 @@ public class Character : GameUnit
         ChangeAnimation(Constants.ANIMATION_DEAD);
 
         // remove collider
+        attackArea.gameObject.SetActive(false);
         capsuleCollider.enabled = false;
 
         // destroy char after

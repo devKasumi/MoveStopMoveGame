@@ -90,7 +90,7 @@ public class Weapon : GameUnit
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Constants.TAG_BOT) || other.CompareTag(Constants.TAG_PLAYER))
+        if (other.CompareTag(Constants.TAG_BOT))
         {
             OnHitCharacter.Invoke();
             Character character = Cache.GenCharacter(other);
