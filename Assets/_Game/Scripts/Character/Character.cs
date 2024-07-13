@@ -17,6 +17,10 @@ public class Character : GameUnit
 
     private List<Character> listTargets = new List<Character>();
     private string currentAnimationName;
+    [SerializeField] private List<GameObject> weaponImages = new List<GameObject>();
+    [SerializeField] private GameObject weaponImage;
+
+    //private GameObject currentWeaponImage;
 
     public Weapon Weapon
     {
@@ -44,6 +48,12 @@ public class Character : GameUnit
     public virtual void OnDespawn()
     {
 
+    }
+
+    public void UpdateWeaponImage()
+    {
+        weaponImage.GetComponent<MeshFilter>().mesh = Weapon.WeaponSkin.gameObject.GetComponent<MeshFilter>().sharedMesh;
+        weaponImage.GetComponent<MeshRenderer>().materials = Weapon.WeaponSkin.sharedMaterials;
     }
 
     public SkinDataSO SkinDataSO => skinDataSO;

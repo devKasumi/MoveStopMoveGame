@@ -59,6 +59,7 @@ public class PoolControl : MonoBehaviour
                 GameUnit gameUnit = BasePool.Spawn<GameUnit>(bots[index].PoolType, listPos[j][i], Quaternion.identity);
                 Bot bot = (Bot)gameUnit;
                 bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
+                bot.UpdateWeaponImage();
             } 
         }
     }

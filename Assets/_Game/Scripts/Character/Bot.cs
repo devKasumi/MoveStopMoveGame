@@ -29,8 +29,6 @@ public class Bot : Character
         {
             currentState.OnExecute(this);
         }
-
-        
     }
 
     public override void OnInit()
