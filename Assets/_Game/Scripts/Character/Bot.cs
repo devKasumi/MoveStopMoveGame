@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class Bot : Character
 {
@@ -29,6 +30,16 @@ public class Bot : Character
         {
             currentState.OnExecute(this);
         }
+
+        CheckEnemyCurrentStatus();
+
+        //if (ListTarget().Count > 0)
+        //{
+        //    if (!ListTarget()[0].gameObject.activeSelf)
+        //    {
+        //        RemoveTarget();
+        //    }
+        //}
     }
 
     public override void OnInit()
@@ -85,8 +96,8 @@ public class Bot : Character
             time = 0;
             if (ListTarget().Count > 0)
             {
-                ChangeAnimation(Constants.ANIMATION_ATTACK);
                 FaceEnemy();
+                ChangeAnimation(Constants.ANIMATION_ATTACK);
                 Attack();
             }
         }

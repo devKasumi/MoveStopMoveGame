@@ -257,6 +257,7 @@ MonoBehaviour:
   pantMaterial: {fileID: 609598229858111651}
   skinDataSO: {fileID: 11400000, guid: 6f09684b772c8da43966615011339436, type: 2}
   pantDataSO: {fileID: 11400000, guid: df7faed673b662840ba0fcdc9c970daf, type: 2}
+  attackArea: {fileID: 1483389085536868780}
   weaponImages:
   - {fileID: 100000, guid: 1c040a6e7d23e904b87e93fb9c66a037, type: 3}
   - {fileID: 100000, guid: 6083ff9012eefa348b00b8c543f1a742, type: 3}

@@ -10,6 +10,8 @@ public class PoolControl : MonoBehaviour
     private List<GameUnit> bots = new List<GameUnit>();
     [SerializeField] private Player player;
 
+    private int TotalPosEachQuadrant = 3;
+
     private void Awake()
     {
         bots = Resources.LoadAll<GameUnit>("Pool/Bot/").ToList<GameUnit>();
@@ -49,7 +51,7 @@ public class PoolControl : MonoBehaviour
     public void SpawnBot()
     {
         List<List<Vector3>> listPos = LevelManager.Instance.CurrentLevel().Platform.ListPos;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < TotalPosEachQuadrant; i++)
         {
             for (int j = 0; j < listPos.Count; j++)
             {

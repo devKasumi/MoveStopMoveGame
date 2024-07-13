@@ -12,14 +12,12 @@ public class Weapon : GameUnit
     [SerializeField] private Rigidbody rb;
     [SerializeField] private MeshRenderer weaponSkin;
     [SerializeField] private UnityEvent OnHitCharacter = new UnityEvent();
-
-    private CommonEnum.WeaponType weaponType;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackSpeed;
-    //private Image weaponSkin;
+
+    private CommonEnum.WeaponType weaponType;
     public int skinIndex = 0;
     private Vector3 originPos;
-    //public Quaternion originRot;
     public float rotateSpeed;
 
     private void Awake()
@@ -30,7 +28,6 @@ public class Weapon : GameUnit
     // Start is called before the first frame update
     void Start()
     {
-        //originRot = tf.rotation;
         OnInit();
         GetData();
     }
@@ -49,7 +46,6 @@ public class Weapon : GameUnit
     public void OnInit()
     {
         originPos = TF.position;
-        //TF.rotation = originRot;
         rb.velocity = TF.forward * attackSpeed;
     }
 
@@ -64,7 +60,6 @@ public class Weapon : GameUnit
         weaponType = weaponData.weaponType;
         attackRange = weaponData.attackRange;
         attackSpeed = weaponData.attackSpeed;
-        //tf.rotation = originRot;    
     }
 
     public CommonEnum.WeaponType WeaponType => weaponType;

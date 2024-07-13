@@ -57,6 +57,8 @@ public class Character : GameUnit
         Cache.GenMeshRenderer(weaponImage).materials = Weapon.WeaponSkin.sharedMaterials;
     }
 
+    public bool IsCharacterDeath() => !capsuleCollider.enabled;
+
     public SkinDataSO SkinDataSO => skinDataSO;
 
     public PantDataSO PantDataSO => pantDataSO;
@@ -89,6 +91,17 @@ public class Character : GameUnit
         if (listTargets.Count > 0)
         {
             listTargets.Remove(listTargets[0]);
+        }
+    }
+
+    public void CheckEnemyCurrentStatus()
+    {
+        if (listTargets.Count > 0)
+        {
+            if (listTargets[0].IsCharacterDeath())
+            {
+                RemoveTarget();
+            }
         }
     }
 

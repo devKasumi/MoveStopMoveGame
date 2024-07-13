@@ -933,11 +933,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!223 &1905543726 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 1483389085536868780, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-  m_PrefabInstance: {fileID: 2119030562}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1932605059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,10 +1015,6 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1278882012}
-    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
-      propertyPath: attackArea
-      value: 
-      objectReference: {fileID: 1905543726}
     - target: {fileID: 4887193714161769681, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_Name
       value: Player

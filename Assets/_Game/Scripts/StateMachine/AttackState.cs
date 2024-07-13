@@ -12,8 +12,11 @@ public class AttackState : IState
     public void OnExecute(Bot bot)
     {
         bot.SetDestination(bot.TF.position);
-        bot.ChangeAnimation(Constants.ANIMATION_IDLE);
         bot.AttackEnemy();
+        if (bot.ListTarget().Count == 0)
+        {
+            bot.ChangeState(new PatrolState());
+        }
     }
 
     public void OnExit(Bot bot)
