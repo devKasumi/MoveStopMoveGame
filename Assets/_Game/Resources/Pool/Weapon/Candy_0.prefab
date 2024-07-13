@@ -54,8 +54,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.38633585, y: 0.38451457, z: 0.58543277}
-  m_Center: {x: -0.010529757, y: 0.0021797419, z: 0.28748345}
+  m_Size: {x: 0.38633585, y: 0.38451457, z: 0.9941298}
+  m_Center: {x: -0.010529757, y: 0.0021797419, z: 0.08313495}
 --- !u!54 &3365817279757563318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   attackRange: 0
   attackSpeed: 0
   skinIndex: 0
+  rotateSpeed: 20
 --- !u!1001 &4567906008492545787
 PrefabInstance:
   m_ObjectHideFlags: 0

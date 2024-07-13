@@ -20,6 +20,7 @@ public class Weapon : GameUnit
     public int skinIndex = 0;
     private Vector3 originPos;
     //public Quaternion originRot;
+    public float rotateSpeed;
 
     private void Awake()
     {
@@ -37,6 +38,8 @@ public class Weapon : GameUnit
     // Update is called once per frame
     void Update()
     {
+        TF.Rotate(0f, 5f, 0f, Space.Self);
+
         if (Vector3.Distance(originPos, TF.position) > attackRange)
         {
             OnDespawn();
