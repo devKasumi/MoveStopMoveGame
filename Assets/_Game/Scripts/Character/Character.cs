@@ -52,8 +52,8 @@ public class Character : GameUnit
 
     public void UpdateWeaponImage()
     {
-        weaponImage.GetComponent<MeshFilter>().mesh = Weapon.WeaponSkin.gameObject.GetComponent<MeshFilter>().sharedMesh;
-        weaponImage.GetComponent<MeshRenderer>().materials = Weapon.WeaponSkin.sharedMaterials;
+        Cache.GenMeshFilter(weaponImage).mesh = Cache.GenMeshFilter(Weapon.WeaponSkin.gameObject).sharedMesh;
+        Cache.GenMeshRenderer(weaponImage).materials = Weapon.WeaponSkin.sharedMaterials;
     }
 
     public SkinDataSO SkinDataSO => skinDataSO;

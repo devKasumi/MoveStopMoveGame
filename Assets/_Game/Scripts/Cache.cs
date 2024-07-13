@@ -15,4 +15,28 @@ public class Cache
 
         return characters[collider];
     }
+
+    private static Dictionary<GameObject, MeshFilter> meshfilters = new Dictionary<GameObject, MeshFilter>();
+
+    public static MeshFilter GenMeshFilter(GameObject gameObject)
+    {
+        if (!meshfilters.ContainsKey(gameObject))
+        {
+            meshfilters.Add(gameObject, gameObject.GetComponent<MeshFilter>());
+        }
+
+        return meshfilters[gameObject];
+    }
+
+    private static Dictionary<GameObject, MeshRenderer> meshRenderers = new Dictionary<GameObject, MeshRenderer>();
+
+    public static MeshRenderer GenMeshRenderer(GameObject gameObject)
+    {
+        if (!meshRenderers.ContainsKey(gameObject))
+        {
+            meshRenderers.Add(gameObject, gameObject.GetComponent<MeshRenderer>());
+        }
+
+        return meshRenderers[gameObject];
+    }
 }
