@@ -94,7 +94,16 @@ public class Weapon : GameUnit
         {
             OnHitCharacter.Invoke();
             Character character = Cache.GenCharacter(other);
-            character.OnDeath();
+            Bot bot = (Bot)character;
+            bot.ChangeState(new IdleState());
+            bot.OnDeath();
+        }
+        else if (other.CompareTag(Constants.TAG_PLAYER))
+        {
+            OnHitCharacter.Invoke();
+            Character character = Cache.GenCharacter(other);
+            Player player = (Player)character;
+            player.OnDeath();
         }
     }
 

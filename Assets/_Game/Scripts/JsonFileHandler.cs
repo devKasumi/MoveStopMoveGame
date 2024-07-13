@@ -18,7 +18,7 @@ public static class JsonFileHandler
         string filePath = Application.dataPath + "/" + Constants.JSON_PATH + "/" + fileName;
         string data = ReadFile(filePath);
 
-        Debug.LogError(data);
+        //Debug.LogError(data);
 
         if (string.IsNullOrEmpty(data) || data == "{}")
         {

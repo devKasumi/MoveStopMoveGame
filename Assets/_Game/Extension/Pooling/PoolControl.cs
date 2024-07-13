@@ -61,6 +61,13 @@ public class PoolControl : MonoBehaviour
             } 
         }
     }
+
+    public void SpawnSingleBot()
+    {
+
+    }
+
+    public Weapon PlayerDefaultWeapon => (Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0];
 }
 
 public enum PoolType

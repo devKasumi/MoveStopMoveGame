@@ -60,9 +60,17 @@ public class Character : GameUnit
 
     public PantDataSO PantDataSO => pantDataSO;
 
-    public SkinnedMeshRenderer SkinColor => skinColor;
+    public SkinnedMeshRenderer SkinColor
+    {
+        get => skinColor;
+        set => skinColor = value;
+    }
 
-    public SkinnedMeshRenderer PantMaterial => pantMaterial;
+    public SkinnedMeshRenderer PantMaterial
+    {
+        get => pantMaterial;
+        set => pantMaterial = value;
+    }
 
     public Transform SpawnPoint() => spawnPoint;
 
@@ -90,6 +98,7 @@ public class Character : GameUnit
     public void OnDeath()
     {
         // change anim
+        ChangeAnimation(Constants.ANIMATION_DEAD);
 
         // remove collider
         capsuleCollider.enabled = false;
@@ -134,7 +143,7 @@ public class Character : GameUnit
 
     public IEnumerator CharacterDie()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         if (this is Bot)
         {
             BasePool.Despawn(this);

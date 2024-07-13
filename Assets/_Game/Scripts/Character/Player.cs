@@ -13,13 +13,14 @@ public class Player : Character
     private float inputX;
     private float inputZ;
 
-    private float frameRate = 1;
+    private float frameRate = 1.5f;
     private float time = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        SkinColor.material = SkinDataSO.SkinMaterial(CommonEnum.ColorType.Red);
+        //SkinColor.material = SkinDataSO.SkinMaterial(CommonEnum.ColorType.Red);
+        OnInit();
     }
 
     // Update is called once per frame
@@ -40,6 +41,23 @@ public class Player : Character
             // TODO: xep lai logic vao UI chon weapon va skin!!!
             JsonFileHandler.SaveToJson<Character>(this, Constants.JSON_FILE_NAME);
         }
+    }
+
+    public override void OnInit()
+    {
+        base.OnInit();
+
+        GetDataFromJsonFile();
+
+        UpdateWeaponImage();
+    }
+
+    public void GetDataFromJsonFile()
+    {
+        DataFromJson dataFromJson = JsonFileHandler.ReadFromJson<DataFromJson>(Constants.JSON_FILE_NAME);
+        Weapon = dataFromJson.weapon != null ? dataFromJson.weapon : LevelManager.Instance.PoolControl.PlayerDefaultWeapon;
+        SkinColor.material = dataFromJson.skinColor != null ? dataFromJson.skinColor.material : SkinDataSO.SkinMaterial(CommonEnum.ColorType.Red);
+        PantMaterial.material = dataFromJson.pantMaterial != null ? dataFromJson.pantMaterial.material : PantDataSO.PantMaterial(CommonEnum.PantType.Batman);
     }
 
     public void Move()
@@ -77,7 +95,6 @@ public class Player : Character
             if (ListTarget().Count > 0 && joystick.IsResetJoystick())
             {
                 FaceEnemy();
-                Debug.LogError("player attack!!");
                 Attack();
             }
         }
@@ -89,4 +106,7 @@ public class DataFromJson
 {
     public Weapon weapon;
     // them 1 meshrender cho skin nua 
+    public SkinnedMeshRenderer skinColor;
+
+    public SkinnedMeshRenderer pantMaterial;
 }

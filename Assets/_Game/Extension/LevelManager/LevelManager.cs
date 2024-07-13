@@ -14,25 +14,17 @@ public class LevelManager : Singleton<LevelManager>
     // Start is called before the first frame update
     void Start()
     {
-        //characters.Add(player);
         currentLevel = levels[0];
         OnInit();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnInit()
     {
-        //poolControl.PreLoadWeaponPool();
         poolControl.OnInit();
         poolControl.SpawnBot();
     }
 
     public Level CurrentLevel() => currentLevel;
 
-    //public Vector3 RandomPos() => levelPlatform.RandomMovePos();
+    public PoolControl PoolControl => poolControl;  
 }

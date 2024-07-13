@@ -8,6 +8,8 @@ public class Constants : MonoBehaviour
     public const string ANIMATION_RUN = "run";
     public const string ANIMATION_ATTACK = "attack";
     public const string ANIMATION_VICTORY = "victory";
+    public const string ANIMATION_DANCE = "dance";
+    public const string ANIMATION_DEAD = "dead";
 
     public const string TAG_PLAYER = "Player";
     public const string TAG_BOT = "Bot";
