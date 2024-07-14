@@ -5,11 +5,15 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     [SerializeField] private Platform levelPlatform;
+    [SerializeField] private int totalBot;
+
+    private int currentActiveBot = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         //TotalBot = totalShortRangeBot + totalLongRangeBot;
+        OnInit();
     }
 
     // Update is called once per frame
@@ -18,5 +22,19 @@ public class Level : MonoBehaviour
         
     }
 
+    public void OnInit()
+    {
+        LevelManager.Instance.PoolControl.OnInit();
+        LevelManager.Instance.PoolControl.SpawnBotAtBeginning();
+    }
+
     public Platform Platform => levelPlatform;
+
+    public int TotalBot => totalBot;
+
+    public int CurrentActiveBot
+    {
+        get => currentActiveBot;
+        set => currentActiveBot = value;
+    }
 }

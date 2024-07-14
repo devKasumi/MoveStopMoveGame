@@ -98,6 +98,7 @@ public class Weapon : GameUnit
             OnHitCharacter.Invoke();
             Character character = Cache.GenCharacter(other);
             Player player = (Player)character;
+            // may add some logic -> using Player instead of Character object
             player.OnDeath();
         }
     }

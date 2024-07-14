@@ -15,13 +15,13 @@ public class LevelManager : Singleton<LevelManager>
     void Start()
     {
         currentLevel = levels[0];
-        OnInit();
+        //OnInit();
     }
 
     public void OnInit()
     {
-        poolControl.OnInit();
-        poolControl.SpawnBotAtBeginning();
+        //poolControl.OnInit();
+        //poolControl.SpawnBotAtBeginning();
     }
 
     public Level CurrentLevel() => currentLevel;
