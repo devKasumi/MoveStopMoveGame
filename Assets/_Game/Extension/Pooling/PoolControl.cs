@@ -79,49 +79,19 @@ public class PoolControl : MonoBehaviour
         bool playerOnThirdQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsThirdQuadrant;
         bool playerOnFourthQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsFourthQuadrant;
 
-        int activeQuadrant = playerOnFirstQuadrant ? 1 :
-                             playerOnSecondQuadrand ? 2 :
-                             playerOnThirdQuadrant ? 3 :
-                             playerOnFourthQuadrant ? 4 : 0;
+        int activeQuadrantIndex = playerOnFirstQuadrant ? 0 :
+                                  playerOnSecondQuadrand ? 1 :
+                                  playerOnThirdQuadrant ? 2 :
+                                  playerOnFourthQuadrant ? 3 : -1;
 
         List<Vector3> listPos = new List<Vector3>();
+        List<List<Vector3>> listQuadrantPos = LevelManager.Instance.CurrentLevel().Platform.ListPos;
 
-        switch (activeQuadrant)
+        for (int i = 0; i < listQuadrantPos.Count; i++)
         {
-            case 1:
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[1]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[1]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[1]);
-                break;
-            case 2:
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[1]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[1]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[1]);
-                break;
-            case 3:
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[1]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[1]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[1]);
-                break;
-            case 4:
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[1]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[1]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[0]);
-                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[1]);
-                break;
-            default:
-                break;
+            if (i == activeQuadrantIndex) continue;
+            listPos.Add(listQuadrantPos[i][0]);
+            listPos.Add(listQuadrantPos[i][1]);
         }
 
         for (int i = 0; i< listPos.Count; i++)
