@@ -13,13 +13,12 @@ public class Player : Character
     private float inputX;
     private float inputZ;
 
-    private float frameRate = 1.5f;
+    private float frameRate = 1f;
     private float time = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        //SkinColor.material = SkinDataSO.SkinMaterial(CommonEnum.ColorType.Red);
         OnInit();
     }
 
@@ -84,6 +83,7 @@ public class Player : Character
         else
         {
             ChangeAnimation(Constants.ANIMATION_IDLE);
+            AttackEnemy();
         }
     }
 
@@ -94,9 +94,11 @@ public class Player : Character
         if (time >= frameRate)
         {
             time = 0;
+
             if (ListTarget().Count > 0 && joystick.IsResetJoystick())
             {
                 FaceEnemy();
+                ChangeAnimation(Constants.ANIMATION_ATTACK);
                 Attack();
             }
         }
@@ -107,7 +109,7 @@ public class Player : Character
 public class DataFromJson
 {
     public Weapon weapon;
-    // them 1 meshrender cho skin nua 
+    
     public SkinnedMeshRenderer skinColor;
 
     public SkinnedMeshRenderer pantMaterial;

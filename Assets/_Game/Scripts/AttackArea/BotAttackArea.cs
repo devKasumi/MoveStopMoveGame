@@ -20,10 +20,10 @@ public class BotAttackArea : MonoBehaviour
         if (other.CompareTag(Constants.TAG_BOT) || other.CompareTag(Constants.TAG_PLAYER))
         {
             bot.RemoveTarget();
-            if (bot.ListTarget().Count == 0)
-            {
-                bot.ChangeState(new PatrolState());
-            }
+            //if (bot.ListTarget().Count == 0)
+            //{
+            //    bot.ChangeState(new PatrolState());
+            //}
         }
     }
 }

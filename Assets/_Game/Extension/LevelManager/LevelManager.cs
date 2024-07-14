@@ -27,4 +27,6 @@ public class LevelManager : Singleton<LevelManager>
     public Level CurrentLevel() => currentLevel;
 
     public PoolControl PoolControl => poolControl;  
+
+    public Character Player => player;
 }

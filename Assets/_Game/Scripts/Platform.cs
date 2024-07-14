@@ -10,7 +10,7 @@ public class Platform : MonoBehaviour
     [SerializeField] private int maxX;
     [SerializeField] private int maxZ;
 
-    private Player player;
+    private Character player;
 
     private int xAxisPivot;
     private int zAxisPivot;
@@ -36,7 +36,7 @@ public class Platform : MonoBehaviour
 
     void Start()
     {
-        
+        player = LevelManager.Instance.Player;
     }
 
     public void OnInit()
