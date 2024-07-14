@@ -8,7 +8,6 @@ public class PatrolState : IState
     {
         bot.ChangeAnimation(Constants.ANIMATION_RUN);
         bot.SetDestination(bot.RandomMovePos());
-        //bot.SetDestination(LevelManager.Instance.RandomPos());
     }
 
     public void OnExecute(Bot bot)
@@ -16,7 +15,6 @@ public class PatrolState : IState
         if (bot.IsReachTarget())
         {
             bot.SetDestination(bot.RandomMovePos());
-            //bot.SetDestination(LevelManager.Instance.RandomPos());
         }
     }
 

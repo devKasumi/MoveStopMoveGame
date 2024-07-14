@@ -52,18 +52,18 @@ public class Platform : MonoBehaviour
             zAxisPivot = 0;
         }
 
-        firstQuadrantPos.Add(new Vector3(maxX * 0.25f, 0f, maxZ * 0.5f + 9));
-        firstQuadrantPos.Add(new Vector3(maxX * 0.5f + 9, 0f, maxZ * 0.5f + 9));
-        firstQuadrantPos.Add(new Vector3(maxX * 0.5f + 9, 0f, maxZ * 0.25f));
-        secondQuadrantPos.Add(new Vector3(-maxX * 0.25f, 0f, maxZ * 0.5f + 9));
-        secondQuadrantPos.Add(new Vector3(-maxX * 0.5f - 9, 0f, maxZ * 0.5f + 9));
-        secondQuadrantPos.Add(new Vector3(-maxX * 0.5f - 9, 0f, maxZ * 0.25f));
-        thirdQuadrantPos.Add(new Vector3(-maxX * 0.25f, 0f, -maxZ * 0.5f - 9));
-        thirdQuadrantPos.Add(new Vector3(-maxX * 0.5f - 9, 0f, -maxZ * 0.5f - 9));
-        thirdQuadrantPos.Add(new Vector3(-maxX * 0.5f - 9, 0f, -maxZ * 0.25f));
-        fourthQuadrantPos.Add(new Vector3(maxX * 0.25f, 0f, -maxZ * 0.5f - 9));
-        fourthQuadrantPos.Add(new Vector3(maxX * 0.5f + 9, 0f, -maxZ * 0.5f - 9));
-        fourthQuadrantPos.Add(new Vector3(maxX * 0.5f + 9, 0f, -maxZ * 0.25f));
+        firstQuadrantPos.Add(new Vector3(maxX * multiplier[0], 0f, maxZ * multiplier[1] + 9));
+        firstQuadrantPos.Add(new Vector3(maxX * multiplier[1] + 9, 0f, maxZ * multiplier[1] + 9));
+        firstQuadrantPos.Add(new Vector3(maxX * multiplier[1] + 9, 0f, maxZ * multiplier[0]));
+        secondQuadrantPos.Add(new Vector3(-maxX * multiplier[0], 0f, maxZ * multiplier[1] + 9));
+        secondQuadrantPos.Add(new Vector3(-maxX * multiplier[1] - 9, 0f, maxZ * multiplier[1] + 9));
+        secondQuadrantPos.Add(new Vector3(-maxX * multiplier[1] - 9, 0f, maxZ * multiplier[0]));
+        thirdQuadrantPos.Add(new Vector3(-maxX * multiplier[0], 0f, -maxZ * multiplier[1] - 9));
+        thirdQuadrantPos.Add(new Vector3(-maxX * multiplier[1] - 9, 0f, -maxZ * multiplier[1] - 9));
+        thirdQuadrantPos.Add(new Vector3(-maxX * multiplier[1] - 9, 0f, -maxZ * multiplier[0]));
+        fourthQuadrantPos.Add(new Vector3(maxX * multiplier[0], 0f, -maxZ * multiplier[1] - 9));
+        fourthQuadrantPos.Add(new Vector3(maxX * multiplier[1] + 9, 0f, -maxZ * multiplier[1] - 9));
+        fourthQuadrantPos.Add(new Vector3(maxX * multiplier[1] + 9, 0f, -maxZ * multiplier[0]));
 
         listPos.Add(firstQuadrantPos);
         listPos.Add(secondQuadrantPos);

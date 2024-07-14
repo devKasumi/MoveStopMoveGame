@@ -32,14 +32,6 @@ public class Bot : Character
         }
 
         CheckEnemyCurrentStatus();
-
-        //if (ListTarget().Count > 0)
-        //{
-        //    if (!ListTarget()[0].gameObject.activeSelf)
-        //    {
-        //        RemoveTarget();
-        //    }
-        //}
     }
 
     public override void OnInit()
