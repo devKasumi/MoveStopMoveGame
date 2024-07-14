@@ -87,6 +87,7 @@ public class Weapon : GameUnit
     {
         if (other.CompareTag(Constants.TAG_BOT))
         {
+            LevelManager.Instance.CurrentLevel().CurrentActiveBot--;
             OnHitCharacter.Invoke();
             Character character = Cache.GenCharacter(other);
             Bot bot = (Bot)character;

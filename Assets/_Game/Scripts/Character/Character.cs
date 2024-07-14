@@ -48,6 +48,7 @@ public class Character : GameUnit
     public virtual void OnInit()
     {
         attackArea.gameObject.SetActive(true);
+        capsuleCollider.enabled = true;
     }
 
     public virtual void OnDespawn()
@@ -120,6 +121,11 @@ public class Character : GameUnit
 
         // destroy char after
         StartCoroutine(CharacterDie());
+
+        //if (this is Bot)
+        //{
+        //    StartCoroutine(LevelManager.Instance.PoolControl.StartSpawnBot());
+        //}
     }
 
     public void Attack()
@@ -159,14 +165,8 @@ public class Character : GameUnit
     {
         if (this is Bot)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
             BasePool.Despawn(this);
-            //if (!LevelManager.Instance.CurrentLevel().IsEnoughBot())
-            //{
-            //    Debug.LogError("spawn bot!!!");
-            //    yield return new WaitForSeconds(3f);
-            //    LevelManager.Instance.PoolControl.SpawnSingleBot();
-            //}
         }
         else if (this is Player)
         {
@@ -176,4 +176,6 @@ public class Character : GameUnit
             rb.isKinematic = true;
         }
     }
+
+    
 }

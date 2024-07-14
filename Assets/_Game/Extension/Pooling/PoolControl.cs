@@ -63,15 +63,15 @@ public class PoolControl : MonoBehaviour
 
     public void SpawnBot(Vector3 pos)
     {
-        LevelManager.Instance.CurrentLevel().CurrentActiveBot++;
         int index = Random.Range(0, bots.Count);
         GameUnit gameUnit = BasePool.Spawn<GameUnit>(bots[index].PoolType, pos, Quaternion.identity);
         Bot bot = (Bot)gameUnit;
+        bot.OnInit();
         bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
         bot.UpdateWeaponImage();
     }
 
-    public void SpawnSingleBot()
+    public void ReSpawnBot()
     {
         
         bool playerOnFirstQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsFirstQuadrant;
@@ -79,38 +79,56 @@ public class PoolControl : MonoBehaviour
         bool playerOnThirdQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsThirdQuadrant;
         bool playerOnFourthQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsFourthQuadrant;
 
-        int activeQuadrant = playerOnFirstQuadrant ? 3 :
-                             playerOnSecondQuadrand ? 4 :
-                             playerOnThirdQuadrant ? 1 :
-                             playerOnFourthQuadrant ? 2 : 0;
+        int activeQuadrant = playerOnFirstQuadrant ? 1 :
+                             playerOnSecondQuadrand ? 2 :
+                             playerOnThirdQuadrant ? 3 :
+                             playerOnFourthQuadrant ? 4 : 0;
 
-        Vector3 pos;
-        Vector3 connerPos;
+        List<Vector3> listPos = new List<Vector3>();
 
         switch (activeQuadrant)
         {
             case 1:
-                connerPos = LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[1];
-                pos = new Vector3(connerPos.x + offset, 0f, connerPos.z + offset);  
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[1]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[1]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[1]);
                 break;
             case 2:
-                connerPos = LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[1];
-                pos = new Vector3(connerPos.x - offset, 0f, connerPos.z + offset);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[1]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[1]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[1]);
                 break;
             case 3:
-                connerPos = LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[1];
-                pos = new Vector3(connerPos.x - offset, 0f, connerPos.z - offset);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[1]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[1]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[1]);
                 break;
             case 4:
-                connerPos = LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[1];
-                pos = new Vector3(connerPos.x + offset, 0f, connerPos.z - offset);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[1]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[1]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[0]);
+                listPos.Add(LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[1]);
                 break;
             default:
-                pos = Vector3.zero;
                 break;
         }
-        Debug.LogError("spawn single bot !!!!!   " + pos);
-        SpawnBot(pos);
+
+        for (int i = 0; i< listPos.Count; i++)
+        {
+            LevelManager.Instance.CurrentLevel().CurrentActiveBot++;
+            SpawnBot(listPos[i]);
+        }
     }
 
     public Weapon PlayerDefaultWeapon => (Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0];
