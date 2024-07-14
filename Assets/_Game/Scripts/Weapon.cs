@@ -29,7 +29,6 @@ public class Weapon : GameUnit
     void Start()
     {
         OnInit();
-        GetData();
     }
 
     // Update is called once per frame
@@ -47,6 +46,7 @@ public class Weapon : GameUnit
     {
         originPos = TF.position;
         rb.velocity = TF.forward * attackSpeed;
+        GetData();
     }
 
     public void OnDespawn()

@@ -21,7 +21,7 @@ public class LevelManager : Singleton<LevelManager>
     public void OnInit()
     {
         poolControl.OnInit();
-        poolControl.SpawnBot();
+        poolControl.SpawnBotAtBeginning();
     }
 
     public Level CurrentLevel() => currentLevel;

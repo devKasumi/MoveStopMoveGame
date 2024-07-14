@@ -13,7 +13,6 @@ public class PlayerAttackArea : MonoBehaviour
             Character character = Cache.GenCharacter(other);
             Bot bot = (Bot)character;
             bot.EnableTarget();
-            Debug.LogError("add target !!!!");
             player.AddTarget(bot);
         }
     }

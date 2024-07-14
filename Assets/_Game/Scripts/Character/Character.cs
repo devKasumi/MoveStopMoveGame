@@ -128,7 +128,6 @@ public class Character : GameUnit
             Vector3 direction = listTargets[0].TF.position - spawnPoint.position;
             weapon.TF.forward = direction;
             weapon.OnInit();
-            //weapon.GetData();
         }
     }
 

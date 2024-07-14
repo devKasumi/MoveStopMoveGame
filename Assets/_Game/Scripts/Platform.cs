@@ -9,6 +9,7 @@ public class Platform : MonoBehaviour
     [SerializeField] private int minZ;
     [SerializeField] private int maxX;
     [SerializeField] private int maxZ;
+    [SerializeField] private float[] multiplier;
 
     private Character player;
 
@@ -20,12 +21,11 @@ public class Platform : MonoBehaviour
     public bool IsThirdQuadrant => xAxisPivot >= player.TF.position.x && zAxisPivot >= player.TF.position.z;
     public bool IsFourthQuadrant => xAxisPivot <= player.TF.position.x && zAxisPivot >= player.TF.position.z;
 
-    [SerializeField] private float[] multiplier;
 
-    private List<Vector3> firstQuadrantPos = new List<Vector3>();
-    private List<Vector3> secondQuadrantPos = new List<Vector3>();
-    private List<Vector3> thirdQuadrantPos = new List<Vector3>();   
-    private List<Vector3> fourthQuadrantPos = new List<Vector3>();
+    public List<Vector3> firstQuadrantPos = new List<Vector3>();
+    public List<Vector3> secondQuadrantPos = new List<Vector3>();
+    public List<Vector3> thirdQuadrantPos = new List<Vector3>();   
+    public List<Vector3> fourthQuadrantPos = new List<Vector3>();
 
     private List<List<Vector3>> listPos = new List<List<Vector3>>();
 

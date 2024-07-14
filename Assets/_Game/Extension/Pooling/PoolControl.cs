@@ -11,6 +11,7 @@ public class PoolControl : MonoBehaviour
     [SerializeField] private Player player;
 
     private int TotalPosEachQuadrant = 3;
+    private int offset = 4;
 
     private void Awake()
     {
@@ -48,25 +49,66 @@ public class PoolControl : MonoBehaviour
         BasePool.PreLoad(weapons[index], 4, pool.transform);
     }
 
-    public void SpawnBot()
+    public void SpawnBotAtBeginning()
     {
         List<List<Vector3>> listPos = LevelManager.Instance.CurrentLevel().Platform.ListPos;
         for (int i = 0; i < TotalPosEachQuadrant; i++)
         {
             for (int j = 0; j < listPos.Count; j++)
             {
-                int index = Random.Range(0, bots.Count);
-                GameUnit gameUnit = BasePool.Spawn<GameUnit>(bots[index].PoolType, listPos[j][i], Quaternion.identity);
-                Bot bot = (Bot)gameUnit;
-                bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
-                bot.UpdateWeaponImage();
+                SpawnBot(listPos[j][i]);
             } 
         }
     }
 
+    public void SpawnBot(Vector3 pos)
+    {
+        int index = Random.Range(0, bots.Count);
+        GameUnit gameUnit = BasePool.Spawn<GameUnit>(bots[index].PoolType, pos, Quaternion.identity);
+        Bot bot = (Bot)gameUnit;
+        bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
+        bot.UpdateWeaponImage();
+    }
+
     public void SpawnSingleBot()
     {
+        bool playerOnFirstQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsFirstQuadrant;
+        bool playerOnSecondQuadrand = LevelManager.Instance.CurrentLevel().Platform.IsSecondQuadrant;
+        bool playerOnThirdQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsThirdQuadrant;
+        bool playerOnFourthQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsFourthQuadrant;
 
+        int activeQuadrant = playerOnFirstQuadrant ? 1 :
+                             playerOnSecondQuadrand ? 2 :
+                             playerOnThirdQuadrant ? 3 :
+                             playerOnFourthQuadrant ? 4 : 0;
+
+        Vector3 pos;
+        Vector3 connerPos;
+
+        switch (activeQuadrant)
+        {
+            case 1:
+                connerPos = LevelManager.Instance.CurrentLevel().Platform.firstQuadrantPos[1];
+                pos = new Vector3(connerPos.x + offset, 0f, connerPos.z + offset);  
+                break;
+            case 2:
+                connerPos = LevelManager.Instance.CurrentLevel().Platform.secondQuadrantPos[1];
+                pos = new Vector3(connerPos.x - offset, 0f, connerPos.z + offset);
+                break;
+            case 3:
+                connerPos = LevelManager.Instance.CurrentLevel().Platform.thirdQuadrantPos[1];
+                pos = new Vector3(connerPos.x - offset, 0f, connerPos.z - offset);
+                break;
+            case 4:
+                connerPos = LevelManager.Instance.CurrentLevel().Platform.fourthQuadrantPos[1];
+                pos = new Vector3(connerPos.x + offset, 0f, connerPos.z - offset);
+                break;
+            default:
+                pos = Vector3.zero;
+                break;
+        }
+
+        SpawnBot(pos);
     }
 
     public Weapon PlayerDefaultWeapon => (Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0];
