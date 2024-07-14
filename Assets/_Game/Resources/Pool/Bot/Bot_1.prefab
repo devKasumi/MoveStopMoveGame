@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolType: 9
+  rb: {fileID: 2247618023308891328}
   moveSpeed: 0
   animator: {fileID: 1704225235958035832}
   spawnPoint: {fileID: 2847952908638664445}
@@ -505,6 +506,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 90389cac50942cb4ca38583e6531094a, type: 3}
   - {fileID: 100000, guid: ecd6cb62ed8350e498f9e25d15d9caa3, type: 3}
   weaponImage: {fileID: 3029545065677489449}
+  isCharacterDeath: 0
   botType: 0
   targetImage: {fileID: 5389291457484074077}
   navMeshAgent: {fileID: 4419539092426803298}

@@ -5,6 +5,7 @@ using UnityEngine.Playables;
 
 public class Character : GameUnit
 {
+    [SerializeField] private Rigidbody rb;
     [SerializeField] private float moveSpeed;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform spawnPoint;
@@ -21,6 +22,7 @@ public class Character : GameUnit
     [SerializeField] private List<GameObject> weaponImages = new List<GameObject>();
     [SerializeField] private GameObject weaponImage;
 
+    public bool isCharacterDeath;
     //private GameObject currentWeaponImage;
 
     public Weapon Weapon
@@ -28,6 +30,8 @@ public class Character : GameUnit
         get => weapon;
         set => weapon = value;
     }
+
+    public Rigidbody Rb => rb;
 
     // Start is called before the first frame update
     void Start()
@@ -153,14 +157,17 @@ public class Character : GameUnit
 
     public IEnumerator CharacterDie()
     {
-        yield return new WaitForSeconds(3f);
         if (this is Bot)
         {
+            yield return new WaitForSeconds(3f);
             BasePool.Despawn(this);
         }
         else if (this is Player)
         {
             // TODO add logic player die
+            ChangeAnimation(Constants.ANIMATION_DEAD);
+            isCharacterDeath = true;
+            rb.isKinematic = true;
         }
     }
 }

@@ -6,8 +6,6 @@ using UnityEngine;
 public class Player : Character
 {
     [SerializeField] private FloatingJoystick joystick;
-    [SerializeField] private Rigidbody rb;
-    
 
     private Vector3 moveDirection;
     private float inputX;
@@ -25,6 +23,11 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
+        if (isCharacterDeath)
+        {
+            return;
+        }
+
         Move();
 
         AttackEnemy();
@@ -68,12 +71,12 @@ public class Player : Character
 
         moveDirection = new Vector3(inputX * MoveSpeed(), 0f, inputZ * MoveSpeed());    
 
-        rb.velocity = moveDirection;
+        Rb.velocity = moveDirection;
 
         if (inputX != 0f && inputZ != 0f)
         {
-            TF.rotation = Quaternion.LookRotation(rb.velocity);
-            SpawnPoint().rotation = Quaternion.LookRotation(rb.velocity);
+            TF.rotation = Quaternion.LookRotation(Rb.velocity);
+            SpawnPoint().rotation = Quaternion.LookRotation(Rb.velocity);
         }
 
         if (!joystick.IsResetJoystick())
