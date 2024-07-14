@@ -516,6 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelPlatform: {fileID: 1226635621}
+  totalBot: 50
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,6 +753,10 @@ MonoBehaviour:
   - 0.25
   - 0.5
   - 0.75
+  firstQuadrantPos: []
+  secondQuadrantPos: []
+  thirdQuadrantPos: []
+  fourthQuadrantPos: []
 --- !u!1001 &1278882010
 PrefabInstance:
   m_ObjectHideFlags: 0

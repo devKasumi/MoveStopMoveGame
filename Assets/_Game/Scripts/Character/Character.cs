@@ -161,6 +161,12 @@ public class Character : GameUnit
         {
             yield return new WaitForSeconds(3f);
             BasePool.Despawn(this);
+            //if (!LevelManager.Instance.CurrentLevel().IsEnoughBot())
+            //{
+            //    Debug.LogError("spawn bot!!!");
+            //    yield return new WaitForSeconds(3f);
+            //    LevelManager.Instance.PoolControl.SpawnSingleBot();
+            //}
         }
         else if (this is Player)
         {

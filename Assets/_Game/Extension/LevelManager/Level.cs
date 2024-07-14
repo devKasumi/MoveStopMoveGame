@@ -30,11 +30,14 @@ public class Level : MonoBehaviour
 
     public Platform Platform => levelPlatform;
 
-    public int TotalBot => totalBot;
+    //public int TotalBot => totalBot;
 
     public int CurrentActiveBot
     {
         get => currentActiveBot;
         set => currentActiveBot = value;
     }
+
+    public bool IsEnoughBot() => CurrentActiveBot == totalBot;
+
 }

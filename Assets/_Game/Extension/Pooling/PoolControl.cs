@@ -73,15 +73,16 @@ public class PoolControl : MonoBehaviour
 
     public void SpawnSingleBot()
     {
+        
         bool playerOnFirstQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsFirstQuadrant;
         bool playerOnSecondQuadrand = LevelManager.Instance.CurrentLevel().Platform.IsSecondQuadrant;
         bool playerOnThirdQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsThirdQuadrant;
         bool playerOnFourthQuadrant = LevelManager.Instance.CurrentLevel().Platform.IsFourthQuadrant;
 
-        int activeQuadrant = playerOnFirstQuadrant ? 1 :
-                             playerOnSecondQuadrand ? 2 :
-                             playerOnThirdQuadrant ? 3 :
-                             playerOnFourthQuadrant ? 4 : 0;
+        int activeQuadrant = playerOnFirstQuadrant ? 3 :
+                             playerOnSecondQuadrand ? 4 :
+                             playerOnThirdQuadrant ? 1 :
+                             playerOnFourthQuadrant ? 2 : 0;
 
         Vector3 pos;
         Vector3 connerPos;
@@ -108,7 +109,7 @@ public class PoolControl : MonoBehaviour
                 pos = Vector3.zero;
                 break;
         }
-
+        Debug.LogError("spawn single bot !!!!!   " + pos);
         SpawnBot(pos);
     }
 
