@@ -90,7 +90,7 @@ public class PoolControl : MonoBehaviour
         {
             if (i == activeQuadrantIndex) continue;
             listPos.Add(listQuadrantPos[i][0]);
-            listPos.Add(listQuadrantPos[i][Random.Range(1,3)]);
+            listPos.Add(listQuadrantPos[i][Random.Range(1,3)]); 
         }
 
         for (int i = 0; i< listPos.Count; i++)

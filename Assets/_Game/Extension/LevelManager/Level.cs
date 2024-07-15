@@ -6,9 +6,9 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private Platform levelPlatform;
     [SerializeField] private int totalBot;
+    [SerializeField] private int botThreshold = 5;
 
     private int currentActiveBot = 12;
-    private int botThreshold = 5;
 
     // Start is called before the first frame update
     void Start()
