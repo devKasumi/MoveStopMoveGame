@@ -25,6 +25,7 @@ public class Player : Character
     {
         if (isCharacterDeath)
         {
+            ChangeAnimation(Constants.ANIMATION_DEAD);
             return;
         }
 
@@ -34,6 +35,7 @@ public class Player : Character
 
         CheckEnemyCurrentStatus();
 
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.C))
         {
             // bao loi vi thang player inherit monobehavior
@@ -45,6 +47,7 @@ public class Player : Character
             // TODO: xep lai logic vao UI chon weapon va skin!!!
             JsonFileHandler.SaveToJson<Character>(this, Constants.JSON_FILE_NAME);
         }
+#endif
     }
 
     public override void OnInit()
@@ -85,7 +88,6 @@ public class Player : Character
         }
         else
         {
-            ChangeAnimation(Constants.ANIMATION_IDLE);
             AttackEnemy();
         }
     }

@@ -15,6 +15,7 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerDown(PointerEventData eventData)
     {
+        //LevelManager.Instance.Player.ChangeAnimation(Constants.ANIMATION_RUN);
         isResetJoystick = false;
         background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
         background.gameObject.SetActive(true);
@@ -23,6 +24,7 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
+        LevelManager.Instance.Player.ChangeAnimation(Constants.ANIMATION_IDLE);
         isResetJoystick = true;
         background.gameObject.SetActive(false);
         base.OnPointerUp(eventData);

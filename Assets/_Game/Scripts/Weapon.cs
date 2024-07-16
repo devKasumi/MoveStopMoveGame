@@ -34,7 +34,10 @@ public class Weapon : GameUnit
     // Update is called once per frame
     void Update()
     {
-        TF.Rotate(0f, 5f, 0f, Space.Self);
+        if (weaponType != CommonEnum.WeaponType.Knife_0)
+        {
+            TF.Rotate(0f, 10f, 0f, Space.Self);
+        }
 
         if (Vector3.Distance(originPos, TF.position) > attackRange)
         {
