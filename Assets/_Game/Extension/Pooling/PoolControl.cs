@@ -51,6 +51,7 @@ public class PoolControl : MonoBehaviour
 
     public void SpawnBot(Vector3 pos)
     {
+        LevelManager.Instance.CurrentLevel().BotActiveCount++;
         int index = Random.Range(0, bots.Count);
         GameUnit gameUnit = BasePool.Spawn<GameUnit>(bots[index].PoolType, pos, Quaternion.identity);
         Bot bot = (Bot)gameUnit;

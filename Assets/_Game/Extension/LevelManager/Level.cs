@@ -7,6 +7,7 @@ public class Level : MonoBehaviour
     [SerializeField] private Platform levelPlatform;
     [SerializeField] private int totalBot;
     [SerializeField] private int botThreshold = 5;
+    [SerializeField] public int BotActiveCount = 0;
 
     private int currentActiveBot = 12;
 
@@ -19,7 +20,7 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentActiveBot == botThreshold)
+        if (currentActiveBot == botThreshold && BotActiveCount < totalBot)
         {
             LevelManager.Instance.PoolControl.ReSpawnBot();
         }

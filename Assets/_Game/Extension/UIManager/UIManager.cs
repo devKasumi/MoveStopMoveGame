@@ -9,6 +9,8 @@ public class UIManager : Singleton<UIManager>
     Dictionary<System.Type, UICanvas> canvasesActive = new Dictionary<System.Type, UICanvas>();
     Dictionary<System.Type, UICanvas> canvasPrefabs = new Dictionary<System.Type, UICanvas>();
 
+    
+
     private void Awake()
     {
         // load ui prefab tu resources
