@@ -36,7 +36,7 @@ public class Weapon : GameUnit
     {
         if (weaponType != CommonEnum.WeaponType.Knife_0)
         {
-            TF.Rotate(0f, 10f, 0f, Space.Self);
+            TF.Rotate(0f, 5f, 0f, Space.Self);
         }
 
         if (Vector3.Distance(originPos, TF.position) > attackRange)

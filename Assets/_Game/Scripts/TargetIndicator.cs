@@ -31,6 +31,8 @@ public class TargetIndicator : MonoBehaviour
     {
         Vector3 indicatorPosition = mainCamera.WorldToScreenPoint(target.transform.position);
 
+        //Debug.LogError(indicatorPosition);
+
         if (indicatorPosition.z >= 0f && indicatorPosition.x <= canvasRect.rect.width * canvasRect.localScale.x
           & indicatorPosition.y <= canvasRect.rect.height * canvasRect.localScale.x 
           & indicatorPosition.x >= 0f & indicatorPosition.y >= 0f)

@@ -58,6 +58,8 @@ public class PoolControl : MonoBehaviour
         bot.OnInit();
         bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
         bot.UpdateWeaponImage();
+        //UIManager.Instance.AddTargetIndicator(bot.gameObject);
+        //Debug.LogError(FindObjectOfType<Camera>().WorldToScreenPoint(bot.transform.position));
     }
 
     public void SpawnBotAtBeginning()

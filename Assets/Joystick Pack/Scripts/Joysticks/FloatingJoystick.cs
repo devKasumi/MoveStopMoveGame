@@ -25,6 +25,8 @@ public class FloatingJoystick : Joystick
     public override void OnPointerUp(PointerEventData eventData)
     {
         LevelManager.Instance.Player.ChangeAnimation(Constants.ANIMATION_IDLE);
+        //Player player = (Player)LevelManager.Instance.Player;
+        //player.AttackEnemy();
         isResetJoystick = true;
         background.gameObject.SetActive(false);
         base.OnPointerUp(eventData);

@@ -42,6 +42,8 @@ public class Bot : Character
 
         SkinColor.material = SkinDataSO.Materials[Random.Range(2, SkinDataSO.Materials.Count)];
         PantMaterial.material = PantDataSO.Materials[Random.Range(0, PantDataSO.Materials.Count)];
+
+        DisableTarget();
     }
 
     public void ChangeState(IState newState)
