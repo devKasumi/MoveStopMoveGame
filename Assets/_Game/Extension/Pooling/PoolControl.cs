@@ -8,7 +8,7 @@ public class PoolControl : MonoBehaviour
 {
     private List<GameUnit> weapons = new List<GameUnit>();
     private List<GameUnit> bots = new List<GameUnit>();
-    [SerializeField] private Player player;
+    //[SerializeField] private Player player;
 
     private int TotalPosEachQuadrant = 3;
     private int offset = 4;
@@ -57,9 +57,8 @@ public class PoolControl : MonoBehaviour
         Bot bot = (Bot)gameUnit;
         bot.OnInit();
         bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
+        bot.Weapon.BotWeaponData();
         bot.UpdateWeaponImage();
-        //UIManager.Instance.AddTargetIndicator(bot.gameObject);
-        //Debug.LogError(FindObjectOfType<Camera>().WorldToScreenPoint(bot.transform.position));
     }
 
     public void SpawnBotAtBeginning()
@@ -103,7 +102,14 @@ public class PoolControl : MonoBehaviour
         }
     }
 
-    public Weapon PlayerDefaultWeapon => (Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0];
+    public Weapon PlayerDefaultWeapon()
+    {
+        Weapon weapon = Instantiate((Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0], Vector3.down, Quaternion.identity);
+        weapon.PlayerWeaponData();
+        GameObject pool = new GameObject("PlayerWeapon_Pool");
+        BasePool.PreLoad(weapon, 4, pool.transform);
+        return weapon;
+    }
 }
 
 public enum PoolType
@@ -116,6 +122,7 @@ public enum PoolType
     Candy_4 = 5,
     Hammer_0 = 6,
     Knife_0 = 7,
-    Bot_0 = 8,
-    Bot_1 = 9,
+    Player_Weapon = 8,
+    Bot_0 = 9,
+    Bot_1 = 10,
 }

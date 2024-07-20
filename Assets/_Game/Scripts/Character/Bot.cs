@@ -10,6 +10,7 @@ public class Bot : Character
     [SerializeField] public CommonEnum.BotType botType;
     [SerializeField] private Image targetImage;
     [SerializeField] private NavMeshAgent navMeshAgent;
+    
 
     private IState currentState;
     private Vector3 currentTargetPosition;
@@ -40,7 +41,7 @@ public class Bot : Character
 
         ChangeState(new PatrolState());
 
-        SkinColor.material = SkinDataSO.Materials[Random.Range(2, SkinDataSO.Materials.Count)];
+        SkinColor.material = SkinDataSO.Materials[Random.Range(1, SkinDataSO.Materials.Count)];
         PantMaterial.material = PantDataSO.Materials[Random.Range(0, PantDataSO.Materials.Count)];
 
         DisableTarget();

@@ -114,8 +114,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  attackRange: 0
-  attackSpeed: 0
+  attackRange: 5
+  attackSpeed: 5
   skinIndex: 0
   rotateSpeed: 20
 --- !u!1001 &4567906008492545787
@@ -129,6 +129,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_Name
       value: Candy_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_LocalPosition.x
@@ -171,9 +175,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7b26239cf219ba04e9d5c3c5a7fea4d8, type: 2}
+      objectReference: {fileID: 2100000, guid: 6a6d27b620d9b3644bbf2bdbc7f6eb9f, type: 2}
     - target: {fileID: 2300000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 

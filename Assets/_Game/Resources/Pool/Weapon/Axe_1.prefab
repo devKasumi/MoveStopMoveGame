@@ -114,8 +114,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  attackRange: 0
-  attackSpeed: 0
+  attackRange: 5
+  attackSpeed: 5
   skinIndex: 0
   rotateSpeed: 20
 --- !u!1001 &3152927277081157477
@@ -181,6 +181,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 6083ff9012eefa348b00b8c543f1a742, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 6083ff9012eefa348b00b8c543f1a742, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 6083ff9012eefa348b00b8c543f1a742, type: 3}
       propertyPath: m_Materials.Array.data[0]

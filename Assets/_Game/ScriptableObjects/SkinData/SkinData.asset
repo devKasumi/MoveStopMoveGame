@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SkinData
   m_EditorClassIdentifier: 
   materials:
-  - {fileID: 2100000, guid: ef27d38936fbb4d4f91f11ff63f06254, type: 2}
   - {fileID: 2100000, guid: 7345999dc0974fa4f957fc25fcd94780, type: 2}
+  - {fileID: 2100000, guid: d01251576727a624486ef5347aefea78, type: 2}
   - {fileID: 2100000, guid: b685e7353eaf9ac4bba8ef8edc45dfc2, type: 2}
   - {fileID: 2100000, guid: f7daa6adf467c2b4cb776e8ff4b9c389, type: 2}
-  - {fileID: 2100000, guid: 90507cadb7d143b468ce11474a0809c6, type: 2}
   - {fileID: 2100000, guid: a5bda5d8da8b3254a904006119a29e21, type: 2}
   - {fileID: 2100000, guid: e284072eb1aa66148bd4633d9acadd72, type: 2}
+  - {fileID: 2100000, guid: 90507cadb7d143b468ce11474a0809c6, type: 2}

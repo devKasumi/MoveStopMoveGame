@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbfc9a195d5ba846b5d9843f52bad60, type: 3}
   m_Name: Knife0_Data
   m_EditorClassIdentifier: 
+  defaultMaterials:
+  - {fileID: 2100000, guid: d01251576727a624486ef5347aefea78, type: 2}
+  - {fileID: 2100000, guid: b685e7353eaf9ac4bba8ef8edc45dfc2, type: 2}
+  - {fileID: 2100000, guid: f7daa6adf467c2b4cb776e8ff4b9c389, type: 2}
+  - {fileID: 2100000, guid: a5bda5d8da8b3254a904006119a29e21, type: 2}
+  - {fileID: 2100000, guid: e284072eb1aa66148bd4633d9acadd72, type: 2}
+  - {fileID: 2100000, guid: 7345999dc0974fa4f957fc25fcd94780, type: 2}
+  - {fileID: 2100000, guid: 90507cadb7d143b468ce11474a0809c6, type: 2}
   materials:
   - {fileID: 2100000, guid: 0d6cf98a0e2e5c3448c630740c1f2d69, type: 2}
   - {fileID: 2100000, guid: 35c580fe6c161d14a8e76bd860519892, type: 2}

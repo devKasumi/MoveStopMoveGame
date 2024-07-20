@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -24,6 +25,7 @@ public class Character : GameUnit
 
     public bool isCharacterDeath;
     //private GameObject currentWeaponImage;
+    //public List<bool> bools = new List<bool>();
 
     public Weapon Weapon
     {
@@ -133,6 +135,10 @@ public class Character : GameUnit
         GameUnit gameUnit = BasePool.Spawn<GameUnit>(this.weapon.PoolType, spawnPoint.position, Quaternion.identity);
         Weapon weapon = (Weapon)gameUnit;
         weapon.AddCurrentCharacterListener(this);
+        if (this is Bot)
+        {
+            weapon.WeaponSkin.material = Cache.GenMeshRenderer(weaponImage).material;
+        }
         if (listTargets.Count > 0)
         {
             Vector3 direction = listTargets[0].TF.position - spawnPoint.position;

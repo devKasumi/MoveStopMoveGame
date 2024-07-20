@@ -15,13 +15,14 @@ public class CommonEnum
 
     public enum ColorType
     {
-        None = 0,
-        Red = 1,
+        //None = 0,
+        Red = 0,
+        Black = 1,
         Blue = 2,
         Green = 3,
-        Yellow = 4,
-        Orange = 5,
-        Purple = 6,
+        Orange = 4,
+        Purple = 5,
+        Yellow = 6,
     }
 
     public enum BotType
@@ -40,6 +41,7 @@ public class CommonEnum
         Candy_4 = 5,
         Hammer_0 = 6,
         Knife_0 = 7,
+        Player_Weapon = 8,
     }
 
     public enum PantType

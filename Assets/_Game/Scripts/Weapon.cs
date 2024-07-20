@@ -29,6 +29,7 @@ public class Weapon : GameUnit
     void Start()
     {
         OnInit();
+        //GetData();
     }
 
     // Update is called once per frame
@@ -49,7 +50,7 @@ public class Weapon : GameUnit
     {
         originPos = TF.position;
         rb.velocity = TF.forward * attackSpeed;
-        GetData();
+        //GetBotWeaponData();
     }
 
     public void OnDespawn()
@@ -57,13 +58,27 @@ public class Weapon : GameUnit
         BasePool.Despawn(this);
     }
 
-    public void GetData()
+    public void BotWeaponData()
     {
-        weaponSkin.material = weaponData.WeaponMaterial(skinIndex);
+        weaponSkin.material = weaponData.FullSetWeaponMaterial();
         weaponType = weaponData.weaponType;
         attackRange = weaponData.attackRange;
         attackSpeed = weaponData.attackSpeed;
     }
+
+    public void PlayerWeaponData()
+    {
+        weaponSkin.materials = weaponData.PlayerDefaultWeaponMaterial();
+        weaponType = CommonEnum.WeaponType.Player_Weapon;
+        PoolType = PoolType.Player_Weapon;
+        attackRange = weaponData.attackRange;
+        attackSpeed = weaponData.attackSpeed;
+    }
+
+    //public void UpdateBotWeaponData()
+    //{
+    //    weaponSkin.material = 
+    //}
 
     public CommonEnum.WeaponType WeaponType => weaponType;
 

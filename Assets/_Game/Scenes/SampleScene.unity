@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &244642314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9397160b80e83094b875a63e65b88533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2042735900}
 --- !u!1 &757655383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1025,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1278882012}
+    - target: {fileID: 738201850950831501, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
+      propertyPath: isFullSetWeapon
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4887193714161769681, guid: 0d7b25ff09e9fc5479fd1f8959d49e16, type: 3}
       propertyPath: m_Name
       value: Player

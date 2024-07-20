@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7224cfa7f8f58064eacb8172bbfd619f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoolType: 9
+  PoolType: 10
   rb: {fileID: 2247618023308891328}
   moveSpeed: 0
   animator: {fileID: 1704225235958035832}
