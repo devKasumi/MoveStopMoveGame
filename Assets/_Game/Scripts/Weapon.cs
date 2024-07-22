@@ -35,7 +35,7 @@ public class Weapon : GameUnit
     // Update is called once per frame
     void Update()
     {
-        if (weaponType != CommonEnum.WeaponType.Knife_0)
+        if (weaponData.weaponType != CommonEnum.WeaponType.Knife_0)
         {
             TF.Rotate(0f, 5f, 0f, Space.Self);
         }

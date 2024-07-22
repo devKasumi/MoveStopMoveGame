@@ -14,6 +14,11 @@ public class Player : Character
     private float frameRate = 1.5f;
     private float time = 0;
 
+    private void Awake()
+    {
+        GetDataFromJsonFile();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,8 +58,6 @@ public class Player : Character
     public override void OnInit()
     {
         base.OnInit();
-
-        GetDataFromJsonFile();
 
         UpdateWeaponImage();
     }

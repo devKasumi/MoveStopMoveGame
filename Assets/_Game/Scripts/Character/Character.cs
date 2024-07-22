@@ -172,8 +172,6 @@ public class Character : GameUnit
         if (this is Bot)
         {
             yield return new WaitForSeconds(1f);
-            //Bot bot = (Bot)this;
-            //bot.DisableTarget();
             BasePool.Despawn(this);
         }
         else if (this is Player)
