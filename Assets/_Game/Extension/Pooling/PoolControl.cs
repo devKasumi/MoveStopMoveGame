@@ -11,7 +11,7 @@ public class PoolControl : MonoBehaviour
     //[SerializeField] private Player player;
 
     private int TotalPosEachQuadrant = 3;
-    private int offset = 4;
+    //private int offset = 4;
 
     private void Awake()
     {
