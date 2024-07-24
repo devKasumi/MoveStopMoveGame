@@ -517,6 +517,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9397160b80e83094b875a63e65b88533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 1623906371195280972, guid: 8bb96427f0013434396ac911d89320db, type: 3}
+  - {fileID: 4316293433782484062, guid: ad931fbf98a15ce43a1858679a696eb3, type: 3}
+  - {fileID: 7920582780747769954, guid: 21e2f3e6342ba5f4bb84ab6e8653bee0, type: 3}
+  - {fileID: 4808823392903993457, guid: 153f859249953db48a0c3751f847e0f9, type: 3}
+  - {fileID: 530702237925819072, guid: ca78c9fb7b591f54880e0352e02af67f, type: 3}
+  - {fileID: 1631759426220922123, guid: cc36e9714b8e07d44a98ec2d8ccd7efd, type: 3}
+  - {fileID: 2244217368857542163, guid: 899ab50f9a7b9914c8ba124b5c800000, type: 3}
+  - {fileID: 318909365283557510, guid: cafacee29d7469946b99ab6e9159ef21, type: 3}
 --- !u!1 &722296236
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,14 +570,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fded18605786d654384c7c83a8329c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2042735900}
   weaponObjects:
-  - {fileID: 4952989549852321275, guid: 68ba5bb0ef475324596ae3ae47ce4db6, type: 3}
   - {fileID: 2246666936397353232, guid: 9700c1926f87af44f947d275160f93ea, type: 3}
   - {fileID: 328492519205366920, guid: 8c046843d224e2940ba3dfa0d28bce60, type: 3}
   - {fileID: 1897184656404707290, guid: a77e706b72f539845a70183ca699e476, type: 3}
   - {fileID: 8126572489207699591, guid: 805313bb519ec83469af91923ef9c6be, type: 3}
   - {fileID: 8996736930467319697, guid: aff11ff6d2f38b74ab68fad2dabada7c, type: 3}
   - {fileID: 3773180549728233300, guid: 219d5da68be116b46b076a616069e59c, type: 3}
+  - {fileID: 4952989549852321275, guid: 68ba5bb0ef475324596ae3ae47ce4db6, type: 3}
   - {fileID: 1240699918921956660, guid: d2d57b61570e8d844967e555f4d479f1, type: 3}
   weaponObjectPos:
   - {x: 0, y: -1.25, z: 0}

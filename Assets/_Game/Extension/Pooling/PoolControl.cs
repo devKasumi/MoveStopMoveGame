@@ -6,17 +6,16 @@ using UnityEngine.UIElements;
 
 public class PoolControl : MonoBehaviour
 {
-    private List<GameUnit> weapons = new List<GameUnit>();
+    [SerializeField] private List<GameUnit> weapons = new List<GameUnit>();
     private List<GameUnit> bots = new List<GameUnit>();
     //[SerializeField] private Player player;
 
     private int TotalPosEachQuadrant = 3;
-    //private int offset = 4;
 
     private void Awake()
     {
         bots = Resources.LoadAll<GameUnit>("Pool/Bot/").ToList<GameUnit>();
-        weapons = Resources.LoadAll<GameUnit>("Pool/Weapon/").ToList<GameUnit>();
+        //weapons = Resources.LoadAll<GameUnit>("Pool/Weapon/").ToList<GameUnit>();
     }
 
     private void Start()
@@ -114,13 +113,13 @@ public class PoolControl : MonoBehaviour
 
 public enum PoolType
 {
-    Axe_0 = 0,
-    Axe_1 = 1,
-    Candy_0 = 2,
-    Candy_1 = 3,
-    Candy_2 = 4,
-    Candy_4 = 5,
-    Hammer_0 = 6,
+    Hammer_0 = 0,
+    Axe_0 = 1,
+    Axe_1 = 2,
+    Candy_0 = 3,
+    Candy_1 = 4,
+    Candy_2 = 5,
+    Candy_4 = 6,
     Knife_0 = 7,
     Player_Weapon = 8,
     Bot_0 = 9,

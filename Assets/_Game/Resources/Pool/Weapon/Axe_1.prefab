@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14336f3bd71b08041a66b34cde369bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoolType: 1
+  PoolType: 2
   weaponData: {fileID: 11400000, guid: a68c374f50947314ca2ff5449ad11eb3, type: 2}
   rb: {fileID: 4387927800431553465}
   weaponSkin: {fileID: 3152927277083051781}
