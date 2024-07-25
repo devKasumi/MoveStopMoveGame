@@ -61,16 +61,20 @@ public class Weapon : GameUnit
     public void BotWeaponData()
     {
         weaponSkin.material = weaponData.FullSetWeaponMaterial();
-        weaponType = weaponData.weaponType;
-        attackRange = weaponData.attackRange;
-        attackSpeed = weaponData.attackSpeed;
+        GetData();
     }
 
     public void PlayerWeaponData()
     {
         weaponSkin.materials = weaponData.PlayerDefaultWeaponMaterial();
-        weaponType = CommonEnum.WeaponType.Player_Weapon;
+        //weaponType = CommonEnum.WeaponType.Player_Weapon;
         PoolType = PoolType.Player_Weapon;
+        GetData();
+    }
+
+    public void GetData()
+    {
+        weaponType = weaponData.weaponType;
         attackRange = weaponData.attackRange;
         attackSpeed = weaponData.attackSpeed;
     }

@@ -572,13 +572,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2042735900}
   weaponObjects:
+  - {fileID: 4952989549852321275, guid: 68ba5bb0ef475324596ae3ae47ce4db6, type: 3}
   - {fileID: 2246666936397353232, guid: 9700c1926f87af44f947d275160f93ea, type: 3}
   - {fileID: 328492519205366920, guid: 8c046843d224e2940ba3dfa0d28bce60, type: 3}
   - {fileID: 1897184656404707290, guid: a77e706b72f539845a70183ca699e476, type: 3}
   - {fileID: 8126572489207699591, guid: 805313bb519ec83469af91923ef9c6be, type: 3}
   - {fileID: 8996736930467319697, guid: aff11ff6d2f38b74ab68fad2dabada7c, type: 3}
   - {fileID: 3773180549728233300, guid: 219d5da68be116b46b076a616069e59c, type: 3}
-  - {fileID: 4952989549852321275, guid: 68ba5bb0ef475324596ae3ae47ce4db6, type: 3}
   - {fileID: 1240699918921956660, guid: d2d57b61570e8d844967e555f4d479f1, type: 3}
   weaponObjectPos:
   - {x: 0, y: -1.25, z: 0}

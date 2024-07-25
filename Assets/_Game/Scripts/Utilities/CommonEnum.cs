@@ -41,7 +41,7 @@ public class CommonEnum
         Candy_2 = 5,
         Candy_4 = 6,
         Knife_0 = 7,
-        Player_Weapon = 8,
+        //Player_Weapon = 8,
     }
 
     public enum PantType
