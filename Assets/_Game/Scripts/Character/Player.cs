@@ -11,7 +11,7 @@ public class Player : Character
     private float inputX;
     private float inputZ;
 
-    private float frameRate = 1.5f;
+    private float frameRate = 1f;
     private float time = 0;
 
     private void Awake()

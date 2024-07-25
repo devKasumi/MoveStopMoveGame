@@ -23,7 +23,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
         for (int i = 0; i < weaponObjects.Count; i++)
         {
-            Debug.LogError(player.Weapon.WeaponType);
+            //Debug.LogError(player.Weapon.WeaponType);
             for (int j = 0; j < weaponObjectPos.Count; j++)
             {
                 GameObject weaponObject = Instantiate(weaponObjects[i], weaponObjectPos[j], weaponObjects[i].transform.rotation);

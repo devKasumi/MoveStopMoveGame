@@ -23,6 +23,6 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 7287c28736ae9ed49a8995f5a6d165da, type: 2}
   - {fileID: 2100000, guid: 3abd9f85eb2d13c4e9d407e48381a7ce, type: 2}
-  weaponType: 3
+  weaponType: 4
   attackSpeed: 5
   attackRange: 5

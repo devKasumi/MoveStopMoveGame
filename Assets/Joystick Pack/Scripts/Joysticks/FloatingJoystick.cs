@@ -30,4 +30,5 @@ public class FloatingJoystick : Joystick
     }
 
     public bool IsResetJoystick() => isResetJoystick;
+
 }
