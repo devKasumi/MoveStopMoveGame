@@ -19,7 +19,7 @@ public class Character : GameUnit
     [SerializeField] private Canvas attackArea;
 
     private List<Character> listTargets = new List<Character>();
-    private string currentAnimationName;
+    public string currentAnimationName;
     [SerializeField] private List<GameObject> weaponImages = new List<GameObject>();
     [SerializeField] private GameObject weaponImage;
 
@@ -35,22 +35,11 @@ public class Character : GameUnit
 
     public Rigidbody Rb => rb;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //spawnPoint.transform.rotation = transform.rotation; 
-    }
-
     public virtual void OnInit()
     {
         attackArea.gameObject.SetActive(true);
         capsuleCollider.enabled = true;
+        currentAnimationName = Constants.ANIMATION_IDLE;
     }
 
     public virtual void OnDespawn()

@@ -35,7 +35,7 @@ public class Player : Character
             ChangeAnimation(Constants.ANIMATION_DEAD);
             return;
         }
-
+        //Debug.LogError(currentAnimationName);
         Move();
 
         //AttackEnemy();
@@ -85,6 +85,11 @@ public class Player : Character
         {
             TF.rotation = Quaternion.LookRotation(Rb.velocity);
             SpawnPoint().rotation = Quaternion.LookRotation(Rb.velocity);
+        }
+
+        if (ListTarget().Count == 0 && moveDirection == Vector3.zero)
+        {
+            ChangeAnimation(Constants.ANIMATION_IDLE);
         }
 
         if (!joystick.IsResetJoystick())
