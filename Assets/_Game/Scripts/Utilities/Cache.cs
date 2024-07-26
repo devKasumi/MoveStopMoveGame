@@ -39,4 +39,28 @@ public class Cache
 
         return meshRenderers[gameObject];
     }
+
+    private static Dictionary<GameUnit, Weapon> weapons = new Dictionary<GameUnit, Weapon>();   
+
+    public static Weapon GenWeapon(GameUnit unit)
+    {
+        if (!weapons.ContainsKey(unit))
+        {
+            weapons.Add(unit, unit.GetComponent<Weapon>());
+        }
+
+        return weapons[unit];
+    }
+
+    //private static Dictionary<GameObject, Weapon> weapons = new Dictionary<GameObject, Weapon>();
+
+    //public static Weapon GenWeapon(GameObject gameObject)
+    //{
+    //    if (!weapons.ContainsKey(gameObject))
+    //    {
+    //        weapons.Add(gameObject, gameObject.GetComponent<Weapon>());
+    //    }
+
+    //    return weapons[gameObject];
+    //}
 }

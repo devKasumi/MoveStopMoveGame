@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &611731954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2042735900}
+  poolControl: {fileID: 721787170}
   weaponObjects:
   - {fileID: 4952989549852321275, guid: 68ba5bb0ef475324596ae3ae47ce4db6, type: 3}
   - {fileID: 2246666936397353232, guid: 9700c1926f87af44f947d275160f93ea, type: 3}

@@ -15,8 +15,6 @@ public class WeaponDataSO : ScriptableObject
 
     public Material FullSetWeaponMaterial() => materials[Random.Range(0, materials.Count)];
 
-    //public List<Material> WeaponColorMaterials() => defaultMaterials;
-    //public Material WeaponDefaultColorMaterial(int colorIndex) => defaultMaterials[colorIndex];
     public Material[] PlayerDefaultWeaponMaterial()
     {
         Material[] materials = new Material[2];
@@ -24,4 +22,8 @@ public class WeaponDataSO : ScriptableObject
         materials[1] = defaultMaterials[1];
         return materials;
     }
+
+    public Material PlayerWeaponFirstSet => materials[0];
+
+    public Material PlayerWeaponSecondSet => materials[1];
 }
