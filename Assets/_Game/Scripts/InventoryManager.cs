@@ -43,6 +43,12 @@ public class InventoryManager : Singleton<InventoryManager>
                     }
                     weaponUIMesh.materials = materials;
                 }
+                else if (j == weaponObjectPos.Count - 1)
+                {
+                    Transform transform = Cache.GenTransform(weaponObjectUI);
+                    Vector3 localScale = transform.localScale;  
+                    transform.localScale = new Vector3(localScale.x*4, localScale.y*4, localScale.z*4);
+                }
 
             }
         }

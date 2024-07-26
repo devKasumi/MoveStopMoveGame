@@ -52,6 +52,18 @@ public class Cache
         return weapons[unit];
     }
 
+    private static Dictionary<GameObject, Transform> transforms = new Dictionary<GameObject, Transform>();  
+
+    public static Transform GenTransform(GameObject gameObject)
+    {
+        if (!transforms.ContainsKey(gameObject))
+        {
+            transforms.Add(gameObject, gameObject.GetComponent<Transform>());
+        }
+
+        return transforms[gameObject];
+    }
+
     //private static Dictionary<GameObject, Weapon> weapons = new Dictionary<GameObject, Weapon>();
 
     //public static Weapon GenWeapon(GameObject gameObject)
