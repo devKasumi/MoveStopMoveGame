@@ -25,5 +25,9 @@ public class WeaponDataSO : ScriptableObject
 
     public Material PlayerWeaponFirstSet => materials[0];
 
-    public Material PlayerWeaponSecondSet => materials[1];
+    public Material PlayerWeaponSecondSet() 
+    {
+        if (weaponType == CommonEnum.WeaponType.Axe_0) return null;
+        return materials[1];
+    }
 }
