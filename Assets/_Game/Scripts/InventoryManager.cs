@@ -27,18 +27,15 @@ public class InventoryManager : Singleton<InventoryManager>
 
                 if (j == weaponObjectPos.Count - 3)
                 {
-                    //weaponUIMesh.material = Cache.GenWeapon(poolControl.ListWeaponPrefabs[i]).WeaponData.PlayerWeaponFirstSet;
                     Material[] materials = new Material[weaponUIMesh.materials.Length];
                     for (int k = 0; k < weaponUIMesh.materials.Length; k++)
                     {
-                        //materials = Cache.GenWeapon(poolControl.ListWeaponPrefabs[i]).WeaponData.PlayerWeaponFirstSet;
                         materials[k] = Cache.GenWeapon(poolControl.ListWeaponPrefabs[i]).WeaponData.PlayerWeaponFirstSet;
                     }
                     weaponUIMesh.materials = materials;
                 }
                 else if (j == weaponObjectPos.Count - 2)
                 {
-                    //weaponUIMesh.material = Cache.GenWeapon(poolControl.ListWeaponPrefabs[i]).WeaponData.PlayerWeaponSecondSet;
                     Material[] materials = new Material[weaponUIMesh.materials.Length];
                     for (int k = 0; k < weaponUIMesh.materials.Length; k++)
                     {

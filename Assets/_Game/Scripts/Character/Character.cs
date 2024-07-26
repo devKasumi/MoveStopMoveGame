@@ -91,6 +91,7 @@ public class Character : GameUnit
     public void AddTarget(Character character)
     {
         listTargets.Add(character);
+        //Attack();
     }
 
     public void RemoveTarget()
@@ -155,6 +156,9 @@ public class Character : GameUnit
             currentAnimationName = animationName;
             animator.SetTrigger(currentAnimationName);
         }
+        //animator.ResetTrigger(currentAnimationName);
+        //currentAnimationName = animationName;
+        //animator.SetTrigger(currentAnimationName);
     }
 
     public void FaceEnemy()

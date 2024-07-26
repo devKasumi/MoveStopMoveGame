@@ -28,6 +28,8 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+
         if (isCharacterDeath)
         {
             ChangeAnimation(Constants.ANIMATION_DEAD);
@@ -36,7 +38,7 @@ public class Player : Character
 
         Move();
 
-        AttackEnemy();
+        //AttackEnemy();
 
         CheckEnemyCurrentStatus();
 
@@ -97,8 +99,6 @@ public class Player : Character
 
     public void AttackEnemy()
     {
-        time += Time.deltaTime;
-
         if (time >= frameRate)
         {
             time = 0;
