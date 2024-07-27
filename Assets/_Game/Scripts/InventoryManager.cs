@@ -10,11 +10,17 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private List<GameObject> weaponObjects = new List<GameObject>();
     [SerializeField] private List<Vector3> weaponObjectPos = new List<Vector3>();
 
+    private List<List<GameObject>> weaponObjectsUIList = new List<List<GameObject>>(); // chua cac list weapon ui nho(gom 4 thang ui hien len)
+    //private List<GameObject> WeaponUIs = new List<GameObject>();
+    private GameObject currentSelectedWeaponUI;
+    private int currentWeaponUIIndex;
+
     private void Start()
     {
-
+          
         for (int i = 0; i < weaponObjects.Count; i++)
         {
+            List<GameObject> WeaponUIs = new List<GameObject>();
             for (int j = 0; j < weaponObjectPos.Count; j++)
             {
                 GameObject weaponObjectUI = Instantiate(weaponObjects[i], weaponObjectPos[j], weaponObjects[i].transform.rotation);
@@ -22,6 +28,7 @@ public class InventoryManager : Singleton<InventoryManager>
                 if (i == (int)player.Weapon.WeaponType)
                 {
                     weaponObjectUI.SetActive(true);
+                    currentWeaponUIIndex = i;
                 }
                 else weaponObjectUI.SetActive(false);
 
@@ -48,9 +55,19 @@ public class InventoryManager : Singleton<InventoryManager>
                     Transform transform = Cache.GenTransform(weaponObjectUI);
                     Vector3 localScale = transform.localScale;  
                     transform.localScale = new Vector3(localScale.x*4, localScale.y*4, localScale.z*4);
+                    currentSelectedWeaponUI = weaponObjectUI;
+                    break;
                 }
 
+                WeaponUIs.Add(weaponObjectUI);
             }
+            weaponObjectsUIList.Add(WeaponUIs);
         }
+        Debug.LogError(weaponObjectsUIList.Count);
+    }
+
+    private void Update()
+    {
+        
     }
 }
