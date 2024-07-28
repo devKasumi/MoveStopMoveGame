@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4391385214765404768}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnMaterial_1_Ele_1_Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &180945164662421701
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +644,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 62029524811238318}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnColorButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 989148448791941577}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1081865731999690899
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +908,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9096327082564014129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnColorButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1901398056290802281}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2105262747347216959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1823,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 463321521791031721}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnColorButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3791538997643698651}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3896460751594667353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,7 +2568,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8490416578497665163}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnMaterial_1_Ele_2_Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4913459262249635599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,7 +2822,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5022334188734670566}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnMaterial_2_Ele_3_Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4984944838565730699
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,10 +3649,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1757244679379981044}
         m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
         m_MethodName: OnColorButton
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 6210538739121498488}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4025,7 +4097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8187743680628991578}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnMaterial_2_Ele_1_Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7298991883306386569
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,10 +4233,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1757244679379981044}
         m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
         m_MethodName: OnColorButton
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 7298991883306386569}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4353,7 +4437,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7309453128818074663}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnColorButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7606923058384217616}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7727548711114883094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4783,7 +4879,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6118203994992440967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnColorButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8891793190565563676}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9170767593293088644
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,4 +5012,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2649194045042506123}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1757244679379981044}
+        m_TargetAssemblyTypeName: CanvasUIWeapon, Assembly-CSharp
+        m_MethodName: OnMaterial_2_Ele_2_Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,8 +62,9 @@ public class CanvasUIWeapon : UICanvas
         if (index == 0)
         {
             EnableColorSelection(InventoryManager.Instance.MaterialCount);
-            int groupNum = InventoryManager.Instance.MaterialCount == 2 ? 1 : 2;
-            FocusElementControl(groupNum, 1, true);
+            //int groupNum = InventoryManager.Instance.MaterialCount == 2 ? 1 : 2;
+            //FocusElementControl(groupNum, 1, true);
+            OnMaterial_1_Ele_1_Pressed();
         }
     }
 
@@ -103,46 +105,76 @@ public class CanvasUIWeapon : UICanvas
         }
     }
 
-    public void FocusElementControl(int groupNumber, int elementNumber, bool enable)
+    //public void FocusElementControl(int groupNumber, int elementNumber, bool enable)
+    //{
+    //    switch (groupNumber)
+    //    {
+    //        case 1:
+    //            {
+    //                switch (elementNumber)
+    //                {
+    //                    case 1:
+    //                        FocusElement(ref focusElement_1_1, enable);
+    //                        break;
+    //                    case 2:
+    //                        FocusElement(ref focusElement_1_2, enable);
+    //                        break;
+    //                    default:
+    //                        break;
+    //                }
+    //            }
+    //            break;
+    //        case 2:
+    //            {
+    //                switch(elementNumber)
+    //                {
+    //                    case 1:
+    //                        FocusElement(ref focusElement_2_1, enable);
+    //                        break;
+    //                    case 2:
+    //                        FocusElement(ref focusElement_2_2, enable);
+    //                        break;
+    //                    case 3:
+    //                        FocusElement(ref focusElement_2_3, enable);
+    //                        break;
+    //                    default:
+    //                        break;
+    //                }
+    //            }
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
+
+    public void OnMaterial_1_Ele_1_Pressed()
     {
-        switch (groupNumber)
-        {
-            case 1:
-                {
-                    switch (elementNumber)
-                    {
-                        case 1:
-                            FocusElement(ref focusElement_1_1, enable);
-                            break;
-                        case 2:
-                            FocusElement(ref focusElement_1_2, enable);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                break;
-            case 2:
-                {
-                    switch(elementNumber)
-                    {
-                        case 1:
-                            FocusElement(ref focusElement_2_1, enable);
-                            break;
-                        case 2:
-                            FocusElement(ref focusElement_2_2, enable);
-                            break;
-                        case 3:
-                            FocusElement(ref focusElement_2_3, enable);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                break;
-            default:
-                break;
-        }
+        RemoveAllFocusElement();
+        FocusElement(ref focusElement_1_1, true);
+    }
+
+    public void OnMaterial_1_Ele_2_Pressed()
+    {
+        RemoveAllFocusElement();
+        FocusElement(ref focusElement_1_2, true);
+    }
+
+    public void OnMaterial_2_Ele_1_Pressed()
+    {
+        RemoveAllFocusElement();
+        FocusElement(ref focusElement_2_1, true);
+    }
+
+    public void OnMaterial_2_Ele_2_Pressed()
+    {
+        RemoveAllFocusElement();
+        FocusElement(ref focusElement_2_2, true);
+    }
+
+    public void OnMaterial_2_Ele_3_Pressed()
+    {
+        RemoveAllFocusElement();
+        FocusElement(ref focusElement_2_3, true);
     }
 
     public void FocusElement(ref List<GameObject> elementList, bool enable)
@@ -162,15 +194,20 @@ public class CanvasUIWeapon : UICanvas
         FocusElement(ref focusElement_2_3, false);
     }
 
+    public void OnColorButton(GameObject colorEle)
+    {
+        Debug.LogError(Cache.GenImage(colorEle).color);
+        listMatColors1[0].color = Cache.GenImage(focusElement_1_1[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors1[0].color;
+        listMatColors1[1].color = Cache.GenImage(focusElement_1_2[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors1[1].color;
+        listMatColors2[0].color = Cache.GenImage(focusElement_2_1[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors2[0].color;
+        listMatColors2[1].color = Cache.GenImage(focusElement_2_2[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors2[1].color;
+        listMatColors2[2].color = Cache.GenImage(focusElement_2_3[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors2[2].color;
+    }
+
     public void OnSelectButton()
     {
 
-    }
-
-    public void OnColorButton()
-    {
-        
-    }
+    }   
 
     public void OnButtonNext()
     {

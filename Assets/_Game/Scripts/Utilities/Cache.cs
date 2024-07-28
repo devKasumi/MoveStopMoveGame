@@ -89,6 +89,8 @@ public class Cache
         return rectTransforms[gameObject];
     }
 
+    //private static Dictionary<GameObject, Color> 
+
     //private static Dictionary<GameObject, Weapon> weapons = new Dictionary<GameObject, Weapon>();
 
     //public static Weapon GenWeapon(GameObject gameObject)
