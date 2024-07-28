@@ -21,24 +21,27 @@ public class CanvasUIWeapon : UICanvas
     [SerializeField] private GameObject buttonNext;
     [SerializeField] private GameObject buttonPrev;
 
-    public void OnWeaponCustomButton()
-    {
+    [SerializeField] private GameObject[] listWeaponFocus;
+    private int focusIndex = 1;
 
+    private void Start()
+    {
+        Cache.GenImage(listWeaponFocus[focusIndex]).enabled = true;
     }
 
-    public void OnFirstWeaponButton()
+    public void OnWeaponButtonPressed(int index)
     {
-
+        RemoveAllFocus();
+        Cache.GenImage(listWeaponFocus[index]).enabled = true;
+        InventoryManager.Instance.UpdateCurrentWeapon(index);
     }
 
-    public void OnSecondWeaponButton()
+    public void RemoveAllFocus()
     {
-
-    }
-
-    public void OnThirdWeaponButton()
-    {
-
+        for (int i = 0; i < listWeaponFocus.Length; i++)
+        {
+            Cache.GenImage(listWeaponFocus[i]).enabled = false;
+        }
     }
 
     public void OnSelectButton()

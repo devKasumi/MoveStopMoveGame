@@ -11,9 +11,8 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private List<Vector3> weaponObjectPos = new List<Vector3>();
 
     private List<List<GameObject>> weaponObjectsUIList = new List<List<GameObject>>(); // chua cac list weapon ui nho(gom 4 thang ui hien len)
-    //private List<GameObject> WeaponUIs = new List<GameObject>();
-    private GameObject currentSelectedWeaponUI;
-    private int currentWeaponUIIndex;
+    private List<GameObject> currentWeaponUIList = new List<GameObject>(); // chua cac weapon to ben duoi 
+    private int currentWeaponUIIndex; // no chinh la index cua enum weapon
 
     private void Start()
     {
@@ -55,8 +54,8 @@ public class InventoryManager : Singleton<InventoryManager>
                     Transform transform = Cache.GenTransform(weaponObjectUI);
                     Vector3 localScale = transform.localScale;  
                     transform.localScale = new Vector3(localScale.x*4, localScale.y*4, localScale.z*4);
-                    currentSelectedWeaponUI = weaponObjectUI;
-                    break;
+                    currentWeaponUIList.Add(weaponObjectUI);
+                    continue;
                 }
 
                 WeaponUIs.Add(weaponObjectUI);
@@ -69,5 +68,11 @@ public class InventoryManager : Singleton<InventoryManager>
     private void Update()
     {
         
+    }
+
+    public void UpdateCurrentWeapon(int index)
+    {
+        // TODO: update weapon mesh cho thang player
+        Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
     }
 }

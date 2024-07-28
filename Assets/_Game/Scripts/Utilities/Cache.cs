@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cache
 {
@@ -62,6 +63,18 @@ public class Cache
         }
 
         return transforms[gameObject];
+    }
+
+    private static Dictionary<GameObject, Image> images = new Dictionary<GameObject, Image>();
+
+    public static Image GenImage(GameObject gameObject)
+    {
+        if (!images.ContainsKey(gameObject))
+        {
+            images.Add(gameObject, gameObject.GetComponent<Image>());
+        }
+
+        return images[gameObject];
     }
 
     //private static Dictionary<GameObject, Weapon> weapons = new Dictionary<GameObject, Weapon>();
