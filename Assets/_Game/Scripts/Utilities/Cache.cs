@@ -77,6 +77,18 @@ public class Cache
         return images[gameObject];
     }
 
+    private static Dictionary<GameObject, RectTransform> rectTransforms = new Dictionary<GameObject, RectTransform>();
+
+    public static RectTransform GenRectTransform(GameObject gameObject)
+    {
+        if (!rectTransforms.ContainsKey(gameObject))
+        {
+            rectTransforms.Add(gameObject, gameObject.GetComponent<RectTransform>());
+        }
+
+        return rectTransforms[gameObject];
+    }
+
     //private static Dictionary<GameObject, Weapon> weapons = new Dictionary<GameObject, Weapon>();
 
     //public static Weapon GenWeapon(GameObject gameObject)

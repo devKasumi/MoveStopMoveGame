@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,11 +25,17 @@ public class CanvasUIWeapon : UICanvas
 
     [SerializeField] private GameObject[] listWeaponFocus;
     private int focusIndex = 1;
+    private float noColorButtonPos = -400;
+    private float haveColorButtonPos = -700;
 
     private void Start()
     {
         Cache.GenImage(listWeaponFocus[focusIndex]).enabled = true;
-        if (focusIndex != 0) DisableColorSelection();
+        UpdateSelectButtonPos(focusIndex);
+        if (focusIndex != 0)
+        {
+            DisableColorSelection();
+        }
     }
 
     public void OnWeaponButtonPressed(int index)
@@ -37,6 +44,7 @@ public class CanvasUIWeapon : UICanvas
         DisableColorSelection();
         Cache.GenImage(listWeaponFocus[index]).enabled = true;
         InventoryManager.Instance.UpdateCurrentWeapon(index);
+        UpdateSelectButtonPos(index);
         if (index == 0)
         {
             EnableColorSelection(InventoryManager.Instance.MaterialCount);
@@ -56,6 +64,12 @@ public class CanvasUIWeapon : UICanvas
         colorGrid.SetActive(false);
         materialGroup1.SetActive(false);
         materialGroup2.SetActive(false);
+    }
+
+    public void UpdateSelectButtonPos(int focusIndex)
+    {
+        Cache.GenRectTransform(selectButton).localPosition = focusIndex == 0 ? new Vector3(0f, haveColorButtonPos, 0f)
+                                                                             : new Vector3(0f, noColorButtonPos, 0f);
     }
 
     public void EnableColorSelection(int matCount)
@@ -79,9 +93,9 @@ public class CanvasUIWeapon : UICanvas
 
     }
 
-    public void OnColorButton(int colorIndex)
+    public void OnColorButton()
     {
-
+        
     }
 
     public void OnButtonNext()
