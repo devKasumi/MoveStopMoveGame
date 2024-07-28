@@ -43,6 +43,7 @@ public class CanvasUIWeapon : UICanvas
     {
         Cache.GenImage(listWeaponFocus[focusIndex]).enabled = true;
         UpdateSelectButtonPos(focusIndex);
+        //RemoveAllFocusElement();
         if (focusIndex != 0)
         {
             DisableColorSelection();
@@ -51,7 +52,8 @@ public class CanvasUIWeapon : UICanvas
 
     public void OnWeaponButtonPressed(int index)
     {
-        RemoveAllFocus();
+        RemoveAllFocusWeapon();
+        RemoveAllFocusElement();
         DisableColorSelection();
         Cache.GenImage(listWeaponFocus[index]).enabled = true;
         InventoryManager.Instance.UpdateCurrentWeapon(index);
@@ -59,10 +61,12 @@ public class CanvasUIWeapon : UICanvas
         if (index == 0)
         {
             EnableColorSelection(InventoryManager.Instance.MaterialCount);
+            int groupNum = InventoryManager.Instance.MaterialCount == 2 ? 1 : 2;
+            FocusElementControl(groupNum, 1, true);
         }
     }
 
-    public void RemoveAllFocus()
+    public void RemoveAllFocusWeapon()
     {
         for (int i = 0; i < listWeaponFocus.Length; i++)
         {
@@ -108,10 +112,10 @@ public class CanvasUIWeapon : UICanvas
                     switch (elementNumber)
                     {
                         case 1:
-                            FocusElement(focusElement_1_1, enable);
+                            FocusElement(ref focusElement_1_1, enable);
                             break;
                         case 2:
-                            FocusElement(focusElement_1_2, enable);
+                            FocusElement(ref focusElement_1_2, enable);
                             break;
                         default:
                             break;
@@ -123,13 +127,13 @@ public class CanvasUIWeapon : UICanvas
                     switch(elementNumber)
                     {
                         case 1:
-                            FocusElement(focusElement_2_1, enable);
+                            FocusElement(ref focusElement_2_1, enable);
                             break;
                         case 2:
-                            FocusElement(focusElement_2_2, enable);
+                            FocusElement(ref focusElement_2_2, enable);
                             break;
                         case 3:
-                            FocusElement(focusElement_2_3, enable);
+                            FocusElement(ref focusElement_2_3, enable);
                             break;
                         default:
                             break;
@@ -141,12 +145,21 @@ public class CanvasUIWeapon : UICanvas
         }
     }
 
-    public void FocusElement(List<GameObject> elementList, bool enable)
+    public void FocusElement(ref List<GameObject> elementList, bool enable)
     {
-        for (int i =0;i<elementList.Count;i++)
+        for (int i = 0; i < elementList.Count; i++)
         {
             Cache.GenImage(elementList[i]).enabled = enable ? true : false; 
         }
+    }
+
+    public void RemoveAllFocusElement()
+    {
+        FocusElement(ref focusElement_1_1, false);
+        FocusElement(ref focusElement_1_2, false);
+        FocusElement(ref focusElement_2_1, false);
+        FocusElement(ref focusElement_2_2, false);
+        FocusElement(ref focusElement_2_3, false);
     }
 
     public void OnSelectButton()
