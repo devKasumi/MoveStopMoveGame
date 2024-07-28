@@ -39,12 +39,13 @@ public class CanvasUIWeapon : UICanvas
     private int matColorFocusIndex = 0;
     private float noColorButtonPos = -400;
     private float haveColorButtonPos = -700;
+    private int matGroup = 1;
+    private string focusMat = "";
 
     private void Start()
     {
         Cache.GenImage(listWeaponFocus[focusIndex]).enabled = true;
         UpdateSelectButtonPos(focusIndex);
-        //RemoveAllFocusElement();
         if (focusIndex != 0)
         {
             DisableColorSelection();
@@ -62,8 +63,6 @@ public class CanvasUIWeapon : UICanvas
         if (index == 0)
         {
             EnableColorSelection(InventoryManager.Instance.MaterialCount);
-            //int groupNum = InventoryManager.Instance.MaterialCount == 2 ? 1 : 2;
-            //FocusElementControl(groupNum, 1, true);
             OnMaterial_1_Ele_1_Pressed();
         }
     }
@@ -96,9 +95,11 @@ public class CanvasUIWeapon : UICanvas
         {
             case 2:
                 materialGroup1.SetActive(true);
+                matGroup = 1;
                 break;
             case 3:
                 materialGroup2.SetActive(true);
+                matGroup = 2;
                 break;
             default:
                 break;
@@ -151,30 +152,35 @@ public class CanvasUIWeapon : UICanvas
     {
         RemoveAllFocusElement();
         FocusElement(ref focusElement_1_1, true);
+        focusMat = "1_1";
     }
 
     public void OnMaterial_1_Ele_2_Pressed()
     {
         RemoveAllFocusElement();
         FocusElement(ref focusElement_1_2, true);
+        focusMat = "1_2";
     }
 
     public void OnMaterial_2_Ele_1_Pressed()
     {
         RemoveAllFocusElement();
         FocusElement(ref focusElement_2_1, true);
+        focusMat = "2_1";
     }
 
     public void OnMaterial_2_Ele_2_Pressed()
     {
         RemoveAllFocusElement();
         FocusElement(ref focusElement_2_2, true);
+        focusMat = "2_2";
     }
 
     public void OnMaterial_2_Ele_3_Pressed()
     {
         RemoveAllFocusElement();
         FocusElement(ref focusElement_2_3, true);
+        focusMat = "2_3";
     }
 
     public void FocusElement(ref List<GameObject> elementList, bool enable)
@@ -196,7 +202,6 @@ public class CanvasUIWeapon : UICanvas
 
     public void OnColorButton(GameObject colorEle)
     {
-        Debug.LogError(Cache.GenImage(colorEle).color);
         listMatColors1[0].color = Cache.GenImage(focusElement_1_1[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors1[0].color;
         listMatColors1[1].color = Cache.GenImage(focusElement_1_2[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors1[1].color;
         listMatColors2[0].color = Cache.GenImage(focusElement_2_1[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors2[0].color;
@@ -204,9 +209,51 @@ public class CanvasUIWeapon : UICanvas
         listMatColors2[2].color = Cache.GenImage(focusElement_2_3[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors2[2].color;
     }
 
+    public void UpdateWeaponColor(int index)
+    {
+        switch (matGroup)
+        {
+            case 1:
+                {
+                    switch (focusMat)
+                    {
+                        case "1_1":
+                            InventoryManager.Instance.UpdateCustomWeapon(0, index);
+                            break;
+                        case "1_2":
+                            InventoryManager.Instance.UpdateCustomWeapon(1, index);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+            case 2:
+                {
+                    switch (focusMat)
+                    {
+                        case "2_1":
+                            InventoryManager.Instance.UpdateCustomWeapon(0, index);
+                            break;
+                        case "2_2":
+                            InventoryManager.Instance.UpdateCustomWeapon(1, index);
+                            break;
+                        case "2_3":
+                            InventoryManager.Instance.UpdateCustomWeapon(2, index);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     public void OnSelectButton()
     {
-
+        InventoryManager.Instance.UpdatePlayerWeapon();
     }   
 
     public void OnButtonNext()

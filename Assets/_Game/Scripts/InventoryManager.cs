@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,13 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private PoolControl poolControl;
     [SerializeField] private List<GameObject> weaponObjects = new List<GameObject>();
     [SerializeField] private List<Vector3> weaponObjectPos = new List<Vector3>();
+    [SerializeField] private List<Material> colorMats = new List<Material>();
 
     private List<List<GameObject>> weaponObjectsUIList = new List<List<GameObject>>(); // chua cac list weapon ui nho(gom 4 thang ui hien len)
     private List<GameObject> currentWeaponUIList = new List<GameObject>(); // chua cac weapon to ben duoi 
     private int currentWeaponUIIndex; // no chinh la index cua enum weapon
     //private GameObject
+    private Material[] currentMats;
 
     private void Start()
     {
@@ -64,7 +67,7 @@ public class InventoryManager : Singleton<InventoryManager>
             }
             weaponObjectsUIList.Add(WeaponUIs);
         }
-        Debug.LogError(weaponObjectsUIList.Count);
+        currentMats = new Material[MaterialCount];
     }
 
     private void Update()
@@ -76,7 +79,75 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         // TODO: update weapon mesh cho thang player
         Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
+        // update player weapon khi bam select
+        currentMats = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
+        //player.Weapon.WeaponSkin.materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
     }
 
+    public void UpdateCustomWeapon(int matIndex, int colorIndex)
+    {
+        Material[] materials = new Material[MaterialCount];
+
+        switch (MaterialCount)
+        {
+            case 2:
+                {
+                    switch (matIndex)
+                    {
+                        case 0:
+                            materials[0] = colorMats[colorIndex];
+                            materials[1] = Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials[1];
+                            break;
+                        case 1:
+                            materials[1] = colorMats[colorIndex];
+                            materials[0] = Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials[0];
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+            case 3:
+                {
+                    switch (matIndex)
+                    {
+                        case 0:
+                            materials[0] = colorMats[colorIndex];
+                            materials[1] = Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials[1];
+                            materials[2] = Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials[2];
+                            break;
+                        case 1:
+                            materials[1] = colorMats[colorIndex];
+                            materials[0] = Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials[0];
+                            materials[2] = Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials[2];
+                            break;
+                        case 2:
+                            materials[2] = colorMats[colorIndex];
+                            materials[1] = Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials[1];
+                            materials[0] = Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials[0];
+                            break;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+        Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = materials;
+        Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][0]).materials = materials;
+        currentMats = materials;
+        // update player weapon khi bam select
+        //player.Weapon.WeaponSkin.materials = materials;
+    }
+
+    //public GameObject CurrentWeaponUI => currentWeaponUIList[currentWeaponUIIndex];
+
+    //public List<Material> ColorMats => colorMats;
+
     public int MaterialCount => Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials.Length;
+
+    public void UpdatePlayerWeapon()
+    {
+        player.Weapon.WeaponSkin.materials = currentMats;
+        player.UpdateWeaponImage();
+    }
 }
