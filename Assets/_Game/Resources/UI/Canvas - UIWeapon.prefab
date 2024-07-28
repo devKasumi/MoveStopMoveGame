@@ -3358,12 +3358,13 @@ MonoBehaviour:
   weaponBonusText: {fileID: 3374438430964454824}
   selectButton: {fileID: 4487872233828233240}
   selectButtonText: {fileID: 4841312724522308373}
+  colorGrid: {fileID: 460223515359474278}
   listColorButtons: []
   materialGroup1: {fileID: 2105262747347216959}
   listMatColors1:
   - {fileID: 4391385214765404768}
   - {fileID: 8490416578497665163}
-  materialGroudp2: {fileID: 7883521988052625648}
+  materialGroup2: {fileID: 7883521988052625648}
   listMatColors2:
   - {fileID: 8187743680628991578}
   - {fileID: 2649194045042506123}

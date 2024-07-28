@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class InventoryManager : Singleton<InventoryManager>
     private List<List<GameObject>> weaponObjectsUIList = new List<List<GameObject>>(); // chua cac list weapon ui nho(gom 4 thang ui hien len)
     private List<GameObject> currentWeaponUIList = new List<GameObject>(); // chua cac weapon to ben duoi 
     private int currentWeaponUIIndex; // no chinh la index cua enum weapon
+    //private GameObject
 
     private void Start()
     {
@@ -75,4 +77,6 @@ public class InventoryManager : Singleton<InventoryManager>
         // TODO: update weapon mesh cho thang player
         Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
     }
+
+    public int MaterialCount => Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials.Length;
 }
