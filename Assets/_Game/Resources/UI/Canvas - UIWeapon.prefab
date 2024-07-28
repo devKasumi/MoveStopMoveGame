@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4575111116576265270}
   - component: {fileID: 1231992247637337678}
   m_Layer: 7
-  m_Name: Image - Indicator
+  m_Name: Image - Indicator2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1218,7 +1218,7 @@ GameObject:
   - component: {fileID: 2530999400026571454}
   - component: {fileID: 4851410757389808142}
   m_Layer: 7
-  m_Name: Image - Indicator
+  m_Name: Image - Indicator1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2775,7 +2775,7 @@ GameObject:
   - component: {fileID: 6831039141131788155}
   - component: {fileID: 7731645116650999668}
   m_Layer: 7
-  m_Name: Image - Indicator
+  m_Name: Image - Indicator3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3800,10 +3800,25 @@ MonoBehaviour:
   colorGrid: {fileID: 460223515359474278}
   listColorButtons: []
   materialGroup1: {fileID: 2105262747347216959}
+  focusElement_1_1:
+  - {fileID: 2105262747347216959}
+  - {fileID: 2410093876343151148}
+  focusElement_1_2:
+  - {fileID: 5587831032283594616}
+  - {fileID: 7789744439621227004}
   listMatColors1:
   - {fileID: 4391385214765404768}
   - {fileID: 8490416578497665163}
   materialGroup2: {fileID: 7883521988052625648}
+  focusElement_2_1:
+  - {fileID: 7348207745779628828}
+  - {fileID: 6940750304404727984}
+  focusElement_2_2:
+  - {fileID: 6342944921284076488}
+  - {fileID: 210546403026874929}
+  focusElement_2_3:
+  - {fileID: 4464667542330843839}
+  - {fileID: 4984944838565730699}
   listMatColors2:
   - {fileID: 8187743680628991578}
   - {fileID: 2649194045042506123}
@@ -3827,7 +3842,7 @@ GameObject:
   - component: {fileID: 8372513782446763314}
   - component: {fileID: 1201730247264746117}
   m_Layer: 7
-  m_Name: Image - Indicator
+  m_Name: Image - Indicator1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4427,7 +4442,7 @@ GameObject:
   - component: {fileID: 48443540963018684}
   - component: {fileID: 3386976022027585126}
   m_Layer: 7
-  m_Name: Image - Indicator
+  m_Name: Image - Indicator2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

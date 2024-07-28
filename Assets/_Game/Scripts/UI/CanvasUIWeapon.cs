@@ -17,14 +17,25 @@ public class CanvasUIWeapon : UICanvas
     [SerializeField] private GameObject colorGrid;
     [SerializeField] private List<GameObject> listColorButtons = new List<GameObject>();
     [SerializeField] private GameObject materialGroup1;
+    //[SerializeField] private GameObject material_1_FocusImage_1;
+    //[SerializeField] private GameObject material_1_FocusImage_2;
+    [SerializeField] private List<GameObject> focusElement_1_1;
+    [SerializeField] private List<GameObject> focusElement_1_2;
     [SerializeField] private List<Image> listMatColors1 = new List<Image>();
     [SerializeField] private GameObject materialGroup2;
+    //[SerializeField] private GameObject material_2_FocusImage_1;
+    //[SerializeField] private GameObject material_2_FocusImage_2;
+    //[SerializeField] private GameObject material_2_FocusImage_3;
+    [SerializeField] private List<GameObject> focusElement_2_1;
+    [SerializeField] private List<GameObject> focusElement_2_2;
+    [SerializeField] private List<GameObject> focusElement_2_3;
     [SerializeField] private List<Image> listMatColors2 = new List<Image>();
     [SerializeField] private GameObject buttonNext;
     [SerializeField] private GameObject buttonPrev;
 
     [SerializeField] private GameObject[] listWeaponFocus;
     private int focusIndex = 1;
+    private int matColorFocusIndex = 0;
     private float noColorButtonPos = -400;
     private float haveColorButtonPos = -700;
 
@@ -85,6 +96,56 @@ public class CanvasUIWeapon : UICanvas
                 break;
             default:
                 break;
+        }
+    }
+
+    public void FocusElementControl(int groupNumber, int elementNumber, bool enable)
+    {
+        switch (groupNumber)
+        {
+            case 1:
+                {
+                    switch (elementNumber)
+                    {
+                        case 1:
+                            FocusElement(focusElement_1_1, enable);
+                            break;
+                        case 2:
+                            FocusElement(focusElement_1_2, enable);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+            case 2:
+                {
+                    switch(elementNumber)
+                    {
+                        case 1:
+                            FocusElement(focusElement_2_1, enable);
+                            break;
+                        case 2:
+                            FocusElement(focusElement_2_2, enable);
+                            break;
+                        case 3:
+                            FocusElement(focusElement_2_3, enable);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void FocusElement(List<GameObject> elementList, bool enable)
+    {
+        for (int i =0;i<elementList.Count;i++)
+        {
+            Cache.GenImage(elementList[i]).enabled = enable ? true : false; 
         }
     }
 
