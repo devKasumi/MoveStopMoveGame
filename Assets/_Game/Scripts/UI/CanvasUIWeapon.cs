@@ -106,48 +106,6 @@ public class CanvasUIWeapon : UICanvas
         }
     }
 
-    //public void FocusElementControl(int groupNumber, int elementNumber, bool enable)
-    //{
-    //    switch (groupNumber)
-    //    {
-    //        case 1:
-    //            {
-    //                switch (elementNumber)
-    //                {
-    //                    case 1:
-    //                        FocusElement(ref focusElement_1_1, enable);
-    //                        break;
-    //                    case 2:
-    //                        FocusElement(ref focusElement_1_2, enable);
-    //                        break;
-    //                    default:
-    //                        break;
-    //                }
-    //            }
-    //            break;
-    //        case 2:
-    //            {
-    //                switch(elementNumber)
-    //                {
-    //                    case 1:
-    //                        FocusElement(ref focusElement_2_1, enable);
-    //                        break;
-    //                    case 2:
-    //                        FocusElement(ref focusElement_2_2, enable);
-    //                        break;
-    //                    case 3:
-    //                        FocusElement(ref focusElement_2_3, enable);
-    //                        break;
-    //                    default:
-    //                        break;
-    //                }
-    //            }
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
-
     public void OnMaterial_1_Ele_1_Pressed()
     {
         RemoveAllFocusElement();

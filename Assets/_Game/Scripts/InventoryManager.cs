@@ -16,7 +16,6 @@ public class InventoryManager : Singleton<InventoryManager>
     private List<List<GameObject>> weaponObjectsUIList = new List<List<GameObject>>(); // chua cac list weapon ui nho(gom 4 thang ui hien len)
     private List<GameObject> currentWeaponUIList = new List<GameObject>(); // chua cac weapon to ben duoi 
     private int currentWeaponUIIndex; // no chinh la index cua enum weapon
-    //private GameObject
     private Material[] currentMats;
 
     private void Start()
@@ -77,11 +76,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void UpdateCurrentWeapon(int index)
     {
-        // TODO: update weapon mesh cho thang player
         Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
-        // update player weapon khi bam select
         currentMats = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
-        //player.Weapon.WeaponSkin.materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
     }
 
     public void UpdateCustomWeapon(int matIndex, int colorIndex)
@@ -135,8 +131,6 @@ public class InventoryManager : Singleton<InventoryManager>
         Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = materials;
         Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][0]).materials = materials;
         currentMats = materials;
-        // update player weapon khi bam select
-        //player.Weapon.WeaponSkin.materials = materials;
     }
 
     //public GameObject CurrentWeaponUI => currentWeaponUIList[currentWeaponUIIndex];
