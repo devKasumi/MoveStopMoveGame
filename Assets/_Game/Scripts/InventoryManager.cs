@@ -141,6 +141,10 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void UpdatePlayerWeapon()
     {
+        if (currentWeaponUIIndex != (int)player.Weapon.WeaponType)
+        {
+            player.Weapon = poolControl.PlayerWeapon(currentWeaponUIIndex);
+        }
         player.Weapon.WeaponSkin.materials = currentMats;
         player.UpdateWeaponImage();
     }

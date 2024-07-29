@@ -105,11 +105,16 @@ public class PoolControl : MonoBehaviour
     public Weapon PlayerDefaultWeapon()
     {
         Weapon weapon = Instantiate((Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0], Vector3.down, Quaternion.identity);
-        //Debug.LogError((Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0] + "   |   " + weapon.WeaponType);
         weapon.PlayerWeaponData();
-        //Debug.LogError("player weapon:  " + weapon.WeaponType);
         GameObject pool = new GameObject("PlayerWeapon_Pool");
         BasePool.PreLoad(weapon, 4, pool.transform);
+        return weapon;
+    }
+
+    public Weapon PlayerWeapon(int index)
+    {
+        Weapon weapon = Instantiate((Weapon)weapons[index], Vector3.down, Quaternion.identity);
+        weapon.PlayerWeaponData();
         return weapon;
     }
 
