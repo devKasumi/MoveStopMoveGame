@@ -17,5 +17,4 @@ public class Constants : MonoBehaviour
 
     public const string JSON_FILE_NAME = "jsonData.json";
     public const string JSON_PATH = "_Game/Json";
-
 }

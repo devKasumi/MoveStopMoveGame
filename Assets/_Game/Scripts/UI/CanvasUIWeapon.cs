@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class CanvasUIWeapon : UICanvas
 {
+    [SerializeField] private TextMeshProUGUI weaponName;
     [SerializeField] private GameObject customWeaponButton;
     [SerializeField] private GameObject weapon1Button;
     [SerializeField] private GameObject weapon2Button;
@@ -35,12 +36,26 @@ public class CanvasUIWeapon : UICanvas
     [SerializeField] private GameObject buttonPrev;
 
     [SerializeField] private GameObject[] listWeaponFocus;
+
+    public Dictionary<int, string> WeaponName = new Dictionary<int, string>();
     private int focusIndex = 1;
     private int matColorFocusIndex = 0;
     private float noColorButtonPos = -400;
     private float haveColorButtonPos = -700;
     private int matGroup = 1;
     private string focusMat = "";
+
+    private void Awake()
+    {
+        WeaponName.Add(0, "HAMMER");
+        WeaponName.Add(1, "AXE");
+        WeaponName.Add(2, "BATTLE AXE");
+        WeaponName.Add(3, "LOLLIPOP");
+        WeaponName.Add(4, "CANDY CANE");
+        WeaponName.Add(5, "ICE-CREAM CONE");
+        WeaponName.Add(6, "SWIRLY POP");
+        WeaponName.Add(7, "KNIFE");
+    }
 
     private void Start()
     {
@@ -213,6 +228,12 @@ public class CanvasUIWeapon : UICanvas
         }
     }
 
+    public void OnInit()
+    {
+        InitColorSelection();
+        weaponName.text = WeaponName[InventoryManager.Instance.CurrentWeaponUIIndex];
+    }
+
     public void InitColorSelection()
     {
         RemoveAllFocusWeapon();
@@ -229,12 +250,15 @@ public class CanvasUIWeapon : UICanvas
     public void OnButtonNext()
     {
         InventoryManager.Instance.ShowNextWeaponUI();
-        InitColorSelection();
+        //InitColorSelection();
+        OnInit();
     }
 
     public void OnButtonPrev()
     {
         InventoryManager.Instance.ShowPrevWeaponUI();
-        InitColorSelection();
+        //InitColorSelection();
+        //weaponName.text = WeaponName[InventoryManager.Instance.CurrentWeaponUIIndex];
+        OnInit();
     }
 }

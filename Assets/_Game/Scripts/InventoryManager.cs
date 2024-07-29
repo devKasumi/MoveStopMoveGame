@@ -181,4 +181,6 @@ public class InventoryManager : Singleton<InventoryManager>
             }
         }
     }
+
+    public int CurrentWeaponUIIndex => currentWeaponUIIndex;
 }
