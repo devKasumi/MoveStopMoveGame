@@ -63,7 +63,11 @@ public class CanvasUIWeapon : UICanvas
         if (index == 0)
         {
             EnableColorSelection(InventoryManager.Instance.MaterialCount);
-            OnMaterial_1_Ele_1_Pressed();
+            if (InventoryManager.Instance.MaterialCount == 2)
+            {
+                OnMaterial_1_Ele_1_Pressed();
+            }
+            else OnMaterial_2_Ele_1_Pressed();
         }
     }
 
@@ -209,6 +213,14 @@ public class CanvasUIWeapon : UICanvas
         }
     }
 
+    public void InitColorSelection()
+    {
+        RemoveAllFocusWeapon();
+        RemoveAllFocusElement();
+        DisableColorSelection();
+        OnWeaponButtonPressed(1);
+    }
+
     public void OnSelectButton()
     {
         InventoryManager.Instance.UpdatePlayerWeapon();
@@ -216,11 +228,13 @@ public class CanvasUIWeapon : UICanvas
 
     public void OnButtonNext()
     {
-
+        InventoryManager.Instance.ShowNextWeaponUI();
+        InitColorSelection();
     }
 
     public void OnButtonPrev()
     {
-
+        InventoryManager.Instance.ShowPrevWeaponUI();
+        InitColorSelection();
     }
 }

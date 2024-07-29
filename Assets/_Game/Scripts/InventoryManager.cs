@@ -144,4 +144,41 @@ public class InventoryManager : Singleton<InventoryManager>
         player.Weapon.WeaponSkin.materials = currentMats;
         player.UpdateWeaponImage();
     }
+
+    public void HideCurrentWeaponUI()
+    {
+        currentWeaponUIList[currentWeaponUIIndex].SetActive(false);
+        for (int i = 0; i < weaponObjectsUIList[currentWeaponUIIndex].Count; i++)
+        {
+            weaponObjectsUIList[currentWeaponUIIndex][i].SetActive(false);
+        }
+    }
+
+    public void ShowNextWeaponUI()
+    {
+        if (currentWeaponUIIndex < currentWeaponUIList.Count - 1)
+        {
+            HideCurrentWeaponUI();
+            currentWeaponUIIndex++;
+            currentWeaponUIList[currentWeaponUIIndex].SetActive(true);
+            for (int i = 0; i < weaponObjectsUIList[currentWeaponUIIndex].Count; i++)
+            {
+                weaponObjectsUIList[currentWeaponUIIndex][i].SetActive(true);
+            }
+        } 
+    }
+
+    public void ShowPrevWeaponUI()
+    {
+        if (currentWeaponUIIndex > 0)
+        {
+            HideCurrentWeaponUI();
+            currentWeaponUIIndex--;
+            currentWeaponUIList[currentWeaponUIIndex].SetActive(true);
+            for (int i = 0; i < weaponObjectsUIList[currentWeaponUIIndex].Count; i++)
+            {
+                weaponObjectsUIList[currentWeaponUIIndex][i].SetActive(true);
+            }
+        }
+    }
 }
