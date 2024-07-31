@@ -25,7 +25,7 @@ public class CanvasUIWeapon : UICanvas
     [SerializeField] private List<GameObject> focusElement_1_2;
     [SerializeField] private List<Image> listMatColors1 = new List<Image>();
     [SerializeField] private GameObject materialGroup2;
-    //[SerializeField] private GameObject material_2_FocusImage_1;
+    //[SerializeField] private GameObject material_2_FocusImage_1; 
     //[SerializeField] private GameObject material_2_FocusImage_2;
     //[SerializeField] private GameObject material_2_FocusImage_3;
     [SerializeField] private List<GameObject> focusElement_2_1;
