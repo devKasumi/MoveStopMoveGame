@@ -51,6 +51,16 @@ public class CanvasSkin : UICanvas
 
     public void OnPantButtonPressed(int index)
     {
-        Debug.LogError("on pant button pressed!!!    " + index);
+        //Debug.LogError("on pant button pressed!!!    " + index);
+    }
+
+    public void OnArmButtonPressed(int index)
+    {
+
+    }
+
+    public void OnFullSetButtonPressed(int index)
+    {
+
     }
 }
