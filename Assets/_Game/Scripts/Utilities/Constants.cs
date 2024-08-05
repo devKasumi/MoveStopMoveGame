@@ -17,4 +17,9 @@ public class Constants : MonoBehaviour
 
     public const string JSON_FILE_NAME = "jsonData.json";
     public const string JSON_PATH = "_Game/Json";
+
+    public const string HEAD_BONUS = "5% Range";
+    public const string PANT_BONUS = "8% Move Speed";
+    public const string SHIELD_BONUS = "25% Gold";
+    public const string FULL_SET_BONUS = "8% Range";
 }

@@ -20,7 +20,16 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void Start()
     {
-          
+        OnInitWeaponUI();
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    public void OnInitWeaponUI()
+    {
         for (int i = 0; i < weaponObjects.Count; i++)
         {
             List<GameObject> WeaponUIs = new List<GameObject>();
@@ -49,15 +58,15 @@ public class InventoryManager : Singleton<InventoryManager>
                     Material[] materials = new Material[weaponUIMesh.materials.Length];
                     for (int k = 0; k < weaponUIMesh.materials.Length; k++)
                     {
-                        materials[k] = Cache.GenWeapon(poolControl.ListWeaponPrefabs[i]).WeaponData.PlayerWeaponSecondSet();
+                        materials[k] = Cache.GenWeapon(poolControl.ListWeaponPrefabs[i]).WeaponData.PlayerWeaponSecondSet;
                     }
                     weaponUIMesh.materials = materials;
                 }
                 else if (j == weaponObjectPos.Count - 1)
                 {
                     Transform transform = Cache.GenTransform(weaponObjectUI);
-                    Vector3 localScale = transform.localScale;  
-                    transform.localScale = new Vector3(localScale.x*4, localScale.y*4, localScale.z*4);
+                    Vector3 localScale = transform.localScale;
+                    transform.localScale = new Vector3(localScale.x * 4, localScale.y * 4, localScale.z * 4);
                     currentWeaponUIList.Add(weaponObjectUI);
                     continue;
                 }
@@ -67,11 +76,6 @@ public class InventoryManager : Singleton<InventoryManager>
             weaponObjectsUIList.Add(WeaponUIs);
         }
         currentMats = new Material[MaterialCount];
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void UpdateCurrentWeapon(int index)

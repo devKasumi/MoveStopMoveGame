@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,12 +13,22 @@ public class CanvasSkin : UICanvas
     [SerializeField] private Image fullSetUI;
     [SerializeField] private ScrollRect scrollRect;
 
+    [SerializeField] private Image headImage;
+    [SerializeField] private Image pantImage;
+    [SerializeField] private Image armImage;
+    [SerializeField] private Image fullSetImage;
+
+    [SerializeField] private TextMeshProUGUI bonusText;
+
 
     public void OnHeadsUIButton()
     {
         DisableAllSkinUI();
         headsUI.gameObject.SetActive(true);
         scrollRect.content = headsUI.GetComponent<RectTransform>();
+        DisableItemFocus();
+        headImage.color = Color.cyan;
+        bonusText.text = Constants.HEAD_BONUS;
     }
 
     public void OnPantsUIButton()
@@ -25,6 +36,9 @@ public class CanvasSkin : UICanvas
         DisableAllSkinUI();
         pantsUI.gameObject.SetActive(true);
         scrollRect.content = pantsUI.GetComponent<RectTransform>();
+        DisableItemFocus();
+        pantImage.color = Color.cyan;
+        bonusText.text = Constants.PANT_BONUS;
     }
 
     public void OnArmsUIButton()
@@ -32,6 +46,9 @@ public class CanvasSkin : UICanvas
         DisableAllSkinUI();
         armsUI.gameObject.SetActive(true);
         scrollRect.content = armsUI.GetComponent<RectTransform>();
+        DisableItemFocus();
+        armImage.color = Color.cyan;
+        bonusText.text = Constants.SHIELD_BONUS;
     }
 
     public void OnFullSetUIButton()
@@ -39,6 +56,17 @@ public class CanvasSkin : UICanvas
         DisableAllSkinUI();
         fullSetUI.gameObject.SetActive(true);
         scrollRect.content = fullSetUI.GetComponent<RectTransform>();
+        DisableItemFocus();
+        fullSetImage.color = Color.cyan;
+        bonusText.text = Constants.FULL_SET_BONUS;
+    }
+
+    public void DisableItemFocus()
+    {
+        headImage.color = Color.white;
+        pantImage.color = Color.white;
+        armImage.color = Color.white;
+        fullSetImage.color = Color.white;
     }
 
     public void DisableAllSkinUI()
@@ -63,4 +91,6 @@ public class CanvasSkin : UICanvas
     {
 
     }
+
+    
 }
