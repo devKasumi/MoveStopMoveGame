@@ -22,6 +22,7 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private List<Vector3> headObjectPos = new List<Vector3>();
 
     private GameObject currentHeadItem = null;
+    private Material currentPantMat = null; 
 
     private void Start()
     {
@@ -161,10 +162,6 @@ public class InventoryManager : Singleton<InventoryManager>
         Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][0]).materials = materials;
         currentMats = materials;
     }
-
-    //public GameObject CurrentWeaponUI => currentWeaponUIList[currentWeaponUIIndex];
-
-    //public List<Material> ColorMats => colorMats;
 
     public int MaterialCount => Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials.Length;
 

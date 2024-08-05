@@ -19,6 +19,11 @@ public class CanvasSkin : UICanvas
     [SerializeField] private Image fullSetImage;
 
     [SerializeField] private TextMeshProUGUI bonusText;
+    private int currentItemUIIndex;
+    private int selectedHeadIndex;
+    private int currentHeadIndex;
+    private int selectedPantIndex;
+    private int currentPantIndex;
 
 
     public void OnHeadsUIButton()
@@ -29,6 +34,7 @@ public class CanvasSkin : UICanvas
         DisableItemFocus();
         headImage.color = Color.cyan;
         bonusText.text = Constants.HEAD_BONUS;
+        currentItemUIIndex = 0;
     }
 
     public void OnPantsUIButton()
@@ -39,6 +45,7 @@ public class CanvasSkin : UICanvas
         DisableItemFocus();
         pantImage.color = Color.cyan;
         bonusText.text = Constants.PANT_BONUS;
+        currentItemUIIndex = 1;
     }
 
     public void OnArmsUIButton()
@@ -49,6 +56,7 @@ public class CanvasSkin : UICanvas
         DisableItemFocus();
         armImage.color = Color.cyan;
         bonusText.text = Constants.SHIELD_BONUS;
+        currentItemUIIndex = 2;
     }
 
     public void OnFullSetUIButton()
@@ -59,6 +67,7 @@ public class CanvasSkin : UICanvas
         DisableItemFocus();
         fullSetImage.color = Color.cyan;
         bonusText.text = Constants.FULL_SET_BONUS;
+        currentItemUIIndex = 3;
     }
 
     public void DisableItemFocus()
@@ -80,12 +89,14 @@ public class CanvasSkin : UICanvas
     public void OnHeadButtonPressed(int index)
     {
         InventoryManager.Instance.UpdatePlayerHead(index);
+        currentHeadIndex = index;
     }
 
     public void OnPantButtonPressed(int index)
     {
         //Debug.LogError("on pant button pressed!!!    " + index);
         InventoryManager.Instance.UpdatePlayerPant(index);
+        currentPantIndex = index;
     }
 
     public void OnArmButtonPressed(int index)
@@ -98,5 +109,36 @@ public class CanvasSkin : UICanvas
 
     }
 
+    public void OnCoinButtonPressed()
+    {
+        switch (currentItemUIIndex)
+        {
+            case 0:
+                selectedHeadIndex = currentHeadIndex;
+                InventoryManager.Instance.UpdatePlayerHead(selectedHeadIndex);
+                break;
+            case 1:
+                selectedPantIndex = currentPantIndex;
+                InventoryManager.Instance.UpdatePlayerPant(selectedPantIndex);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void OnWatchVideoButtonPressed()
+    {
+
+    }
+
+    public void OnCloseButtonPressed()
+    {
+        InventoryManager.Instance.UpdatePlayerHead(selectedHeadIndex);
+        InventoryManager.Instance.UpdatePlayerPant(selectedPantIndex);
+    }
     
 }

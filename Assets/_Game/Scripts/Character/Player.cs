@@ -46,7 +46,7 @@ public class Player : Character
         if (Input.GetKeyDown(KeyCode.C))
         {
             // bao loi vi thang player inherit monobehavior
-            Debug.LogError((int)JsonFileHandler.ReadFromJson<DataFromJson>(Constants.JSON_FILE_NAME).weapon.WeaponType);
+            Debug.LogError((int)JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME).weapon.WeaponType);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -66,7 +66,7 @@ public class Player : Character
 
     public void GetDataFromJsonFile()
     {
-        DataFromJson dataFromJson = JsonFileHandler.ReadFromJson<DataFromJson>(Constants.JSON_FILE_NAME);
+        JsonData dataFromJson = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
         Weapon = dataFromJson.weapon != null ? dataFromJson.weapon : LevelManager.Instance.PoolControl.PlayerDefaultWeapon();
         SkinColor.material = dataFromJson.skinColor != null ? dataFromJson.skinColor.material : SkinDataSO.SkinMaterial(CommonEnum.ColorType.Red);
         PantMaterial.material = dataFromJson.pantMaterial != null ? dataFromJson.pantMaterial.material : PantDataSO.PantMaterial(CommonEnum.PantType.Batman);
@@ -126,7 +126,7 @@ public class Player : Character
 }
 
 [System.Serializable]
-public class DataFromJson
+public class JsonData
 {
     public Weapon weapon;
     
