@@ -77,6 +77,11 @@ public class CanvasSkin : UICanvas
         fullSetUI.gameObject.SetActive(false);
     }
 
+    public void OnHeadButtonPressed(int index)
+    {
+        InventoryManager.Instance.UpdatePlayerHead(index);
+    }
+
     public void OnPantButtonPressed(int index)
     {
         //Debug.LogError("on pant button pressed!!!    " + index);

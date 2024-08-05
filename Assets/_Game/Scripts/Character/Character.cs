@@ -17,6 +17,7 @@ public class Character : GameUnit
     [SerializeField] private SkinDataSO skinDataSO;
     [SerializeField] private PantDataSO pantDataSO;
     [SerializeField] private Canvas attackArea;
+    [SerializeField] private GameObject characterHead;
 
     private List<Character> listTargets = new List<Character>();
     public string currentAnimationName;
@@ -56,6 +57,8 @@ public class Character : GameUnit
     public SkinDataSO SkinDataSO => skinDataSO;
 
     public PantDataSO PantDataSO => pantDataSO;
+
+    public GameObject Head => characterHead;
 
     public SkinnedMeshRenderer SkinColor
     {

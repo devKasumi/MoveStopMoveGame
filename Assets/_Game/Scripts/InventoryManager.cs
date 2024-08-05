@@ -18,7 +18,8 @@ public class InventoryManager : Singleton<InventoryManager>
     private int currentWeaponUIIndex; // no chinh la index cua enum weapon
     private Material[] currentMats;
 
-    [SerializeField] private List<GameObject> headObject = new List<GameObject>();
+    [SerializeField] private List<GameObject> headObjects = new List<GameObject>();
+    [SerializeField] private List<Vector3> headObjectPos = new List<Vector3>(); 
 
     private void Start()
     {
@@ -84,6 +85,12 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
         currentMats = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
+    }
+
+    //public List<GameObject> ListHeadItem => headObjects;
+    public void UpdatePlayerHead(int index)
+    {
+
     }
 
     public void UpdateCustomWeapon(int matIndex, int colorIndex)
