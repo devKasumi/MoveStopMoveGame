@@ -122,10 +122,6 @@ public class Character : GameUnit
         GameUnit gameUnit = BasePool.Spawn<GameUnit>(this.weapon.PoolType, spawnPoint.position, Quaternion.identity);
         Weapon weapon = (Weapon)gameUnit;
         weapon.AddCurrentCharacterListener(this);
-        //if (this is Bot)
-        //{
-        //    weapon.WeaponSkin.material = Cache.GenMeshRenderer(weaponImage).material;
-        //}
         weapon.WeaponSkin.material = Cache.GenMeshRenderer(weaponImage).material;
         if (listTargets.Count > 0)
         {

@@ -11,7 +11,7 @@ public class Player : Character
     private float inputX;
     private float inputZ;
 
-    private float frameRate = 1f;
+    private float frameRate = 0.8f;
     private float time = 0;
 
     private void Awake()
@@ -87,10 +87,11 @@ public class Player : Character
             SpawnPoint().rotation = Quaternion.LookRotation(Rb.velocity);
         }
 
-        if (ListTarget().Count == 0 && moveDirection == Vector3.zero)
-        {
-            ChangeAnimation(Constants.ANIMATION_IDLE);
-        }
+        //if (ListTarget().Count == 0 && moveDirection == Vector3.zero)
+        //{
+        //    ChangeAnimation(Constants.ANIMATION_IDLE);
+        //    //StartCoroutine(WaitForAttackFinish());
+        //}
 
         if (!joystick.IsResetJoystick())
         {
@@ -115,6 +116,12 @@ public class Player : Character
                 Attack();
             }
         }
+    }
+
+    public IEnumerator WaitForAttackFinish()
+    {
+        yield return new WaitForSeconds(0.5f);
+        ChangeAnimation(Constants.ANIMATION_IDLE);
     }
 }
 

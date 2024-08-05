@@ -18,6 +18,8 @@ public class InventoryManager : Singleton<InventoryManager>
     private int currentWeaponUIIndex; // no chinh la index cua enum weapon
     private Material[] currentMats;
 
+    [SerializeField] private List<GameObject> headObject = new List<GameObject>();
+
     private void Start()
     {
         OnInitWeaponUI();

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
 
 public class Bot : Character
 {
@@ -27,6 +28,8 @@ public class Bot : Character
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+
         if (currentState != null)
         {
             currentState.OnExecute(this);
@@ -84,8 +87,6 @@ public class Bot : Character
 
     public void AttackEnemy()
     {
-        time += Time.deltaTime;
-
         if (time >= frameRate)
         {
             time = 0;

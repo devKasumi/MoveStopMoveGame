@@ -11,12 +11,12 @@ public class AttackState : IState
 
     public void OnExecute(Bot bot)
     {
-        bot.SetDestination(bot.TF.position);
-        bot.AttackEnemy();
         if (bot.ListTarget().Count == 0)
         {
             bot.ChangeState(new PatrolState());
         }
+        bot.SetDestination(bot.TF.position);
+        bot.AttackEnemy();
     }
 
     public void OnExit(Bot bot)
