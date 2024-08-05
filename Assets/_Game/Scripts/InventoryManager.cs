@@ -19,7 +19,9 @@ public class InventoryManager : Singleton<InventoryManager>
     private Material[] currentMats;
 
     [SerializeField] private List<GameObject> headObjects = new List<GameObject>();
-    [SerializeField] private List<Vector3> headObjectPos = new List<Vector3>(); 
+    [SerializeField] private List<Vector3> headObjectPos = new List<Vector3>();
+
+    private GameObject currentHeadItem = null;
 
     private void Start()
     {
@@ -90,7 +92,21 @@ public class InventoryManager : Singleton<InventoryManager>
     //public List<GameObject> ListHeadItem => headObjects;
     public void UpdatePlayerHead(int index)
     {
+        if (currentHeadItem != null)
+        {
+            Destroy(currentHeadItem.gameObject);
+        }
+        GameObject head = Instantiate(headObjects[index]);
+        Transform headTf = Cache.GenTransform(head);
+        headTf.parent = Cache.GenTransform(player.Head);
+        headTf.localPosition = headObjectPos[index];
+        headTf.localRotation = Quaternion.identity;
+        currentHeadItem = head;
+    }
 
+    public void UpdatePlayerPant(int index)
+    {
+        player.PantMaterial.material = player.PantDataSO.Materials[index];
     }
 
     public void UpdateCustomWeapon(int matIndex, int colorIndex)

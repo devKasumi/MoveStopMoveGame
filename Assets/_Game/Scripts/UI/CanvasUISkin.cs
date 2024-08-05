@@ -85,6 +85,7 @@ public class CanvasSkin : UICanvas
     public void OnPantButtonPressed(int index)
     {
         //Debug.LogError("on pant button pressed!!!    " + index);
+        InventoryManager.Instance.UpdatePlayerPant(index);
     }
 
     public void OnArmButtonPressed(int index)
