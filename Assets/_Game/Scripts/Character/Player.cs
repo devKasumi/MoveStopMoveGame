@@ -118,11 +118,11 @@ public class Player : Character
         }
     }
 
-    public IEnumerator WaitForAttackFinish()
-    {
-        yield return new WaitForSeconds(0.5f);
-        ChangeAnimation(Constants.ANIMATION_IDLE);
-    }
+    //public IEnumerator WaitForAttackFinish()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    ChangeAnimation(Constants.ANIMATION_IDLE);
+    //}
 }
 
 [System.Serializable]

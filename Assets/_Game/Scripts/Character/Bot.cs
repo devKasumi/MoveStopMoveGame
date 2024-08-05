@@ -30,6 +30,11 @@ public class Bot : Character
     {
         time += Time.deltaTime;
 
+        if (LevelManager.Instance.Player.isCharacterDeath)
+        {
+            ChangeState(new IdleState());
+        }
+
         if (currentState != null)
         {
             currentState.OnExecute(this);
