@@ -69,7 +69,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
                 if (j == 0)
                 {
-                    //weaponUIMesh.materials = CustomWeaponMats[i];
+                    weaponUIMesh.materials = CustomWeaponMats[i];
                 }
                 else if (j == 2)
                 {
@@ -119,7 +119,7 @@ public class InventoryManager : Singleton<InventoryManager>
         for (int i =0;i < weaponObjects.Count;i++)
         {
             MeshRenderer meshRenderer = Cache.GenMeshRenderer(weaponObjects[i]);
-            CustomWeaponMats.Add(i, meshRenderer.materials);
+            defaultCustomWeapon.Add(i, meshRenderer.sharedMaterials);
         }
 
         return defaultCustomWeapon; 
@@ -259,7 +259,7 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         JsonData jsonData = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
         //player.Weapon = 
-        //CustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
+        CustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
