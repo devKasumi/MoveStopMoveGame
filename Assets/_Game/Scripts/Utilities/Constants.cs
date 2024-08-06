@@ -22,4 +22,7 @@ public class Constants : MonoBehaviour
     public const string PANT_BONUS = "8% Move Speed";
     public const string SHIELD_BONUS = "25% Gold";
     public const string FULL_SET_BONUS = "8% Range";
+
+    public const string OWNED_ITEM = "Owned";
+    public const string NOT_OWNED_ITEM = "Not Owned";
 }

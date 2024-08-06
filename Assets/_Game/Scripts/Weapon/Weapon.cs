@@ -11,12 +11,12 @@ public class Weapon : GameUnit
     [SerializeField] private WeaponDataSO weaponData;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private MeshRenderer weaponSkin;
-    [SerializeField] private UnityEvent OnHitCharacter = new UnityEvent();
+    [SerializeField] private UnityEvent OnHitCharacter /*= new UnityEvent()*/;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackSpeed;
 
     private CommonEnum.WeaponType weaponType;
-    public int skinIndex = 0;
+    //public int skinIndex = 0;
     private Vector3 originPos;
     public float rotateSpeed;
 

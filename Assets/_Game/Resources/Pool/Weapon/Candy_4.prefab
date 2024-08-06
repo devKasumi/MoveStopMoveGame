@@ -116,7 +116,6 @@ MonoBehaviour:
         m_CallState: 2
   attackRange: 5
   attackSpeed: 5
-  skinIndex: 0
   rotateSpeed: 20
 --- !u!1001 &607776651456175740
 PrefabInstance:
@@ -189,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 37a28123e5e39f44fbff5daa106af161, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ee06cad7379a266429de8c9fd9d4fb97, type: 2}
+      objectReference: {fileID: 2100000, guid: b9700e741484d994fa3d10a1ce2ac470, type: 2}
     - target: {fileID: 2300000, guid: 37a28123e5e39f44fbff5daa106af161, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 

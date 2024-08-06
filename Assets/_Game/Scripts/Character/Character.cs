@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 public class Character : GameUnit
 {
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed = 10;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private CapsuleCollider capsuleCollider;

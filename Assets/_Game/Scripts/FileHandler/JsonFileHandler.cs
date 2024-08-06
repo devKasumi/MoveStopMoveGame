@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,8 @@ public static class JsonFileHandler
 {
     public static void SaveToJson<T>(T dataToSave, string fileName)
     {
-        string dataToJson = JsonUtility.ToJson(dataToSave);
+        //string dataToJson = JsonUtility.ToJson(dataToSave);
+        string dataToJson = JsonConvert.SerializeObject(dataToSave);
         string filePath = Application.dataPath + "/" + Constants.JSON_PATH + "/" + fileName;
         Debug.LogError(filePath);
         WriteFile(filePath, dataToJson);
@@ -25,7 +27,8 @@ public static class JsonFileHandler
             return default(T);
         }
 
-        T res = JsonUtility.FromJson<T>(data);
+        //T res = JsonUtility.FromJson<T>(data);
+        T res = JsonConvert.DeserializeObject<T>(data);
 
         return res;
     }

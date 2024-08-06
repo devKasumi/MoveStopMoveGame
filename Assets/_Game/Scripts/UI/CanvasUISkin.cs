@@ -19,6 +19,7 @@ public class CanvasSkin : UICanvas
     [SerializeField] private Image fullSetImage;
 
     [SerializeField] private TextMeshProUGUI bonusText;
+
     private int currentItemUIIndex;
     private int selectedHeadIndex;
     private int currentHeadIndex;

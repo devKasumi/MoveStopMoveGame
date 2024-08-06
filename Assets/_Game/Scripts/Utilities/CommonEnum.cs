@@ -41,20 +41,19 @@ public class CommonEnum
         Candy_2 = 5,
         Candy_4 = 6,
         Knife_0 = 7,
-        //Player_Weapon = 8,
     }
 
     public enum PantType
     {
-        Batman = 0,
-        Chambi = 1,
-        Comy = 2,
-        Dabao = 3,
-        Onion = 4,
-        Pokemon = 5,
-        Rainbow = 6,
-        Skull = 7,
-        Vantim = 8,
+        Chambi = 0,
+        Comy = 1,
+        Dabao = 2,
+        Onion = 3,
+        Rainbow = 4,
+        Vantim = 5,
+        Batman = 6,
+        Pokemon = 7,
+        Skull = 8,
     }
 
     

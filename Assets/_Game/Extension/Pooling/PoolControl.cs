@@ -102,16 +102,25 @@ public class PoolControl : MonoBehaviour
         }
     }
 
-    public Weapon PlayerDefaultWeapon()
+    //public Weapon PlayerDefaultWeapon()
+    //{
+    //    Weapon weapon = Instantiate((Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0], Vector3.down, Quaternion.identity);
+    //    weapon.PlayerWeaponData();
+    //    GameObject pool = new GameObject("PlayerWeapon_Pool");
+    //    BasePool.PreLoad(weapon, 4, pool.transform);
+    //    return weapon;
+    //}
+
+    public Weapon InitPlayerWeapon(int index)
     {
-        Weapon weapon = Instantiate((Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0], Vector3.down, Quaternion.identity);
+        Weapon weapon = Instantiate((Weapon)weapons[index], Vector3.down, Quaternion.identity);
         weapon.PlayerWeaponData();
         GameObject pool = new GameObject("PlayerWeapon_Pool");
         BasePool.PreLoad(weapon, 4, pool.transform);
         return weapon;
     }
 
-    public Weapon PlayerWeapon(int index)
+    public Weapon SetPlayerWeapon(int index)
     {
         Weapon weapon = Instantiate((Weapon)weapons[index], Vector3.down, Quaternion.identity);
         weapon.PlayerWeaponData();
