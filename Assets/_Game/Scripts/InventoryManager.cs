@@ -66,6 +66,16 @@ public class InventoryManager : Singleton<InventoryManager>
                 {
                     weaponObjectUI.SetActive(true);
                     currentWeaponUIIndex = i;
+
+                    // update player weapon 
+                    string matData = InvenCustomWeaponMats[i];
+                    currentMats = new Material[InvenCustomWeaponMats[i].Length];
+                    for (int k = 0; k < InvenCustomWeaponMats[i].Length; k++)
+                    {
+                        int index = (int)Char.GetNumericValue(InvenCustomWeaponMats[i][k]);
+                        currentMats[k] = colorMats[index];
+                    }
+                    UpdatePlayerWeapon();
                 }
                 else weaponObjectUI.SetActive(false);
 
@@ -111,7 +121,10 @@ public class InventoryManager : Singleton<InventoryManager>
             }
             weaponObjectsUIList.Add(WeaponUIs);
         }
+        //UpdatePlayerWeapon();
         currentMats = new Material[MaterialCount];
+
+        //UpdatePlayerWeapon();
     }
 
     public void OnInitHeadUI()
@@ -236,6 +249,7 @@ public class InventoryManager : Singleton<InventoryManager>
             mats += GetColorIndex(currentMats[i]);
         }
         InvenCustomWeaponMats[currentWeaponUIIndex] = mats;
+        //UpdatePlayerWeapon();
     }
 
     public string GetColorIndex(Material mat)
@@ -303,6 +317,9 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         JsonData jsonData = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
         InvenCustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
+        //UpdatePlayerWeapon();
+        //currentMats = jsonData.currentMatsData.ToArray();
+        //UpdatePlayerWeapon();
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
@@ -318,6 +335,7 @@ public class InventoryManager : Singleton<InventoryManager>
         jsonData.PlayerSkinColor = (CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial));
         jsonData.PlayerPantType = (CommonEnum.PantType)(player.PantDataSO.Materials.IndexOf(player.PantMaterial.sharedMaterial));
         jsonData.CustomWeaponMats = InvenCustomWeaponMats;
+        //jsonData.currentMatsData = currentMats.ToList<Material>();
         JsonFileHandler.SaveToJson<JsonData>(jsonData, Constants.JSON_FILE_NAME);
         //Debug.LogError(jsonData.CustomWeaponMats.Count);
     }
@@ -333,6 +351,7 @@ public class JsonData
     public CommonEnum.PantType PlayerPantType = CommonEnum.PantType.Chambi;
 
     public int coin = 0;
+    //public List<Material> currentMatsData = new List<Material>();
 
     //public Dictionary<int, string> playerWeaponStatus = new Dictionary<int, string>();
     //public Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
