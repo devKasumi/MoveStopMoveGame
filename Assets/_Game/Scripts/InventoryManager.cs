@@ -45,7 +45,10 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            SaveDataToJsonFile();
+        }
     }
 
     public void OnInitWeaponUI()
@@ -261,13 +264,17 @@ public class InventoryManager : Singleton<InventoryManager>
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
+        //Debug.LogError((CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.material)));
+        //Debug.LogError(colorMats.IndexOf(player.SkinDataSO.Materials[0]));
+        Debug.LogError((CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial)));
     }
 
     public void SaveDataToJsonFile()
     {
         JsonData jsonData = new JsonData();
         jsonData.PlayerWeaponType = player.Weapon.WeaponType;
-        //jsonData.PlayerSkinColor = (CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.material));
+        jsonData.PlayerSkinColor = (CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial));
+        jsonData.PlayerPantType = (CommonEnum.PantType)(player.PantDataSO.Materials.IndexOf(player.PantMaterial.sharedMaterial));
     }
 }
 
