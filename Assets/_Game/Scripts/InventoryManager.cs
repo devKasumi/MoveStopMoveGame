@@ -1,7 +1,9 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -31,7 +33,7 @@ public class InventoryManager : Singleton<InventoryManager>
     private Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
     private Dictionary<int, string> playerPantItemStatus = new Dictionary<int, string>();
 
-    private Dictionary<int, Material[]> CustomWeaponMats = new Dictionary<int, Material[]>();
+    public Dictionary<int, string> InvenCustomWeaponMats = new Dictionary<int, string>(); // chua mats cua cac custom weapon
 
     private void Awake()
     {
@@ -69,9 +71,16 @@ public class InventoryManager : Singleton<InventoryManager>
 
                 Material[] materials = new Material[weaponUIMesh.materials.Length];
 
-                if (j == 0)
+                if (j == 0) // la index cua custom weapon UI
                 {
-                    weaponUIMesh.materials = CustomWeaponMats[i];                                                 
+                    Material[] mats = new Material[InvenCustomWeaponMats[i].Length];
+                    for (int k = 0; k < InvenCustomWeaponMats[i].Length; k++)
+                    {
+                        //Debug.LogError((int)Char.GetNumericValue(InvenCustomWeaponMats[i][k]));
+                        int index = (int)Char.GetNumericValue(InvenCustomWeaponMats[i][k]);
+                        mats[k] = colorMats[index];
+                    }
+                    weaponUIMesh.materials = mats;
                 }
                 else if (j == 2)
                 {
@@ -115,13 +124,30 @@ public class InventoryManager : Singleton<InventoryManager>
 
     }
 
-    public Dictionary<int, Material[]> DefaultCustomWeapon()
+    public Dictionary<int, string> DefaultCustomWeapon()
     {
-        Dictionary<int, Material[]> defaultCustomWeapon = new Dictionary<int, Material[]>();    
+        //Dictionary<int, Material[]> defaultCustomWeapon = new Dictionary<int, Material[]>();
+        //for (int i = 0; i < weaponObjects.Count; i++)
+        //{
+        //    MeshRenderer meshRenderer = Cache.GenMeshRenderer(weaponObjects[i]);
+        //    defaultCustomWeapon.Add(i, meshRenderer.sharedMaterials);
+        //}
+
+        //return defaultCustomWeapon;
+
+
+        Dictionary<int, string> defaultCustomWeapon = new Dictionary<int, string>();    
         for (int i =0;i < weaponObjects.Count;i++)
         {
             MeshRenderer meshRenderer = Cache.GenMeshRenderer(weaponObjects[i]);
-            defaultCustomWeapon.Add(i, meshRenderer.sharedMaterials);
+            string mats = "";
+            for (int j = 0; j < meshRenderer.sharedMaterials.Length; j++)
+            {
+                //Debug.LogError(meshRenderer.sharedMaterials[j] + "   " + colorMats.IndexOf(meshRenderer.sharedMaterials[j]).ToString());
+                mats += colorMats.IndexOf(meshRenderer.sharedMaterials[j]).ToString();
+            }
+            //Debug.LogError(mats);   
+            defaultCustomWeapon.Add(i, mats);
         }
 
         return defaultCustomWeapon; 
@@ -201,9 +227,25 @@ public class InventoryManager : Singleton<InventoryManager>
             default:
                 break;
         }
-        Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = materials;
-        Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][0]).materials = materials;
+        Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).sharedMaterials = materials;
+        Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][0]).sharedMaterials = materials;
         currentMats = materials;
+        string mats = "";
+        for (int i = 0; i < materials.Length; i++)
+        {
+            mats += GetColorIndex(currentMats[i]);
+        }
+        InvenCustomWeaponMats[currentWeaponUIIndex] = mats;
+    }
+
+    public string GetColorIndex(Material mat)
+    {
+        int resIndex = 0;
+        for (int i = 0; i < colorMats.Count; i++)
+        {
+            if (colorMats[i].color == mat.color) resIndex = i;
+        }
+        return resIndex.ToString();
     }
 
     public int MaterialCount => Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials.Length;
@@ -260,13 +302,13 @@ public class InventoryManager : Singleton<InventoryManager>
     public void GetDataFromJsonFile()
     {
         JsonData jsonData = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
-        CustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
+        InvenCustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
-        //Debug.LogError((CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.material)));
-        //Debug.LogError(colorMats.IndexOf(player.SkinDataSO.Materials[0]));
-        Debug.LogError((CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial)));
+        //currentMats = jsonData.customWeaponMats;
+        //UpdateCurrentWeaponUI();
+        //Debug.LogError((CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial)));
     }
 
     public void SaveDataToJsonFile()
@@ -275,6 +317,9 @@ public class InventoryManager : Singleton<InventoryManager>
         jsonData.PlayerWeaponType = player.Weapon.WeaponType;
         jsonData.PlayerSkinColor = (CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial));
         jsonData.PlayerPantType = (CommonEnum.PantType)(player.PantDataSO.Materials.IndexOf(player.PantMaterial.sharedMaterial));
+        jsonData.CustomWeaponMats = InvenCustomWeaponMats;
+        JsonFileHandler.SaveToJson<JsonData>(jsonData, Constants.JSON_FILE_NAME);
+        //Debug.LogError(jsonData.CustomWeaponMats.Count);
     }
 }
 
@@ -289,9 +334,11 @@ public class JsonData
 
     public int coin = 0;
 
-    public Dictionary<int, string> playerWeaponStatus = new Dictionary<int, string>();
-    public Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
-    public Dictionary<int, string> playerPantItemStatus = new Dictionary<int, string>();
+    //public Dictionary<int, string> playerWeaponStatus = new Dictionary<int, string>();
+    //public Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
+    //public Dictionary<int, string> playerPantItemStatus = new Dictionary<int, string>();
+    //public Dictionary<int, int> testDic = new Dictionary<int, int>();
 
-    public Dictionary<int, Material[]> CustomWeaponMats = new Dictionary<int, Material[]>();
+    public Dictionary<int, string> CustomWeaponMats = new Dictionary<int, string>();
+
 }

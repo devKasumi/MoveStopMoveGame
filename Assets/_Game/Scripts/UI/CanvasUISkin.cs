@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class CanvasSkin : UICanvas
 {
-    [SerializeField] private Image headsUI;
-    [SerializeField] private Image pantsUI;
-    [SerializeField] private Image armsUI;
-    [SerializeField] private Image fullSetUI;
+    [SerializeField] private GameObject headsUI;
+    [SerializeField] private GameObject pantsUI;
+    [SerializeField] private GameObject armsUI;
+    [SerializeField] private GameObject fullSetUI;
     [SerializeField] private ScrollRect scrollRect;
 
     [SerializeField] private Image headImage;
@@ -31,7 +31,7 @@ public class CanvasSkin : UICanvas
     {
         DisableAllSkinUI();
         headsUI.gameObject.SetActive(true);
-        scrollRect.content = headsUI.GetComponent<RectTransform>();
+        scrollRect.content = Cache.GenRectTransform(headsUI);
         DisableItemFocus();
         headImage.color = Color.cyan;
         bonusText.text = Constants.HEAD_BONUS;
@@ -42,7 +42,7 @@ public class CanvasSkin : UICanvas
     {
         DisableAllSkinUI();
         pantsUI.gameObject.SetActive(true);
-        scrollRect.content = pantsUI.GetComponent<RectTransform>();
+        scrollRect.content = Cache.GenRectTransform(pantsUI);
         DisableItemFocus();
         pantImage.color = Color.cyan;
         bonusText.text = Constants.PANT_BONUS;
@@ -53,7 +53,7 @@ public class CanvasSkin : UICanvas
     {
         DisableAllSkinUI();
         armsUI.gameObject.SetActive(true);
-        scrollRect.content = armsUI.GetComponent<RectTransform>();
+        scrollRect.content = Cache.GenRectTransform(armsUI);
         DisableItemFocus();
         armImage.color = Color.cyan;
         bonusText.text = Constants.SHIELD_BONUS;
@@ -64,7 +64,7 @@ public class CanvasSkin : UICanvas
     {
         DisableAllSkinUI();
         fullSetUI.gameObject.SetActive(true);
-        scrollRect.content = fullSetUI.GetComponent<RectTransform>();
+        scrollRect.content = Cache.GenRectTransform(fullSetUI);
         DisableItemFocus();
         fullSetImage.color = Color.cyan;
         bonusText.text = Constants.FULL_SET_BONUS;

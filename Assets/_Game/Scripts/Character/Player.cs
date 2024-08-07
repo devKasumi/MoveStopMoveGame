@@ -50,14 +50,14 @@ public class Player : Character
             //Debug.LogError((int)JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME).weapon.WeaponType);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // TODO: xep lai logic vao UI chon weapon va skin!!!
-            Debug.LogError("save to json~!!!!");
-            JsonData data = new JsonData();
-            JsonFileHandler.SaveToJson<JsonData>(data, Constants.JSON_FILE_NAME);
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    // TODO: xep lai logic vao UI chon weapon va skin!!!
+        //    Debug.LogError("save to json~!!!!");
+        //    JsonData data = new JsonData();
+        //    JsonFileHandler.SaveToJson<JsonData>(data, Constants.JSON_FILE_NAME);
 
-        }
+        //}
 //#endif
     }
 

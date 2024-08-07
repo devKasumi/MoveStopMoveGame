@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2870,10 +2870,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyOnClose: 0
-  headsUI: {fileID: 821457892}
-  pantsUI: {fileID: 997943759}
-  armsUI: {fileID: 1207228340}
-  fullSetUI: {fileID: 2091508498}
+  headsUI: {fileID: 0}
+  pantsUI: {fileID: 0}
+  armsUI: {fileID: 0}
+  fullSetUI: {fileID: 0}
   scrollRect: {fileID: 339655076}
   headImage: {fileID: 359956585}
   pantImage: {fileID: 1275735305}

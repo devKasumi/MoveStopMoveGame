@@ -1,1 +1,17 @@
-{"PlayerWeaponType":0,"PlayerWeaponImageMat":null,"PlayerSkinColor":0,"PlayerPantType":0,"coin":0,"playerWeaponStatus":{},"playerHeadItemStatus":{},"playerPantItemStatus":{},"CustomWeaponMats":{}}
+{
+  "PlayerWeaponType": 0,
+  "PlayerWeaponImageMat": null,
+  "PlayerSkinColor": 0,
+  "PlayerPantType": 0,
+  "coin": 0,
+  "CustomWeaponMats": {
+    "0": "46",
+    "1": "12",
+    "2": "123",
+    "3": "106",
+    "4": "40",
+    "5": "402",
+    "6": "031",
+    "7": "24"
+  }
+}
