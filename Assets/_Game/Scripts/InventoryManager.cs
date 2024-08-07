@@ -53,7 +53,6 @@ public class InventoryManager : Singleton<InventoryManager>
         for (int i = 0; i < weaponObjects.Count; i++)
         {
             List<GameObject> WeaponUIs = new List<GameObject>();
-            //playerWeaponStatus.Add(i, Constants.OWNED_ITEM);
             for (int j = 0; j < weaponObjectPos.Count; j++)
             {
                 GameObject weaponObjectUI = Instantiate(weaponObjects[i], weaponObjectPos[j], weaponObjects[i].transform.rotation);
@@ -69,7 +68,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
                 if (j == 0)
                 {
-                    weaponUIMesh.materials = CustomWeaponMats[i];
+                    weaponUIMesh.materials = CustomWeaponMats[i];                                                 
                 }
                 else if (j == 2)
                 {
@@ -258,22 +257,23 @@ public class InventoryManager : Singleton<InventoryManager>
     public void GetDataFromJsonFile()
     {
         JsonData jsonData = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
-        //player.Weapon = 
         CustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
+    }
+
+    public void SaveDataToJsonFile()
+    {
+        JsonData jsonData = new JsonData();
+        jsonData.PlayerWeaponType = player.Weapon.WeaponType;
+        //jsonData.PlayerSkinColor = (CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.material));
     }
 }
 
 [System.Serializable]
 public class JsonData
 {
-    public Weapon weapon = null;
-
-    public SkinnedMeshRenderer skinColor = null;
-
-    public SkinnedMeshRenderer pantMaterial = null;
 
     public CommonEnum.WeaponType PlayerWeaponType = CommonEnum.WeaponType.Hammer_0;
     public Material PlayerWeaponImageMat = null;
