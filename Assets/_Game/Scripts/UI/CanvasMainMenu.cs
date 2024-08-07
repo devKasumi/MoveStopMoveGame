@@ -17,4 +17,9 @@ public class CanvasMainMenu : UICanvas
         UIManager.Instance.OpenUI<CanvasSettings>().SetState(this);
         GameManager.Instance.UpdateGameState(GameState.Setting);
     }
+
+    public void OnWeaponButton()
+    {
+
+    }
 }

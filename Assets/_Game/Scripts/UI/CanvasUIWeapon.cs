@@ -59,8 +59,11 @@ public class CanvasUIWeapon : UICanvas
 
     private void Start()
     {
+        //Debug.LogError("UI weapon start");
         Cache.GenImage(listWeaponFocus[focusIndex]).enabled = true;
         UpdateSelectButtonPos(focusIndex);
+        UpdateCustomMatsColor();
+        //OnWeaponButtonPressed(0);
         if (focusIndex != 0)
         {
             DisableColorSelection();
@@ -184,6 +187,24 @@ public class CanvasUIWeapon : UICanvas
         listMatColors2[0].color = Cache.GenImage(focusElement_2_1[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors2[0].color;
         listMatColors2[1].color = Cache.GenImage(focusElement_2_2[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors2[1].color;
         listMatColors2[2].color = Cache.GenImage(focusElement_2_3[0]).enabled ? Cache.GenImage(colorEle).color : listMatColors2[2].color;
+    }
+
+    public void UpdateCustomMatsColor()
+    {
+        switch (InventoryManager.Instance.matsCount)
+        {
+            case 2:
+                listMatColors1[0].color = InventoryManager.Instance.customWeaponColors[0];
+                listMatColors1[1].color = InventoryManager.Instance.customWeaponColors[1];
+                break;
+            case 3:
+                listMatColors2[0].color = InventoryManager.Instance.customWeaponColors[0];
+                listMatColors2[1].color = InventoryManager.Instance.customWeaponColors[1];
+                listMatColors2[2].color = InventoryManager.Instance.customWeaponColors[2];
+                break;
+            default:
+                break;
+        }
     }
 
     public void UpdateWeaponColor(int index)

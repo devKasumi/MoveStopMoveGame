@@ -35,6 +35,9 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public Dictionary<int, string> InvenCustomWeaponMats = new Dictionary<int, string>(); // chua mats cua cac custom weapon
 
+    public List<Color> customWeaponColors = new List<Color>();
+    public int matsCount = 0;
+
     private void Awake()
     {
         GetDataFromJsonFile();
@@ -42,6 +45,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void Start()
     {
+        //Debug.LogError("inven start");
         OnInitWeaponUI();
     }
 
@@ -62,6 +66,7 @@ public class InventoryManager : Singleton<InventoryManager>
             {
                 GameObject weaponObjectUI = Instantiate(weaponObjects[i], weaponObjectPos[j], weaponObjects[i].transform.rotation);
                 MeshRenderer weaponUIMesh = Cache.GenMeshRenderer(weaponObjectUI);
+
                 if (i == (int)player.Weapon.WeaponType)
                 {
                     weaponObjectUI.SetActive(true);
@@ -70,10 +75,12 @@ public class InventoryManager : Singleton<InventoryManager>
                     // update player weapon 
                     string matData = InvenCustomWeaponMats[i];
                     currentMats = new Material[InvenCustomWeaponMats[i].Length];
+                    //matsCount = InvenCustomWeaponMats[i].Length;
                     for (int k = 0; k < InvenCustomWeaponMats[i].Length; k++)
                     {
                         int index = (int)Char.GetNumericValue(InvenCustomWeaponMats[i][k]);
                         currentMats[k] = colorMats[index];
+                        //customWeaponColors[k] = colorMats[index].color;
                     }
                     UpdatePlayerWeapon();
                 }
@@ -86,7 +93,6 @@ public class InventoryManager : Singleton<InventoryManager>
                     Material[] mats = new Material[InvenCustomWeaponMats[i].Length];
                     for (int k = 0; k < InvenCustomWeaponMats[i].Length; k++)
                     {
-                        //Debug.LogError((int)Char.GetNumericValue(InvenCustomWeaponMats[i][k]));
                         int index = (int)Char.GetNumericValue(InvenCustomWeaponMats[i][k]);
                         mats[k] = colorMats[index];
                     }
@@ -121,10 +127,8 @@ public class InventoryManager : Singleton<InventoryManager>
             }
             weaponObjectsUIList.Add(WeaponUIs);
         }
-        //UpdatePlayerWeapon();
+        
         currentMats = new Material[MaterialCount];
-
-        //UpdatePlayerWeapon();
     }
 
     public void OnInitHeadUI()
@@ -326,6 +330,14 @@ public class InventoryManager : Singleton<InventoryManager>
         //currentMats = jsonData.customWeaponMats;
         //UpdateCurrentWeaponUI();
         //Debug.LogError((CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial)));
+        string mats = InvenCustomWeaponMats[(int)jsonData.PlayerWeaponType];
+        Debug.LogError(mats);
+        matsCount = mats.Length;
+        for (int i = 0; i < matsCount; i++)
+        {
+            int index = (int)Char.GetNumericValue(mats[i]);
+            customWeaponColors.Add(colorMats[index].color);
+        }
     }
 
     public void SaveDataToJsonFile()
