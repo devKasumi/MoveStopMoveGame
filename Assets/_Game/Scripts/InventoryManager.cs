@@ -75,12 +75,10 @@ public class InventoryManager : Singleton<InventoryManager>
                     // update player weapon 
                     string matData = InvenCustomWeaponMats[i];
                     currentMats = new Material[InvenCustomWeaponMats[i].Length];
-                    //matsCount = InvenCustomWeaponMats[i].Length;
                     for (int k = 0; k < InvenCustomWeaponMats[i].Length; k++)
                     {
                         int index = (int)Char.GetNumericValue(InvenCustomWeaponMats[i][k]);
                         currentMats[k] = colorMats[index];
-                        //customWeaponColors[k] = colorMats[index].color;
                     }
                     UpdatePlayerWeapon();
                 }
@@ -321,15 +319,11 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         JsonData jsonData = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
         InvenCustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
-        //UpdatePlayerWeapon();
-        //currentMats = jsonData.currentMatsData.ToArray();
-        //UpdatePlayerWeapon();
+
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
-        //currentMats = jsonData.customWeaponMats;
-        //UpdateCurrentWeaponUI();
-        //Debug.LogError((CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial)));
+
         string mats = InvenCustomWeaponMats[(int)jsonData.PlayerWeaponType];
         Debug.LogError(mats);
         matsCount = mats.Length;
