@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CanvasSkin : UICanvas
+public class CanvasUISkin : UICanvas
 {
     [SerializeField] private GameObject headsUI;
     [SerializeField] private GameObject pantsUI;
