@@ -20,6 +20,8 @@ public class CanvasUISkin : UICanvas
 
     [SerializeField] private TextMeshProUGUI bonusText;
 
+    [SerializeField] private HeadButton[] headButtons;
+
     private int currentItemUIIndex;
     private int selectedHeadIndex;
     private int currentHeadIndex;
@@ -36,6 +38,11 @@ public class CanvasUISkin : UICanvas
         headImage.color = Color.cyan;
         bonusText.text = Constants.HEAD_BONUS;
         currentItemUIIndex = 0;
+        for (int i = 0; i < headButtons.Length; i++)
+        {
+            // TODO: sua lai logic 
+            UpdateHeadItemStatus(i, 0); 
+        }
     }
 
     public void OnPantsUIButton()
@@ -136,10 +143,29 @@ public class CanvasUISkin : UICanvas
 
     }
 
+    public void OnSelectButtonPressed()
+    {
+
+    }
+
     public void OnCloseButtonPressed()
     {
         InventoryManager.Instance.UpdatePlayerHead(selectedHeadIndex);
         InventoryManager.Instance.UpdatePlayerPant(selectedPantIndex);
+    }
+
+    public void UpdateHeadItemStatus(int headItemIndex, int currentStatus)
+    {
+        if (currentStatus == 0)
+        {
+            headButtons[headItemIndex].LockImage.SetActive(true);
+            headButtons[headItemIndex].UnlockImage.SetActive(false);
+        }
+        else
+        {
+            headButtons[headItemIndex].LockImage.SetActive(false);
+            headButtons[headItemIndex].UnlockImage.SetActive(true);
+        }
     }
     
 }

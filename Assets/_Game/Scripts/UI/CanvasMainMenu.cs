@@ -11,7 +11,6 @@ public class CanvasMainMenu : UICanvas
     [SerializeField] private GameObject soundOn;
 
 
-
     public void PlayButton()
     {
         Close(0);
@@ -45,16 +44,13 @@ public class CanvasMainMenu : UICanvas
 
     public void OnVibrateButtonPressed()
     {
-        //DisableVibrateImage();
         if (vibrateOff.activeSelf)
         {
-            //DisableVibrateImage();
             vibrateOff.SetActive(false);
             vibrateOn.SetActive(true);
         }
         else
         {
-            //DisableVibrateImage();  
             vibrateOn.SetActive(false);
             vibrateOff.SetActive(true);
         }

@@ -33,7 +33,8 @@ public class InventoryManager : Singleton<InventoryManager>
     private Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
     private Dictionary<int, string> playerPantItemStatus = new Dictionary<int, string>();
 
-    public Dictionary<int, string> InvenCustomWeaponMats = new Dictionary<int, string>(); // chua mats cua cac custom weapon
+    public Dictionary<int, string> InvenCustomWeaponMats = new Dictionary<int, string>();   // chua mats cua cac custom weapon
+    public Dictionary<int, int> InvenHeadItemStatus = new Dictionary<int, int>();           // chua status cua tung head item
 
     public List<Color> customWeaponColors = new List<Color>();
     public int matsCount = 0;
@@ -141,16 +142,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public Dictionary<int, string> DefaultCustomWeapon()
     {
-        //Dictionary<int, Material[]> defaultCustomWeapon = new Dictionary<int, Material[]>();
-        //for (int i = 0; i < weaponObjects.Count; i++)
-        //{
-        //    MeshRenderer meshRenderer = Cache.GenMeshRenderer(weaponObjects[i]);
-        //    defaultCustomWeapon.Add(i, meshRenderer.sharedMaterials);
-        //}
-
-        //return defaultCustomWeapon;
-
-
         Dictionary<int, string> defaultCustomWeapon = new Dictionary<int, string>();    
         for (int i =0;i < weaponObjects.Count;i++)
         {
@@ -158,10 +149,9 @@ public class InventoryManager : Singleton<InventoryManager>
             string mats = "";
             for (int j = 0; j < meshRenderer.sharedMaterials.Length; j++)
             {
-                //Debug.LogError(meshRenderer.sharedMaterials[j] + "   " + colorMats.IndexOf(meshRenderer.sharedMaterials[j]).ToString());
                 mats += colorMats.IndexOf(meshRenderer.sharedMaterials[j]).ToString();
             }
-            //Debug.LogError(mats);   
+
             defaultCustomWeapon.Add(i, mats);
         }
 
@@ -174,7 +164,6 @@ public class InventoryManager : Singleton<InventoryManager>
         currentMats = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
     }
 
-    //public List<GameObject> ListHeadItem => headObjects;
     public void UpdatePlayerHead(int index)
     {
         if (currentHeadItem != null)
@@ -325,7 +314,7 @@ public class InventoryManager : Singleton<InventoryManager>
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
 
         string mats = InvenCustomWeaponMats[(int)jsonData.PlayerWeaponType];
-        Debug.LogError(mats);
+        //Debug.LogError(mats);
         matsCount = mats.Length;
         for (int i = 0; i < matsCount; i++)
         {

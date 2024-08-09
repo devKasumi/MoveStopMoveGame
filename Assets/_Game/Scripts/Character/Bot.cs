@@ -19,17 +19,13 @@ public class Bot : Character
     private float frameRate = 1f;
     private float time = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         OnInit();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        time += Time.deltaTime;
-
         if (LevelManager.Instance.Player.isCharacterDeath)
         {
             ChangeState(new IdleState());
@@ -92,6 +88,8 @@ public class Bot : Character
 
     public void AttackEnemy()
     {
+        time += Time.deltaTime;
+
         if (time >= frameRate)
         {
             time = 0;
