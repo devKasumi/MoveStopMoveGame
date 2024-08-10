@@ -20,14 +20,22 @@ public class CanvasUISkin : UICanvas
 
     [SerializeField] private TextMeshProUGUI bonusText;
 
+    [SerializeField] private GameObject coinButton;
+    [SerializeField] private GameObject watchVideoButton;
+    [SerializeField] private GameObject selectButton;
+
     [SerializeField] private HeadButton[] headButtons;
 
-    private int currentItemUIIndex;
-    private int selectedHeadIndex;
-    private int currentHeadIndex;
-    private int selectedPantIndex;
-    private int currentPantIndex;
+    private int currentItemUIIndex = 0;
+    //private int selectedHeadIndex;
+    private int currentHeadIndex = -1;
+    //private int selectedPantIndex;
+    private int currentPantIndex = -1;
 
+    private void Start()
+    {
+        headImage.color = Color.cyan;
+    }
 
     public void OnHeadsUIButton()
     {
@@ -41,7 +49,7 @@ public class CanvasUISkin : UICanvas
         for (int i = 0; i < headButtons.Length; i++)
         {
             // TODO: sua lai logic 
-            UpdateHeadItemStatus(i, 0); 
+            UpdateHeadItemStatus(i, InventoryManager.Instance.InvenHeadItemStatus[i]); 
         }
     }
 
@@ -97,7 +105,26 @@ public class CanvasUISkin : UICanvas
     public void OnHeadButtonPressed(int index)
     {
         InventoryManager.Instance.UpdatePlayerHead(index);
+        if (InventoryManager.Instance.InvenHeadItemStatus[index] == 0)
+        {
+            NoPurchasedHeadItem();
+        }
+        else PurchasedHeadItem();
         currentHeadIndex = index;
+    }
+
+    public void PurchasedHeadItem()
+    {
+        coinButton.gameObject.SetActive(false);
+        watchVideoButton.gameObject.SetActive(false);
+        selectButton.gameObject.SetActive(true);
+    }
+
+    public void NoPurchasedHeadItem()
+    {
+        coinButton.gameObject.SetActive(true);
+        watchVideoButton.gameObject.SetActive(true);
+        selectButton.gameObject.SetActive(false);
     }
 
     public void OnPantButtonPressed(int index)
@@ -122,12 +149,12 @@ public class CanvasUISkin : UICanvas
         switch (currentItemUIIndex)
         {
             case 0:
-                selectedHeadIndex = currentHeadIndex;
-                InventoryManager.Instance.UpdatePlayerHead(selectedHeadIndex);
+                //selectedHeadIndex = currentHeadIndex;
+                //InventoryManager.Instance.UpdatePlayerHead(currentHeadIndex);
                 break;
             case 1:
-                selectedPantIndex = currentPantIndex;
-                InventoryManager.Instance.UpdatePlayerPant(selectedPantIndex);
+                //selectedPantIndex = currentPantIndex;
+                //InventoryManager.Instance.UpdatePlayerPant(currentPantIndex);
                 break;
             case 2:
                 break;
@@ -140,7 +167,18 @@ public class CanvasUISkin : UICanvas
 
     public void OnWatchVideoButtonPressed()
     {
-
+        switch (currentItemUIIndex)
+        {
+            case 0:
+                if (InventoryManager.Instance.InvenHeadItemStatus.ContainsKey(currentHeadIndex))
+                {
+                    InventoryManager.Instance.InvenHeadItemStatus[currentHeadIndex] = 1;
+                }
+                else InventoryManager.Instance.InvenHeadItemStatus.Add(currentHeadIndex, 1);
+                break;
+            default:
+                break;
+        }  
     }
 
     public void OnSelectButtonPressed()
@@ -150,8 +188,8 @@ public class CanvasUISkin : UICanvas
 
     public void OnCloseButtonPressed()
     {
-        InventoryManager.Instance.UpdatePlayerHead(selectedHeadIndex);
-        InventoryManager.Instance.UpdatePlayerPant(selectedPantIndex);
+        //InventoryManager.Instance.UpdatePlayerHead(currentHeadIndex);
+        //InventoryManager.Instance.UpdatePlayerPant(currentPantIndex);
     }
 
     public void UpdateHeadItemStatus(int headItemIndex, int currentStatus)

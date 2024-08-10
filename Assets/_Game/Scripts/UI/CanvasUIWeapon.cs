@@ -282,4 +282,9 @@ public class CanvasUIWeapon : UICanvas
         //weaponName.text = WeaponName[InventoryManager.Instance.CurrentWeaponUIIndex];
         OnInit();
     }
+
+    public void OnCloseButton()
+    {
+
+    }
 }

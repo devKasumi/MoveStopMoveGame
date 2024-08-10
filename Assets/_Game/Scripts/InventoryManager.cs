@@ -29,9 +29,9 @@ public class InventoryManager : Singleton<InventoryManager>
     private GameObject currentHeadItem = null;
     private Material currentPantMat = null;
 
-    private Dictionary<int, string> playerWeaponStatus = new Dictionary<int, string>();
-    private Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
-    private Dictionary<int, string> playerPantItemStatus = new Dictionary<int, string>();
+    //private Dictionary<int, string> playerWeaponStatus = new Dictionary<int, string>();
+    //private Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
+    //private Dictionary<int, string> playerPantItemStatus = new Dictionary<int, string>();
 
     public Dictionary<int, string> InvenCustomWeaponMats = new Dictionary<int, string>();   // chua mats cua cac custom weapon
     public Dictionary<int, int> InvenHeadItemStatus = new Dictionary<int, int>();           // chua status cua tung head item
@@ -158,6 +158,17 @@ public class InventoryManager : Singleton<InventoryManager>
         return defaultCustomWeapon; 
     }
 
+    public Dictionary<int, int> DefaultHeadItemStatus()
+    {
+        Dictionary<int, int> defaultHeadItem = new Dictionary<int, int>();
+        for (int i = 0; i < headObjects.Count; i++)
+        {
+            defaultHeadItem.Add(i, 0);
+        }
+
+        return defaultHeadItem;
+    }
+
     public void UpdateCurrentWeapon(int index)
     {
         Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
@@ -240,7 +251,6 @@ public class InventoryManager : Singleton<InventoryManager>
             mats += GetColorIndex(currentMats[i]);
         }
         InvenCustomWeaponMats[currentWeaponUIIndex] = mats;
-        //UpdatePlayerWeapon();
     }
 
     public string GetColorIndex(Material mat)
@@ -308,13 +318,13 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         JsonData jsonData = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
         InvenCustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
+        InvenHeadItemStatus = jsonData.HeadItemStatus.Count != 0 ? jsonData.HeadItemStatus : DefaultHeadItemStatus();   
 
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
 
         string mats = InvenCustomWeaponMats[(int)jsonData.PlayerWeaponType];
-        //Debug.LogError(mats);
         matsCount = mats.Length;
         for (int i = 0; i < matsCount; i++)
         {
@@ -330,9 +340,9 @@ public class InventoryManager : Singleton<InventoryManager>
         jsonData.PlayerSkinColor = (CommonEnum.ColorType)(colorMats.IndexOf(player.SkinColor.sharedMaterial));
         jsonData.PlayerPantType = (CommonEnum.PantType)(player.PantDataSO.Materials.IndexOf(player.PantMaterial.sharedMaterial));
         jsonData.CustomWeaponMats = InvenCustomWeaponMats;
-        //jsonData.currentMatsData = currentMats.ToList<Material>();
+        jsonData.HeadItemStatus = InvenHeadItemStatus;
+
         JsonFileHandler.SaveToJson<JsonData>(jsonData, Constants.JSON_FILE_NAME);
-        //Debug.LogError(jsonData.CustomWeaponMats.Count);
     }
 }
 
@@ -346,13 +356,8 @@ public class JsonData
     public CommonEnum.PantType PlayerPantType = CommonEnum.PantType.Chambi;
 
     public int coin = 0;
-    //public List<Material> currentMatsData = new List<Material>();
-
-    //public Dictionary<int, string> playerWeaponStatus = new Dictionary<int, string>();
-    //public Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
-    //public Dictionary<int, string> playerPantItemStatus = new Dictionary<int, string>();
-    //public Dictionary<int, int> testDic = new Dictionary<int, int>();
 
     public Dictionary<int, string> CustomWeaponMats = new Dictionary<int, string>();
+    public Dictionary<int, int> HeadItemStatus = new Dictionary<int, int>();
 
 }
