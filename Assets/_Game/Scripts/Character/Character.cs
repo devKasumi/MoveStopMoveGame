@@ -172,5 +172,10 @@ public class Character : GameUnit
         }
     }
 
-    
+    public IEnumerator ShowFailPopup()
+    {
+        yield return new WaitForSeconds(1f);
+        UIManager.Instance.OpenUI<CanvasFail>();
+        GameManager.Instance.UpdateGameState(GameState.Finish);
+    }
 }
