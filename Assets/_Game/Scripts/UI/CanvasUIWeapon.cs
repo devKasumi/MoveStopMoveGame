@@ -266,6 +266,7 @@ public class CanvasUIWeapon : UICanvas
     public void OnSelectButton()
     {
         InventoryManager.Instance.UpdatePlayerWeapon();
+        InventoryManager.Instance.SaveDataToJsonFile();
     }   
 
     public void OnButtonNext()
@@ -289,5 +290,6 @@ public class CanvasUIWeapon : UICanvas
         UIManager.Instance.CanvasWeapon.gameObject.SetActive(false);
         UIManager.Instance.OpenUI<CanvasMainMenu>();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
+        
     }
 }

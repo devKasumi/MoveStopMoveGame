@@ -47,23 +47,6 @@ public class Player : Character
         //AttackEnemy();
 
         CheckEnemyCurrentStatus();
-
-//#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            // bao loi vi thang player inherit monobehavior
-            //Debug.LogError((int)JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME).weapon.WeaponType);
-        }
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    // TODO: xep lai logic vao UI chon weapon va skin!!!
-        //    Debug.LogError("save to json~!!!!");
-        //    JsonData data = new JsonData();
-        //    JsonFileHandler.SaveToJson<JsonData>(data, Constants.JSON_FILE_NAME);
-
-        //}
-//#endif
     }
 
     public override void OnInit()
@@ -72,14 +55,6 @@ public class Player : Character
 
         UpdateWeaponImage();
     }
-
-    //public void GetDataFromJsonFile()
-    //{
-    //    JsonData dataFromJson = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
-    //    Weapon = dataFromJson.weapon != null ? dataFromJson.weapon : LevelManager.Instance.PoolControl.InitPlayerWeapon((int)CommonEnum.WeaponType.Hammer_0);
-    //    SkinColor.material = dataFromJson.skinColor != null ? dataFromJson.skinColor.material : SkinDataSO.SkinMaterial(CommonEnum.ColorType.Red);
-    //    PantMaterial.material = dataFromJson.pantMaterial != null ? dataFromJson.pantMaterial.material : PantDataSO.PantMaterial(CommonEnum.PantType.Batman);
-    //}
 
     public void Move()
     {
@@ -126,12 +101,6 @@ public class Player : Character
             }
         }
     }
-
-    //public IEnumerator WaitForAttackFinish()
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-    //    ChangeAnimation(Constants.ANIMATION_IDLE);
-    //}
 }
 
 

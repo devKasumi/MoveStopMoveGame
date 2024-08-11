@@ -35,7 +35,18 @@ public class CanvasUISkin : UICanvas
     private void Start()
     {
         headImage.color = Color.cyan;
+        InitHeadItemStatus();
     }
+
+    public void InitHeadItemStatus()
+    {
+        for (int i = 0; i < headButtons.Length; i++)
+        {
+            // TODO: sua lai logic 
+            UpdateHeadItemStatus(i, InventoryManager.Instance.InvenHeadItemStatus[i]);
+        }
+    }
+
 
     public void OnHeadsUIButton()
     {
@@ -46,11 +57,7 @@ public class CanvasUISkin : UICanvas
         headImage.color = Color.cyan;
         bonusText.text = Constants.HEAD_BONUS;
         currentItemUIIndex = 0;
-        for (int i = 0; i < headButtons.Length; i++)
-        {
-            // TODO: sua lai logic 
-            UpdateHeadItemStatus(i, InventoryManager.Instance.InvenHeadItemStatus[i]); 
-        }
+        InitHeadItemStatus();
     }
 
     public void OnPantsUIButton()
@@ -62,6 +69,7 @@ public class CanvasUISkin : UICanvas
         pantImage.color = Color.cyan;
         bonusText.text = Constants.PANT_BONUS;
         currentItemUIIndex = 1;
+        PurchasedItem();
     }
 
     public void OnArmsUIButton()
@@ -107,20 +115,20 @@ public class CanvasUISkin : UICanvas
         InventoryManager.Instance.UpdatePlayerHead(index);
         if (InventoryManager.Instance.InvenHeadItemStatus[index] == 0)
         {
-            NoPurchasedHeadItem();
+            NoPurchasedItem();
         }
-        else PurchasedHeadItem();
+        else PurchasedItem();
         currentHeadIndex = index;
     }
 
-    public void PurchasedHeadItem()
+    public void PurchasedItem()
     {
         coinButton.gameObject.SetActive(false);
         watchVideoButton.gameObject.SetActive(false);
         selectButton.gameObject.SetActive(true);
     }
 
-    public void NoPurchasedHeadItem()
+    public void NoPurchasedItem()
     {
         coinButton.gameObject.SetActive(true);
         watchVideoButton.gameObject.SetActive(true);
@@ -175,6 +183,7 @@ public class CanvasUISkin : UICanvas
                     InventoryManager.Instance.InvenHeadItemStatus[currentHeadIndex] = 1;
                 }
                 else InventoryManager.Instance.InvenHeadItemStatus.Add(currentHeadIndex, 1);
+                InventoryManager.Instance.SaveDataToJsonFile();
                 break;
             default:
                 break;
@@ -183,7 +192,7 @@ public class CanvasUISkin : UICanvas
 
     public void OnSelectButtonPressed()
     {
-
+        InventoryManager.Instance.SaveDataToJsonFile();
     }
 
     public void OnCloseButtonPressed()

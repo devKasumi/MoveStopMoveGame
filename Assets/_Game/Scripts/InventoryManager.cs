@@ -25,6 +25,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     [SerializeField] private List<GameObject> headObjects = new List<GameObject>();
     [SerializeField] private List<Vector3> headObjectPos = new List<Vector3>();
+    private int HeadItemIndex = -1;
 
     private GameObject currentHeadItem = null;
     private Material currentPantMat = null;
@@ -38,6 +39,9 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public List<Color> customWeaponColors = new List<Color>();
     public int matsCount = 0;
+
+
+    public int PlayerCoin = 50;
 
     private void Awake()
     {
@@ -177,6 +181,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void UpdatePlayerHead(int index)
     {
+        if (index == -1) return;
         if (currentHeadItem != null)
         {
             Destroy(currentHeadItem.gameObject);
@@ -187,6 +192,7 @@ public class InventoryManager : Singleton<InventoryManager>
         headTf.localPosition = headObjectPos[index];
         headTf.localRotation = Quaternion.identity;
         currentHeadItem = head;
+        HeadItemIndex = index;
     }
 
     public void UpdatePlayerPant(int index)
@@ -323,6 +329,7 @@ public class InventoryManager : Singleton<InventoryManager>
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
+        UpdatePlayerHead(jsonData.HeadItemIndex);
 
         string mats = InvenCustomWeaponMats[(int)jsonData.PlayerWeaponType];
         matsCount = mats.Length;
@@ -341,6 +348,7 @@ public class InventoryManager : Singleton<InventoryManager>
         jsonData.PlayerPantType = (CommonEnum.PantType)(player.PantDataSO.Materials.IndexOf(player.PantMaterial.sharedMaterial));
         jsonData.CustomWeaponMats = InvenCustomWeaponMats;
         jsonData.HeadItemStatus = InvenHeadItemStatus;
+        jsonData.HeadItemIndex = this.HeadItemIndex;
 
         JsonFileHandler.SaveToJson<JsonData>(jsonData, Constants.JSON_FILE_NAME);
     }
@@ -354,6 +362,7 @@ public class JsonData
     public Material PlayerWeaponImageMat = null;
     public CommonEnum.ColorType PlayerSkinColor = CommonEnum.ColorType.Red;
     public CommonEnum.PantType PlayerPantType = CommonEnum.PantType.Chambi;
+    public int HeadItemIndex = -1;
 
     public int coin = 0;
 
