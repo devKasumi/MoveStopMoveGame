@@ -39,7 +39,7 @@ public class CanvasSettings : UICanvas
         Close(0);
         UIManager.Instance.OpenUI<CanvasGamePlay>();
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
-        //LevelManager.Instance.OnPlay();
+        LevelManager.Instance.CurrentLevel().OnPlay();
     }
 
     public void CloseButton()

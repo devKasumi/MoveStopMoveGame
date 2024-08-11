@@ -154,19 +154,19 @@ public class CanvasUISkin : UICanvas
 
     public void OnCoinButtonPressed()
     {
+        if (InventoryManager.Instance.PlayerCoin < 50) return;
         switch (currentItemUIIndex)
         {
             case 0:
                 //selectedHeadIndex = currentHeadIndex;
                 //InventoryManager.Instance.UpdatePlayerHead(currentHeadIndex);
-                break;
-            case 1:
-                //selectedPantIndex = currentPantIndex;
-                //InventoryManager.Instance.UpdatePlayerPant(currentPantIndex);
-                break;
-            case 2:
-                break;
-            case 3:
+                InventoryManager.Instance.PlayerCoin -= 50;
+                if (InventoryManager.Instance.InvenHeadItemStatus.ContainsKey(currentHeadIndex))
+                {
+                    InventoryManager.Instance.InvenHeadItemStatus[currentHeadIndex] = 1;
+                }
+                else InventoryManager.Instance.InvenHeadItemStatus.Add(currentHeadIndex, 1);
+                InventoryManager.Instance.SaveDataToJsonFile();
                 break;
             default:
                 break;

@@ -59,14 +59,14 @@ public class PoolControl : MonoBehaviour
         GameUnit gameUnit = BasePool.Spawn<GameUnit>(bots[index].PoolType, pos, Quaternion.identity);
         Bot bot = (Bot)gameUnit;
         bot.OnInit();
+        //if (GameManager.Instance.CurrentState(GameState.GamePlay))
+        //{
+        //    bot.ChangeState(new PatrolState());
+        //}
         bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
         bot.Weapon.BotWeaponData();
         bot.UpdateWeaponImage();
         listActiveBots.Add(bot);
-        if (GameManager.Instance.CurrentState(GameState.GamePlay))
-        {
-            bot.ChangeState(new PatrolState());
-        }
     }
 
     public void SpawnBotAtBeginning()

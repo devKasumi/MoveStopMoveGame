@@ -46,7 +46,7 @@ public class Level : MonoBehaviour
     {
         for (int i = 0; i < LevelManager.Instance.PoolControl.ListActiveBots.Count; i++)
         {
-            if (LevelManager.Instance.PoolControl.ListActiveBots[i] != null)
+            if (LevelManager.Instance.PoolControl.ListActiveBots[i].gameObject.activeInHierarchy)
             {
                 LevelManager.Instance.PoolControl.ListActiveBots[i].ChangeState(new PatrolState());
             }

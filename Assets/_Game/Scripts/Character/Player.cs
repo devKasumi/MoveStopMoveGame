@@ -79,7 +79,7 @@ public class Player : Character
 
         if (!joystick.IsResetJoystick())
         {
-            ChangeAnimation(Constants.ANIMATION_RUN);
+            //ChangeAnimation(Constants.ANIMATION_RUN);
         }
         else
         {

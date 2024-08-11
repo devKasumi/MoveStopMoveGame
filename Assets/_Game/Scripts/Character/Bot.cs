@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -26,10 +27,13 @@ public class Bot : Character
 
     void Update()
     {
-        //if (!GameManager.Instance.CurrentState(GameState.GamePlay))
-        //{
-        //    return;
-        //}
+        if (!GameManager.Instance.CurrentState(GameState.GamePlay))
+        {
+            SetDestination(TF.position);
+            ChangeState(new IdleState());
+            return;
+        }
+
         time += Time.deltaTime;
 
         if (LevelManager.Instance.Player.isCharacterDeath)
@@ -49,7 +53,7 @@ public class Bot : Character
     {
         base.OnInit();
 
-        ChangeState(new IdleState());
+        ChangeState(new PatrolState());
 
         SkinColor.material = SkinDataSO.Materials[Random.Range(1, SkinDataSO.Materials.Count)];
         PantMaterial.material = PantDataSO.Materials[Random.Range(0, PantDataSO.Materials.Count)];
