@@ -29,6 +29,11 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.CurrentState(GameState.GamePlay))
+        {
+            return;
+        }
+
         time += Time.deltaTime;
 
         if (isCharacterDeath)

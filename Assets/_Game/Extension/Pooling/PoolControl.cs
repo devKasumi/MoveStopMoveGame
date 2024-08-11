@@ -10,6 +10,7 @@ public class PoolControl : MonoBehaviour
     [SerializeField] private List<GameUnit> weapons = new List<GameUnit>();
     private List<GameUnit> bots = new List<GameUnit>();
     //[SerializeField] private Player player;
+    private List<Bot> listActiveBots = new List<Bot>(); 
 
     private int TotalPosEachQuadrant = 3;
 
@@ -36,6 +37,8 @@ public class PoolControl : MonoBehaviour
         }
     }
 
+    public List<Bot> ListActiveBots => listActiveBots;
+
     public void PreLoadBotPool(int index)
     {
         GameObject pool = new GameObject(bots[index].name + "_Pool");
@@ -59,6 +62,7 @@ public class PoolControl : MonoBehaviour
         bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
         bot.Weapon.BotWeaponData();
         bot.UpdateWeaponImage();
+        listActiveBots.Add(bot);
     }
 
     public void SpawnBotAtBeginning()

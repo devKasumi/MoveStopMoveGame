@@ -16,7 +16,7 @@ public class CanvasMainMenu : UICanvas
         Close(0);
         UIManager.Instance.OpenUI<CanvasGamePlay>();
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
-        //LevelManager.GetInstance.OnPlay();
+        LevelManager.Instance.CurrentLevel().OnPlay();
     }
 
     public void SettingsButton()

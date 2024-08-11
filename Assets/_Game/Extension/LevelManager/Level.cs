@@ -42,4 +42,12 @@ public class Level : MonoBehaviour
 
     public bool IsEnoughBot() => CurrentActiveBot == totalBot;
 
+    public void OnPlay()
+    {
+        for (int i = 0; i < LevelManager.Instance.PoolControl.ListActiveBots.Count; i++)
+        {
+            LevelManager.Instance.PoolControl.ListActiveBots[i].ChangeState(new PatrolState());
+        }
+    }
+
 }

@@ -24,8 +24,13 @@ public class Bot : Character
         OnInit();
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        //if (!GameManager.Instance.CurrentState(GameState.GamePlay))
+        //{
+        //    return;
+        //}
+
         if (LevelManager.Instance.Player.isCharacterDeath)
         {
             ChangeState(new IdleState());
@@ -43,7 +48,7 @@ public class Bot : Character
     {
         base.OnInit();
 
-        ChangeState(new PatrolState());
+        ChangeState(new IdleState());
 
         SkinColor.material = SkinDataSO.Materials[Random.Range(1, SkinDataSO.Materials.Count)];
         PantMaterial.material = PantDataSO.Materials[Random.Range(0, PantDataSO.Materials.Count)];

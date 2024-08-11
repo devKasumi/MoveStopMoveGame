@@ -160,6 +160,7 @@ public class Character : GameUnit
         {
             yield return new WaitForSeconds(1f);
             BasePool.Despawn(this);
+            LevelManager.Instance.PoolControl.ListActiveBots.Remove((Bot)this);
         }
         else if (this is Player)
         {
