@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class CanvasGamePlay : UICanvas
 {
-    //[SerializeField] private TextMeshProUGUI coinText;
+    [SerializeField] private TextMeshProUGUI totalBot;
+
+    private void Update()
+    {
+        UpdateBotActive(LevelManager.Instance.CurrentLevel().currentTotalActiveBot);
+    }
 
     public override void Setup()
     {
@@ -13,9 +18,10 @@ public class CanvasGamePlay : UICanvas
         //UpdateCoin(0);
     }
 
-    public void UpdateCoin(int coin)
+    public void UpdateBotActive(int botCount)
     {
         //coinText.text = coin.ToString();
+        totalBot.text = botCount.ToString();
     }
 
     public void SettingsButton()
