@@ -29,6 +29,7 @@ public class CanvasMainMenu : UICanvas
     {
         Close(0);
         UIManager.Instance.OpenUI<CanvasUIWeapon>();
+        UIManager.Instance.CanvasWeapon.gameObject.SetActive(true);
     }
 
     public void OnSkinButtonPressed()

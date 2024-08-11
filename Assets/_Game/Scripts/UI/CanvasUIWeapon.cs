@@ -285,6 +285,9 @@ public class CanvasUIWeapon : UICanvas
 
     public void OnCloseButton()
     {
-
+        Close(0);
+        UIManager.Instance.CanvasWeapon.gameObject.SetActive(false);
+        UIManager.Instance.OpenUI<CanvasMainMenu>();
+        GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
 }

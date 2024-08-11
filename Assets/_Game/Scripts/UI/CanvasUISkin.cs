@@ -190,6 +190,9 @@ public class CanvasUISkin : UICanvas
     {
         //InventoryManager.Instance.UpdatePlayerHead(currentHeadIndex);
         //InventoryManager.Instance.UpdatePlayerPant(currentPantIndex);
+        Close(0);
+        UIManager.Instance.OpenUI<CanvasMainMenu>();
+        GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
 
     public void UpdateHeadItemStatus(int headItemIndex, int currentStatus)

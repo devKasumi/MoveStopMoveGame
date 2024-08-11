@@ -63,6 +63,10 @@ public class PoolControl : MonoBehaviour
         bot.Weapon.BotWeaponData();
         bot.UpdateWeaponImage();
         listActiveBots.Add(bot);
+        if (GameManager.Instance.CurrentState(GameState.GamePlay))
+        {
+            bot.ChangeState(new PatrolState());
+        }
     }
 
     public void SpawnBotAtBeginning()

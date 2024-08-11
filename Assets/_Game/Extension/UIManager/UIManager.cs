@@ -13,6 +13,7 @@ public class UIManager : Singleton<UIManager>
     public List<TargetIndicator> targetIndicators = new List<TargetIndicator>();
     public Camera mainCamera;
     public GameObject TargetIndicatorPrefab;
+    public Canvas CanvasWeapon;
 
 
     private void Awake()

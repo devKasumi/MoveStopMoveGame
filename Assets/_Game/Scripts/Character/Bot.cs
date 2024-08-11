@@ -16,7 +16,7 @@ public class Bot : Character
     private IState currentState;
     private Vector3 currentTargetPosition;
 
-    private float frameRate = 1f;
+    private float frameRate = 1.2f;
     private float time = 0;
 
     void Start()
@@ -30,6 +30,7 @@ public class Bot : Character
         //{
         //    return;
         //}
+        time += Time.deltaTime;
 
         if (LevelManager.Instance.Player.isCharacterDeath)
         {
@@ -93,7 +94,7 @@ public class Bot : Character
 
     public void AttackEnemy()
     {
-        time += Time.deltaTime;
+        
 
         if (time >= frameRate)
         {
