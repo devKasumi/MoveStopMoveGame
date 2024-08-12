@@ -14,7 +14,6 @@ public class LevelManager : Singleton<LevelManager>
     private void Awake()
     {
         currentLevel = levels[0];
-        //GetDataFromJsonFile();
     }
 
     // Start is called before the first frame update
@@ -34,11 +33,4 @@ public class LevelManager : Singleton<LevelManager>
 
     public Character Player => player;
 
-    //public void GetDataFromJsonFile()
-    //{
-    //    DataFromJson dataFromJson = JsonFileHandler.ReadFromJson<DataFromJson>(Constants.JSON_FILE_NAME);
-    //    player.Weapon = dataFromJson.weapon != null ? dataFromJson.weapon : LevelManager.Instance.PoolControl.PlayerDefaultWeapon();
-    //    player.SkinColor.material = dataFromJson.skinColor != null ? dataFromJson.skinColor.material : player.SkinDataSO.SkinMaterial(CommonEnum.ColorType.Red);
-    //    player.PantMaterial.material = dataFromJson.pantMaterial != null ? dataFromJson.pantMaterial.material : player.PantDataSO.PantMaterial(CommonEnum.PantType.Batman);
-    //}
 }

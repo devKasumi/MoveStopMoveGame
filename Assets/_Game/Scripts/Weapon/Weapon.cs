@@ -114,7 +114,7 @@ public class Weapon : GameUnit
             Character character = Cache.GenCharacter(other);
             Bot bot = (Bot)character;
             bot.ChangeState(new IdleState());
-            bot.OnDeath();
+            bot.OnDeath(this);
         }
         else if (other.CompareTag(Constants.TAG_PLAYER))
         {
@@ -122,7 +122,7 @@ public class Weapon : GameUnit
             Character character = Cache.GenCharacter(other);
             Player player = (Player)character;
             // may add some logic -> using Player instead of Character object
-            player.OnDeath();
+            player.OnDeath(this);
         }
     }
 

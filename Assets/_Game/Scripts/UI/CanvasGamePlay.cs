@@ -15,12 +15,10 @@ public class CanvasGamePlay : UICanvas
     public override void Setup()
     {
         base.Setup();
-        //UpdateCoin(0);
     }
 
     public void UpdateBotActive(int botCount)
     {
-        //coinText.text = coin.ToString();
         totalBot.text = botCount.ToString();
     }
 

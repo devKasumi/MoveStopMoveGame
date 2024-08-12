@@ -24,17 +24,26 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        LevelManager.Instance.Player.ChangeAnimation(Constants.ANIMATION_IDLE);
         isResetJoystick = true;
         background.gameObject.SetActive(false);
         base.OnPointerUp(eventData);
+        LevelManager.Instance.Player.ChangeAnimation(Constants.ANIMATION_IDLE);
     }
 
-    public bool IsResetJoystick() => isResetJoystick;
+    public bool IsResetJoystick
+    {
+        get => isResetJoystick;
+        set => isResetJoystick = value;
+    }
 
     public IEnumerator ChangeMoveAnim()
     {
         yield return new WaitForSeconds(0.1f);
         LevelManager.Instance.Player.ChangeAnimation(Constants.ANIMATION_RUN);
+    }
+
+    public void OnResetJoyStick()
+    {
+        OnPointerUp(null);
     }
 }

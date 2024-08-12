@@ -2,13 +2,13 @@
   "PlayerWeaponType": 2,
   "PlayerWeaponImageMat": null,
   "PlayerSkinColor": 0,
-  "PlayerPantType": 6,
+  "PlayerPantType": 7,
   "HeadItemIndex": 1,
-  "coin": 0,
+  "playerCoin": 160,
   "CustomWeaponMats": {
-    "0": "46",
-    "1": "54",
-    "2": "035",
+    "0": "12",
+    "1": "12",
+    "2": "123",
     "3": "106",
     "4": "40",
     "5": "402",
@@ -17,10 +17,10 @@
   },
   "HeadItemStatus": {
     "0": 0,
-    "1": 1,
+    "1": 0,
     "2": 0,
     "3": 0
   },
-  "isSoundOn": true,
-  "isVibrationOn": true
+  "isSoundOn": false,
+  "isVibrationOn": false
 }

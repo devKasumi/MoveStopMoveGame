@@ -9,7 +9,6 @@ public static class JsonFileHandler
 {
     public static void SaveToJson<T>(T dataToSave, string fileName)
     {
-        //string dataToJson = JsonUtility.ToJson(dataToSave);
         string dataToJson = JsonConvert.SerializeObject(dataToSave, Formatting.Indented);
         string filePath = Application.dataPath + "/" + Constants.JSON_PATH + "/" + fileName;
         Debug.LogError(filePath);
@@ -21,14 +20,11 @@ public static class JsonFileHandler
         string filePath = Application.dataPath + "/" + Constants.JSON_PATH + "/" + fileName;
         string data = ReadFile(filePath);
 
-        //Debug.LogError(data);
-
         if (string.IsNullOrEmpty(data) || data == "{}")
         {
             return default(T);
         }
 
-        //T res = JsonUtility.FromJson<T>(data);
         T res = JsonConvert.DeserializeObject<T>(data);
 
         return res;

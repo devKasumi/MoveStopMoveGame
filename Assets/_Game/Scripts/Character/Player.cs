@@ -71,12 +71,10 @@ public class Player : Character
         ChangeAnimation(Constants.ANIMATION_IDLE);
         TF.position = originPos;
         TF.rotation = Quaternion.identity;
-        //Cache.GenTransform(armature).position = originArmturePos;
-        //Cache.GenTransform(initialGroup).position = originInitialGroupPos;
-        //Cache.GenTransform(pant).position = originPantPos;
-        //playerBody.transform.localPosition = bodyPos;
-        //playerBody.transform.localRotation = bodyRot;    
-        UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
+        //joystick.IsResetJoystick = true;
+        //moveDirection = Vector3.zero;
+        //joystick.OnPointerUp();
+        joystick.OnResetJoyStick();
         UpdateWeaponImage();
     }
 
@@ -101,13 +99,18 @@ public class Player : Character
         //    //StartCoroutine(WaitForAttackFinish());
         //}
 
-        if (!joystick.IsResetJoystick())
+        //if (!joystick.IsResetJoystick())
+        //{
+        //    //ChangeAnimation(Constants.ANIMATION_RUN);
+        //}
+        //else
+        //{
+        //    AttackEnemy();
+        //}
+        if (joystick.IsResetJoystick)
         {
-            //ChangeAnimation(Constants.ANIMATION_RUN);
-        }
-        else
-        {
-            AttackEnemy();
+            //ChangeAnimation(Constants.ANIMATION_IDLE);
+            AttackEnemy();  
         }
     }
 
@@ -117,7 +120,7 @@ public class Player : Character
         {
             time = 0;
 
-            if (ListTarget().Count > 0 && joystick.IsResetJoystick())
+            if (ListTarget().Count > 0 && joystick.IsResetJoystick)
             {
                 FaceEnemy();
                 ChangeAnimation(Constants.ANIMATION_ATTACK);

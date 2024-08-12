@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CanvasMainMenu : UICanvas
 {
+    [SerializeField] private TextMeshProUGUI coin;
+
     [SerializeField] private GameObject vibrateOff;
     [SerializeField] private GameObject vibrateOn;
 
@@ -12,8 +15,14 @@ public class CanvasMainMenu : UICanvas
 
     private void Start()
     {
+        UpdatePlayerCoin(InventoryManager.Instance.PlayerCoin);
         UpdateSoundUI();
         UpdateVibrationUI();
+    }
+
+    public void UpdatePlayerCoin(int playerCoin)
+    {
+        coin.text = playerCoin.ToString();
     }
 
     public void PlayButton()
@@ -21,8 +30,8 @@ public class CanvasMainMenu : UICanvas
         Close(0);
         //LevelManager.Instance.Player.OnInit();
         //LevelManager.Instance.CurrentLevel().OnInit();
-        //UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
         UIManager.Instance.OpenUI<CanvasGamePlay>();
+        UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
         LevelManager.Instance.CurrentLevel().OnPlay();
     }

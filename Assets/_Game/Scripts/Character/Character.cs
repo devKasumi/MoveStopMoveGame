@@ -113,7 +113,7 @@ public class Character : GameUnit
         }
     }
 
-    public void OnDeath()
+    public void OnDeath(Weapon weapon)
     {
         // change anim
         ChangeAnimation(Constants.ANIMATION_DEAD);
@@ -122,7 +122,12 @@ public class Character : GameUnit
         attackArea.gameObject.SetActive(false);
         capsuleCollider.enabled = false;
 
-        // destroy char after
+        if (weapon.PoolType == PoolType.Player_Weapon)
+        {
+            InventoryManager.Instance.PlayerCoin += 5;
+            InventoryManager.Instance.SaveDataToJsonFile();
+        }
+
         StartCoroutine(CharacterDie());
 
         //if (this is Bot)

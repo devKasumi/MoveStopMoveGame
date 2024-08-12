@@ -40,9 +40,9 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public List<Color> customWeaponColors = new List<Color>();
     public int matsCount = 0;
+     
 
-
-    public int PlayerCoin = 50;
+    public int PlayerCoin;
 
     private void Awake()
     {
@@ -339,15 +339,14 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         JsonData jsonData = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
         InvenCustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
-        InvenHeadItemStatus = jsonData.HeadItemStatus.Count != 0 ? jsonData.HeadItemStatus : DefaultHeadItemStatus();   
-
+        InvenHeadItemStatus = jsonData.HeadItemStatus.Count != 0 ? jsonData.HeadItemStatus : DefaultHeadItemStatus();
+        PlayerCoin = jsonData.playerCoin;
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
         UpdatePlayerHead(jsonData.HeadItemIndex);
         SoundManager.Instance.IsSoundOn = jsonData.isSoundOn;
         SoundManager.Instance.IsVibrationOn = jsonData.isVibrationOn;
-
 
         string mats = InvenCustomWeaponMats[(int)jsonData.PlayerWeaponType];
         matsCount = mats.Length;
@@ -369,7 +368,7 @@ public class InventoryManager : Singleton<InventoryManager>
         jsonData.HeadItemIndex = this.HeadItemIndex;
         jsonData.isSoundOn = SoundManager.Instance.IsSoundOn;
         jsonData.isVibrationOn = SoundManager.Instance.IsVibrationOn;
-
+        jsonData.playerCoin = PlayerCoin;
         JsonFileHandler.SaveToJson<JsonData>(jsonData, Constants.JSON_FILE_NAME);
     }
 }
@@ -384,7 +383,7 @@ public class JsonData
     public CommonEnum.PantType PlayerPantType = CommonEnum.PantType.Chambi;
     public int HeadItemIndex = -1;
 
-    public int coin = 0;
+    public int playerCoin = 50;
 
     public Dictionary<int, string> CustomWeaponMats = new Dictionary<int, string>();
     public Dictionary<int, int> HeadItemStatus = new Dictionary<int, int>();
