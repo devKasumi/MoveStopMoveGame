@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CanvasSettings : UICanvas
@@ -7,22 +8,62 @@ public class CanvasSettings : UICanvas
     //[SerializeField] private GameObject[] buttons;
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject continueButton;
-    [SerializeField] private GameObject closeButton;
+    //[SerializeField] private GameObject closeButton;
+    [SerializeField] private GameObject soundButton;
+    [SerializeField] private GameObject vibrationButton;
+    [SerializeField] private TextMeshProUGUI offSoundText;
+    [SerializeField] private TextMeshProUGUI offVibrationText;
+    private Vector3 offEffectPos = new Vector3(-50, 0, 0);
+    private Vector3 onEffectPos = new Vector3(50, 0, 0);
 
     public void SetState(UICanvas canvas)
     {
         mainMenuButton.SetActive(false);
         continueButton.SetActive(false);
-        closeButton.SetActive(false);
+        //closeButton.SetActive(false);
 
-        if (canvas is CanvasMainMenu)
-        {
-            closeButton.SetActive(true);
-        }
-        else if (canvas is CanvasGamePlay)
+        //if (canvas is CanvasMainMenu)
+        //{
+        //    closeButton.SetActive(true);
+        //}
+        if (canvas is CanvasGamePlay)
         {
             mainMenuButton.gameObject.SetActive(true);
             continueButton.gameObject.SetActive(true);
+        }
+    }
+
+    public void OnSoundButtonPressed()
+    {
+        SoundManager.Instance.IsSoundOn = !SoundManager.Instance.IsSoundOn;
+        if (SoundManager.Instance.IsSoundOn)
+        {
+            Cache.GenImage(soundButton).color = Color.green;
+            Cache.GenRectTransform(soundButton).localPosition = onEffectPos;
+            offSoundText.gameObject.SetActive(false);
+        }
+        else
+        {
+            Cache.GenImage(soundButton).color = Color.white;
+            Cache.GenRectTransform(soundButton).localPosition = offEffectPos;
+            offSoundText.gameObject.SetActive(true);
+        }
+    }
+
+    public void OnVibrationButtonPressed()
+    {
+        SoundManager.Instance.IsVibrationOn = !SoundManager.Instance.IsVibrationOn;
+        if (SoundManager.Instance.IsVibrationOn)
+        {
+            Cache.GenImage(vibrationButton).color = Color.green;
+            Cache.GenRectTransform(vibrationButton).localPosition = onEffectPos;
+            offVibrationText.gameObject.SetActive(false);
+        }
+        else
+        {
+            Cache.GenImage(vibrationButton).color = Color.white;
+            Cache.GenRectTransform(vibrationButton).localPosition = offEffectPos;
+            offVibrationText.gameObject.SetActive(true);
         }
     }
 

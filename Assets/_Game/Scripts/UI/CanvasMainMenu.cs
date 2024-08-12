@@ -52,11 +52,13 @@ public class CanvasMainMenu : UICanvas
         {
             vibrateOff.SetActive(false);
             vibrateOn.SetActive(true);
+            SoundManager.Instance.IsVibrationOn = true;
         }
         else
         {
             vibrateOn.SetActive(false);
             vibrateOff.SetActive(true);
+            SoundManager.Instance.IsVibrationOn = false;
         }
     }
 
@@ -66,11 +68,13 @@ public class CanvasMainMenu : UICanvas
         {
             soundOff.SetActive(false);
             soundOn.SetActive(true);
+            SoundManager.Instance.IsSoundOn = true;
         }
         else
         {
             soundOn.SetActive(false);
             soundOff.SetActive(true);
+            SoundManager.Instance.IsSoundOn = false;
         }
     }
 

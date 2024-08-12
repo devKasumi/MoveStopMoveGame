@@ -345,6 +345,9 @@ public class InventoryManager : Singleton<InventoryManager>
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
         UpdatePlayerHead(jsonData.HeadItemIndex);
+        SoundManager.Instance.IsSoundOn = jsonData.isSoundOn;
+        SoundManager.Instance.IsVibrationOn = jsonData.isVibrationOn;
+
 
         string mats = InvenCustomWeaponMats[(int)jsonData.PlayerWeaponType];
         matsCount = mats.Length;
@@ -364,6 +367,8 @@ public class InventoryManager : Singleton<InventoryManager>
         jsonData.CustomWeaponMats = InvenCustomWeaponMats;
         jsonData.HeadItemStatus = InvenHeadItemStatus;
         jsonData.HeadItemIndex = this.HeadItemIndex;
+        jsonData.isSoundOn = SoundManager.Instance.IsSoundOn;
+        jsonData.isVibrationOn = SoundManager.Instance.IsVibrationOn;
 
         JsonFileHandler.SaveToJson<JsonData>(jsonData, Constants.JSON_FILE_NAME);
     }
@@ -384,4 +389,6 @@ public class JsonData
     public Dictionary<int, string> CustomWeaponMats = new Dictionary<int, string>();
     public Dictionary<int, int> HeadItemStatus = new Dictionary<int, int>();
 
+    public bool isSoundOn;
+    public bool isVibrationOn;
 }
