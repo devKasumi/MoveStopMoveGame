@@ -1,13 +1,14 @@
 {
-  "PlayerWeaponType": 1,
+  "PlayerWeaponType": 2,
   "PlayerWeaponImageMat": null,
   "PlayerSkinColor": 0,
   "PlayerPantType": 6,
+  "HeadItemIndex": 1,
   "coin": 0,
   "CustomWeaponMats": {
     "0": "46",
-    "1": "35",
-    "2": "123",
+    "1": "54",
+    "2": "035",
     "3": "106",
     "4": "40",
     "5": "402",
@@ -16,8 +17,8 @@
   },
   "HeadItemStatus": {
     "0": 0,
-    "1": 0,
-    "2": 1,
+    "1": 1,
+    "2": 0,
     "3": 0
   }
 }

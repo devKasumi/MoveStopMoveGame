@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 611731957}
+  floatingJoystick: {fileID: 1278882012}
   canvas: {fileID: 611731956}
   targetIndicators: []
   mainCamera: {fileID: 963194227}
@@ -832,6 +833,8 @@ MonoBehaviour:
   - {x: -0.025, y: 0.97, z: 0.017}
   - {x: -0.017, y: 0.87, z: -0.05}
   - {x: -0.022, y: 0.98, z: 0.007}
+  currentHeadItem: {fileID: 0}
+  currentPantMat: {fileID: 0}
   customWeaponColors: []
   matsCount: 0
   PlayerCoin: 50
@@ -932,6 +935,7 @@ MonoBehaviour:
   totalBot: 60
   botThreshold: 5
   BotActiveCount: 0
+  currentActiveBot: 12
   currentTotalActiveBot: 60
 --- !u!1 &963194225
 GameObject:

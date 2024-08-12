@@ -14,6 +14,7 @@ public class CanvasMainMenu : UICanvas
     public void PlayButton()
     {
         Close(0);
+        UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
         UIManager.Instance.OpenUI<CanvasGamePlay>();
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
         LevelManager.Instance.CurrentLevel().OnPlay();
@@ -29,12 +30,14 @@ public class CanvasMainMenu : UICanvas
     {
         Close(0);
         UIManager.Instance.OpenUI<CanvasUIWeapon>();
+        UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
         UIManager.Instance.CanvasWeapon.gameObject.SetActive(true);
     }
 
     public void OnSkinButtonPressed()
     {
         Close(0);
+        UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
         UIManager.Instance.OpenUI<CanvasUISkin>();
     }
 

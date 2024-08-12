@@ -9,6 +9,7 @@ public class UIManager : Singleton<UIManager>
     Dictionary<System.Type, UICanvas> canvasesActive = new Dictionary<System.Type, UICanvas>();
     Dictionary<System.Type, UICanvas> canvasPrefabs = new Dictionary<System.Type, UICanvas>();
 
+    public FloatingJoystick floatingJoystick;
     public Canvas canvas;
     public List<TargetIndicator> targetIndicators = new List<TargetIndicator>();
     public Camera mainCamera;

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InventoryManager : Singleton<InventoryManager>
 {
@@ -27,8 +28,8 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private List<Vector3> headObjectPos = new List<Vector3>();
     private int HeadItemIndex = -1;
 
-    private GameObject currentHeadItem = null;
-    private Material currentPantMat = null;
+    public GameObject currentHeadItem = null;
+    public Material currentPantMat = null;
 
     //private Dictionary<int, string> playerWeaponStatus = new Dictionary<int, string>();
     //private Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
@@ -186,6 +187,12 @@ public class InventoryManager : Singleton<InventoryManager>
         {
             Destroy(currentHeadItem.gameObject);
         }
+        if (HeadItemIndex == index)
+        {
+            Destroy(player.Head.transform.GetChild(0).gameObject);
+            HeadItemIndex = -1;
+            return;
+        }
         GameObject head = Instantiate(headObjects[index]);
         Transform headTf = Cache.GenTransform(head);
         headTf.parent = Cache.GenTransform(player.Head);
@@ -193,6 +200,14 @@ public class InventoryManager : Singleton<InventoryManager>
         headTf.localRotation = Quaternion.identity;
         currentHeadItem = head;
         HeadItemIndex = index;
+    }
+
+    public void UpdatePlayerSkin()
+    {
+        if (InvenHeadItemStatus[HeadItemIndex] != 1)
+        {
+            Destroy(player.Head.transform.GetChild(0).gameObject);
+        }
     }
 
     public void UpdatePlayerPant(int index)

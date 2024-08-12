@@ -169,12 +169,14 @@ public class Character : GameUnit
             ChangeAnimation(Constants.ANIMATION_DEAD);
             isCharacterDeath = true;
             rb.isKinematic = true;
+            StartCoroutine(ShowFailPopup());
         }
     }
 
     public IEnumerator ShowFailPopup()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+        UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasFail>();
         GameManager.Instance.UpdateGameState(GameState.Finish);
     }

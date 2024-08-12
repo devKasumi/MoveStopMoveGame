@@ -199,7 +199,10 @@ public class CanvasUISkin : UICanvas
     {
         //InventoryManager.Instance.UpdatePlayerHead(currentHeadIndex);
         //InventoryManager.Instance.UpdatePlayerPant(currentPantIndex);
+        //if (InventoryManager)
         Close(0);
+        //UpdatePlayerSkin();
+        InventoryManager.Instance.UpdatePlayerSkin();
         UIManager.Instance.OpenUI<CanvasMainMenu>();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
@@ -217,5 +220,10 @@ public class CanvasUISkin : UICanvas
             headButtons[headItemIndex].UnlockImage.SetActive(true);
         }
     }
+
+    //public void UpdatePlayerSkin()
+    //{
+    //    if ()
+    //}
     
 }
