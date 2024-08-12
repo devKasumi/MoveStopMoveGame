@@ -19,8 +19,9 @@ public class CanvasMainMenu : UICanvas
     public void PlayButton()
     {
         Close(0);
-        LevelManager.Instance.Player.OnInit();
-        UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
+        //LevelManager.Instance.Player.OnInit();
+        //LevelManager.Instance.CurrentLevel().OnInit();
+        //UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
         UIManager.Instance.OpenUI<CanvasGamePlay>();
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
         LevelManager.Instance.CurrentLevel().OnPlay();

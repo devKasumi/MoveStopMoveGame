@@ -36,11 +36,20 @@ public class Character : GameUnit
 
     public virtual void OnInit()
     {
+        //if (listTargets.Count > 0)
+        //{
+        //    for (int i = 0; i < listTargets.Count; i++)
+        //    {
+        //        listTargets.Remove(listTargets[i]);
+        //    }
+        //}
+        //listTargets.Clear();
+        listTargets = new List<Character>();
         attackArea.gameObject.SetActive(true);
         capsuleCollider.enabled = true;
         rb.isKinematic = false;
         isCharacterDeath = false;
-        currentAnimationName = Constants.ANIMATION_IDLE;
+        //currentAnimationName = Constants.ANIMATION_IDLE;
     }
 
     public virtual void OnDespawn()

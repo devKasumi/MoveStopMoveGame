@@ -27,6 +27,13 @@ public class PoolControl : MonoBehaviour
 
     public void OnInit()
     {
+        if (listActiveBots.Count != 0)
+        {
+            for (int i = 0; i < listActiveBots.Count; i++)
+            {
+                BasePool.Despawn(listActiveBots[i]);
+            }
+        }
         for (int i = 0; i < bots.Count; i++)
         {
             PreLoadBotPool(i);

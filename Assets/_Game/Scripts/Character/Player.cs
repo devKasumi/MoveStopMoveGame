@@ -10,11 +10,14 @@ public class Player : Character
     [SerializeField] private GameObject armature;
     [SerializeField] private GameObject initialGroup;
     [SerializeField] private GameObject pant;
+    [SerializeField] private GameObject playerBody;
 
     private Vector3 originPos = new Vector3(0, 1, -22);
-    private Vector3 originArmturePos;
-    private Vector3 originInitialGroupPos;
-    private Vector3 originPantPos;
+    //private Vector3 originArmturePos;
+    //private Vector3 originInitialGroupPos;
+    //private Vector3 originPantPos;
+    //private Vector3 bodyPos;
+    //private Quaternion bodyRot;
 
     private Vector3 moveDirection;
     private float inputX;
@@ -25,20 +28,23 @@ public class Player : Character
 
     private void Awake()
     {
-        originArmturePos = Cache.GenTransform(armature).localPosition;
-        originInitialGroupPos = Cache.GenTransform(initialGroup).localPosition;
-        originPantPos = Cache.GenTransform(pant).localPosition;
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        //originArmturePos = Cache.GenTransform(armature).position;
+        //originInitialGroupPos = Cache.GenTransform(initialGroup).position;
+        //originPantPos = Cache.GenTransform(pant).position;
+        //bodyPos = playerBody.transform.localPosition;
+        //bodyRot = playerBody.transform.localRotation;
         OnInit();
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (!GameManager.Instance.CurrentState(GameState.GamePlay))
         {
             return;
@@ -62,14 +68,15 @@ public class Player : Character
     public override void OnInit()
     {
         base.OnInit();
+        ChangeAnimation(Constants.ANIMATION_IDLE);
         TF.position = originPos;
         TF.rotation = Quaternion.identity;
-        //isCharacterDeath = false;
-        Cache.GenTransform(armature).localPosition = originArmturePos;
-        Cache.GenTransform(initialGroup).localPosition = originInitialGroupPos;
-        Cache.GenTransform(pant).localPosition = originPantPos;
+        //Cache.GenTransform(armature).position = originArmturePos;
+        //Cache.GenTransform(initialGroup).position = originInitialGroupPos;
+        //Cache.GenTransform(pant).position = originPantPos;
+        //playerBody.transform.localPosition = bodyPos;
+        //playerBody.transform.localRotation = bodyRot;    
         UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
-        ChangeAnimation(Constants.ANIMATION_IDLE);
         UpdateWeaponImage();
     }
 
