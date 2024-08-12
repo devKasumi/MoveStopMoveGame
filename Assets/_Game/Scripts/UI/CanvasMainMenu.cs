@@ -10,10 +10,16 @@ public class CanvasMainMenu : UICanvas
     [SerializeField] private GameObject soundOff;
     [SerializeField] private GameObject soundOn;
 
+    private void Start()
+    {
+        UpdateSoundUI();
+        UpdateVibrationUI();
+    }
 
     public void PlayButton()
     {
         Close(0);
+        LevelManager.Instance.Player.OnInit();
         UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
         UIManager.Instance.OpenUI<CanvasGamePlay>();
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
@@ -48,7 +54,14 @@ public class CanvasMainMenu : UICanvas
 
     public void OnVibrateButtonPressed()
     {
-        if (vibrateOff.activeSelf)
+        SoundManager.Instance.IsVibrationOn = !SoundManager.Instance.IsVibrationOn;
+        UpdateVibrationUI();
+        InventoryManager.Instance.SaveDataToJsonFile();
+    }
+
+    public void UpdateVibrationUI()
+    {
+        if (SoundManager.Instance.IsVibrationOn)
         {
             vibrateOff.SetActive(false);
             vibrateOn.SetActive(true);
@@ -64,7 +77,14 @@ public class CanvasMainMenu : UICanvas
 
     public void OnSoundButtonPressed()
     {
-        if (soundOff.activeSelf)
+        SoundManager.Instance.IsSoundOn = !SoundManager.Instance.IsSoundOn;
+        UpdateSoundUI();
+        InventoryManager.Instance.SaveDataToJsonFile();
+    }
+
+    public void UpdateSoundUI()
+    {
+        if (SoundManager.Instance.IsSoundOn)
         {
             soundOff.SetActive(false);
             soundOn.SetActive(true);

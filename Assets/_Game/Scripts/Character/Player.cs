@@ -7,6 +7,14 @@ using Newtonsoft.Json;
 public class Player : Character
 {
     [SerializeField] private FloatingJoystick joystick;
+    [SerializeField] private GameObject armature;
+    [SerializeField] private GameObject initialGroup;
+    [SerializeField] private GameObject pant;
+
+    private Vector3 originPos = new Vector3(0, 1, -22);
+    private Vector3 originArmturePos;
+    private Vector3 originInitialGroupPos;
+    private Vector3 originPantPos;
 
     private Vector3 moveDirection;
     private float inputX;
@@ -17,7 +25,9 @@ public class Player : Character
 
     private void Awake()
     {
-        //GetDataFromJsonFile();
+        originArmturePos = Cache.GenTransform(armature).localPosition;
+        originInitialGroupPos = Cache.GenTransform(initialGroup).localPosition;
+        originPantPos = Cache.GenTransform(pant).localPosition;
     }
 
     // Start is called before the first frame update
@@ -52,7 +62,14 @@ public class Player : Character
     public override void OnInit()
     {
         base.OnInit();
-
+        TF.position = originPos;
+        TF.rotation = Quaternion.identity;
+        //isCharacterDeath = false;
+        Cache.GenTransform(armature).localPosition = originArmturePos;
+        Cache.GenTransform(initialGroup).localPosition = originInitialGroupPos;
+        Cache.GenTransform(pant).localPosition = originPantPos;
+        UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
+        ChangeAnimation(Constants.ANIMATION_IDLE);
         UpdateWeaponImage();
     }
 

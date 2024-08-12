@@ -38,6 +38,8 @@ public class Character : GameUnit
     {
         attackArea.gameObject.SetActive(true);
         capsuleCollider.enabled = true;
+        rb.isKinematic = false;
+        isCharacterDeath = false;
         currentAnimationName = Constants.ANIMATION_IDLE;
     }
 
@@ -169,6 +171,7 @@ public class Character : GameUnit
             ChangeAnimation(Constants.ANIMATION_DEAD);
             isCharacterDeath = true;
             rb.isKinematic = true;
+            UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
             StartCoroutine(ShowFailPopup());
         }
     }

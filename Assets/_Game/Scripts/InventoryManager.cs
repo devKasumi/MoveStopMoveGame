@@ -389,6 +389,6 @@ public class JsonData
     public Dictionary<int, string> CustomWeaponMats = new Dictionary<int, string>();
     public Dictionary<int, int> HeadItemStatus = new Dictionary<int, int>();
 
-    public bool isSoundOn;
-    public bool isVibrationOn;
+    public bool isSoundOn = true;
+    public bool isVibrationOn = true;
 }

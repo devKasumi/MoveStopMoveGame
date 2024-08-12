@@ -16,6 +16,12 @@ public class CanvasSettings : UICanvas
     private Vector3 offEffectPos = new Vector3(-50, 0, 0);
     private Vector3 onEffectPos = new Vector3(50, 0, 0);
 
+    private void Start()
+    {
+        UpdateSoundUI();    
+        UpdateVibrationUI();
+    }
+
     public void SetState(UICanvas canvas)
     {
         mainMenuButton.SetActive(false);
@@ -36,6 +42,12 @@ public class CanvasSettings : UICanvas
     public void OnSoundButtonPressed()
     {
         SoundManager.Instance.IsSoundOn = !SoundManager.Instance.IsSoundOn;
+        UpdateSoundUI();
+        InventoryManager.Instance.SaveDataToJsonFile();
+    }
+
+    public void UpdateSoundUI()
+    {
         if (SoundManager.Instance.IsSoundOn)
         {
             Cache.GenImage(soundButton).color = Color.green;
@@ -53,6 +65,12 @@ public class CanvasSettings : UICanvas
     public void OnVibrationButtonPressed()
     {
         SoundManager.Instance.IsVibrationOn = !SoundManager.Instance.IsVibrationOn;
+        UpdateVibrationUI();
+        InventoryManager.Instance.SaveDataToJsonFile();
+    }
+
+    public void UpdateVibrationUI()
+    {
         if (SoundManager.Instance.IsVibrationOn)
         {
             Cache.GenImage(vibrationButton).color = Color.green;
