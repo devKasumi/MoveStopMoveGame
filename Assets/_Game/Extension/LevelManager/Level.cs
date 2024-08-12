@@ -15,7 +15,6 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //currentTotalActiveBot = totalBot;
         OnInit();
     }
 
@@ -30,8 +29,11 @@ public class Level : MonoBehaviour
 
     public void OnInit()
     {
+        BotActiveCount = 0;
         LevelManager.Instance.PoolControl.OnInit();
         LevelManager.Instance.PoolControl.SpawnBotAtBeginning();
+        currentTotalActiveBot = totalBot;
+        currentActiveBot = LevelManager.Instance.PoolControl.ListActiveBots.Count; 
     }
 
     public Platform Platform => levelPlatform;

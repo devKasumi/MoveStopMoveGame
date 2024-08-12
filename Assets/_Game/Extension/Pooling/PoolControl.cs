@@ -33,6 +33,7 @@ public class PoolControl : MonoBehaviour
             {
                 BasePool.Despawn(listActiveBots[i]);
             }
+            listActiveBots.Clear();
         }
         for (int i = 0; i < bots.Count; i++)
         {
