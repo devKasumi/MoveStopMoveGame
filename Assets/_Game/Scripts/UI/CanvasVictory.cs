@@ -7,24 +7,26 @@ public class CanvasVictory : UICanvas
 {
     //[SerializeField] private TextMeshProUGUI scoreText;
 
-    public void SetBestScore(int score)
-    {
-        //scoreText.text = score.ToString();
-    }
+    //public void SetBestScore(int score)
+    //{
+    //    //scoreText.text = score.ToString();
+    //}
 
     public void NextButton()
     {
-        UIManager.Instance.CloseAll();
-        UIManager.Instance.OpenUI<CanvasMainMenu>();
-        //LevelManager.GetInstance.OnLoadNextLevel();
-        GameManager.Instance.UpdateGameState(GameState.MainMenu);
+        //UIManager.Instance.CloseAll();
+        //UIManager.Instance.OpenUI<CanvasMainMenu>();
+        ////LevelManager.GetInstance.OnLoadNextLevel();
+        //GameManager.Instance.UpdateGameState(GameState.MainMenu);
+        Debug.LogError("New map currently on developing!!!!");
     }
 
     public void RetryButton()
     {
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasMainMenu>();
-        //LevelManager.GetInstance.OnRetryLevel();
+        LevelManager.Instance.Player.OnInit();
+        LevelManager.Instance.CurrentLevel().OnInit();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
 }

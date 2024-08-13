@@ -15,8 +15,6 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private List<GameObject> weaponObjects = new List<GameObject>();
     [SerializeField] private List<Vector3> weaponObjectPos = new List<Vector3>();
 
-    //[SerializeField] private List<List<Material>> mats = new List<List<Material>>();
-
     [SerializeField] private List<Material> colorMats = new List<Material>();
 
     private List<List<GameObject>> weaponObjectsUIList = new List<List<GameObject>>(); // chua cac list weapon ui nho(gom 4 thang ui hien len)
@@ -30,10 +28,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public GameObject currentHeadItem = null;
     public Material currentPantMat = null;
-
-    //private Dictionary<int, string> playerWeaponStatus = new Dictionary<int, string>();
-    //private Dictionary<int, string> playerHeadItemStatus = new Dictionary<int, string>();
-    //private Dictionary<int, string> playerPantItemStatus = new Dictionary<int, string>();
 
     public Dictionary<int, string> InvenCustomWeaponMats = new Dictionary<int, string>();   // chua mats cua cac custom weapon
     public Dictionary<int, int> InvenHeadItemStatus = new Dictionary<int, int>();           // chua status cua tung head item
