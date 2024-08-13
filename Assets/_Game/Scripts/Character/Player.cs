@@ -26,6 +26,8 @@ public class Player : Character
     private float frameRate = 0.8f;
     private float time = 0;
 
+    private Vector3 rot = new Vector3(0, 174, 0);
+
     private void Awake()
     {
         

@@ -198,6 +198,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void UpdatePlayerSkin()
     {
+        if (player.Head.transform.childCount == 0) return;
         if (InvenHeadItemStatus[HeadItemIndex] != 1)
         {
             Destroy(player.Head.transform.GetChild(0).gameObject);

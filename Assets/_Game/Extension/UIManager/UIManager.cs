@@ -16,6 +16,7 @@ public class UIManager : Singleton<UIManager>
     public GameObject TargetIndicatorPrefab;
     public Canvas CanvasWeapon;
 
+    private Vector3 originOffset = new Vector3(0, 11, -11);
 
     private void Awake()
     {
@@ -120,5 +121,10 @@ public class UIManager : Singleton<UIManager>
                 canvas.Value.Close(0);
             }
         }
+    }
+
+    public void ResetCamera()
+    {
+        Cache.GenCameraFollow(mainCamera).CameraOffset = originOffset;
     }
 }

@@ -89,4 +89,15 @@ public class Cache
         return rectTransforms[gameObject];
     }
 
+    private static Dictionary<Camera, CameraFollow> cameraFollow = new Dictionary<Camera, CameraFollow>();
+
+    public static CameraFollow GenCameraFollow(Camera camera)
+    {
+        if (!cameraFollow.ContainsKey(camera))
+        {
+            cameraFollow.Add(camera, camera.GetComponent<CameraFollow>());
+        }
+
+        return cameraFollow[camera];
+    }
 }

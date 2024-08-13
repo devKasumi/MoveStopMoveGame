@@ -13,9 +13,17 @@ public class CanvasMainMenu : UICanvas
     [SerializeField] private GameObject soundOff;
     [SerializeField] private GameObject soundOn;
 
+    private Vector3 UISkinOffset = new Vector3(0, 4, -11);
+
     private void Start()
     {
         UpdatePlayerCoin(InventoryManager.Instance.PlayerCoin);
+        UpdateSoundUI();
+        UpdateVibrationUI();
+    }
+
+    private void Update()
+    {
         UpdateSoundUI();
         UpdateVibrationUI();
     }
@@ -27,9 +35,7 @@ public class CanvasMainMenu : UICanvas
 
     public void PlayButton()
     {
-        Close(0);
-        //LevelManager.Instance.Player.OnInit();
-        //LevelManager.Instance.CurrentLevel().OnInit();
+        UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasGamePlay>();
         UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
@@ -44,7 +50,7 @@ public class CanvasMainMenu : UICanvas
 
     public void OnWeaponButtonPressed()
     {
-        Close(0);
+        UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasUIWeapon>();
         UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
         UIManager.Instance.CanvasWeapon.gameObject.SetActive(true);
@@ -52,7 +58,9 @@ public class CanvasMainMenu : UICanvas
 
     public void OnSkinButtonPressed()
     {
-        Close(0);
+        UIManager.Instance.CloseAll();
+        Cache.GenCameraFollow(UIManager.Instance.mainCamera).CameraOffset = UISkinOffset;   
+        LevelManager.Instance.Player.TF.rotation = Quaternion.Euler(0, 174, 0);
         UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
         UIManager.Instance.OpenUI<CanvasUISkin>();
     }

@@ -17,4 +17,10 @@ public class CameraFollow : MonoBehaviour
             tf.position = Vector3.Lerp(tf.position, target.position + offset, Time.deltaTime * moveSpeed);
         }
     }
+
+    public Vector3 CameraOffset
+    {
+        get => offset;
+        set => offset = value;
+    }
 }

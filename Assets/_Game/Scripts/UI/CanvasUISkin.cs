@@ -27,10 +27,11 @@ public class CanvasUISkin : UICanvas
     [SerializeField] private HeadButton[] headButtons;
 
     private int currentItemUIIndex = 0;
-    //private int selectedHeadIndex;
     private int currentHeadIndex = -1;
-    //private int selectedPantIndex;
     private int currentPantIndex = -1;
+
+    private Vector3 originOffset = new Vector3(0, 11, -11);
+    
 
     private void Start()
     {
@@ -42,7 +43,6 @@ public class CanvasUISkin : UICanvas
     {
         for (int i = 0; i < headButtons.Length; i++)
         {
-            // TODO: sua lai logic 
             UpdateHeadItemStatus(i, InventoryManager.Instance.InvenHeadItemStatus[i]);
         }
     }
@@ -137,7 +137,6 @@ public class CanvasUISkin : UICanvas
 
     public void OnPantButtonPressed(int index)
     {
-        //Debug.LogError("on pant button pressed!!!    " + index);
         InventoryManager.Instance.UpdatePlayerPant(index);
         currentPantIndex = index;
     }
@@ -158,8 +157,6 @@ public class CanvasUISkin : UICanvas
         switch (currentItemUIIndex)
         {
             case 0:
-                //selectedHeadIndex = currentHeadIndex;
-                //InventoryManager.Instance.UpdatePlayerHead(currentHeadIndex);
                 InventoryManager.Instance.PlayerCoin -= 50;
                 if (InventoryManager.Instance.InvenHeadItemStatus.ContainsKey(currentHeadIndex))
                 {
@@ -197,12 +194,9 @@ public class CanvasUISkin : UICanvas
 
     public void OnCloseButtonPressed()
     {
-        //InventoryManager.Instance.UpdatePlayerHead(currentHeadIndex);
-        //InventoryManager.Instance.UpdatePlayerPant(currentPantIndex);
-        //if (InventoryManager)
         Close(0);
-        //UpdatePlayerSkin();
         InventoryManager.Instance.UpdatePlayerSkin();
+        Cache.GenCameraFollow(UIManager.Instance.mainCamera).CameraOffset = originOffset;
         UIManager.Instance.OpenUI<CanvasMainMenu>();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
@@ -221,9 +215,4 @@ public class CanvasUISkin : UICanvas
         }
     }
 
-    //public void UpdatePlayerSkin()
-    //{
-    //    if ()
-    //}
-    
 }
