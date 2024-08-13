@@ -87,7 +87,7 @@ public class CanvasSettings : UICanvas
 
     public void MainMenuButton()
     {
-        Close(0);
+        //Close(0);
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasMainMenu>();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
@@ -95,7 +95,8 @@ public class CanvasSettings : UICanvas
 
     public void ContinueButton()
     {
-        Close(0);
+        //Close(0);
+        UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasGamePlay>();
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
         LevelManager.Instance.CurrentLevel().OnPlay();
@@ -103,7 +104,8 @@ public class CanvasSettings : UICanvas
 
     public void CloseButton()
     {
-        Close(0);
+        //Close(0);
+        UIManager.Instance.CloseAll();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }
 }

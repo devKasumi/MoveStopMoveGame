@@ -194,7 +194,8 @@ public class CanvasUISkin : UICanvas
 
     public void OnCloseButtonPressed()
     {
-        Close(0);
+        //Close(0);
+        UIManager.Instance.CloseAll();
         InventoryManager.Instance.UpdatePlayerSkin();
         Cache.GenCameraFollow(UIManager.Instance.mainCamera).CameraOffset = originOffset;
         UIManager.Instance.OpenUI<CanvasMainMenu>();
