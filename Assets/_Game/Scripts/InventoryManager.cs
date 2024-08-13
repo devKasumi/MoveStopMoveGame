@@ -287,6 +287,12 @@ public class InventoryManager : Singleton<InventoryManager>
         {
             player.Weapon = poolControl.SetPlayerWeapon(currentWeaponUIIndex);
         }
+
+        if (currentMats[0] == null)
+        {
+            return;
+        }
+
         player.Weapon.WeaponSkin.materials = currentMats;
         player.UpdateWeaponImage();
     }
