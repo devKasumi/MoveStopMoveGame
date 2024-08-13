@@ -175,12 +175,16 @@ public class CanvasUISkin : UICanvas
         switch (currentItemUIIndex)
         {
             case 0:
-                if (InventoryManager.Instance.InvenHeadItemStatus.ContainsKey(currentHeadIndex))
+                if (currentHeadIndex != -1)
                 {
-                    InventoryManager.Instance.InvenHeadItemStatus[currentHeadIndex] = 1;
+                    if (InventoryManager.Instance.InvenHeadItemStatus.ContainsKey(currentHeadIndex))
+                    {
+                        InventoryManager.Instance.InvenHeadItemStatus[currentHeadIndex] = 1;
+                    }
+                    else InventoryManager.Instance.InvenHeadItemStatus.Add(currentHeadIndex, 1);
+
+                    InventoryManager.Instance.SaveDataToJsonFile();
                 }
-                else InventoryManager.Instance.InvenHeadItemStatus.Add(currentHeadIndex, 1);
-                InventoryManager.Instance.SaveDataToJsonFile();
                 break;
             default:
                 break;

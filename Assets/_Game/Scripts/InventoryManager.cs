@@ -177,10 +177,12 @@ public class InventoryManager : Singleton<InventoryManager>
     public void UpdatePlayerHead(int index)
     {
         if (index == -1) return;
+
         if (currentHeadItem != null)
         {
             Destroy(currentHeadItem.gameObject);
         }
+
         if (HeadItemIndex == index)
         {
             Destroy(player.Head.transform.GetChild(0).gameObject);
@@ -338,6 +340,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void GetDataFromJsonFile()
     {
+        
         JsonData jsonData = JsonFileHandler.ReadFromJson<JsonData>(Constants.JSON_FILE_NAME);
         InvenCustomWeaponMats = jsonData.CustomWeaponMats.Count != 0 ? jsonData.CustomWeaponMats : DefaultCustomWeapon();
         InvenHeadItemStatus = jsonData.HeadItemStatus.Count != 0 ? jsonData.HeadItemStatus : DefaultHeadItemStatus();
@@ -345,6 +348,9 @@ public class InventoryManager : Singleton<InventoryManager>
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
+        //HeadItemIndex = jsonData.HeadItemIndex;
+        Debug.LogError(jsonData.HeadItemIndex);
+        //UpdatePlayerHead(HeadItemIndex);
         UpdatePlayerHead(jsonData.HeadItemIndex);
         SoundManager.Instance.IsSoundOn = jsonData.isSoundOn;
         SoundManager.Instance.IsVibrationOn = jsonData.isVibrationOn;
