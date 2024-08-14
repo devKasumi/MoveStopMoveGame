@@ -5,23 +5,23 @@ using UnityEngine;
 public class OffscreenMarkersCameraScript : MonoBehaviour
 {
     [SerializeField] private Camera indicatorCam;
-    public OffscreenMarkersCameraScript Instance()
-    {
-        Camera mc = indicatorCam;
-        if (!mc)
-        {
-            Debug.LogWarning("OffscreenMarkersCameraScript: Couldn't find main camera.");
-            return null;
-        }
-        var instance = mc.GetComponent<OffscreenMarkersCameraScript>();
-        if (!instance)
-        {
-            instance = mc.gameObject.AddComponent<OffscreenMarkersCameraScript>();
-        }
-        return instance;
-    }
+    //public OffscreenMarkersCameraScript Instance()
+    //{
+    //    Camera mc = indicatorCam;
+    //    if (!mc)
+    //    {
+    //        Debug.LogWarning("OffscreenMarkersCameraScript: Couldn't find main camera.");
+    //        return null;
+    //    }
+    //    var instance = mc.GetComponent<OffscreenMarkersCameraScript>();
+    //    if (!instance)
+    //    {
+    //        instance = mc.gameObject.AddComponent<OffscreenMarkersCameraScript>();
+    //    }
+    //    return instance;
+    //}
 
-    private Camera _camera => gameObject.GetComponent<Camera>();
+    //private Camera indicatorCam => gameObject.GetComponent<Camera>();
     private List<Bot> _trackedObjects = new List<Bot>();
 
     public void Register(Bot om)
@@ -43,7 +43,7 @@ public class OffscreenMarkersCameraScript : MonoBehaviour
 
     private bool IsVisible(GameObject go)
     {
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_camera);
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(indicatorCam);
         Renderer[] rends = go.GetComponentsInChildren<Renderer>();
         foreach (var r in rends)
         {
@@ -57,8 +57,8 @@ public class OffscreenMarkersCameraScript : MonoBehaviour
 
     private Vector3 FixBehindCamera(Vector3 p)
     {
-        Vector3 d = p - _camera.transform.position;
-        Vector3 n = _camera.transform.forward;
+        Vector3 d = p - indicatorCam.transform.position;
+        Vector3 n = indicatorCam.transform.forward;
         float ds = Vector3.Dot(d, n);
 
         if (ds > 0)
@@ -81,7 +81,7 @@ public class OffscreenMarkersCameraScript : MonoBehaviour
         {
             return;
         }
-        Rect camRect = _camera.pixelRect;
+        Rect camRect = indicatorCam.pixelRect;
         Vector2 iconSize = new Vector2(camRect.height / 30, camRect.height / 30);
         Vector2 iconExt = iconSize / 2;
         Vector2 arrowSize = new Vector2(iconSize.x / 4, iconSize.y / 2);
@@ -100,7 +100,7 @@ public class OffscreenMarkersCameraScript : MonoBehaviour
                 if (!IsVisible(marker.gameObject))
                 {
                     Vector3 wp = FixBehindCamera(marker.transform.position);
-                    Vector2 mrkScrPos = _camera.WorldToScreenPoint(wp);
+                    Vector2 mrkScrPos = indicatorCam.WorldToScreenPoint(wp);
                     mrkScrPos.y = camRect.height - mrkScrPos.y;
                     Vector2 iconPos = new Vector2(
                         Mathf.Clamp(mrkScrPos.x, iconExt.x + margin, camRect.width - iconExt.x - margin),

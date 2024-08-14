@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class CanvasSettings : UICanvas
 {
-    //[SerializeField] private GameObject[] buttons;
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject continueButton;
-    //[SerializeField] private GameObject closeButton;
     [SerializeField] private GameObject soundButton;
     [SerializeField] private GameObject vibrationButton;
     [SerializeField] private TextMeshProUGUI offSoundText;
@@ -87,7 +85,6 @@ public class CanvasSettings : UICanvas
 
     public void MainMenuButton()
     {
-        //Close(0);
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasMainMenu>();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
@@ -95,7 +92,6 @@ public class CanvasSettings : UICanvas
 
     public void ContinueButton()
     {
-        //Close(0);
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasGamePlay>();
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
@@ -104,7 +100,6 @@ public class CanvasSettings : UICanvas
 
     public void CloseButton()
     {
-        //Close(0);
         UIManager.Instance.CloseAll();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
     }

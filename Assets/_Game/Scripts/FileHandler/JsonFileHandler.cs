@@ -11,7 +11,6 @@ public static class JsonFileHandler
     {
         string dataToJson = JsonConvert.SerializeObject(dataToSave, Formatting.Indented);
         string filePath = Application.dataPath + "/" + Constants.JSON_PATH + "/" + fileName;
-        //Debug.LogError(filePath);
         WriteFile(filePath, dataToJson);
     }
 

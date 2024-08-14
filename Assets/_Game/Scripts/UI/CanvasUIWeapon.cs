@@ -272,21 +272,17 @@ public class CanvasUIWeapon : UICanvas
     public void OnButtonNext()
     {
         InventoryManager.Instance.ShowNextWeaponUI();
-        //InitColorSelection();
         OnInit();
     }
 
     public void OnButtonPrev()
     {
         InventoryManager.Instance.ShowPrevWeaponUI();
-        //InitColorSelection();
-        //weaponName.text = WeaponName[InventoryManager.Instance.CurrentWeaponUIIndex];
         OnInit();
     }
 
     public void OnCloseButton()
     {
-        //Close(0);
         UIManager.Instance.CloseAll();
         UIManager.Instance.CanvasWeapon.gameObject.SetActive(false);
         UIManager.Instance.OpenUI<CanvasMainMenu>();

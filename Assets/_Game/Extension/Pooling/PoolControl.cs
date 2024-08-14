@@ -9,7 +9,6 @@ public class PoolControl : MonoBehaviour
 {
     [SerializeField] private List<GameUnit> weapons = new List<GameUnit>();
     private List<GameUnit> bots = new List<GameUnit>();
-    //[SerializeField] private Player player;
     private List<Bot> listActiveBots = new List<Bot>(); 
 
     private int TotalPosEachQuadrant = 3;
@@ -17,7 +16,6 @@ public class PoolControl : MonoBehaviour
     private void Awake()
     {
         bots = Resources.LoadAll<GameUnit>("Pool/Bot/").ToList<GameUnit>();
-        //weapons = Resources.LoadAll<GameUnit>("Pool/Weapon/").ToList<GameUnit>();
     }
 
     private void Start()
@@ -67,10 +65,6 @@ public class PoolControl : MonoBehaviour
         GameUnit gameUnit = BasePool.Spawn<GameUnit>(bots[index].PoolType, pos, Quaternion.identity);
         Bot bot = (Bot)gameUnit;
         bot.OnInit();
-        //if (GameManager.Instance.CurrentState(GameState.GamePlay))
-        //{
-        //    bot.ChangeState(new PatrolState());
-        //}
         bot.Weapon = (Weapon)weapons[Random.Range(0, weapons.Count)];
         bot.Weapon.BotWeaponData();
         bot.UpdateWeaponImage();
@@ -118,15 +112,6 @@ public class PoolControl : MonoBehaviour
         }
     }
 
-    //public Weapon PlayerDefaultWeapon()
-    //{
-    //    Weapon weapon = Instantiate((Weapon)weapons[(int)CommonEnum.WeaponType.Hammer_0], Vector3.down, Quaternion.identity);
-    //    weapon.PlayerWeaponData();
-    //    GameObject pool = new GameObject("PlayerWeapon_Pool");
-    //    BasePool.PreLoad(weapon, 4, pool.transform);
-    //    return weapon;
-    //}
-
     public Weapon InitPlayerWeapon(int index)
     {
         Weapon weapon = Instantiate((Weapon)weapons[index], Vector3.down, Quaternion.identity);
@@ -142,26 +127,6 @@ public class PoolControl : MonoBehaviour
         weapon.PlayerWeaponData();
         return weapon;
     }
-
-    //public void ActiveIndicator(bool active)
-    //{
-    //    OffscreenMarkersCameraScript instance = LevelManager.Instance.indicatorCam.GetComponent<OffscreenMarkersCameraScript>();    
-    //    if (instance)
-    //    {
-    //        if (ListActiveBots.Count > 0)
-    //        {
-    //            for (int i =0; i<ListActiveBots.Count ; i++)
-    //            {
-    //                listActiveBots[i].markerColor = listActiveBots[i].SkinColor.material.color;
-    //                if (active)
-    //                {
-    //                    instance.Register(listActiveBots[i]);
-    //                }
-    //                else instance.Unregister(listActiveBots[i]);
-    //            }
-    //        }
-    //    }
-    //}
 
     public List<GameUnit> ListWeaponPrefabs => weapons;
 }

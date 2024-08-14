@@ -13,12 +13,6 @@ public class Player : Character
     [SerializeField] private GameObject playerBody;
 
     private Vector3 originPos = new Vector3(0, 1, -22);
-    //private Vector3 originArmturePos;
-    //private Vector3 originInitialGroupPos;
-    //private Vector3 originPantPos;
-    //private Vector3 bodyPos;
-    //private Quaternion bodyRot;
-
     private Vector3 moveDirection;
     private float inputX;
     private float inputZ;
@@ -36,11 +30,6 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
-        //originArmturePos = Cache.GenTransform(armature).position;
-        //originInitialGroupPos = Cache.GenTransform(initialGroup).position;
-        //originPantPos = Cache.GenTransform(pant).position;
-        //bodyPos = playerBody.transform.localPosition;
-        //bodyRot = playerBody.transform.localRotation;
         OnInit();
     }
 
@@ -59,10 +48,8 @@ public class Player : Character
             ChangeAnimation(Constants.ANIMATION_DEAD);
             return;
         }
-        //Debug.LogError(currentAnimationName);
-        Move();
 
-        //AttackEnemy();
+        Move();
 
         CheckEnemyCurrentStatus();
     }
@@ -73,9 +60,6 @@ public class Player : Character
         ChangeAnimation(Constants.ANIMATION_IDLE);
         TF.position = originPos;
         TF.rotation = Quaternion.identity;
-        //joystick.IsResetJoystick = true;
-        //moveDirection = Vector3.zero;
-        //joystick.OnPointerUp();
         joystick.OnResetJoyStick();
         UpdateWeaponImage();
     }
@@ -111,7 +95,6 @@ public class Player : Character
         //}
         if (joystick.IsResetJoystick)
         {
-            //ChangeAnimation(Constants.ANIMATION_IDLE);
             AttackEnemy();  
         }
     }

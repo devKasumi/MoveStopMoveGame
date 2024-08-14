@@ -4,8 +4,6 @@ using System.Data.Common;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-//using UnityEngine.UIElements;
-//using UnityEngine.UIElements;
 
 public class Bot : Character
 {
@@ -64,6 +62,7 @@ public class Bot : Character
         SkinColor.material = SkinDataSO.Materials[Random.Range(1, SkinDataSO.Materials.Count)];
         PantMaterial.material = PantDataSO.Materials[Random.Range(0, PantDataSO.Materials.Count)];
         markerColor = SkinColor.material.color;
+
         OffscreenMarkersCameraScript instance = LevelManager.Instance.indicatorCam.GetComponent<OffscreenMarkersCameraScript>();
         if (instance)
         {
