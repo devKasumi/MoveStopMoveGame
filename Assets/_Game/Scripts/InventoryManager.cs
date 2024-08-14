@@ -349,7 +349,7 @@ public class InventoryManager : Singleton<InventoryManager>
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
         //HeadItemIndex = jsonData.HeadItemIndex;
-        Debug.LogError(jsonData.HeadItemIndex);
+        //Debug.LogError(jsonData.HeadItemIndex);
         //UpdatePlayerHead(HeadItemIndex);
         UpdatePlayerHead(jsonData.HeadItemIndex);
         SoundManager.Instance.IsSoundOn = jsonData.isSoundOn;

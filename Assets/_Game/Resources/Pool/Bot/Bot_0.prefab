@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 2247618023308891328}
   - component: {fileID: 4419539092426803298}
   - component: {fileID: 6650446904320842943}
+  - component: {fileID: 4599881196663777373}
   m_Layer: 0
   m_Name: Bot_0
   m_TagString: Bot
@@ -512,6 +513,21 @@ MonoBehaviour:
   botType: 1
   targetImage: {fileID: 5389291457484074077}
   navMeshAgent: {fileID: 4419539092426803298}
+--- !u!114 &4599881196663777373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916340219650495173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c31e1a825148bd40b30f5221a06808b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 8a8d66cd873fc684f8ac7096407fe345, type: 3}
+  Arrow: {fileID: 2800000, guid: 55a2370c46191614eaccd06cc189f2b4, type: 3}
+  Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &6501919164336131854
 GameObject:
   m_ObjectHideFlags: 0

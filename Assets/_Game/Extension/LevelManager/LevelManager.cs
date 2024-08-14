@@ -22,6 +22,25 @@ public class LevelManager : Singleton<LevelManager>
 
     }
 
+    private void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Vector2 camPos = UIManager.Instance.mainCamera.WorldToScreenPoint(UIManager.Instance.mainCamera.transform.position);
+        //    Vector2 playerPos = UIManager.Instance.mainCamera.WorldToScreenPoint(player.transform.position);
+        //    Vector2 botPos = Vector2.zero;
+        //    //Bot bot = new Bot();
+        //    if (player.ListTarget().Count > 0)
+        //    {
+        //        //bot = (Bot)player.ListTarget()[0];
+        //        botPos = player.ListTarget()[0].transform.position;
+        //    }
+        //    //Vector2 preBot = bot.transform.position;
+
+        //    Debug.LogError(camPos + "  =>  " + playerPos + "   ||=>  " + botPos);
+        //}
+    }
+
     public void OnInit()
     {
         

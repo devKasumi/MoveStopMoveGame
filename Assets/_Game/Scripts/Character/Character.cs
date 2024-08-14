@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 
 public class Character : GameUnit
 {
+    //[SerializeField] public Vector2 worldToCamPointPos;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float moveSpeed = 10;
     [SerializeField] private Animator animator;
