@@ -92,7 +92,7 @@ class OffscreenMarkersCameraScript : MonoBehaviour
             return;
         }
         Rect camRect = _camera.pixelRect;
-        Vector2 iconSize = new Vector2(camRect.height / 14, camRect.height / 14);
+        Vector2 iconSize = new Vector2(camRect.height / 30, camRect.height / 30);
         Vector2 iconExt = iconSize / 2;
         Vector2 arrowSize = new Vector2(iconSize.x / 4, iconSize.y / 2);
         Vector2 arrowExt = arrowSize / 2;

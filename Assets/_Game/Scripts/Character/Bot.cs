@@ -56,19 +56,20 @@ public class Bot : Character
     public override void OnInit()
     {
         base.OnInit();
-
-        markerColor = SkinColor.material.color;
         
-        var instance = OffscreenMarkersCameraScript.Instance();
-        if (instance)
-        {
-            instance.Register(this);
-        }
+        
 
         ChangeState(new PatrolState());
 
         SkinColor.material = SkinDataSO.Materials[Random.Range(1, SkinDataSO.Materials.Count)];
         PantMaterial.material = PantDataSO.Materials[Random.Range(0, PantDataSO.Materials.Count)];
+
+        markerColor = SkinColor.material.color;
+        var instance = OffscreenMarkersCameraScript.Instance();
+        if (instance)
+        {
+            instance.Register(this);
+        }
 
         DisableTarget();
     }
