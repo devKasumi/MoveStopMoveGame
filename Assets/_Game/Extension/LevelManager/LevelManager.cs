@@ -7,6 +7,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private Character player;
     [SerializeField] private PoolControl poolControl;
     [SerializeField] private Level[] levels;
+    [SerializeField] public Camera indicatorCam;
 
     private Level currentLevel;
     private int currentLevelIndex;

@@ -35,6 +35,9 @@ public class Level : MonoBehaviour
         currentTotalActiveBot = totalBot;
         currentActiveBot = LevelManager.Instance.PoolControl.ListActiveBots.Count; 
         UIManager.Instance.ResetCamera();
+        //LevelManager.Instance.PoolControl.ActiveBot(false);
+        //LevelManager.Instance.PoolControl.ActiveIndicator(false);
+        LevelManager.Instance.indicatorCam.gameObject.SetActive(false);
     }
 
     public Platform Platform => levelPlatform;

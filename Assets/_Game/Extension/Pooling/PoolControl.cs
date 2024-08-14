@@ -143,6 +143,26 @@ public class PoolControl : MonoBehaviour
         return weapon;
     }
 
+    //public void ActiveIndicator(bool active)
+    //{
+    //    OffscreenMarkersCameraScript instance = LevelManager.Instance.indicatorCam.GetComponent<OffscreenMarkersCameraScript>();    
+    //    if (instance)
+    //    {
+    //        if (ListActiveBots.Count > 0)
+    //        {
+    //            for (int i =0; i<ListActiveBots.Count ; i++)
+    //            {
+    //                listActiveBots[i].markerColor = listActiveBots[i].SkinColor.material.color;
+    //                if (active)
+    //                {
+    //                    instance.Register(listActiveBots[i]);
+    //                }
+    //                else instance.Unregister(listActiveBots[i]);
+    //            }
+    //        }
+    //    }
+    //}
+
     public List<GameUnit> ListWeaponPrefabs => weapons;
 }
 

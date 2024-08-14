@@ -63,13 +63,13 @@ public class Bot : Character
 
         SkinColor.material = SkinDataSO.Materials[Random.Range(1, SkinDataSO.Materials.Count)];
         PantMaterial.material = PantDataSO.Materials[Random.Range(0, PantDataSO.Materials.Count)];
-
         markerColor = SkinColor.material.color;
-        var instance = OffscreenMarkersCameraScript.Instance();
+        OffscreenMarkersCameraScript instance = LevelManager.Instance.indicatorCam.GetComponent<OffscreenMarkersCameraScript>();
         if (instance)
         {
             instance.Register(this);
         }
+
 
         DisableTarget();
     }

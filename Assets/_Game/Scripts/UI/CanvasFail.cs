@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class CanvasFail : UICanvas
 {
-    //public void SetBestScore(int score)
-    //{
-    //    //scoreText.text = score.ToString();
-    //}
 
     public void RetryButton()
     {

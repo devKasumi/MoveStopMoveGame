@@ -40,12 +40,14 @@ public class CanvasMainMenu : UICanvas
         UIManager.Instance.floatingJoystick.gameObject.SetActive(true);
         GameManager.Instance.UpdateGameState(GameState.GamePlay);
         LevelManager.Instance.CurrentLevel().OnPlay();
+        LevelManager.Instance.indicatorCam.gameObject.SetActive(true);
     }
 
     public void SettingsButton()
     {
         UIManager.Instance.OpenUI<CanvasSettings>().SetState(this);
         GameManager.Instance.UpdateGameState(GameState.Setting);
+        LevelManager.Instance.indicatorCam.gameObject.SetActive(false);
     }
 
     public void OnWeaponButtonPressed()
@@ -54,6 +56,7 @@ public class CanvasMainMenu : UICanvas
         UIManager.Instance.OpenUI<CanvasUIWeapon>();
         UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
         UIManager.Instance.CanvasWeapon.gameObject.SetActive(true);
+        LevelManager.Instance.indicatorCam.gameObject.SetActive(false);
     }
 
     public void OnSkinButtonPressed()
@@ -63,6 +66,7 @@ public class CanvasMainMenu : UICanvas
         LevelManager.Instance.Player.TF.rotation = Quaternion.Euler(0, 174, 0);
         UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
         UIManager.Instance.OpenUI<CanvasUISkin>();
+        LevelManager.Instance.indicatorCam.gameObject.SetActive(false);
     }
 
     public void OnAdsButtonPressed()
