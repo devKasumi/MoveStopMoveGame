@@ -12,6 +12,10 @@ public class Bot : Character
     [SerializeField] public CommonEnum.BotType botType;
     [SerializeField] private Image targetImage;
     [SerializeField] private NavMeshAgent navMeshAgent;
+
+    [SerializeField] public Texture Icon = null;
+    [SerializeField] public Texture Arrow = null;
+    [SerializeField] public Color markerColor = Color.white;
     
 
     private IState currentState;
@@ -52,6 +56,14 @@ public class Bot : Character
     public override void OnInit()
     {
         base.OnInit();
+
+        markerColor = SkinColor.material.color;
+        
+        var instance = OffscreenMarkersCameraScript.Instance();
+        if (instance)
+        {
+            instance.Register(this);
+        }
 
         ChangeState(new PatrolState());
 

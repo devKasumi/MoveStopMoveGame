@@ -8,14 +8,14 @@ public class OffscreenMarker : MonoBehaviour
     public Texture Arrow = null;
     public Color Color = Color.white;
 
-    void Start()
-    {
-        var instance = OffscreenMarkersCameraScript.Instance();
-        if (instance)
-        {
-            instance.Register(this);
-        }
-    }
+    //void Start()
+    //{
+    //    var instance = OffscreenMarkersCameraScript.Instance();
+    //    if (instance)
+    //    {
+    //        instance.Register(this);
+    //    }
+    //}
 }
 
 class OffscreenMarkersCameraScript : MonoBehaviour
@@ -37,9 +37,9 @@ class OffscreenMarkersCameraScript : MonoBehaviour
     }
 
     private Camera _camera => gameObject.GetComponent<Camera>();
-    private List<OffscreenMarker> _trackedObjects = new List<OffscreenMarker>();
+    private List<Bot> _trackedObjects = new List<Bot>();
 
-    public void Register(OffscreenMarker om)
+    public void Register(Bot om)
     {
         if (!_trackedObjects.Contains(om))
         {
@@ -104,7 +104,7 @@ class OffscreenMarkersCameraScript : MonoBehaviour
         float margin = arrowSize.y;
         for (int i = _trackedObjects.Count - 1; i >= 0; i--)
         {
-            OffscreenMarker marker = _trackedObjects[i];
+            Bot marker = _trackedObjects[i];
             if (marker && marker.gameObject)
             {
                 if (!IsVisible(marker.gameObject))
@@ -117,7 +117,7 @@ class OffscreenMarkersCameraScript : MonoBehaviour
                         Mathf.Clamp(mrkScrPos.y, iconExt.y + margin, camRect.height - iconExt.y - margin)
                     );
                     Rect ri = new Rect(iconPos.x - iconExt.x, iconPos.y - iconExt.y, iconSize.x, iconSize.y);
-                    GUI.DrawTexture(ri, marker.Icon);
+                    GUI.DrawTexture(ri, marker.Icon, ScaleMode.ScaleToFit, alphaBlend: true, imageAspect: 0, color: marker.markerColor, borderWidth: 0, borderRadius: 0);
                     Vector2 towardMrk = mrkScrPos - iconPos;
                     if (towardMrk.sqrMagnitude > 0.001f)
                     {
@@ -132,7 +132,7 @@ class OffscreenMarkersCameraScript : MonoBehaviour
                         GUI.matrix = mr * mt;
                         Rect ra = new Rect(0, 0, arrowSize.x, arrowSize.y);
                         GUI.DrawTexture(ra, marker.Arrow, ScaleMode.StretchToFill, alphaBlend: true, imageAspect: 0,
-                                            color: marker.Color, borderWidth: 0, borderRadius: 0);
+                                            color: marker.markerColor, borderWidth: 0, borderRadius: 0);
                         GUI.matrix = oldm;
                     }
                 }
