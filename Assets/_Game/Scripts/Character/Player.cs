@@ -108,10 +108,18 @@ public class Player : Character
             if (ListTarget().Count > 0 && joystick.IsResetJoystick)
             {
                 FaceEnemy();
-                ChangeAnimation(Constants.ANIMATION_ATTACK);
-                Attack();
+                //ChangeAnimation(Constants.ANIMATION_ATTACK);
+                //Attack();
+                StartCoroutine(PlayerAttack());
             }
         }
+    }
+
+    public IEnumerator PlayerAttack()
+    {
+        ChangeAnimation(Constants.ANIMATION_ATTACK);
+        yield return new WaitForSeconds(0.2f);
+        Attack();
     }
 }
 

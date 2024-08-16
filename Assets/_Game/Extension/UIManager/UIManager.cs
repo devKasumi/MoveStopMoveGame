@@ -11,10 +11,10 @@ public class UIManager : Singleton<UIManager>
 
     public FloatingJoystick floatingJoystick;
     public Canvas canvas;
-    public List<TargetIndicator> targetIndicators = new List<TargetIndicator>();
+    //public List<TargetIndicator> targetIndicators = new List<TargetIndicator>();
     public Camera mainCamera;
-    public GameObject TargetIndicatorPrefab;
-    public Canvas CanvasWeapon;
+    //public GameObject TargetIndicatorPrefab;
+    //public Canvas CanvasWeapon;
 
     private Vector3 originOffset = new Vector3(0, 11, -11);
 
@@ -26,29 +26,6 @@ public class UIManager : Singleton<UIManager>
         {
             canvasPrefabs.Add(prefabs[i].GetType(), prefabs[i]);
         }
-    }
-
-    private void Update()
-    {
-        if (targetIndicators.Count > 0)
-        {
-            for (int i =0;i<targetIndicators.Count;i++)
-            {
-                targetIndicators[i].UpdateTargetIndicator();
-            }
-        }
-    }
-
-    public void AddTargetIndicator(GameObject target)
-    {
-        TargetIndicator indicator = GameObject.Instantiate(TargetIndicatorPrefab, canvas.transform).GetComponent<TargetIndicator>();
-        indicator.InitialiseTargetIndicator(target, mainCamera, canvas);
-        targetIndicators.Add(indicator);
-    }
-
-    public void RemoveTargetIndicator(GameObject target)
-    {
-        targetIndicators.Remove(target.GetComponent<TargetIndicator>());
     }
 
     // mo canvas

@@ -36,7 +36,7 @@ public class Bot : Character
             return;
         }
 
-        time += Time.deltaTime;
+        //time += Time.deltaTime;
 
         if (LevelManager.Instance.Player.isCharacterDeath)
         {
@@ -110,7 +110,7 @@ public class Bot : Character
 
     public void AttackEnemy()
     {
-        
+        time += Time.deltaTime;
 
         if (time >= frameRate)
         {

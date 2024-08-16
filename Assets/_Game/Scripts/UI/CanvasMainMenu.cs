@@ -55,7 +55,7 @@ public class CanvasMainMenu : UICanvas
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasUIWeapon>();
         UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
-        UIManager.Instance.CanvasWeapon.gameObject.SetActive(true);
+        //UIManager.Instance.CanvasWeapon.gameObject.SetActive(true);
         LevelManager.Instance.indicatorCam.gameObject.SetActive(false);
     }
 
