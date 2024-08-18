@@ -23,7 +23,8 @@ public class Character : GameUnit
     private List<Character> listTargets = new List<Character>();
     public string currentAnimationName;
     [SerializeField] private List<GameObject> weaponImages = new List<GameObject>();
-    [SerializeField] private GameObject weaponImage;
+    [SerializeField] private GameObject weaponImage; // holder trong anh
+    [SerializeField] public Transform holder;
 
     public bool isCharacterDeath;
 

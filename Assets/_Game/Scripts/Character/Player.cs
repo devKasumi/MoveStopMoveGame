@@ -11,6 +11,8 @@ public class Player : Character
     [SerializeField] private GameObject initialGroup;
     [SerializeField] private GameObject pant;
     [SerializeField] private GameObject playerBody;
+    //[SerializeField] private WeaponDataSO weaponData;
+    [SerializeField] private List<Weapon> listWeaponPrefabs;
 
     private Vector3 originPos = new Vector3(0, 1, -22);
     private Vector3 moveDirection;
@@ -21,6 +23,7 @@ public class Player : Character
     private float time = 0;
 
     private Vector3 rot = new Vector3(0, 174, 0);
+    private Weapon currentWeapon;
 
     private void Awake()
     {
@@ -62,6 +65,16 @@ public class Player : Character
         TF.rotation = Quaternion.identity;
         joystick.OnResetJoyStick();
         UpdateWeaponImage();
+    }
+
+    public void ChangeWeapon(CommonEnum.WeaponType weaponType)
+    {
+        if (currentWeapon != null)
+        {
+            Destroy(currentWeapon.gameObject);
+        }
+
+        currentWeapon = Instantiate(listWeaponPrefabs[(int)weaponType], holder);
     }
 
     public void Move()

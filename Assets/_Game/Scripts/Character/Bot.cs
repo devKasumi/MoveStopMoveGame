@@ -54,8 +54,6 @@ public class Bot : Character
     public override void OnInit()
     {
         base.OnInit();
-        
-        
 
         ChangeState(new PatrolState());
 
