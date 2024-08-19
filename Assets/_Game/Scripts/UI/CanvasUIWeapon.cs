@@ -37,7 +37,17 @@ public class CanvasUIWeapon : UICanvas
 
     [SerializeField] private GameObject[] listWeaponFocus;
 
-    public Dictionary<int, string> WeaponName = new Dictionary<int, string>();
+    public Dictionary<int, string> WeaponName = new Dictionary<int, string>
+    {
+        {0, "HAMMER"},
+        {1, "AXE"},
+        {2, "BATTLE AXE"},
+        {3, "LOLLIPOP"},
+        {4, "CANDY CANE"},
+        {5, "ICE-CREAM CONE"},
+        {6, "SWIRLY POP"},
+        {7, "KNIFE"},
+    };
     private int focusIndex = 1;
     private int matColorFocusIndex = 0;
     private float noColorButtonPos = -400;
@@ -45,17 +55,17 @@ public class CanvasUIWeapon : UICanvas
     private int matGroup = 1;
     private string focusMat = "";
 
-    private void Awake()
-    {
-        WeaponName.Add(0, "HAMMER");
-        WeaponName.Add(1, "AXE");
-        WeaponName.Add(2, "BATTLE AXE");
-        WeaponName.Add(3, "LOLLIPOP");
-        WeaponName.Add(4, "CANDY CANE");
-        WeaponName.Add(5, "ICE-CREAM CONE");
-        WeaponName.Add(6, "SWIRLY POP");
-        WeaponName.Add(7, "KNIFE");
-    }
+    //private void Awake()
+    //{
+    //    WeaponName.Add(0, "HAMMER");
+    //    WeaponName.Add(1, "AXE");
+    //    WeaponName.Add(2, "BATTLE AXE");
+    //    WeaponName.Add(3, "LOLLIPOP");
+    //    WeaponName.Add(4, "CANDY CANE");
+    //    WeaponName.Add(5, "ICE-CREAM CONE");
+    //    WeaponName.Add(6, "SWIRLY POP");
+    //    WeaponName.Add(7, "KNIFE");
+    //}
 
     private void Start()
     {
