@@ -276,7 +276,9 @@ public class InventoryManager : Singleton<InventoryManager>
         int resIndex = 0;
         for (int i = 0; i < colorMats.Count; i++)
         {
-            if (colorMats[i].color == mat.color) resIndex = i;
+            Color colorMat = colorMats[i].color;
+            Color matInputColor = mat.color;
+            if (colorMat.Equals(matInputColor)) resIndex = i;
         }
         return resIndex.ToString();
     }
