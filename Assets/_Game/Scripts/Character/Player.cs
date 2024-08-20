@@ -11,7 +11,7 @@ public class Player : Character
     [SerializeField] private GameObject initialGroup;
     [SerializeField] private GameObject pant;
     [SerializeField] private GameObject playerBody;
-    //[SerializeField] private WeaponDataSO weaponData;
+    [SerializeField] private WeaponDataSO weaponData;
     [SerializeField] private List<Weapon> listWeaponPrefabs;
 
     private Vector3 originPos = new Vector3(0, 1, -22);
