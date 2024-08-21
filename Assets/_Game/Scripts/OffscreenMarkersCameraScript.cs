@@ -5,23 +5,7 @@ using UnityEngine;
 public class OffscreenMarkersCameraScript : MonoBehaviour
 {
     [SerializeField] private Camera indicatorCam;
-    //public OffscreenMarkersCameraScript Instance()
-    //{
-    //    Camera mc = indicatorCam;
-    //    if (!mc)
-    //    {
-    //        Debug.LogWarning("OffscreenMarkersCameraScript: Couldn't find main camera.");
-    //        return null;
-    //    }
-    //    var instance = mc.GetComponent<OffscreenMarkersCameraScript>();
-    //    if (!instance)
-    //    {
-    //        instance = mc.gameObject.AddComponent<OffscreenMarkersCameraScript>();
-    //    }
-    //    return instance;
-    //}
 
-    //private Camera indicatorCam => gameObject.GetComponent<Camera>();
     private List<Bot> _trackedObjects = new List<Bot>();
 
     public void Register(Bot om)

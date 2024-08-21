@@ -92,20 +92,6 @@ public class Player : Character
             SpawnPoint().rotation = Quaternion.LookRotation(Rb.velocity);
         }
 
-        //if (ListTarget().Count == 0 && moveDirection == Vector3.zero)
-        //{
-        //    ChangeAnimation(Constants.ANIMATION_IDLE);
-        //    //StartCoroutine(WaitForAttackFinish());
-        //}
-
-        //if (!joystick.IsResetJoystick())
-        //{
-        //    //ChangeAnimation(Constants.ANIMATION_RUN);
-        //}
-        //else
-        //{
-        //    AttackEnemy();
-        //}
         if (joystick.IsResetJoystick)
         {
             AttackEnemy();  
@@ -121,8 +107,6 @@ public class Player : Character
             if (ListTarget().Count > 0 && joystick.IsResetJoystick)
             {
                 FaceEnemy();
-                //ChangeAnimation(Constants.ANIMATION_ATTACK);
-                //Attack();
                 StartCoroutine(PlayerAttack());
             }
         }

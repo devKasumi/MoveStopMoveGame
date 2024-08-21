@@ -6,17 +6,14 @@ using UnityEngine.UI;
 
 public class Weapon : GameUnit
 {
-    //[SerializeField] private MeshRenderer meshRenderer;
-    //[SerializeField] private CommonEnum.ColorType colorType;
     [SerializeField] private WeaponDataSO weaponData;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private MeshRenderer weaponSkin;
-    [SerializeField] private UnityEvent OnHitCharacter /*= new UnityEvent()*/;
+    [SerializeField] private UnityEvent OnHitCharacter;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackSpeed;
 
     private CommonEnum.WeaponType weaponType;
-    //public int skinIndex = 0;
     private Vector3 originPos;
     public float rotateSpeed;
 
@@ -29,7 +26,6 @@ public class Weapon : GameUnit
     void Start()
     {
         OnInit();
-        //GetData();
     }
 
     // Update is called once per frame
@@ -50,7 +46,6 @@ public class Weapon : GameUnit
     {
         originPos = TF.position;
         rb.velocity = TF.forward * attackSpeed;
-        //GetBotWeaponData();
     }
 
     public void OnDespawn()
@@ -67,7 +62,6 @@ public class Weapon : GameUnit
     public void PlayerWeaponData()
     {
         weaponSkin.materials = weaponData.PlayerDefaultWeaponMaterial();
-        //weaponType = CommonEnum.WeaponType.Player_Weapon;
         PoolType = PoolType.Player_Weapon;
         GetData();
     }
@@ -78,11 +72,6 @@ public class Weapon : GameUnit
         attackRange = weaponData.attackRange;
         attackSpeed = weaponData.attackSpeed;
     }
-
-    //public void UpdateBotWeaponData()
-    //{
-    //    weaponSkin.material = 
-    //}
 
     public CommonEnum.WeaponType WeaponType => weaponType;
 

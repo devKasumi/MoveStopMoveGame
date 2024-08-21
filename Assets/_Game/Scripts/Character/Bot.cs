@@ -116,8 +116,6 @@ public class Bot : Character
             if (ListTarget().Count > 0)
             {
                 FaceEnemy();
-                //ChangeAnimation(Constants.ANIMATION_ATTACK);
-                //Attack();
                 StartCoroutine(BotAttack());
             }
         }

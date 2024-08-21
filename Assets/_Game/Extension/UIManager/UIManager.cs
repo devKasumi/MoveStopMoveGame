@@ -11,10 +11,7 @@ public class UIManager : Singleton<UIManager>
 
     public FloatingJoystick floatingJoystick;
     public Canvas canvas;
-    //public List<TargetIndicator> targetIndicators = new List<TargetIndicator>();
     public Camera mainCamera;
-    //public GameObject TargetIndicatorPrefab;
-    //public Canvas CanvasWeapon;
 
     private Vector3 originOffset = new Vector3(0, 11, -11);
 

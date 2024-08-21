@@ -19,15 +19,12 @@ public class CanvasUIWeapon : UICanvas
     [SerializeField] private GameObject colorGrid;
     [SerializeField] private List<GameObject> listColorButtons = new List<GameObject>();
     [SerializeField] private GameObject materialGroup1;
-    //[SerializeField] private GameObject material_1_FocusImage_1;
-    //[SerializeField] private GameObject material_1_FocusImage_2;
+
     [SerializeField] private List<GameObject> focusElement_1_1;
     [SerializeField] private List<GameObject> focusElement_1_2;
     [SerializeField] private List<Image> listMatColors1 = new List<Image>();
     [SerializeField] private GameObject materialGroup2;
-    //[SerializeField] private GameObject material_2_FocusImage_1; 
-    //[SerializeField] private GameObject material_2_FocusImage_2;
-    //[SerializeField] private GameObject material_2_FocusImage_3;
+
     [SerializeField] private List<GameObject> focusElement_2_1;
     [SerializeField] private List<GameObject> focusElement_2_2;
     [SerializeField] private List<GameObject> focusElement_2_3;
@@ -294,7 +291,6 @@ public class CanvasUIWeapon : UICanvas
     public void OnCloseButton()
     {
         UIManager.Instance.CloseAll();
-        //UIManager.Instance.CanvasWeapon.gameObject.SetActive(false);
         UIManager.Instance.OpenUI<CanvasMainMenu>();
         GameManager.Instance.UpdateGameState(GameState.MainMenu);
         

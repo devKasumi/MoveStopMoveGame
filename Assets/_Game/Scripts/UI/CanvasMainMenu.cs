@@ -17,15 +17,12 @@ public class CanvasMainMenu : UICanvas
 
     private void Start()
     {
-        UpdatePlayerCoin(InventoryManager.Instance.PlayerCoin);
-        UpdateSoundUI();
-        UpdateVibrationUI();
+        UpdateMainMenuUI();
     }
 
     private void Update()
     {
-        UpdateSoundUI();
-        UpdateVibrationUI();
+        UpdateMainMenuUI();
     }
 
     public void UpdatePlayerCoin(int playerCoin)
@@ -55,7 +52,6 @@ public class CanvasMainMenu : UICanvas
         UIManager.Instance.CloseAll();
         UIManager.Instance.OpenUI<CanvasUIWeapon>();
         UIManager.Instance.floatingJoystick.gameObject.SetActive(false);
-        //UIManager.Instance.CanvasWeapon.gameObject.SetActive(true);
         LevelManager.Instance.indicatorCam.gameObject.SetActive(false);
     }
 
@@ -118,6 +114,13 @@ public class CanvasMainMenu : UICanvas
             soundOff.SetActive(true);
             SoundManager.Instance.IsSoundOn = false;
         }
+    }
+
+    public void UpdateMainMenuUI()
+    {
+        UpdatePlayerCoin(InventoryManager.Instance.PlayerCoin);
+        UpdateSoundUI();
+        UpdateVibrationUI();
     }
 
 }

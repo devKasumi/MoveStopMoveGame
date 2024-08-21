@@ -8,10 +8,6 @@ public class CanvasVictory : UICanvas
 
     public void NextButton()
     {
-        //UIManager.Instance.CloseAll();
-        //UIManager.Instance.OpenUI<CanvasMainMenu>();
-        ////LevelManager.GetInstance.OnLoadNextLevel();
-        //GameManager.Instance.UpdateGameState(GameState.MainMenu);
         Debug.LogError("New map currently on developing!!!!");
     }
 

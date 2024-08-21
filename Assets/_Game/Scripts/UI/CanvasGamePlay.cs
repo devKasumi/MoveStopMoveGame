@@ -6,12 +6,7 @@ using UnityEngine;
 public class CanvasGamePlay : UICanvas
 {
     [SerializeField] private TextMeshProUGUI totalBot;
-    //[SerializeField] private OffscreenMarkersCameraScript indicatorCam;
 
-    //private void Start()
-    //{
-    //    InitOffscreenIndicator();
-    //}
 
     private void Update()
     {
@@ -34,12 +29,4 @@ public class CanvasGamePlay : UICanvas
         LevelManager.Instance.indicatorCam.gameObject.SetActive(false);
         GameManager.Instance.UpdateGameState(GameState.Setting);
     }
-
-    //public void InitOffscreenIndicator()
-    //{
-    //    for (int i = 0; i < LevelManager.Instance.PoolControl.ListActiveBots.Count; i++)
-    //    {
-    //        indicatorCam.Register(LevelManager.Instance.PoolControl.ListActiveBots[i]);
-    //    }
-    //}
 }

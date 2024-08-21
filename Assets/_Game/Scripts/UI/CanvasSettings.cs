@@ -24,12 +24,7 @@ public class CanvasSettings : UICanvas
     {
         mainMenuButton.SetActive(false);
         continueButton.SetActive(false);
-        //closeButton.SetActive(false);
 
-        //if (canvas is CanvasMainMenu)
-        //{
-        //    closeButton.SetActive(true);
-        //}
         if (canvas is CanvasGamePlay)
         {
             mainMenuButton.gameObject.SetActive(true);
