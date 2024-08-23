@@ -3,7 +3,7 @@
   "PlayerWeaponImageMat": null,
   "PlayerSkinColor": 0,
   "PlayerPantType": 6,
-  "HeadItemIndex": 1,
+  "HeadItemIndex": -1,
   "playerCoin": 275,
   "CustomWeaponMats": {
     "0": "12",

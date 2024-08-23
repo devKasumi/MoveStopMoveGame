@@ -14,7 +14,6 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private PoolControl poolControl;
     [SerializeField] private List<GameObject> weaponObjects = new List<GameObject>();
     [SerializeField] private List<Vector3> weaponObjectPos = new List<Vector3>();
-
     [SerializeField] private List<Material> colorMats = new List<Material>();
 
     private List<List<GameObject>> weaponObjectsUIList = new List<List<GameObject>>(); // chua cac list weapon ui nho(gom 4 thang ui hien len)
@@ -45,7 +44,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void Start()
     {
-        //Debug.LogError("inven start");
         OnInitWeaponUI();
     }
 
@@ -352,9 +350,6 @@ public class InventoryManager : Singleton<InventoryManager>
         player.Weapon = LevelManager.Instance.PoolControl.InitPlayerWeapon((int)jsonData.PlayerWeaponType);
         player.SkinColor.material = player.SkinDataSO.SkinMaterial(jsonData.PlayerSkinColor);
         player.PantMaterial.material = player.PantDataSO.PantMaterial(jsonData.PlayerPantType);
-        //HeadItemIndex = jsonData.HeadItemIndex;
-        //Debug.LogError(jsonData.HeadItemIndex);
-        //UpdatePlayerHead(HeadItemIndex);
         UpdatePlayerHead(jsonData.HeadItemIndex);
         SoundManager.Instance.IsSoundOn = jsonData.isSoundOn;
         SoundManager.Instance.IsVibrationOn = jsonData.isVibrationOn;

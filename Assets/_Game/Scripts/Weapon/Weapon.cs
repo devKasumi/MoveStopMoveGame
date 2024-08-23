@@ -17,11 +17,6 @@ public class Weapon : GameUnit
     private Vector3 originPos;
     public float rotateSpeed;
 
-    private void Awake()
-    {
-        
-    }
-
     // Start is called before the first frame update
     void Start()
     {
