@@ -135,6 +135,7 @@ public class Character : GameUnit
         Weapon weapon = (Weapon)gameUnit;
         weapon.AddCurrentCharacterListener(this);
         weapon.WeaponSkin.material = Cache.GenMeshRenderer(weaponImage).material;
+        weapon.SetOwner(this);
         if (listTargets.Count > 0)
         {
             Vector3 direction = listTargets[0].TF.position - spawnPoint.position;

@@ -17,6 +17,8 @@ public class Weapon : GameUnit
     private Vector3 originPos;
     public float rotateSpeed;
 
+    private Character currentOwner;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,8 +91,16 @@ public class Weapon : GameUnit
         set => rb = value;
     }
 
+    public void SetOwner(Character owner)
+    {
+        currentOwner = owner; 
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        // dung cache
+        if (other.gameObject.GetComponent<Character>() == currentOwner) return;
+
         if (other.CompareTag(Constants.TAG_BOT))
         {
             LevelManager.Instance.CurrentLevel().CurrentActiveBot--;

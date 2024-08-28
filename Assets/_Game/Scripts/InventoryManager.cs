@@ -170,6 +170,7 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         Cache.GenMeshRenderer(currentWeaponUIList[currentWeaponUIIndex]).materials = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
         currentMats = Cache.GenMeshRenderer(weaponObjectsUIList[currentWeaponUIIndex][index]).materials;
+        //player.ChangeWeapon();
     }
 
     public void UpdatePlayerHead(int index)
@@ -287,6 +288,7 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         if (currentWeaponUIIndex != (int)player.Weapon.WeaponType)
         {
+            // ko nen de thang pool set player weapon => chuyen thanh thang player chua list weapon prefab => thang player goi ham ChangeWeapon();
             player.Weapon = poolControl.SetPlayerWeapon(currentWeaponUIIndex);
         }
 

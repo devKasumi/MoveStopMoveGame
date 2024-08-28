@@ -25,6 +25,7 @@ public class Player : Character
     private Vector3 rot = new Vector3(0, 174, 0);
     private Weapon currentWeapon;
 
+    Coroutine c;
     private void Awake()
     {
         
@@ -88,6 +89,10 @@ public class Player : Character
 
         if (inputX != 0f && inputZ != 0f)
         {
+            if (c != null)
+            {
+                StopCoroutine(c);
+            }
             TF.rotation = Quaternion.LookRotation(Rb.velocity);
             SpawnPoint().rotation = Quaternion.LookRotation(Rb.velocity);
         }
@@ -107,7 +112,7 @@ public class Player : Character
             if (ListTarget().Count > 0 && joystick.IsResetJoystick)
             {
                 FaceEnemy();
-                StartCoroutine(PlayerAttack());
+                c = StartCoroutine(PlayerAttack());
             }
         }
     }
