@@ -76,6 +76,8 @@ public class Player : Character
         }
 
         currentWeapon = Instantiate(listWeaponPrefabs[(int)weaponType], holder);
+        //currentWeapon = weapon;
+
     }
 
     public void Move()

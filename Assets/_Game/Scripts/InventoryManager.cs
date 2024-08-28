@@ -299,6 +299,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
         player.Weapon.WeaponSkin.materials = currentMats;
         player.UpdateWeaponImage();
+        //player.ChangeWeapon()
 
         //player.ChangeWeapon();
     }
